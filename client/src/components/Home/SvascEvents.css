@@ -1,0 +1,247 @@
+/* Scoped styles for SVASC Events Section */
+#svasc-events-section {
+    font-family: sans-serif;
+    /* Fallback */
+    background: transparent;
+    padding: 40px 30px;
+    /* From body padding in snippet */
+    width: 100%;
+    font-size: 16px;
+    /* Override global scaling */
+}
+
+#svasc-events-section * {
+    box-sizing: border-box;
+}
+
+/* SECTION HEADING */
+#svasc-events-section .section-header {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+}
+
+#svasc-events-section .section-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4.2rem;
+    font-weight: 600;
+    color: #1f2d5a;
+    margin: 0;
+}
+
+#svasc-events-section .section-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 300;
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+/* GRID */
+#svasc-events-section .blog-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* BLOG CARD */
+#svasc-events-section .blog-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 7px -1px rgba(0, 0, 0, .1);
+    line-height: 1.4;
+    position: relative;
+}
+
+/* LINKS */
+#svasc-events-section .blog-card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#svasc-events-section .blog-card a:hover {
+    color: #3b70fc;
+}
+
+/* META */
+#svasc-events-section .meta {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* PHOTO */
+#svasc-events-section .photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform .2s ease;
+}
+
+#svasc-events-section .blog-card:hover .photo {
+    transform: scale(1.3) rotate(3deg);
+}
+
+/* DETAILS (FIXED SLIDE) */
+#svasc-events-section .details {
+    position: absolute;
+    inset: 0;
+    left: -100%;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    padding: 10px;
+    font-size: .9rem;
+    transition: left .25s ease;
+    display: flex;
+    align-items: center;
+}
+
+#svasc-events-section .blog-card:hover .details {
+    left: 0;
+}
+
+#svasc-events-section .details ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#svasc-events-section .details ul li {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.5rem;
+
+}
+
+/* ICONS */
+#svasc-events-section .details .author:before {
+    content: "\f007";
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+
+#svasc-events-section .details .date:before {
+    content: "\f133";
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+
+#svasc-events-section .details .tags ul:before {
+    content: "\f02b";
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+
+/* DESCRIPTION */
+#svasc-events-section .description {
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+#svasc-events-section .description h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+#svasc-events-section .description h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #a2a2a2;
+    margin-top: 5px;
+}
+
+#svasc-events-section .description p {
+    margin-top: 1rem;
+    position: relative;
+}
+
+#svasc-events-section .description p:first-of-type:before {
+    content: "";
+    position: absolute;
+    top: -0.75rem;
+    width: 35px;
+    height: 5px;
+    background: #f9e71d;
+    border-radius: 3px;
+}
+
+/* READ MORE */
+#svasc-events-section .read-more {
+    text-align: right;
+}
+
+#svasc-events-section .read-more a {
+    color: #081947;
+}
+
+#svasc-events-section .read-more a:after {
+    content: "\f061";
+    font-family: FontAwesome;
+    margin-left: -10px;
+    opacity: 0;
+    transition: margin .3s, opacity .3s;
+}
+
+#svasc-events-section .read-more a:hover:after {
+    margin-left: 5px;
+    opacity: 1;
+}
+
+/* DESKTOP CARD ORIENTATION */
+@media (min-width: 640px) {
+    #svasc-events-section .blog-card {
+        flex-direction: row;
+    }
+
+    #svasc-events-section .meta {
+        flex-basis: 40%;
+        height: auto;
+    }
+
+    #svasc-events-section .description {
+        flex-basis: 60%;
+    }
+
+    #svasc-events-section .description:before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        background: #fff;
+        transform: skewX(-3deg);
+        z-index: -1;
+    }
+
+    #svasc-events-section .blog-card.alt {
+        flex-direction: row-reverse;
+    }
+
+    #svasc-events-section .blog-card.alt .description:before {
+        right: -10px;
+        left: auto;
+        transform: skewX(3deg);
+    }
+
+    #svasc-events-section .blog-card.alt .details {
+        padding-left: 25px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #svasc-events-section .blog-card-grid {
+        grid-template-columns: 1fr;
+    }
+}

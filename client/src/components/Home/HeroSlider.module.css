@@ -1,0 +1,226 @@
+/* ================= SLIDER STYLES ================= */
+.wrapperSlider {
+    position: relative;
+    width: 100%;
+    background: black;
+    font-family: "Poppins", sans-serif;
+}
+
+.mainSlider {
+    width: 100%;
+    height: 100vh;
+}
+
+.item {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.mainSlider :global(.swiper-slide-active) .item {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.item picture::before,
+.video::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.item img,
+.item video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.parentText {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.mainSlider :global(.swiper-slide-active) .parentText {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.infoText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.infoText.alignLeft {
+    align-items: flex-start;
+    left: 5%;
+    transform: none;
+    text-align: left;
+}
+
+.infoText h2 {
+    font-size: 3.9rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+.infoText p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: inherit;
+}
+
+.infoText a {
+    height: 5.5rem;
+    font-size: 1.4rem;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+    color: black;
+    width: 100%;
+    max-width: 210px;
+}
+
+.infoText a:hover {
+    background: #ebebeb;
+    color: #4c4c4c;
+}
+
+/* Pagination - Nested Global to prevent component conflicts */
+.mainSlider :global(.swiper-pagination) {
+    position: absolute;
+    bottom: 5rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 10;
+}
+
+.mainSlider :global(.swiper-pagination-bullet) {
+    background: transparent;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: auto !important;
+    height: auto !important;
+    opacity: 1 !important;
+}
+
+.mainSlider :global(.swiper-pagination-bullet) :global(.number) {
+    background: transparent;
+}
+
+.bulletContent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentage {
+    --colorf3: #1C69D4;
+    --color13: #1C69D4;
+    width: 3.4rem;
+    aspect-ratio: 1;
+    mask: radial-gradient(transparent 55%, black 60% 100%);
+    -webkit-mask: radial-gradient(transparent 55%, black 60% 100%);
+    transition: opacity 0.6s ease;
+    opacity: 0;
+    background: conic-gradient(transparent 0,
+            transparent var(--p),
+            #c9d6d7 0),
+        conic-gradient(var(--colorf3),
+            #1C69D4,
+            #1C69D4,
+            #1C69D4,
+            var(--colorf3));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentage.show {
+    opacity: 1;
+}
+
+.percentage :global(.number) {
+    width: 80%;
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--color13);
+}
+
+.playPauseBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.svgIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+}
+
+/* Swiper layout overrides */
+.mainSlider :global(.swiper-horizontal)> :global(.swiper-pagination-bullets),
+.mainSlider :global(.swiper-pagination-bullets.swiper-pagination-horizontal),
+.mainSlider :global(.swiper-pagination-custom),
+.mainSlider :global(.swiper-pagination-fraction) {
+    bottom: var(--swiper-pagination-bottom, 25px);
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+}

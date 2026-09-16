@@ -1,0 +1,929 @@
+/* ================= SVASC ROOT STYLES ================= */
+.svasc-root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================= JUMBOTRON STYLES ================= */
+.svasc-jumbotron {
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.svasc-jumbotron::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.svasc-jumbotron-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.svasc-animated-text {
+  font-size: 5.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.svasc-highlight {
+  color: #ffd700;
+}
+
+.svasc-cursor {
+  display: inline-block;
+  background-color: #ffd700;
+  width: 3px;
+  height: 1em;
+  margin-left: 5px;
+  animation: svasc-blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes svasc-blink {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.svasc-jumbotron-subtitle {
+  font-size: 1.7rem;
+  margin-top: 20px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================= RESPONSIVE JUMBOTRON ================= */
+@media (max-width: 768px) {
+  .svasc-animated-text {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .svasc-jumbotron-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ================= GENERAL UTILITIES ================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= HEADER STYLES ================= */
+.svasc-header {
+  position: relative;
+  background: linear-gradient(180deg,
+      #ffefd1 0%,
+      #fff9e8 55%,
+      #ffffff 100%);
+  padding: 70px 0 150px;
+}
+
+.svasc-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  align-items: center;
+  gap: 30px;
+}
+
+.svasc-header-logo {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================= HEADER CONTENT ================= */
+.svasc-header-content {
+  text-align: center;
+}
+
+.svasc-header-title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0a1346;
+  line-height: 1.2;
+}
+
+.svasc-header-subtitle {
+  margin: 8px 0 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.svasc-header-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 15px;
+  color: #2b3a8f;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.svasc-header-link:hover {
+  color: #0a1346;
+}
+
+.svasc-header-description {
+  max-width: 720px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* ================= BUTTON BAR ================= */
+.svasc-buttons-container {
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  display: flex;
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.svasc-button {
+  padding: 18px 36px;
+  border: none;
+  background: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #4b5563;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+
+
+.svasc-button-active {
+  background: #0a1346;
+  color: #ffffff;
+}
+
+/* ================= TIME TABLE HEADING ================= */
+.svasc-time-table-heading {
+  text-align: center;
+  margin: 100px 0 40px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0a1346;
+  line-height: 1.2;
+}
+
+/* ================= SECTIONS WRAPPER ================= */
+.svasc-sections-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.svasc-section {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.svasc-section-active {
+  display: grid;
+}
+
+/* ================= RESPONSIVE HEADER ================= */
+@media (max-width: 900px) {
+  .svasc-header-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .svasc-header-logo {
+    margin: 0 auto;
+  }
+
+  .svasc-buttons-container {
+    flex-direction: column;
+    bottom: -10px;
+    width: calc(100% - 48px);
+    left: 24px;
+    right: 24px;
+    transform: none;
+  }
+
+  .svasc-button {
+    width: 100%;
+  }
+
+  .svasc-time-table-heading {
+    margin: 80px 0 40px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .svasc-header {
+    padding: 50px 0 140px;
+  }
+
+  .svasc-header-title {
+    font-size: 28px;
+  }
+
+  .svasc-header-subtitle {
+    font-size: 16px;
+  }
+
+  .svasc-button {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .svasc-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= HERO SECTION ================= */
+.svasc-hero-section {
+  position: relative;
+  padding: 80px 24px;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.svasc-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ================= HERO LEFT CONTENT ================= */
+.svasc-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Pill Badge */
+.svasc-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.svasc-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f5b400;
+  animation: svasc-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes svasc-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Hero Title */
+.svasc-hero-title {
+  font-size: 6.7rem;
+  line-height: 1;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  max-width: 200px;
+}
+
+.svasc-hero-subtitle {
+  color: #f5b400;
+}
+
+/* Hero Description */
+.svasc-hero-description {
+  font-size: 2rem;
+  line-height: 1.75;
+  font-weight: 300;
+  color: #4b5563;
+  max-width: 500px;
+  margin: 0;
+}
+
+/* ================= HERO RIGHT - IMAGE GRID ================= */
+.svasc-hero-right {
+  position: relative;
+}
+
+.svasc-image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 450px;
+}
+
+/* Image Container */
+.svasc-image-container {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.svasc-image-container:hover .svasc-image {
+  transform: scale(1.05);
+}
+
+.svasc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+  display: block;
+}
+
+/* Tall Image - spans 2 rows */
+.svasc-image-tall {
+  grid-row: span 2;
+}
+
+/* Image Overlay */
+.svasc-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0));
+  opacity: 0.8;
+}
+
+/* Image Label */
+.svasc-image-label {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: white;
+}
+
+.svasc-image-label-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.svasc-image-label-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+/* Image Badge */
+.svasc-image-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.svasc-image-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #60a5fa;
+}
+
+/* ================= FLOATING CARD ================= */
+.svasc-floating-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 288px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.5rem;
+  padding: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
+
+.svasc-floating-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.svasc-floating-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.svasc-floating-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.svasc-floating-card-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.svasc-floating-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.75rem;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.svasc-floating-card-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1;
+  margin: 0;
+}
+
+.svasc-floating-card-date {
+  font-size: 1.5rem;
+  color: #4b5563;
+}
+
+.svasc-floating-card-box {
+  background-color: #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+}
+
+.svasc-floating-card-label-text {
+  font-size: 1.5rem;
+  color: #4b5563;
+}
+
+.svasc-floating-card-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.svasc-floating-card-status {
+  padding: 8px 10px;
+  border-radius: 0.375rem;
+  background-color: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+.svasc-floating-card-status svg {
+  color: #059669;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.svasc-floating-card-status span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #047857;
+}
+
+/* ================= DECORATIVE CIRCLE ================= */
+.svasc-decorative-circle {
+  position: absolute;
+  bottom: -60px;
+  right: 50rem;
+  width: 128px;
+  height: 128px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: svasc-spin 10s linear infinite;
+}
+
+@keyframes svasc-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.svasc-circle-svg {
+  width: 100%;
+  height: 100%;
+  fill: #9ca3af;
+}
+
+.svasc-circle-text {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.svasc-circle-center {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  background-color: #111827;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svasc-circle-center svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+/* ================= RESPONSIVE HERO ================= */
+@media (min-width: 1024px) {
+  .svasc-decorative-circle {
+    display: flex;
+  }
+
+  .svasc-floating-card {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .svasc-hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .svasc-floating-card {
+    position: relative;
+    right: auto;
+    transform: none;
+    top: auto;
+  }
+
+  .svasc-image-grid {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .svasc-hero-section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+
+  .svasc-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .svasc-hero-description {
+    font-size: 1rem;
+  }
+
+  .svasc-image-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 12px;
+  }
+
+  .svasc-image-tall {
+    grid-row: auto;
+    height: 250px;
+  }
+
+  .svasc-image-container {
+    height: 200px;
+  }
+
+  .svasc-floating-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* ================= CARD STYLES ================= */
+.svasc-card {
+  background: #ffffff;
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 0;
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+.svasc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.svasc-card:active {
+  transform: translateY(0);
+}
+
+.svasc-card-icon {
+  font-size: 34px;
+  line-height: 1;
+  color: #2b3a8f;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.svasc-card-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111827;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.svasc-card:hover .svasc-card-title {
+  color: #2b3a8f;
+}
+
+/* ================= RESPONSIVE CARDS ================= */
+@media (max-width: 768px) {
+  .svasc-card {
+    padding: 24px 20px;
+    min-height: 90px;
+  }
+
+  .svasc-card-icon {
+    font-size: 28px;
+  }
+
+  .svasc-card-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .svasc-card {
+    padding: 20px 16px;
+    gap: 12px;
+    min-height: 80px;
+  }
+
+  .svasc-card-icon {
+    font-size: 24px;
+  }
+
+  .svasc-card-title {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+}
+
+/* ================= EXAM CELL STYLES ================= */
+.svasc-examcell-section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.svasc-examcell-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0a1346;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.svasc-examcell-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .svasc-examcell-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.svasc-examcell-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.svasc-examcell-card h3 {
+  font-size: 22px;
+  color: #0a1346;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f5b400;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.svasc-examcell-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.svasc-examcell-card ul, .svasc-examcell-card ol {
+  padding-left: 20px;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.svasc-examcell-card li {
+  margin-bottom: 8px;
+}
+
+.svasc-examcell-motto {
+  background: #0a1346;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 40px 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.svasc-examcell-motto h3 {
+  font-size: 18px;
+  color: #f5b400;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.svasc-examcell-motto p {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  font-style: italic;
+}
+
+.svasc-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.svasc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: white;
+}
+
+.svasc-table th {
+  background-color: #0a1346;
+  color: white;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.svasc-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475569;
+  font-size: 14px;
+}
+
+.svasc-table tr:last-child td {
+  border-bottom: none;
+}
+
+.svasc-table tr:nth-child(even) td {
+  background-color: #f9fafb;
+}
+
+.svasc-table tr:hover td {
+  background-color: #f3f4f6;
+}
+
+.svasc-table a {
+  color: #0a1346;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.svasc-table a:hover {
+  text-decoration: underline;
+}

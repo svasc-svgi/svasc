@@ -1,0 +1,1045 @@
+/* AboutSVASC.module.css */
+
+.aboutSvascContainer {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+
+}
+
+/* ================= HERO SECTION STYLES ================= */
+.heroContainer {
+    position: relative;
+    z-index: 10;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    padding-left: 5rem;
+}
+
+@media (max-width: 768px) {
+    .heroContainer {
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+        padding-left: 0;
+    }
+}
+
+.heroBlob {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -10;
+    width: 70rem;
+    height: 80rem;
+    background: linear-gradient(135deg, #FFF1DA 0%, #F1A501 100%);
+    opacity: 0.3;
+    filter: blur(80px);
+    border-bottom-left-radius: 20rem;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heroSubtitle {
+    color: #181E4B;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+    color: #000000;
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .heroContent {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.heroTitleSpan {
+    position: relative;
+    display: inline-block;
+}
+
+.heroTitleUnderline {
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+}
+
+.heroDescription {
+    color: #5E6282;
+    font-size: 1.4rem;
+    margin-bottom: 3.5rem;
+    max-width: 48rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .heroDescription {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.heroButton {
+    background-color: #F1A501;
+    color: white;
+    padding: 1.5rem 3rem;
+    border-radius: 1.4rem;
+    border: none;
+    box-shadow: 0 1rem 3rem rgba(241, 165, 1, 0.3);
+    font-size: 1.6rem;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.heroButtondepartment {
+    display: flex;
+    position: relative;
+    top: 10rem;
+    margin-top: 10rem;
+}
+
+.heroButton:hover {
+    background-color: #fcae04;
+    transform: translateY(-3px);
+    box-shadow: 0 1.5rem 4rem rgba(241, 165, 1, 0.4);
+}
+
+.heroImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.heroImageWrapper::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    width: 140px;
+    height: 140px;
+    background-image: radial-gradient(#F1A501 20%, transparent 20%);
+    background-size: 20px 20px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.heroImageWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background-color: #F1A501;
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.heroImageWrapper img {
+    width: 25vw;
+    aspect-ratio: 2.8 / 4;
+    object-fit: cover;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    /* ARCH SHAPE */
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .heroImageWrapper img {
+        width: 50vw;
+        aspect-ratio: 2.8 / 4;
+    }
+}
+
+.heroImageGradient {
+    position: absolute;
+    top: 15%;
+    width: 90%;
+    height: 90%;
+    background: rgba(254, 203, 162, 0.35);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 5;
+}
+
+/* ================= EMPOWERING LEADERS SECTION ================= */
+.empoweringHeader {
+    position: relative;
+    width: 95%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 8rem;
+    padding-top: 0rem;
+    padding-left: 3rem;
+    padding-right: 0rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .empoweringHeader {
+        min-height: auto;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        padding-left: 0;
+    }
+}
+
+.empoweringBackgroundText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+.empoweringBackgroundText h1 {
+    font-size: 20vw;
+    line-height: 1;
+    font-weight: 950;
+    color: rgba(0, 0, 0, 0.05);
+    letter-spacing: -0.05em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.empoweringMainContent {
+    position: relative;
+    z-index: 10;
+}
+
+.empoweringTitle {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 3rem;
+    font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .empoweringTitle {
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
+.empoweringSubtitle {
+    color: #666;
+}
+
+.empoweringImageContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.empoweringImageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    height: 100vh;
+    /* Perfect for laptop as per user */
+    aspect-ratio: 3 / 4;
+    border-radius: 20rem 20rem 0 0;
+    /* ARCH SHAPE matching HTML rounded-t-[10rem] */
+    overflow: hidden;
+    background-color: #f3f4f6;
+    /* gray-100 */
+    border-top: 1px solid #d1d5db;
+    border-left: 1px solid #d1d5db;
+    border-right: 1px solid #d1d5db;
+    /* border-x border-t border-gray-300 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-2xl */
+    margin-bottom: -1px;
+}
+
+.empoweringImageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: transform 0.7s ease;
+}
+
+
+@media (max-width: 1024px) {
+    .empoweringImageWrapper {
+        max-width: 60%;
+        height: 65vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .empoweringImageWrapper {
+        max-width: 55%;
+        height: 75vh;
+        border-radius: 20rem 20rem 0 0;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 475px) {
+    .empoweringImageWrapper {
+        max-width: 85%;
+        height: 55vh;
+        border-radius: 12rem 12rem 0 0;
+    }
+}
+
+
+.empoweringImageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #fff, transparent);
+    opacity: 0.7;
+}
+
+.empoweringDescription {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 3.5rem;
+    line-height: 1.7;
+}
+
+.empoweringCtaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    color: #fff;
+    padding: 1.2rem 1.4rem 1.2rem 3rem;
+    border-radius: 99rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1.5rem 3rem rgba(245, 158, 11, 0.25);
+}
+
+
+
+.empoweringCtaButtonText {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.empoweringCtaButtonIcon {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* ================= ABOUT SECTION STYLES ================= */
+
+.aboutSection {
+    padding: 5rem 5.5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.aboutContentGrid {
+    display: grid;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+
+
+.aboutTitle {
+    color: #000000;
+    font-size: 5rem;
+    font-weight: 800;
+    padding-left: 0;
+    /* Reset internal padding if necessary, or keep as per design. Removing left pad for grid alignment */
+    line-height: 1.1;
+    font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .aboutSection {
+        padding: 5rem 2.5rem;
+    }
+
+    .aboutTitle {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+}
+
+.aboutSubtitle {
+    color: #6b7280;
+}
+
+.aboutGradientText {
+    background: linear-gradient(to right, #f59e0b, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.aboutRightColumn {
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.aboutStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+}
+
+.aboutStatItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aboutDivider {
+    height: 0.125rem;
+    width: 100%;
+    background-color: #e5e7eb;
+    margin-bottom: 2rem;
+}
+
+.aboutStatTitle {
+    color: #111827;
+    font-weight: 700;
+    font-size: 2.975rem;
+}
+
+@media (max-width: 768px) {
+    .aboutStatTitle {
+        font-size: 2.2rem;
+    }
+
+    .aboutStatValue {
+        font-size: 1.5rem !important;
+    }
+}
+
+.aboutStatValue {
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 1.875rem;
+}
+
+.aboutStatValueSmall {
+    font-size: 1.5rem;
+}
+
+/* ================= CAMPUS LIFE SECTION STYLES ================= */
+.campusLifeSection {
+    padding: 2rem 5rem 10rem;
+    overflow: hidden;
+    background-color: #f9f9f9;
+
+    position: relative;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .campusLifeSection {
+        padding: 4rem 2rem 6rem;
+    }
+}
+
+.campusLifeBackdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(241, 165, 1, 0.1), transparent);
+    z-index: 1;
+}
+
+.campusLifeTitle {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .campusLifeTitle {
+        font-size: 2.8rem;
+    }
+}
+
+.campusLifeDescription {
+    font-size: 1.6rem;
+    color: #555;
+    max-width: 70rem;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+.campusLifeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #F1A501;
+    color: white;
+    border-radius: 99rem;
+    padding: 1rem 2rem 1rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    font-weight: 300;
+    box-shadow: 0 1rem 3rem rgba(241, 165, 1, 0.2);
+}
+
+.campusLifeButton:hover {
+    background-color: #fcae04;
+    transform: scale(1.05);
+}
+
+.campusLifeButtonIcon {
+    background: white;
+    color: #F1A501;
+    border-radius: 50%;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campusLifeImagesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 6rem;
+    padding: 0 4rem;
+}
+
+.campusLifeImage {
+    width: 20rem;
+    height: 26rem;
+    border-radius: 3rem;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.12);
+    flex-shrink: 0;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .campusLifeImagesContainer {
+        gap: 1.5rem;
+        padding: 0 2rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 3rem;
+        margin-top: 3rem;
+    }
+
+    .campusLifeImage {
+        width: 16rem;
+        height: 20rem;
+        transform: none !important;
+        /* Disable fan effect on mobile for better scrolling */
+    }
+}
+
+.campusLifeImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.campusLifeImage:hover {
+    z-index: 100;
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+}
+
+/* ================= TESTIMONIALS SECTION STYLES ================= */
+.testimonialsSection {
+    padding: 2rem 5rem 0;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .testimonialsSection {
+        padding: 4rem 2rem 10rem;
+    }
+}
+
+.testimonialsLabel {
+    font-size: 1.3rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.testimonialsTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #181E4B;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-family: 'Volkhov', serif;
+}
+
+@media (max-width: 768px) {
+    .testimonialsTitle {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .leftcontent {
+        text-align: center;
+        top: 0 !important;
+    }
+
+    .testimonialsDots {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+.testimonialsDots {
+    display: flex;
+    gap: 2rem;
+}
+
+.dotButton {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dotButtonActive {
+    background-color: #333;
+}
+
+.dotButtonInactive {
+    background-color: #e0e0e0;
+}
+
+.testimonialsCardsWrapper {
+    position: relative;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+}
+
+.testimonialCard {
+    position: absolute;
+    width: 90%;
+    background: white;
+    padding: 1rem;
+    border-radius: 2rem;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.testimonialFrontCard {
+    top: 5rem;
+    left: 0;
+    box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .testimonialCard {
+        width: 100%;
+        position: relative;
+        top: 0 !important;
+        margin-top: 4rem;
+    }
+
+    .testimonialImage {
+        left: 2rem !important;
+        top: -3.5rem !important;
+    }
+
+    .testimonialText {
+        margin-top: 4rem;
+        margin-left: 0;
+    }
+
+    .testimonialName,
+    .testimonialRole {
+        margin-left: 0;
+    }
+}
+
+.leftcontent {
+    position: relative;
+    top: 5rem;
+}
+
+.testimonialImage {
+    position: absolute;
+    top: 1rem;
+    left: -4rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.testimonialImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonialText {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    color: #5E6282;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.testimonialName {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    font-weight: 800;
+    color: #181E4B;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Volkhov', serif;
+}
+
+.testimonialRole {
+    margin-left: 3rem;
+    font-size: 1.3rem;
+    color: #888;
+    font-family: 'Volkhov', serif;
+}
+
+/* ================= AWARDS SECTION STYLES ================= */
+.awardsSection {
+    background-color: white;
+    padding: 4rem 5rem;
+}
+
+@media (max-width: 768px) {
+    .awardsSection {
+        padding: 4rem 2rem;
+    }
+}
+
+.awardsLogoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+
+.awardsLogo {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    color: #111;
+}
+
+.awardsLogoTriangleWrapper {
+    position: relative;
+    width: 1.5em;
+    aspect-ratio: 1 / 0.866;
+    background-color: black;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform: translateY(-0.05em);
+    margin: 0 0.05em;
+}
+
+.awardsLogoTriangleInner {
+    position: absolute;
+    top: 6%;
+    left: 4.5%;
+    right: 4.5%;
+    bottom: 2%;
+    background-color: white;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center 70%;
+}
+
+.awardsTitle {
+    text-align: center;
+    margin-bottom: 5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #0b1c6c;
+}
+
+@media (max-width: 768px) {
+    .awardsTitle {
+        font-size: 2.22rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 3rem;
+    }
+}
+
+.awardsScrollContainer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.awardsCardsScroll {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    width: fit-content;
+    height: 26rem;
+    animation: scroll 40s linear infinite;
+
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.awardCard {
+    width: 25rem;
+    aspect-ratio: 4/3;
+    border-radius: 2rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #fdfdfd;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.awardCard img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+/* ================= TEACHER AWARDS SECTION STYLES ================= */
+.teacherAwardsSection {
+    background-color: white;
+    padding: 10rem 5rem;
+    font-family: 'Popins,serif';
+}
+
+@media (max-width: 768px) {
+    .teacherAwardsSection {
+        padding: 5rem 0;
+    }
+
+    .yearTabs {
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+
+    .yearTabs button {
+        width: 10rem;
+        height: 4.5rem;
+        font-size: 1.5rem;
+    }
+
+    .tableContainer {
+        border-left: 4px solid #facc15;
+        overflow-x: hidden;
+        margin-bottom: 4rem;
+    }
+
+    .awardsTable {
+        font-size: 1rem;
+        table-layout: fixed;
+        /* Force fit */
+    }
+
+    .tableHeaderCell {
+        padding: 0.8rem 0.4rem;
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .tableBodyCell {
+        padding: 1rem 0.4rem;
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .tableHeaderSerial {
+        width: 4px !important;
+    }
+
+    .tableHeaderAward {
+        width: 45% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .yearTabs button {
+        width: 8.5rem;
+        height: 4rem;
+        font-size: 1.3rem;
+    }
+
+    .tableHeaderCell,
+    .tableBodyCell {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.3rem;
+    }
+}
+
+.teacherAwardsTitle {
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #2d3a8c;
+    margin-bottom: 4rem;
+}
+
+.yearTabs {
+    display: flex;
+    gap: 2.2rem;
+    margin-bottom: 8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.yearTabs button {
+    width: 12rem;
+    height: 5.8rem;
+    border-radius: 1rem;
+    border: 0.15rem solid #facc15;
+    background: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    color: #1f2a44;
+}
+
+.yearTabs button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+.yearTabs button.active {
+    background: #060c3f;
+    color: #ffffff;
+    border: 0.15rem solid #facc15;
+}
+
+.tableContainer {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 6rem;
+    border-left: 8px solid #facc15;
+    overflow-x: auto;
+}
+
+.awardsTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 1.35rem;
+}
+
+.tableHeaderCell {
+    background: linear-gradient(135deg, #0b3c6d, #102a43);
+    color: #ffffff;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tableHeaderSerial {
+    width: 100px;
+}
+
+.tableHeaderAward {
+    width: 60%;
+}
+
+.tableBodyCell {
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    font-size: 1.35rem;
+}
+
+.tableBodyRowEven {
+    background: #f9fafb;
+}
+
+.awardsTable tbody tr:hover {
+    background: #fffbeb;
+    transition: background 0.25s ease;
+}

@@ -1,0 +1,218 @@
+/* ================= HERO SECTION ================= */
+.section-hero {
+    background: linear-gradient(180deg, #fefefe 0%, #ffffff 100%);
+    padding: 8.4rem 0 2rem 0;
+    width: 100%;
+}
+
+.hero {
+    max-width: 130rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 9.6rem;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-text-box {
+    grid-column: 1 / 2;
+    width: 100%;
+}
+
+.heading-primary {
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    white-space: nowrap;
+}
+
+.heading-primary .welcome {
+    color: #000000;
+}
+
+.heading-primary span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 5.2rem;
+}
+
+.heading-primary .college-name {
+    color: #0b2c5d;
+}
+
+.hero-description {
+    font-size: 1.9rem;
+    line-height: 1.8;
+    margin-bottom: 4.2rem;
+    width: 100%;
+    font-family: "Rubik", sans-serif;
+    text-align: left;
+    color: #5b6b7c;
+    max-width: 50rem;
+    font-weight: 300;
+}
+
+
+.btn:link,
+.btn:visited,
+.btn {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 9px;
+    padding: 1.6rem 3.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-family: "Rubik", sans-serif;
+    cursor: pointer;
+    border: none;
+}
+
+.btn--outline:link,
+.btn--outline:visited,
+.btn--outline {
+    background-color: #08224c;
+    color: #e2e2e4;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+    background-color: #141414;
+    box-shadow: inset 0 0 0 3px #ffffff;
+    text-decoration: underline;
+}
+
+.hero-img-box {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    width: 100%;
+    position: relative;
+    min-height: 700px;
+}
+
+.hero-img-1 {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 86%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.hero-img-2 {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 86%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+.hero-img-3 {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 84%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .section-hero {
+        padding: 6rem 0 7rem 0;
+    }
+
+    .hero {
+        max-width: 100%;
+        padding: 0 2.4rem;
+        gap: 0 4rem;
+    }
+
+    .heading-primary {
+        font-size: 5rem;
+        margin-bottom: 2.8rem;
+    }
+
+    .hero-description {
+        font-size: 1.7rem;
+        margin-bottom: 3.6rem;
+    }
+
+    .btn {
+        font-size: 1.8rem;
+        padding: 1.4rem 2.8rem;
+    }
+}
+
+/* MOBILE (< 768px) */
+@media (max-width: 768px) {
+    .section-hero {
+        padding: 3rem 0 4rem 0;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 1.6rem;
+        gap: 2rem 0;
+    }
+
+    .hero-text-box {
+        grid-column: 1;
+        order: 2;
+    }
+
+    .hero-img-box {
+        grid-column: 1;
+        grid-row: auto;
+        order: 1;
+        margin-bottom: 2.5rem;
+        min-height: 350px;
+    }
+
+    .heading-primary {
+        justify-content: center;
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        white-space: normal;
+        gap: 0.6rem;
+    }
+
+    .hero-description {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 2.4rem;
+        line-height: 1.5;
+    }
+
+    .btn {
+        font-size: 1.6rem;
+        padding: 1.2rem 2.4rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-img {
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* DESKTOP (> 1024px) - Original design maintained */
+@media (min-width: 1025px) {
+    /* Desktop styles already defined above */
+}

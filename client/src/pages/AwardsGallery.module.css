@@ -1,0 +1,213 @@
+.wrapper {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: "Cormorant Infant", serif
+}
+
+.sideContent {
+    width: 250px;
+    height: auto;
+    position: sticky;
+    top: 100px;
+    /* Offset for navbar when it sticks */
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    z-index: 10;
+}
+
+.logo {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-family: Impact, sans-serif;
+    font-size: 40px;
+    color: #333;
+}
+
+.navMenu {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.navLink {
+    padding: 2px 0;
+    text-decoration: none;
+    color: black;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+    font-family: "Cormorant Infant", serif;
+}
+
+.navLink:hover {
+    color: #757575;
+}
+
+.categories {
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+.category {
+    width: calc(100% - 15px);
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 28px;
+    font-family: "Cormorant Infant", serif;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    transition: left 0.7s, color 0.3s;
+    color: #333;
+}
+
+.category:hover {
+    text-decoration: underline;
+    left: 15px;
+}
+
+.categoryActive {
+    color: #e9b00a !important;
+    left: 15px;
+}
+
+.mainContent {
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+    margin-left: 20px;
+    padding: 0 20px 50px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.galleryColumns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    gap: 20px;
+}
+
+.column {
+    min-width: 300px;
+    flex: 1;
+    height: 100%;
+}
+
+.image {
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* No scaling */
+
+.categoryTitle {
+    text-align: center;
+    font-family: "Cormorant Infant", serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #e9b00a;
+    margin: 20px 0 40px 0;
+    width: 100%;
+}
+
+.toggleBtn {
+    display: none;
+}
+
+@keyframes animate {
+    0% {
+        top: -3px;
+    }
+
+    50% {
+        top: 3px;
+    }
+
+    100% {
+        top: -3px;
+    }
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-top: 80px;
+    }
+
+    .sideContent {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        top: 0 !important;
+        padding: 0 20px !important;
+        order: -1;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .sideHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 32px !important;
+        margin: 10px 0;
+    }
+
+    .toggleBtn {
+        display: block !important;
+        font-size: 24px;
+        cursor: pointer;
+        animation: animate 0.9s ease-in infinite alternate;
+        position: relative;
+
+    }
+
+    .categories {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        width: 100%;
+    }
+
+    .categoriesOpen {
+        max-height: 500px;
+    }
+
+    .category {
+        font-size: 22px;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .mainContent {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 20px !important;
+    }
+
+    .navMenu {
+        display: none !important;
+    }
+}

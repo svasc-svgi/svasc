@@ -1,0 +1,950 @@
+/* ================= Alumni Page Module Styles ================= */
+.alumniPage {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    overflow-x: hidden;
+    background: #ffffff;
+}
+
+/* ================= HERO SECTION ================= */
+.heroEffects {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    clip-path: inset(0);
+}
+
+.heroEffects .bg {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/30256/jungleBG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.heroEffects .shade {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 0;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.heroEffects .title {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: table;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+.heroEffects .title .textWrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.heroEffects .title .text {
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 4em;
+    background: rgba(0, 0, 0, 0.6);
+    transition: margin-top 0.1s linear;
+}
+
+.heroEffects .arrow {
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 2rem;
+    width: 4rem;
+    height: 4rem;
+    opacity: 1;
+    z-index: 5;
+}
+
+.heroEffects h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 5em;
+    margin-bottom: 0.1em;
+    line-height: 1em;
+    color: #fff;
+}
+
+.heroEffects p {
+    width: 60vw;
+    margin: 0 auto;
+    line-height: 1.5em;
+    padding: 1rem 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.015em;
+    color: #eee;
+    font-size: 1.4rem;
+}
+
+.bouncy {
+    animation: Weeeeeeeeeee 3s infinite cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes Weeeeeeeeeee {
+    0% {
+        transform: translate(0, 0px);
+    }
+
+    11% {
+        transform: translate(0, -25px) scaleX(0.8);
+    }
+
+    20% {
+        transform: translate(0, 0px) scaleY(0.8);
+    }
+
+    28% {
+        transform: translate(0, -10px);
+    }
+
+    36% {
+        transform: translate(0, 0px);
+    }
+
+    100% {
+        transform: translate(0, 0px);
+    }
+}
+
+/* ================= CONTENT WRAPPER ================= */
+.content {
+    background: #ffffff;
+    position: relative;
+    z-index: 5;
+    padding-top: 10vh;
+}
+
+/* ================= RISING STARS SECTION ================= */
+.sectionTitle {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.sectionTitle h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: #0a1264;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    width: 100%;
+    max-width: 120rem;
+    padding: 2rem 3rem 4rem;
+    margin: auto;
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.gameCard {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
+    perspective: 1000px;
+}
+
+.gameCardCover {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    transform: skewX(0.001deg);
+    transition: transform 0.35s ease-in-out;
+}
+
+.gameCardCover video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.playBtn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.gameCard:hover .playBtn {
+    opacity: 1;
+}
+
+.gameCardCover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 120%;
+    background: linear-gradient(226deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.4) 35%,
+            rgba(255, 255, 255, 0.2) 42%,
+            rgba(255, 255, 255, 0) 60%);
+    transform: translateY(-20%);
+    transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+    pointer-events: none;
+}
+
+.gameCard:hover .gameCardCover {
+    transform: rotateX(7deg) translateY(-0.6rem);
+}
+
+.gameCard:hover .gameCardCover::after {
+    transform: translateY(0%);
+}
+
+.gameCard::before {
+    content: "";
+    position: absolute;
+    inset: 5%;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.6rem 1.2rem 1.2rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.gameCard:hover::before {
+    opacity: 0.6;
+    transform: rotateX(7deg) translateY(-0.6rem) scale(1.05);
+}
+
+.studentInfo {
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.studentInfo h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0b2c5d;
+}
+
+.studentInfo p {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+/* ================= SUCCESS STORY CAROUSEL SECTION ================= */
+.carouselSection {
+    margin: 4rem 0 6rem;
+    padding: 2rem 0 10rem;
+    overflow: hidden;
+}
+
+.carouselTitle {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.carouselTitle h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: #0a1264;
+}
+
+.carouselWrapper {
+    width: 100%;
+    max-width: 100rem;
+    height: 40rem;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.carousel {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.carousel li {
+    width: 60rem;
+    height: 33.7rem;
+    background: #333;
+    display: inline-block;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.carousel li img,
+.carousel li iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: auto;
+}
+
+/* Carousel Positions */
+.mainPos {
+    left: 50%;
+    margin-left: -30rem;
+    z-index: 3000;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.leftPos {
+    left: 50%;
+    margin-left: -60rem;
+    transform: scale(0.75);
+    z-index: 1000;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.rightPos {
+    left: 50%;
+    margin-left: 0rem;
+    transform: scale(0.75);
+    z-index: 1000;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.backPos {
+    left: 50%;
+    margin-left: -30rem;
+    transform: scale(0.5);
+    opacity: 0.05;
+    z-index: 500;
+    pointer-events: none;
+}
+
+.carouselControls {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 4000;
+}
+
+.carouselControls button {
+    padding: 2rem 3.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+    border: none;
+    background: #0b2c5d;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    transition: background 0.3s;
+}
+
+.carouselControls button:hover {
+    background: #123d80;
+}
+
+/* ================= RANK HOLDERS SECTION ================= */
+.rankHolderSection {
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 4rem 8rem;
+}
+
+.rankTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+    color: #0a1264;
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+
+.yearTabs {
+    display: flex;
+    gap: 2.2rem;
+    margin-bottom: 8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.yearTabs button {
+    width: 12rem;
+    height: 5.8rem;
+    border-radius: 1rem;
+    border: 0.15rem solid #facc15;
+    background: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    color: #1f2a44;
+}
+
+.yearTabs button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+.yearTabs button.active {
+    background: #060c3f;
+    color: #ffffff;
+    border: 0.15rem solid #facc15;
+}
+
+.rankCards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.6rem;
+}
+
+.rankCard {
+    background: #ffffff;
+    border-radius: 1.4rem;
+    padding: 3.2rem 2.6rem;
+    text-align: center;
+    border: 0.1rem solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rankCard:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.rankCard h3 {
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+    color: #0b2c5d;
+    font-weight: 800;
+}
+
+.rankCard .degree {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #4b5563;
+}
+
+.rankCard .rank {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+@media (max-width: 1200px) {
+    .rankCards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .rankCards {
+        grid-template-columns: 1fr;
+    }
+
+    .rankHolderSection {
+        padding: 0 2rem 6rem;
+    }
+
+    .carouselWrapper {
+        height: auto;
+        padding-bottom: 8rem;
+    }
+
+    .carousel li {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-left: 0 !important;
+        left: 0 !important;
+        position: relative;
+        display: none;
+        transform: none !important;
+        opacity: 0;
+    }
+
+    .mainPos {
+        display: block !important;
+        opacity: 1 !important;
+        z-index: 10;
+    }
+
+    .heroEffects .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heroEffects .title .textWrapper {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .heroEffects .title .text {
+        padding: 2rem 1.25rem;
+        width: 90%;
+        max-width: 400px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        height: 12rem;
+    }
+
+    .heroEffects h1 {
+        font-size: 2.5rem;
+    }
+
+    .heroEffects p {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem 0.5rem 0;
+    }
+}
+
+/* ================= NEW ALUMNI ASSOCIATION STYLES ================= */
+.associationAboutSection,
+.visionMissionSection,
+.objectivesActivitiesSection,
+.committeeSection,
+.officeBearersSection,
+.rulesSection {
+    max-width: 120rem;
+    margin: 6rem auto;
+    padding: 0 4rem;
+}
+
+/* About Section */
+.aboutWrapper {
+    background: #ffffff;
+    border-radius: 1.4rem;
+    padding: 4rem;
+    border: 0.1rem solid #e5e7eb;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+}
+
+.aboutText {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: justify;
+}
+
+/* Vision & Mission, Objectives & Activities Grid */
+.visionMissionGrid,
+.objActGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.visionCard,
+.missionCard,
+.objectivesCard,
+.activitiesCard {
+    background: #ffffff;
+    border-radius: 1.4rem;
+    padding: 4rem;
+    border: 0.1rem solid #e5e7eb;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visionCard:hover,
+.missionCard:hover,
+.objectivesCard:hover,
+.activitiesCard:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.2rem solid #facc15;
+    padding-bottom: 1rem;
+}
+
+.cardHeader h2,
+.objectivesCard h2,
+.activitiesCard h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #0a1264;
+}
+
+.objectivesCard h2,
+.activitiesCard h2 {
+    margin-bottom: 2rem;
+    border-bottom: 0.2rem solid #facc15;
+    padding-bottom: 1rem;
+}
+
+.cardIcon {
+    font-size: 2.8rem;
+    color: #0a1264;
+}
+
+.cardText {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #4b5563;
+}
+
+.bulletList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bulletList li {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.bulletList li::before {
+    content: "•";
+    color: #facc15;
+    font-size: 2.2rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+/* Committee grid and contact cards */
+.staffGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.staffCard {
+    background: #ffffff;
+    border-radius: 1.4rem;
+    border: 0.1rem solid #e5e7eb;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staffCard:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.1);
+}
+
+.staffHeader {
+    padding: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.staffBadge {
+    display: inline-block;
+    background: #0a1264;
+    color: #ffffff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.staffCard h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0a1264;
+    margin-bottom: 0.8rem;
+}
+
+.staffDesignation {
+    font-size: 1.4rem;
+    color: #4b5563;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.staffDept {
+    font-size: 1.3rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.staffContact {
+    background: #f9fafb;
+    padding: 2rem 3rem;
+    border-top: 0.1rem solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contactLink {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.4rem;
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+    color: #0a1264;
+}
+
+.contactIcon {
+    color: #facc15;
+    font-size: 1.6rem;
+}
+
+/* Office Bearers Table */
+.tableWrapper {
+    background: #ffffff;
+    border-radius: 1.4rem;
+    overflow: hidden;
+    border: 0.1rem solid #e5e7eb;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+}
+
+.officeBearersTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.officeBearersTable th {
+    background: #0a1264;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.8rem 2.4rem;
+    letter-spacing: 0.05rem;
+}
+
+.officeBearersTable td {
+    padding: 1.6rem 2.4rem;
+    font-size: 1.5rem;
+    color: #4b5563;
+    border-bottom: 0.1rem solid #f3f4f6;
+}
+
+.officeBearersTable tr:last-child td {
+    border-bottom: none;
+}
+
+.officeBearersTable tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.designationCell {
+    font-weight: 600;
+    color: #0a1264 !important;
+}
+
+.nameCell {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.graduationIcon {
+    color: #facc15;
+    font-size: 1.8rem;
+}
+
+/* Accordion Rules Section */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.accordionItem {
+    background: #ffffff;
+    border-radius: 1rem;
+    border: 0.1rem solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.02);
+    transition: box-shadow 0.3s ease;
+}
+
+.accordionItem:hover {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05);
+}
+
+.accordionHeader {
+    padding: 2.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: #ffffff;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.accordionHeader:hover {
+    background: #f9fafb;
+}
+
+.accordionHeader h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #0a1264;
+    margin: 0;
+}
+
+.accordionChevron {
+    color: #6b7280;
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.accordionItem.open .accordionHeader {
+    border-bottom: 0.1rem solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.accordionContent {
+    transition: max-height 0.4s ease-out, padding 0.4s ease;
+    overflow: hidden;
+}
+
+.accordionItem.open .accordionContent {
+    padding: 3rem;
+}
+
+/* Signature Footer */
+.associationFooter {
+    border-top: 0.1rem solid #e5e7eb;
+    margin-top: 8rem;
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+.footerSignature {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footerSignature h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0a1264;
+    border-top: 0.2rem solid #0a1264;
+    padding-top: 1.5rem;
+    width: 25rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .staffGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .associationAboutSection,
+    .visionMissionSection,
+    .objectivesActivitiesSection,
+    .committeeSection,
+    .officeBearersSection,
+    .rulesSection {
+        padding: 0 2rem;
+        margin: 4rem auto;
+    }
+
+    .visionMissionGrid,
+    .objActGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .staffGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutWrapper,
+    .visionCard,
+    .missionCard,
+    .objectivesCard,
+    .activitiesCard {
+        padding: 2.5rem;
+    }
+
+    .officeBearersTable th,
+    .officeBearersTable td {
+        padding: 1.2rem 1.6rem;
+        font-size: 1.4rem;
+    }
+
+    .accordionHeader {
+        padding: 1.8rem 2.2rem;
+    }
+
+    .accordionHeader h3 {
+        font-size: 1.5rem;
+    }
+
+    .footerSignature {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .footerSignature h4 {
+        width: 20rem;
+    }
+}

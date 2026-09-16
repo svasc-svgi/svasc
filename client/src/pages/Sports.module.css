@@ -1,0 +1,683 @@
+/* ================= ABOUT SECTION ================= */
+.svasc-sports-about {
+    padding: 7rem 0;
+    background-color: #ffffff;
+}
+
+.svasc-sports-about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.svasc-sports-about-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ================= ABOUT TEXT CONTENT ================= */
+.svasc-sports-about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.svasc-sports-about-label {
+    font-size: 1.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f4b706;
+    margin: 0;
+}
+
+.svasc-sports-about-title {
+    font-size: 5.6rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--svasc-text-primary);
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.svasc-sports-about-description {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--svasc-text-secondary);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* ================= ABOUT IMAGE ================= */
+.svasc-sports-about-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svasc-sports-image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.svasc-sports-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: svasc-sports-fade-in 0.9s ease-in-out;
+}
+
+/* ================= RESPONSIVE ABOUT ================= */
+@media (max-width: 1024px) {
+    .svasc-sports-about {
+        padding: 80px 0;
+    }
+
+    .svasc-sports-about-row {
+        gap: 48px;
+    }
+
+    .svasc-sports-about-title {
+        font-size: 2.8rem;
+    }
+
+    .svasc-sports-about-description {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .svasc-sports-about {
+        padding: 32px 0;
+        /* Reduced from 60px */
+    }
+
+    .svasc-sports-about-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .svasc-sports-about-title {
+        font-size: 3rem;
+        /* Increased from 2.2rem */
+    }
+
+    .svasc-sports-about-description {
+        font-size: 1.9rem;
+        /* Adjusted for better balance */
+        line-height: 1.6;
+    }
+
+    .svasc-sports-image-container {
+        aspect-ratio: 16 / 10;
+        height: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .svasc-sports-about {
+        padding: 40px 0;
+    }
+
+    .svasc-sports-about-row {
+        gap: 24px;
+    }
+
+    .svasc-sports-about-label {
+        font-size: 1.2rem;
+    }
+
+    .svasc-sports-about-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .svasc-sports-about-description {
+        font-size: 1.5rem;
+    }
+
+    .svasc-sports-about-container {
+        padding: 0 16px;
+    }
+}
+
+/* ================= SPORTS CATEGORIES SECTION ================= */
+.svasc-sports-categories {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    background-color: #000;
+    overflow: hidden;
+    padding-bottom: 96px;
+}
+
+.svasc-sports-categories-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.svasc-sports-categories-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75);
+}
+
+.svasc-sports-categories-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.85) 35%, transparent 100%);
+    z-index: 2;
+}
+
+.svasc-sports-categories-container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* ================= CATEGORIES GRID ================= */
+.svasc-sports-categories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 128px;
+    color: #000000;
+}
+
+.svasc-sports-category-title {
+    font-size: 4.5rem;
+    /* Increased from 3.75rem */
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--svasc-gold);
+    margin: 0 0 56px;
+    font-family: 'Playfair Display', serif;
+}
+
+.svasc-sports-category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.svasc-sports-category-item {
+    font-size: 1.8rem;
+    /* Increased from 1.5rem */
+    line-height: 1.6;
+    color: #333333;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.svasc-sports-category-item:hover {
+    color: var(--svasc-gold);
+}
+
+/* ================= RESPONSIVE CATEGORIES ================= */
+@media (max-width: 1024px) {
+    .svasc-sports-categories {
+        min-height: 80vh;
+        padding-bottom: 80px;
+    }
+
+    .svasc-sports-categories-grid {
+        gap: 64px;
+    }
+
+    .svasc-sports-category-title {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+
+    .svasc-sports-category-item {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .svasc-sports-categories {
+        min-height: 50vh;
+        /* Reduced from 70vh */
+        padding-bottom: 48px;
+    }
+
+    .svasc-sports-categories-grid {
+        grid-template-columns: 1fr 1fr;
+        /* Keep two columns */
+        gap: 24px;
+    }
+
+    .svasc-sports-category-title {
+        font-size: 3.5rem;
+        /* Increased from 3rem */
+        margin-bottom: 24px;
+        margin-top: 0;
+    }
+
+    .svasc-sports-category-item {
+        font-size: 2rem;
+        /* Increased from 1.8rem */
+        gap: 12px;
+    }
+
+    .svasc-sports-categories-container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .svasc-sports-categories {
+        min-height: 45vh;
+        /* Reduced from 60vh */
+        padding-bottom: 32px;
+    }
+
+    .svasc-sports-categories-grid {
+        gap: 16px;
+        grid-template-columns: 1fr 1fr;
+        /* Keep two columns */
+    }
+
+    .svasc-sports-category-title {
+        font-size: 2.8rem;
+        /* Increased from 2.4rem */
+        margin-bottom: 16px;
+    }
+
+    .svasc-sports-category-item {
+        font-size: 1.6rem;
+        /* Increased from 1.4rem */
+        gap: 8px;
+    }
+}
+
+/* ================= SPORT HOUSES SECTION ================= */
+.svasc-sports-houses {
+    padding: 112px 0;
+    background-color: var(--svasc-bg-light);
+}
+
+.svasc-sports-houses-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ================= HEADER ================= */
+.svasc-sports-houses-header {
+    margin-bottom: 80px;
+}
+
+.svasc-sports-houses-label {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--svasc-gold);
+    display: block;
+    margin-bottom: 12px;
+}
+
+.svasc-sports-houses-title {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= GRID LAYOUT ================= */
+.svasc-sports-houses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    row-gap: 80px;
+}
+
+/* ================= HOUSE CARD ================= */
+.svasc-sports-house-card {
+    display: flex;
+    flex-direction: column;
+    animation: svasc-sports-fade-in-up 0.8s ease-out;
+}
+
+.svasc-sports-house-offset {
+    margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+    .svasc-sports-house-offset {
+        margin-top: 0;
+    }
+}
+
+/* ================= IMAGE CONTAINER ================= */
+.svasc-sports-house-image-container {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.svasc-sports-house-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+}
+
+.svasc-sports-house-image-container:hover .svasc-sports-house-image:not(.svasc-sports-house-image-grayscale) {
+    transform: scale(1.06);
+}
+
+.svasc-sports-house-image-grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.7s ease;
+}
+
+.svasc-sports-house-image-container:hover .svasc-sports-house-image-grayscale {
+    filter: grayscale(0%);
+}
+
+/* ================= CUSTOM OVERLAY ================= */
+.svasc-sports-house-custom-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.3s ease;
+}
+
+.svasc-sports-house-image-container:hover .svasc-sports-house-custom-overlay {
+    backdrop-filter: blur(2px);
+}
+
+.svasc-sports-house-custom-badge {
+    border: 1px solid #000000;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #000000;
+    background-color: transparent;
+}
+
+/* ================= CARD INFO ================= */
+.svasc-sports-house-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Header Row */
+.svasc-sports-house-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--svasc-border);
+    padding-bottom: 12px;
+}
+
+.svasc-sports-house-name {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--svasc-text-primary);
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.svasc-sports-house-subtitle {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #666;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Footer Row */
+.svasc-sports-house-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.svasc-sports-house-description {
+    font-size: 1.3rem;
+    color: #666;
+    font-family: 'Manrope', sans-serif;
+}
+
+.svasc-sports-house-status {
+    font-size: 1.3rem;
+    color: #666;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+}
+
+/* ================= RESPONSIVE HOUSES ================= */
+@media (max-width: 1024px) {
+    .svasc-sports-houses {
+        padding: 80px 0;
+    }
+
+    .svasc-sports-houses-grid {
+        gap: 40px;
+        row-gap: 60px;
+    }
+
+    .svasc-sports-house-offset {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .svasc-sports-houses {
+        padding: 32px 0;
+        /* Reduced from 60px */
+    }
+
+    .svasc-sports-houses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep two columns */
+        gap: 24px;
+        row-gap: 40px;
+    }
+
+    .svasc-sports-houses-header {
+        margin-bottom: 40px;
+    }
+
+    .svasc-sports-houses-title {
+        font-size: 3rem;
+        /* Increased from 2.5rem */
+    }
+
+    .svasc-sports-house-offset {
+        margin-top: 0;
+    }
+
+    .svasc-sports-house-name {
+        font-size: 2.2rem;
+        /* Increased from 1.8rem */
+    }
+
+    .svasc-sports-houses-container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .svasc-sports-houses {
+        padding: 40px 0;
+    }
+
+    .svasc-sports-houses-header {
+        margin-bottom: 24px;
+    }
+
+    .svasc-sports-houses-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+    }
+
+    .svasc-sports-houses-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .svasc-sports-houses-grid {
+        gap: 20px;
+        row-gap: 32px;
+    }
+
+    .svasc-sports-house-image-container {
+        aspect-ratio: 16 / 9;
+        margin-bottom: 16px;
+    }
+
+    .svasc-sports-house-name {
+        font-size: 1.1rem;
+    }
+
+    .svasc-sports-house-footer-row,
+    .svasc-sports-house-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .svasc-sports-house-subtitle {
+        white-space: normal;
+    }
+
+    .svasc-sports-house-status {
+        white-space: normal;
+    }
+}
+
+/* ================= ROOT & GLOBAL STYLES ================= */
+.svasc-sports-root {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    /* Scoped variables */
+    --svasc-gold: #D4AF37;
+    --svasc-text-primary: #333333;
+    --svasc-text-secondary: #666666;
+    --svasc-bg-light: #F7F7F7;
+    --svasc-bg-white: #ffffff;
+    --svasc-border: #e5e5e5;
+}
+
+/* ================= COLORS ================= */
+/* :root variables moved to .svasc-sports-root to ensure local scope */
+
+.svasc-sports-gold-text {
+    color: #f4b706;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= SELECTION ================= */
+.svasc-sports-root ::selection {
+    background-color: var(--svasc-gold);
+    color: #ffffff;
+}
+
+/* ================= UTILITIES ================= */
+.svasc-sports-img-zoom-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.svasc-sports-img-zoom {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.svasc-sports-img-zoom-container:hover .svasc-sports-img-zoom {
+    transform: scale(1.06);
+}
+
+.svasc-sports-sharp-img {
+    border-radius: 0 !important;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes svasc-sports-blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes svasc-sports-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes svasc-sports-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE UTILITIES ================= */
+@media (max-width: 768px) {
+    .svasc-sports-root {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        letter-spacing: -0.01em;
+    }
+}

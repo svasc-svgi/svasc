@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+        gap: 4rem;
+    }
+}
+
+/* LEFT CONTENT */
+.leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+    .leftContent {
+        width: 40%;
+        margin-bottom: 0;
+    }
+}
+
+.title {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    color: #0a194d;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .title {
+        font-size: 8rem;
+    }
+}
+
+.description {
+    color: #4b5563;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    max-width: 28rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) {
+    .description {
+        font-size: 1.85rem;
+    }
+}
+
+/* RIGHT GRID */
+.rightGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .rightGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .rightGrid {
+        width: 60%;
+    }
+}
+
+/* COLUMNS */
+.column1,
+.column2,
+.column3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.column1 {
+    padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .column1 {
+        padding-top: 3rem;
+    }
+}
+
+.column3 {
+    padding-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .column3 {
+        padding-top: 1rem;
+    }
+}
+
+/* IMAGE CARDS */
+.imageCard {
+    position: relative;
+    height: 340px;
+    width: 100%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background-color: #e5e7eb;
+}
+
+.imageCardSmall {
+    height: 260px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CARD STYLES */
+.cardTitle {
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+}
+
+.cardText {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+/* LUNCH CARD */
+.lunchCard {
+    background-color: #E0D8F5;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+}
+
+/* MORNING CARD */
+.morningCard {
+    background: linear-gradient(to bottom right, #E1F3E6, #EAF8EE);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+}
+
+/* EVENING CARD */
+.eveningCard {
+    background-color: #FBCBA5;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 300px;
+    
+}
+
+.circleDecor1 {
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    width: 10rem;
+    height: 10rem;
+    border: 20px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.circleDecor2 {
+    position: absolute;
+    top: 2.5rem;
+    right: -5rem;
+    width: 10rem;
+    height: 10rem;
+    border: 20px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.eveningContent {
+    position: relative;
+    z-index: 10;
+   
+    
+}
+
+.eveningText {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #111827;
+    line-height: 1.75;
+    letter-spacing: -0.025em;
+}

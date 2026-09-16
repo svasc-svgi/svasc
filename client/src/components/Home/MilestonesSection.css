@@ -1,0 +1,363 @@
+/* ================= MILESTONES SECTION STYLES ================= */
+.milestonesWrapper {
+    width: 100%;
+    background: #f8fafc;
+    padding: 3rem 1rem 5rem 1rem;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+.milestonesContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* HEADER BANNER */
+.milestonesBanner {
+    background: linear-gradient(135deg, #2a0845 0%, #4a154b 50%, #20053b 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2.5rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(42, 8, 69, 0.25);
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.milestonesBanner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f5b400, #ff5722, #f5b400);
+}
+
+.leaderCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    z-index: 2;
+    min-width: 130px;
+}
+
+.leaderAvatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3px solid #f5b400;
+    box-shadow: 0 0 15px rgba(245, 180, 0, 0.4);
+    object-fit: cover;
+    background: #ffffff;
+}
+
+.leaderAvatarFallback {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3px solid #f5b400;
+    box-shadow: 0 0 15px rgba(245, 180, 0, 0.4);
+    background: linear-gradient(135deg, #f5b400, #e65100);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.leaderName {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.leaderRole {
+    font-size: 0.9rem;
+    color: #f5b400;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bannerTitleBox {
+    text-align: center;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.bannerTitleBox h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    margin: 0 0 0.4rem 0;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bannerTitleBox p {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* TIMELINE TRACK & CARDS */
+.timelineTrackWrapper {
+    position: relative;
+    padding: 4rem 1rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.horizontalTimeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 1rem;
+    min-height: 480px;
+}
+
+/* Connecting Line */
+.connectingLine {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    right: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b00 0%, #f5b400 50%, #ff5722 100%);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Side Badges */
+.sideBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+.sideYearCircle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e1b4b 0%, #311b92 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    border: 4px solid #f5b400;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sideCountPill {
+    background: linear-gradient(90deg, #ff6b00, #e65100);
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: -12px;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sideCountPill span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Milestone Pillar Card */
+.milestonePillar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    transition: transform 0.3s ease;
+}
+
+.milestonePillar:hover {
+    transform: translateY(-6px);
+}
+
+.pillarTop {
+    margin-bottom: 2rem;
+}
+
+.pillarBottom {
+    margin-top: 2rem;
+}
+
+.pillarCard {
+    width: 110px;
+    background: #ffffff;
+    border-radius: 40px 40px 16px 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem 0.6rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.milestonePillar.bottom .pillarCard {
+    border-radius: 16px 16px 40px 40px;
+}
+
+.pillarCard:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: #cbd5e1;
+}
+
+.cardTitle {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.35;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.2rem;
+}
+
+.yearBadge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    font-weight: 800;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    margin-top: 0.6rem;
+    border: 3px solid #ffffff;
+}
+
+.milestonePillar.bottom .yearBadge {
+    order: -1;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+}
+
+.cardConnector {
+    position: absolute;
+    width: 3px;
+    background: #cbd5e1;
+    z-index: -1;
+}
+
+.milestonePillar.top .cardConnector {
+    bottom: -35px;
+    height: 35px;
+}
+
+.milestonePillar.bottom .cardConnector {
+    top: -35px;
+    height: 35px;
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE & TABLETS */
+@media (max-width: 1100px) {
+    .milestonesBanner {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .bannerTitleBox h2 {
+        font-size: 1.6rem;
+    }
+
+    .bannerTitleBox p {
+        font-size: 1rem;
+    }
+
+    .horizontalTimeline {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+
+    .connectingLine {
+        top: 0;
+        bottom: 0;
+        left: 36px;
+        width: 4px;
+        height: 100%;
+        transform: none;
+    }
+
+    .sideBadge {
+        flex-direction: row;
+        gap: 1rem;
+        align-self: flex-start;
+    }
+
+    .sideCountPill {
+        margin-top: 0;
+    }
+
+    .milestonePillar {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        padding-left: 1rem;
+    }
+
+    .pillarCard {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        border-radius: 16px !important;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        gap: 1.2rem;
+    }
+
+    .cardTitle {
+        min-height: auto;
+        font-size: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+        flex: 1;
+    }
+
+    .yearBadge {
+        margin: 0 !important;
+        order: -1 !important;
+        flex-shrink: 0;
+    }
+
+    .cardConnector {
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+
+.container{
+    min-height: 50vh;
+}
+.title{
+    font-size: 40px;
+    padding: 20px;
+}
+.content {
+    padding: 20px 20px;
+    font-size: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.content:hover {
+    box-shadow: 0 2px 10px rgba(202, 214, 38, 0.95);
+    background-color: rgb(255, 255, 141) ;
+    transition: 0.5s;
+}

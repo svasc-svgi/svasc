@@ -1,0 +1,338 @@
+/* ===========================
+   Color Variables
+   =========================== */
+
+.statisticsApp {
+    --primary: #001F66;
+    --secondary: #FFB800;
+    --surface: #F8FAFC;
+    --slate-50: #f9fafb;
+    --slate-100: #f3f4f6;
+    --slate-200: #e5e7eb;
+    --slate-300: #d1d5db;
+    --slate-400: #9ca3af;
+    --slate-500: #6b7280;
+    --slate-600: #4b5563;
+    --white: #ffffff;
+    --table-header: #2b3990;
+
+    font-family: 'Manrope', 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #64748b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Typography
+   =========================== */
+
+.statisticsApp h1,
+.statisticsApp h2,
+.statisticsApp h3,
+.statisticsApp h4,
+.statisticsApp h5,
+.statisticsApp h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.statisticsApp p {
+    font-size: 1.6rem;
+}
+
+.statisticsApp a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.section {
+    padding: 1rem 0;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.sectionTitle {
+    font-size: 3.2rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 4.8rem;
+    font-weight: 700;
+}
+
+.bgSurface {
+    background-color: var(--surface);
+}
+
+.bgPrimary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.impactText {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.impactText p {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* ===========================
+   Table Styles
+   =========================== */
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3.2rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 80rem;
+}
+
+.table th {
+    background-color: var(--primary);
+    color: white;
+    padding: 1.6rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+    padding: 1.4rem;
+    text-align: center;
+    font-size: 1.4rem;
+    border: 1px solid var(--slate-100);
+    color: var(--slate-600);
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--slate-50);
+}
+
+.table tr:hover {
+    background-color: rgba(245, 180, 0, 0.05);
+}
+
+/* ===========================
+   Recruiters Section
+   =========================== */
+
+.recruitersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2.4rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.recruiterCard {
+    padding: 2.5rem;
+    background: white;
+    border-radius: 1.2rem;
+    border: 1px solid var(--slate-200);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 10rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.recruiterCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+    box-shadow: 0 15px 30px -10px rgba(0, 31, 102, 0.15);
+}
+
+.recruiterLogo {
+    max-width: 100%;
+    max-height: 5rem;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.recruiterCard:hover .recruiterLogo {
+    filter: grayscale(0) opacity(1);
+}
+
+/* ===========================
+   Focus Section
+   =========================== */
+
+.focusSection {
+    padding: 2rem 0;
+    background-color: white;
+}
+
+.focusContent {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    justify-content: space-between;
+}
+
+.focusTextContent {
+    flex: 1;
+    max-width: 60rem;
+}
+
+.focusTextContent h2 {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 2.4rem;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.focusTextContent p {
+    font-size: 1.8rem;
+    color: var(--slate-600);
+    line-height: 1.8;
+}
+
+.focusImageContent {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.focusImageContent img {
+    width: 100%;
+    max-width: 550px;
+    height: 40rem;
+    box-shadow: 0 20px 40px rgba(0, 31, 102, 0.1);
+    object-fit: cover;
+}
+
+/* ===========================
+   Recruiter Categories
+   =========================== */
+
+.recruiterCategories {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    padding: 8rem 0;
+    background-color: white;
+}
+
+.categoryList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.categoryList h2 {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.categoryItem {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.categoryIcon {
+    width: 3.8rem;
+    height: 3.8rem;
+    background-color: #2b3990;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.categoryText {
+    font-size: 1.8rem;
+    color: #334155;
+    line-height: 1.4;
+}
+
+.categoryText strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 4.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.8rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .focusSection {
+        padding: 6rem 0;
+    }
+
+    .focusContent {
+        flex-direction: column-reverse;
+        /* Swap back to text on top for mobile */
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .focusTextContent {
+        max-width: 100%;
+    }
+
+    .focusTextContent h2 {
+        font-size: 3.2rem;
+        text-align: center;
+    }
+
+    .focusImageContent {
+        justify-content: center;
+    }
+
+    .recruiterCategories {
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .categoryItem {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .recruiterCategories .focusImageContent img {
+        height: auto;
+        max-height: 30rem;
+    }
+}

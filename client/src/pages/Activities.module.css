@@ -1,0 +1,1033 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.campusLifeTitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 50px;
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin: 40px 0;
+    font-size: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .campusLifeTitle {
+        letter-spacing: 10px;
+        margin: 20px 0;
+        padding-left: 10px;
+        font-size: 1rem;
+    }
+}
+
+.project {
+    float: left;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    margin: 10px 1%;
+    overflow: hidden;
+    transition: all 0.5s ease, opacity 0.1s;
+    width: 31.333%;
+}
+
+
+
+
+.project.shrunk {
+    pointer-events: none;
+    height: 0 !important;
+    overflow: hidden;
+    width: 0 !important;
+    padding: 0;
+    transition: all 0.9s ease;
+}
+
+.project.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+.project.openedProject {
+    width: 40px !important;
+    height: 100vh !important;
+    min-height: 100%;
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+    z-index: 1010;
+}
+
+.project.openedProject .backArrow {
+    display: block;
+    position: absolute;
+    font-size: 30pt;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    top: 45%;
+    transition: all 0.2s ease;
+}
+
+.project.openedProject:hover .backArrow {
+    transform: scale(1.2);
+}
+
+.project.openedProject .info {
+    background: rgba(236, 188, 46, 0.85) !important;
+}
+
+.project.openedProject:hover .info {
+    background: rgba(236, 188, 46, 0.85) !important;
+}
+
+.project.openedProject .beforeTitle,
+.project.openedProject h1,
+.project.openedProject hr {
+    display: none;
+}
+
+.beforeTitle {
+    float: left;
+    font-size: 1.2rem;
+    opacity: 1;
+    background: #fff;
+    padding: 10px 5px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    top: 45%;
+    margin: 0 5%;
+}
+
+.project:hover .beforeTitle {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.info {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    float: left;
+    opacity: 0;
+    position: absolute;
+    background: rgba(1, 154, 109, 0.0);
+    overflow: hidden;
+    transition: all 0.2s ease, opacity 0.1s;
+    transition-delay: 0.1s;
+}
+
+.project:hover .info,
+.project.openedProject .info {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 0;
+    opacity: 1;
+    background: rgba(236, 188, 46, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fadeTitle {
+    float: left;
+    width: 100%;
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 12pt;
+    text-align: center;
+    letter-spacing: 5px;
+    position: absolute;
+    margin: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 0 10px 5px;
+    top: 45%;
+    transform: translate(0, -25px);
+    transition-delay: 0.4s;
+}
+
+.project:hover .fadeTitle {
+    position: relative;
+    top: auto;
+    transform: none;
+    opacity: 1;
+    margin-bottom: 10px;
+}
+
+.info hr {
+    outline: none;
+    height: 3px;
+    border: 0;
+    float: left;
+    background-color: #fff;
+    width: 2px;
+    left: 50%;
+    margin-left: -1px;
+    opacity: 0;
+    position: absolute;
+    top: 53%;
+    transition: all 0.4s ease;
+    transition-delay: 0.5s;
+}
+
+.project:hover hr {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 70%;
+    margin: 0;
+    opacity: 1;
+}
+
+.backArrow {
+    display: none;
+}
+
+.selectedArea {
+    width: 100%;
+    height: 100vh;
+    float: left;
+    background: #fff;
+    position: fixed;
+    z-index: 1000;
+    padding: 0 0 0 40px;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    transition: all 0s ease;
+}
+
+.selectedArea.opened {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.selectedArea.opened .copyArea {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    /* Centering for relative + left: 50% */
+}
+
+.selectedArea.opened h1 {
+    opacity: 1;
+}
+
+.selectedArea.opened h1 span {
+    opacity: 1;
+    transform: translate(0, 0);
+    /* Standard centering */
+}
+
+.selectedArea::after {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, .6) 10%, rgba(255, 255, 255, 1) 90%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.selectedArea h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    padding: 80px 5px;
+    background-size: cover;
+    font-size: 28pt;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 5px;
+    color: #1a1a1a;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.selectedArea h1 span {
+    background: #fff;
+    padding: 10px 80px;
+    text-align: center;
+    opacity: 0;
+    transform: translate(0, -100%);
+    transition: all 0.8s ease;
+    margin-top: 100px;
+}
+
+.copyArea {
+    width: 100%;
+    max-width: 1000px;
+    float: left;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 30px;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    opacity: 0;
+    transform: translate(-50%, 40px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.15s;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1f2937;
+}
+
+.copyArea p {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+    color: #374151;
+    letter-spacing: 0.2px;
+}
+
+.copyArea h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #003366;
+    margin-top: 32px;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+.copyArea ul,
+.copyArea ol {
+    margin-left: 24px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+.copyArea li {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 10px;
+}
+
+.copyArea strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    width: 100%;
+    max-width: 880px;
+    padding: 0 25px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gameCard {
+    position: relative;
+    width: 100%;
+    padding-bottom: 150%;
+    perspective: 1000px;
+}
+
+.gameCardCover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    will-change: transform;
+    transform: skewX(.001deg);
+    transition: transform .35s ease-in-out;
+    border-radius: 8px;
+}
+
+.gameCardCover::after {
+    display: none;
+}
+
+.gameCard:hover .gameCardCover {
+    transform: rotateX(7deg) translateY(-6px);
+}
+
+.gameCard::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.3);
+    will-change: opacity;
+    transform-origin: top center;
+    transform: skewX(.001deg);
+    transition: transform .35s ease-in-out, opacity .5s ease-in-out;
+}
+
+.gameCard:hover::before {
+    opacity: 0.6;
+    transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+
+.cardContentOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 10px !important;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.92) 100%) !important;
+    border-radius: 8px;
+    z-index: 105 !important;
+    pointer-events: auto;
+}
+
+.gameCard:hover .cardContentOverlay {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0.98) 100%) !important;
+}
+
+.cardTitle {
+    width: 100%;
+    text-align: center;
+    color: #ffffff !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 0.9);
+    margin-bottom: 8px !important;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+    z-index: 106 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.readMoreBtn {
+    background: #ecbc2e !important;
+    color: #000000 !important;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 106 !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.gameCard:hover .readMoreBtn {
+    transform: scale(1.06);
+    background: #fcd34d !important;
+}
+
+
+
+/* Unique Event Section Styles */
+.eventUniqueSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.8s ease;
+    transition-delay: 0.2s;
+}
+
+.opened .eventUniqueSection {
+    opacity: 1;
+}
+
+.yearContainer {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+    margin-bottom: 20px;
+}
+
+.yearPart {
+    font-size: 8rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -5px;
+}
+
+.yearPart:last-child {
+    color: #ecbc2e;
+    margin-top: -20px;
+}
+
+.eventInfo {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.eventDate {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #444;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.eventCategoryTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0;
+}
+
+@media screen and (max-width: 920px) {
+    .project {
+        width: 48%;
+        height: auto !important;
+        aspect-ratio: 1/1 !important;
+    }
+
+    
+
+
+    .selectedArea.opened .copyArea,
+    .selectedArea.opened .cardContainer {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        transform: translate(0, 0) !important;
+    }
+
+    .selectedArea.opened .eventUniqueSection {
+        grid-column: 1 / -1;
+        /* Move to top and span full width */
+        margin-bottom: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .eventInfo {
+        text-align: center;
+    }
+
+    .yearPart {
+        font-size: 6rem;
+    }
+
+    .cardContainer {
+        grid-template-columns: repeat(2, 1fr) !important;
+        padding: 0 15px;
+    }
+
+    .selectedArea h1 {
+        font-size: 20pt;
+    }
+
+    .selectedArea h1 span {
+        padding: 10px 25px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .project {
+        width: 98% !important;
+        height: auto !important;
+        aspect-ratio: 16/9 !important;
+    }
+
+    .cardContainer {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 15px;
+    }
+}
+
+/* Custom formatting for structured HTML inside .copyArea */
+.copyArea h3 {
+    font-size: 14pt;
+    color: #0a1264;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-left: 4px solid #facc15;
+    padding-left: 10px;
+    font-weight: 600;
+    float: left;
+    width: 100%;
+}
+
+.copyArea ul, .copyArea ol {
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    float: left;
+    width: calc(100% - 20px);
+}
+
+.copyArea li {
+    font-size: 11pt;
+    line-height: 22pt;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.copyArea strong {
+    color: #111;
+}
+
+.copyArea .teamDetails {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #e5e7eb;
+    float: left;
+    width: 100%;
+}
+
+.copyArea .teamDetails h3 {
+    margin-top: 0;
+}
+
+/* Eco Club Table & Table Wrapper Styling */
+.ecoClubTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 11pt;
+    float: left;
+}
+
+.ecoClubTable th {
+    background: #0a1264;
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.ecoClubTable td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #333;
+}
+
+.ecoClubTable tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.ecoClubTable a {
+    color: #0a1264;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.ecoClubTable a:hover {
+    text-decoration: underline;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    float: left;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+/* Modal Styles - Luxury Dark & Gold (/nss & /fine-arts-club aesthetic) */
+.cardModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 10, 24, 0.82);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  animation: fadeInModal 0.3s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+  }
+}
+
+.cardModalContent {
+  background: #0d172e;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 16px;
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.12);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 0 0 36px 0;
+  color: #f1f5f9;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.5) #0b1329;
+  animation: scaleUpModal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUpModal {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cardModalContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cardModalContent::-webkit-scrollbar-track {
+  background: #0b1329;
+  border-radius: 8px;
+}
+
+.cardModalContent::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+}
+
+.cardModalContent::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(13, 23, 46, 0.85);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  color: #d4af37;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(6px);
+  line-height: 1;
+}
+
+.closeModalBtn:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  color: #0d172e;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.modalHeroSection {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.modalImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.cardModalContent:hover .modalImage {
+  transform: scale(1.03);
+}
+
+.modalHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0d172e 0%, rgba(13, 23, 46, 0.4) 60%, transparent 100%);
+}
+
+.modalHeroBadge {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  background: rgba(13, 23, 46, 0.85);
+  color: #e5c158;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modalHeaderInfo {
+  padding: 24px 32px 10px 32px;
+}
+
+.modalEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #d4af37;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modalTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.modalTitleDivider {
+  height: 3px;
+  width: 70px;
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.modalDesc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.88);
+  text-align: left;
+  padding: 0 32px;
+}
+
+/* Modal Content Styling for Headings, Lists, Tables & Cards */
+.modalDesc h3,
+.modalDescContent h3 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(18px, 2.2vw, 22px) !important;
+  color: #e5c158 !important;
+  margin-top: 28px !important;
+  margin-bottom: 14px !important;
+  border-left: 3px solid #d4af37 !important;
+  padding-left: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  float: none !important;
+  width: auto !important;
+}
+
+.modalDesc p,
+.modalDescContent p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.modalDesc ul,
+.modalDesc ol,
+.modalDescContent ul,
+.modalDescContent ol {
+  margin: 12px 0 20px 0;
+  padding-left: 24px;
+  color: rgba(255, 255, 255, 0.85);
+  float: none;
+  width: 100%;
+}
+
+.modalDesc li,
+.modalDescContent li {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.modalDesc strong,
+.modalDescContent strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Tables inside Modal */
+.modalDesc table,
+.modalDescContent table,
+.modalDesc .ecoClubTable,
+.modalDesc .eco-club-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  background: rgba(10, 18, 36, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  float: none;
+}
+
+.modalDesc th,
+.modalDescContent th,
+.modalDesc .ecoClubTable th,
+.modalDesc .eco-club-table th {
+  background: linear-gradient(135deg, #1b2a4a 0%, #111d35 100%);
+  color: #d4af37;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.modalDesc td,
+.modalDescContent td,
+.modalDesc .ecoClubTable td,
+.modalDesc .eco-club-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+.modalDesc tr:nth-child(even),
+.modalDescContent tr:nth-child(even),
+.modalDesc .ecoClubTable tr:nth-child(even),
+.modalDesc .eco-club-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modalDesc tr:hover,
+.modalDescContent tr:hover,
+.modalDesc .ecoClubTable tr:hover,
+.modalDesc .eco-club-table tr:hover {
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.modalDesc a,
+.modalDescContent a {
+  color: #f3e5ab;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.modalDesc a:hover,
+.modalDescContent a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.modalDesc .tableWrapper,
+.modalDesc .table-wrapper,
+.modalDescContent .tableWrapper,
+.modalDescContent .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  float: none;
+}
+
+.modalDesc .teamDetails,
+.modalDesc .team-details,
+.modalDescContent .teamDetails,
+.modalDescContent .team-details {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+  float: none;
+  width: 100%;
+}
+
+.cardContentOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gameCardCover:hover .cardContentOverlay {
+  opacity: 1;
+}
+
+.readMoreBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}

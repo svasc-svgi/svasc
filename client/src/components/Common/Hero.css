@@ -1,0 +1,178 @@
+/* ================= COMMON HERO COMPONENT ================= */
+.svasc-common-hero {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.svasc-common-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.svasc-common-hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.svasc-common-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 24px;
+    animation: svasc-common-hero-fade-in-up 0.8s ease-out;
+}
+
+.svasc-common-hero-title {
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.svasc-common-gold-text {
+    color: var(--svasc-gold, #D4AF37);
+    font-family: 'Playfair Display', serif;
+}
+
+.svasc-common-cursor {
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background-color: var(--svasc-gold, #D4AF37);
+    margin-left: 6px;
+    animation: svasc-common-hero-blink 1.1s infinite;
+    vertical-align: middle;
+}
+
+.svasc-common-hero-description {
+    margin: 24px 0 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes svasc-common-hero-blink {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@keyframes svasc-common-hero-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+    .svasc-common-hero {
+        min-height: 70vh;
+        background-attachment: scroll;
+    }
+
+    .svasc-common-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .svasc-common-hero-description {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .svasc-common-hero {
+        min-height: 55vh;
+    }
+
+    .svasc-common-hero-title {
+        font-size: 3.5rem;
+        /* Increased from 2.8rem */
+    }
+
+    .svasc-common-hero-description {
+        font-size: 1.3rem;
+        /* Increased from 1.1rem */
+        letter-spacing: 0.1em;
+    }
+
+    .svasc-common-hero-content {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .svasc-common-hero {
+        min-height: 45vh;
+    }
+
+    .svasc-common-hero-title {
+        font-size: 2.8rem;
+        /* Increased from 2rem */
+    }
+
+    .svasc-common-hero-description {
+        font-size: 1.1rem;
+        /* Increased from 0.95rem */
+        margin-top: 16px;
+    }
+
+    .svasc-common-cursor {
+        width: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .svasc-common-hero {
+        min-height: 35vh;
+    }
+
+    .svasc-common-hero-title {
+        font-size: 2.2rem;
+        /* Increased from 1.5rem */
+    }
+
+    .svasc-common-hero-description {
+        font-size: 1rem;
+        /* Increased from 0.85rem */
+    }
+}

@@ -1,0 +1,310 @@
+.main {
+    background: white;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.circleOpacity {
+    opacity: 0.5;
+}
+
+.circle1 {
+    width: 100px;
+    height: 100px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    /* Changed from bottom: 10px */
+    right: 10px;
+    animation: fadeIn 0.8s ease-in-out 0.1s backwards;
+}
+
+.circle2_1 {
+    width: 80px;
+    height: 80px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 130px;
+    /* Changed from bottom: 130px */
+    right: 85px;
+    animation: fadeIn 0.8s ease-in-out 0.2s backwards;
+    opacity: 0.5;
+}
+
+.circle2_2 {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 135px;
+    /* Changed from bottom: 135px */
+    right: 90px;
+    animation: fadeIn 0.8s ease-in-out 0.25s backwards;
+}
+
+.circle3 {
+    width: 70px;
+    height: 70px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 220px;
+    /* Changed from bottom: 210px */
+    right: 5px;
+    animation: fadeIn 0.8s ease-in-out 0.3s backwards;
+    opacity: 0.5;
+}
+
+.circle4 {
+    width: 70px;
+    height: 70px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 310px;
+    /* Changed from bottom: 300px */
+    right: 50px;
+    animation: fadeIn 0.8s ease-in-out 0.4s backwards;
+    opacity: 0.5;
+}
+
+.circle5_1 {
+    width: 90px;
+    height: 90px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 390px;
+    /* Changed from bottom: 380px */
+    right: 0px;
+    animation: fadeIn 0.8s ease-in-out 0.5s backwards;
+    opacity: 0.5;
+}
+
+.circle5_2 {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 400px;
+    /* Changed from bottom: 390px */
+    right: 10px;
+    animation: fadeIn 0.8s ease-in-out 0.55s backwards;
+}
+
+.circle6 {
+    width: 60px;
+    height: 60px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 490px;
+    /* Changed from bottom: 480px */
+    right: 70px;
+    animation: fadeIn 0.8s ease-in-out 0.6s backwards;
+    opacity: 0.5;
+}
+
+.circle7 {
+    width: 50px;
+    height: 50px;
+    background: #ffb200;
+    border-radius: 50%;
+    position: absolute;
+    top: 560px;
+    /* Changed from bottom: 550px */
+    right: 20px;
+    animation: fadeIn 0.8s ease-in-out 0.7s backwards;
+    opacity: 0.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: auto;
+    /* Changed from 100vh to avoid excessive space */
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 80px 100px 80px;
+    /* Reduced top padding */
+}
+
+.contentContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Aligns text to the top */
+}
+
+.designation {
+    font-size: 22px;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.qualification {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.arrow {
+    color: #ffb200;
+    font-size: 24px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.introText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+.descriptionText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    margin-left: 34px;
+}
+
+.rightContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.headerInfo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.imageContainer {
+    margin-bottom: 30px;
+    background: white;
+}
+
+.principalImage {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0;
+    background: white;
+    mix-blend-mode: darken;
+}
+
+.quote {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    font-style: italic;
+    max-width: 300px;
+}
+
+@media (max-width: 1200px) {
+    .contentWrapper {
+        padding: 40px 50px;
+    }
+
+    .contentContainer {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 968px) {
+    .contentContainer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .leftContent {
+        order: 2;
+    }
+
+    .rightContent {
+        order: 1;
+    }
+
+    .contentWrapper {
+        padding: 40px 30px;
+    }
+
+    .principalImage {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contentWrapper {
+        padding: 30px 20px;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .introText,
+    .descriptionText {
+        font-size: 14px;
+    }
+
+    .quote {
+        font-size: 16px;
+    }
+
+    .principalImage {
+        width: 250px;
+        height: 350px;
+    }
+}

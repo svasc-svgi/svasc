@@ -1,0 +1,216 @@
+/* Base Styles - Override global 66.5% */
+.section {
+    min-height: 100vh;
+    width: 100%;
+    background-color: white;
+    padding: 6rem 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 120rem;
+    /* Scaled from 75rem to match full width */
+    margin: 0 auto;
+}
+
+/* Typography */
+.mainHeading {
+    font-size: 3.75rem;
+    /* Scaled 1.5x from 2.5rem (4xl) */
+    font-weight: 600;
+    text-align: center;
+    color: rgb(16, 11, 84);
+    margin-bottom: 1rem;
+}
+
+.subText {
+    font-size: 1.875rem;
+    /* Scaled 1.5x from 1.25rem */
+    text-align: center;
+    margin: 1rem auto 0;
+    max-width: 72rem;
+    color: #eab308;
+}
+
+/* Grid Layout */
+.contentGrid {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.5rem;
+}
+
+.leftColumn {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .leftColumn {
+        grid-column: span 7;
+        max-width: 45rem;
+    }
+}
+
+.sideHeading {
+    font-size: 2.8rem;
+    /* Scaled 1.5x from text-3xl */
+    font-weight: 600;
+    color: rgb(16, 11, 84);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: #4b5563;
+    /* text-gray-600 */
+    font-size: 1.68rem;
+    /* Scaled 1.5x */
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    width: fit-content;
+    background-color: rgb(16, 11, 84);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+}
+
+.ctaButton:hover {
+    background-color: rgb(28, 22, 120);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Column & Carousel */
+.rightColumn {
+    grid-column: span 12;
+    order: -1;
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .rightColumn {
+        grid-column: span 5;
+        order: 1;
+    }
+}
+
+.carouselContainer {
+    position: relative;
+    height: 70dvh;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1.875rem;
+    /* 3xl */
+}
+
+.carouselTrack {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    width: 100%;
+}
+
+.slideImage {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: 15rem;
+    /* Mobile height approx */
+}
+
+@media (min-width: 1024px) {
+    .slideImage {
+        height: 48rem;
+        /* Desktop height approx */
+    }
+}
+
+/* Floating Boxes */
+.floatingBox1,
+.floatingBox2 {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 9999px;
+    align-items: center;
+    padding: 0.75rem 3.5rem 0.75rem 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+
+@media (min-width: 1024px) {
+
+    .floatingBox1,
+    .floatingBox2 {
+        display: flex;
+    }
+}
+
+.floatingBox1 {
+    top: 6rem;
+    left: -4rem;
+    z-index: 300;
+}
+
+.floatingBox2 {
+    bottom: 6rem;
+    left: -6rem;
+    z-index: 300;
+}
+
+.floatingAvatar {
+    margin-right: 0.75rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+
+.floatingName {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.floatingRating {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #eab308;
+    /* yellow-500 */
+}
+
+/* Responsive Scaling for small devices */
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.25rem;
+    }
+
+    .mainHeading {
+        font-size: 2.5rem;
+    }
+
+    .subText {
+        font-size: 1.25rem;
+    }
+
+    .sideHeading {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+}

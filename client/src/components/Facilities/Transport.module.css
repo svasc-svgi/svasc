@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap');
+
+.transportContainer {
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: #222;
+    line-height: 1.6;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 120rem;
+    /* Increased for full width, scaled from 1200px */
+    margin: 0 auto;
+    padding: 6rem 3rem;
+}
+
+/* Headings */
+.mainTitle,
+.sectionTitle {
+    font-family: "Playfair Display", serif;
+    color: #0a2c6d;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.mainTitle {
+    font-size: 4.2rem;
+    /* Scaled 1.5x from 2.8rem */
+    letter-spacing: 1.5px;
+}
+
+.sectionTitle {
+    font-size: 3.6rem;
+    /* Scaled 1.5x from 2.4rem */
+}
+
+/* Paragraphs */
+.description {
+    max-width: 90rem;
+    /* Scaled from 900px */
+    margin: 0 auto 5rem;
+    text-align: center;
+    font-size: 1.65rem;
+    /* Scaled 1.5x from 1.1rem */
+    color: #444;
+}
+
+/* Gallery */
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 4.5rem;
+    margin: 7.5rem auto;
+    justify-items: center;
+}
+
+.galleryFrame {
+    width: 100%;
+    max-width: 38rem;
+    text-align: center;
+    margin: 0;
+}
+
+.galleryImg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.galleryImg:hover {
+    transform: scale(1.04);
+    opacity: 0.92;
+}
+
+.bigText {
+    margin-top: 2rem;
+    font-size: 8.25rem;
+    /* Scaled 1.5x from 5.5rem */
+    line-height: 1;
+    font-family: "Playfair Display", serif;
+    color: #0a2c6d;
+    font-weight: 600;
+}
+
+/* Bus Routes Section */
+.routesContainer {
+    margin: 12rem auto 6rem;
+    padding: 6rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.05);
+}
+
+.routesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem 6rem;
+}
+
+.routeList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.routeList li {
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    /* Scaled 1.5x from 1.15rem approx */
+    margin-bottom: 2.7rem;
+    color: #333;
+}
+
+.routeIcon {
+    color: #f5b400;
+    width: 2.1rem;
+    /* Scaled from 1.4rem */
+    height: 2.1rem;
+    margin-right: 2.4rem;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        padding: 5rem 2.5rem;
+    }
+
+    .mainTitle {
+        font-size: 3.6rem;
+    }
+
+    .galleryGrid {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .routesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .bigText {
+        font-size: 5.5rem;
+    }
+
+    .routesContainer {
+        padding: 4rem 2rem;
+        margin-top: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 4rem 1.5rem;
+    }
+
+    .mainTitle {
+        font-size: 2.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.4rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .galleryGrid {
+        grid-template-columns: 1fr;
+        margin: 5rem auto;
+    }
+
+    .galleryFrame {
+        max-width: 100%;
+    }
+
+    .bigText {
+        font-size: 4.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .routesContainer {
+        padding: 3rem 1.5rem;
+        margin-top: 6rem;
+    }
+
+    .routesGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .routeList li {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .routeIcon {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-right: 1.5rem;
+    }
+}

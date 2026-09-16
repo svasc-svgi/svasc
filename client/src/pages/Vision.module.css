@@ -1,0 +1,417 @@
+/* Vision.module.css */
+
+.visionPageWrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.visionContent {
+    width: 100%;
+    transform: translateZ(0);
+}
+
+.visionBlock {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* PARALLAX ITEMS */
+.itemParallaxMedia,
+.itemParallaxContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.itemParallaxMedia {
+    z-index: 1;
+    overflow: hidden;
+}
+
+.itemParallaxMedia img {
+    position: absolute;
+
+
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+}
+
+.itemParallaxContent {
+    z-index: 2;
+    pointer-events: none;
+    /* Allow clicks to pass through if needed, though mainly text */
+}
+
+/* TYPOGRAPHY */
+.flexContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.centeredContent {
+    margin: auto;
+    pointer-events: auto;
+}
+
+.headLarge {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 9vw;
+    line-height: 1.1;
+    color: white;
+    margin: 0;
+}
+
+.headSmall {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.headCentered {
+    text-align: center;
+}
+
+/* PARAGRAPH – BLACK */
+.copy {
+    max-width: 600px;
+    margin: 0 auto 1.7rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    word-wrap: break-word;
+    line-height: 1.9;
+    color: black;
+    text-align: center;
+}
+
+.missionText {
+    color: black;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.captionText {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 1rem 2rem;
+    text-align: inherit;
+}
+
+/* LANDING LINE */
+.sectionLanding::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 24%;
+    width: 10px;
+    height: 80%;
+    background: #ffc100;
+    z-index: 3;
+    transform: translateY(-13vw);
+}
+
+.landingContent {
+    padding-left: 30%;
+}
+
+/* INTRO LINE */
+.sectionIntro {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionIntro::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 80%;
+    background: #f2f5f7;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* IMAGE GRID */
+.imgGrid {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.imgGridItem {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    pointer-events: auto;
+}
+
+.imgGridItem img {
+    display: block;
+    width: 50%;
+    height: 40vh;
+    object-fit: cover;
+}
+
+.typeLeft img {
+    margin-right: auto;
+}
+
+.typeRight img {
+    margin-left: auto;
+}
+
+/* FIXED ALIGNMENT */
+.imgCaption {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    transform: translateY(-50%);
+}
+
+.imgCaption * {
+    text-align: left;
+    padding: 0 2rem;
+}
+
+.typeLeft .imgCaption {
+    right: 0;
+}
+
+.typeRight .imgCaption {
+    left: 0;
+}
+
+/* END LINE */
+.sectionEnd::before {
+    content: "";
+    position: absolute;
+    left: 24%;
+    width: 10px;
+    height: 80%;
+    background: #ffc100;
+    z-index: 3;
+
+    transform: translateY(8vw);
+}
+
+/* CORE VALUES SECTION */
+.coreSection {
+    width: 100vw;
+    position: relative;
+    /* Since parent wrapper is already broken out, this should just be 100% or inherit, but explicitly 100vw is safer if context changes */
+    width: 100%;
+    padding: 10rem 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.coreSection::before {
+    content: "Objectives";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(60px, 15vw, 200px);
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.04);
+    white-space: nowrap;
+    z-index: 0;
+}
+
+.smallHeading {
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mainHeading {
+    font-size: 44px;
+    font-weight: 700;
+    color: #1f2a7c;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .mainHeading {
+        font-size: 32px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+}
+
+.valuesWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.valueCircle {
+    width: 240px;
+    height: 240px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 2.5px solid #f4c430;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+
+
+.valueCircle:not(:first-child) {
+    margin-left: -55px;
+}
+
+.icon {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 18px;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #000;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.valueCircle p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+@media(max-width: 1024px) {
+    .valuesWrapper {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .valueCircle {
+        margin: 20px !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .headLarge {
+        font-size: 15vw;
+    }
+
+    .imgGridItem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgGridItem img {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .imgCaption {
+        position: relative;
+        width: 100%;
+        transform: none;
+        padding: 2rem 0;
+        top: 0;
+        text-align: center;
+    }
+
+    .typeLeft .imgCaption,
+    .typeRight .imgCaption {
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    .imgCaption * {
+        text-align: center;
+    }
+
+    .landingContent {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .sectionLanding::before,
+    .sectionEnd::before {
+        display: none;
+    }
+
+    .missionText {
+        font-size: 1.3rem;
+        padding: 0 2rem;
+    }
+
+    .headSmall {
+        font-size: 1.2rem;
+        letter-spacing: 0.2em;
+    }
+
+    .copy {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+
+    .coreSection {
+        padding: 6rem 0;
+    }
+
+    .valueCircle {
+        width: 180px;
+        height: 180px;
+        padding: 15px;
+    }
+
+    .valueCircle p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headLarge {
+        font-size: 20vw;
+    }
+
+    .valueCircle {
+        width: 150px;
+        height: 150px;
+    }
+}

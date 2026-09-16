@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Volkhov:wght@700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700&family=Rubik:wght@400;600;700&display=swap');
+
+/* Custom Fade Up Animation */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+html,
+body {
+  font-size: 66.5%;
+  font-family: "Poppins", sans-serif;
+  /* overflow-x: hidden;
+  width: 100%;
+  position: relative; */
+}
+
+
+
+ul {
+  list-style: none;
+}
+
+ul i {
+  color: #0a2540;
+  font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+  transition: .3s;
+}
+
+ul i:hover {
+  color: #f4c430;
+}

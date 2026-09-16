@@ -1,0 +1,83 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    padding: 40px 0;
+    user-select: none;
+}
+
+.marqueeContent {
+    display: flex;
+    width: max-content;
+    gap: 80px;
+    animation: scrollMarquee linear infinite;
+}
+
+.marqueeContainer:hover .marqueeContent {
+    animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.logoItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.logoBox {
+    padding: 10px;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+}
+
+.logoBox:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.logoImage {
+    max-width: 100%;
+    max-height: 60px;
+    object-fit: contain;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logoItem:hover .logoImage {
+    filter: grayscale(0) opacity(1);
+}
+
+.logoName {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* For mobile accessibility */
+@media (max-width: 768px) {
+    .logoBox {
+        font-size: 22px;
+        padding: 10px 16px;
+        min-width: 120px;
+    }
+
+    .logoName {
+        font-size: 18px;
+    }
+
+    .marqueeContent {
+        gap: 40px;
+    }
+}
