@@ -75,7 +75,7 @@ const Vision = () => {
                         <div className={styles.centeredContent}>
                             <h2 className={`${styles.headSmall} ${styles.headCentered}`}>Our Aspiration</h2>
                             <p className={styles.copy}>
-                                To inspire creativity, nurture artistic talent and promote cultural appreciation by providing a vibrant platform where students can explore, express and excel in diverse forms of art, contributing to personal growth and the enrichment of the college community.
+                                To emerge as a premier institution of higher learning, dedicated to academic excellence, innovative research, and holistic student development. We strive to inspire creativity, nurture intellectual curiosity, and promote cultural appreciation by providing a dynamic learning environment where students can explore their potential, express their ideas, and excel in their chosen fields. Our ultimate goal is to shape responsible, ethical, and visionary leaders who contribute meaningfully to society and the global community.
                             </p>
                         </div>
                     </div>
@@ -91,11 +91,12 @@ const Vision = () => {
                             <h1 className={`${styles.headLarge} ${styles.headCentered}`} style={{ fontSize: '7vw' }}>MISSION</h1>
                             <div className={`${styles.copy} ${styles.missionText}`} style={{ color: 'white', background: 'rgba(0,0,0,0.5)', padding: '30px', borderRadius: '12px', maxWidth: '700px' }}>
                                 <ul style={{ listStyleType: 'none', padding: 0, textAlign: 'left', margin: 0 }}>
-                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Identify and nurture students' artistic talents.</li>
-                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Encourage participation in intercollegiate and national-level art competitions.</li>
-                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Promote creativity, innovation and aesthetic appreciation.</li>
-                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Provide opportunities for artistic expression through visual and performing arts.</li>
-                                    <li style={{ marginBottom: 0, fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To Foster teamwork, leadership and communication skills through club activities.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To impart quality education through a rigorous and industry-aligned curriculum that fosters critical thinking and problem-solving skills.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To create a vibrant platform for students to discover, develop, and showcase their talents in academics, arts, sports, and extracurricular activities.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To promote a culture of research, innovation, and continuous learning among students and faculty members.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To instill strong ethical values, social responsibility, and a commitment to inclusive growth and environmental sustainability.</li>
+                                    <li style={{ marginBottom: '15px', fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To facilitate industry-academia partnerships, providing students with global exposure, practical training, and excellent placement opportunities.</li>
+                                    <li style={{ marginBottom: 0, fontSize: '1.25rem', display: 'flex', alignItems: 'flex-start' }}><span style={{ color: '#ffc100', marginRight: '10px' }}>✦</span> To foster teamwork, leadership, and effective communication skills, empowering students to navigate a rapidly changing world with confidence.</li>
                                 </ul>
                             </div>
                         </div>
