@@ -17,9 +17,13 @@ const allowedOrigins = [
     'http://localhost:5000'
 ];
 
-app.use(cors({
+if (process.env.CLIENT_URL) {
+    allowedOrigins.push(process.env.CLIENT_URL.trim().replace(/\/$/, ''));
+}
+
+const corsOptions = {
     origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps, Postman, curl)
+        // Allow requests with no origin (like mobile apps, curl, server-to-server)
         if (!origin) return callback(null, true);
         if (
             allowedOrigins.includes(origin) ||
@@ -28,17 +32,16 @@ app.use(cors({
         ) {
             return callback(null, true);
         }
-        // Fallback allow
+        // Fallback allow for any preview/client domains
         return callback(null, true);
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
     credentials: true,
     optionsSuccessStatus: 200
-}));
+};
 
-// Enable pre-flight for all routes
-app.options('*', cors());
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.json());
@@ -53,15 +56,20 @@ mongoose.connect(MONGO_URI, {
     .then(() => console.log('MongoDB Connected Successfully 🚀'))
     .catch(err => console.error('MongoDB Connection Error ❌:', err.message));
 
+// Health Check & Root Routes
+app.get('/', (req, res) => {
+    res.status(200).send('API is running...');
+});
+
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
 // Routes
 const routes = require('./routes');
 app.use('/api', routes);
 
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
-
-// Global Error Handler (Guarantees CORS headers on error responses)
+// Global Error Handler (Guarantees JSON error response)
 app.use((err, req, res, next) => {
     console.error('Server Error:', err);
     res.status(err.status || 500).json({
@@ -70,7 +78,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Start Server - Bind to 0.0.0.0 for Railway / Container environments
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT} (0.0.0.0:${PORT})`);
 });
