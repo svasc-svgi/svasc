@@ -606,7 +606,7 @@
 
 /* Programs Section */
 .programsHero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1518176258769-f227c798150e') center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/bus2.jpg') center;
     background-size: cover;
     padding: 5rem 2rem;
     display: grid;

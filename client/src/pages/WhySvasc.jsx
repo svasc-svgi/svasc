@@ -281,51 +281,7 @@ const WhySvasc = () => {
 
             {/* ================= PROGRAMS SECTION ================= */}
             <main className={styles.wrapper}>
-                <section className={styles.programsSection}>
-                    <ul className={styles.programsGrid}>
-                        <li className={styles.programItem}>
-                            <figure className={styles.programFigure}>
-                                <img src="https://images.unsplash.com/photo-1471421298428-1513ab720a8e" alt="Academics" />
-                                <figcaption className={styles.programFigcaption}>
-                                    <h3>Billions upon billions</h3>
-                                </figcaption>
-                            </figure>
-                            <p className={styles.programText}>
-                                Made in the interiors of collapsing stars star stuff harvesting star light venture billions upon
-                                billions Drake Equation brain is the seed of intelligence?
-                            </p>
-                            <button className={styles.programLink}>Visit Website</button>
-                        </li>
 
-                        <li className={styles.programItem}>
-                            <figure className={styles.programFigure}>
-                                <img src="https://images.unsplash.com/photo-1513309914637-65c20a5962e1" alt="Life at SVASC" />
-                                <figcaption className={styles.programFigcaption}>
-                                    <h3>Drake Equation</h3>
-                                </figcaption>
-                            </figure>
-                            <p className={styles.programText}>
-                                Another world citizens of distant epochs from which we spring descended from astronomers Orion's
-                                sword shores of the cosmic ocean.
-                            </p>
-                            <button className={styles.programLink}>Visit Website</button>
-                        </li>
-
-                        <li className={styles.programItem}>
-                            <figure className={styles.programFigure}>
-                                <img src="https://images.unsplash.com/photo-1535359056830-d4badde79747" alt="Campus Arena" />
-                                <figcaption className={styles.programFigcaption}>
-                                    <h3>Vast cosmic arena</h3>
-                                </figcaption>
-                            </figure>
-                            <p className={styles.programText}>
-                                Galaxies the ash of stellar alchemy prime number science inconspicuous motes of rock and gas
-                                brain is the seed of intelligence.
-                            </p>
-                            <button className={styles.programLink}>Visit Website</button>
-                        </li>
-                    </ul>
-                </section>
 
                 <section className={styles.programsHero}>
                     <h1>Ready to start?</h1>
