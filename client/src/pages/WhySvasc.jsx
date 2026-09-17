@@ -15,6 +15,7 @@ import whyImg from '../assets/why.jpg';
 import why1Img from '../assets/why1.jpg';
 import why2Img from '../assets/why2.JPG';
 import why3Img from '../assets/why3.jpg';
+import bus2Img from '../assets/bus2.jpg';
 
 const WhySvasc = () => {
     const [prevEl, setPrevEl] = React.useState(null);
@@ -283,7 +284,7 @@ const WhySvasc = () => {
             <main className={styles.wrapper}>
 
 
-                <section className={styles.programsHero}>
+                <section className={styles.programsHero} style={{ background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bus2Img}) center / cover` }}>
                     <h1>Ready to start?</h1>
                     <article>
                         <p>

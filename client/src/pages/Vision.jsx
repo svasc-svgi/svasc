@@ -126,6 +126,26 @@ const Vision = () => {
                                 </p>
                             </figcaption>
                         </figure>
+                        
+                        <figure className={`${styles.imgGridItem} ${styles.typeRight}`}>
+                            <img src={heroCampusImg} alt="Innovation & Research" />
+                            <figcaption className={styles.imgCaption}>
+                                <h2 className={styles.headSmall}>Innovation & Research</h2>
+                                <p className={styles.captionText}>
+                                    Fostering a culture of critical thinking, problem-solving, and continuous learning.
+                                </p>
+                            </figcaption>
+                        </figure>
+
+                        <figure className={`${styles.imgGridItem} ${styles.typeLeft}`}>
+                            <img src={exam4Img} alt="Global Perspective" />
+                            <figcaption className={styles.imgCaption}>
+                                <h2 className={styles.headSmall}>Global Perspective</h2>
+                                <p className={styles.captionText}>
+                                    Empowering students to navigate a rapidly changing world with confidence and adaptability.
+                                </p>
+                            </figcaption>
+                        </figure>
 
                     </div>
                 </section>
