@@ -112,7 +112,8 @@ const Vision = () => {
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Integrity & Ethics</h2>
                                 <p className={styles.captionText}>
-                                    We identify, nurture and develop student talents across visual, literary, and performing arts.
+                                    • Upholding the highest standards of honesty and transparency in all academic endeavors.<br /><br />
+                                    • Cultivating a strong sense of moral responsibility and ethical decision-making.
                                 </p>
                             </figcaption>
                         </figure>
@@ -122,7 +123,8 @@ const Vision = () => {
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Excellence & Inclusion</h2>
                                 <p className={styles.captionText}>
-                                    Providing creative outlets for students to express ideas, emotions, and personal viewpoints.
+                                    • Committing to superior quality in education and holistic personal development.<br /><br />
+                                    • Creating a welcoming, diverse environment where every student feels valued and supported.
                                 </p>
                             </figcaption>
                         </figure>
@@ -132,7 +134,8 @@ const Vision = () => {
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Innovation & Research</h2>
                                 <p className={styles.captionText}>
-                                    Fostering a culture of critical thinking, problem-solving, and continuous learning.
+                                    • Fostering a culture of critical thinking, problem-solving, and continuous learning.<br /><br />
+                                    • Encouraging creative approaches and pioneering research to address real-world challenges.
                                 </p>
                             </figcaption>
                         </figure>
@@ -142,7 +145,8 @@ const Vision = () => {
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Global Perspective</h2>
                                 <p className={styles.captionText}>
-                                    Empowering students to navigate a rapidly changing world with confidence and adaptability.
+                                    • Empowering students to navigate a rapidly changing world with confidence and adaptability.<br /><br />
+                                    • Providing global exposure through cross-cultural learning and industry collaborations.
                                 </p>
                             </figcaption>
                         </figure>
