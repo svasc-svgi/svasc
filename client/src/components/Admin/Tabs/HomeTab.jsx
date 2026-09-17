@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CrudManager from '../CrudManager';
 import { FormInput, FormGroup, FileUploader } from '../FormInput';
 import { fetchAdminData, saveAdminData, deleteAdminData } from '../../../utils/adminApi';
+import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -11,6 +12,8 @@ const HomeTab = () => {
   const [blogs, setBlogs] = useState([]);
   const [alumni, setAlumni] = useState([]);
   const [events, setEvents] = useState([]);
+  const [mediaProgress, setMediaProgress] = useState(0);
+  const [isUploadingMedia, setIsUploadingMedia] = useState(false);
 
   const loadData = async () => {
     try {
@@ -36,8 +39,48 @@ const HomeTab = () => {
     loadData();
   }, []);
 
+  // Save Hero Slide with Direct Cloudinary Upload for zero server timeouts & fast chunked video transfer
+  const handleSaveHeroSlide = async (formData, id) => {
+    let mediaSrc = formData.src;
+
+    if (formData.src instanceof File) {
+      setIsUploadingMedia(true);
+      setMediaProgress(0);
+      try {
+        mediaSrc = await uploadDirectToCloudinary(
+          formData.src,
+          'svasc/hero-slides',
+          (pct) => setMediaProgress(pct)
+        );
+      } finally {
+        setIsUploadingMedia(false);
+      }
+    }
+
+    if (!mediaSrc) {
+      throw new Error("Please select a media file (video or image) or provide a valid media URL.");
+    }
+
+    const payload = {
+      ...formData,
+      src: mediaSrc
+    };
+
+    await saveAdminData('/api/home/hero-slides', id, payload, []);
+    loadData();
+  };
+
+  // Direct upload helper for other tabs in Home
   const handleSave = async (endpoint, fileKey, formData, id) => {
-    await saveAdminData(endpoint, id, formData, fileKey);
+    let payload = { ...formData };
+
+    if (fileKey && formData[fileKey] instanceof File) {
+      const folder = `svasc/${endpoint.replace('/api/home/', '')}`;
+      const uploadedUrl = await uploadDirectToCloudinary(formData[fileKey], folder);
+      payload[fileKey] = uploadedUrl;
+    }
+
+    await saveAdminData(endpoint, id, payload, []);
     loadData();
   };
 
@@ -57,7 +100,7 @@ const HomeTab = () => {
           { key: 'type', label: 'Type', type: 'text' },
           { key: 'src', label: 'Media', type: 'media' }
         ]}
-        onSave={(data, id) => handleSave('/api/home/hero-slides', 'src', data, id)}
+        onSave={(data, id) => handleSaveHeroSlide(data, id)}
         onDelete={(id) => handleDelete('/api/home/hero-slides', id)}
         initialFormState={{ type: 'image', title: '', description: '', link: '#', linkLabel: 'Explore', order: 0, src: null }}
         renderForm={(formData, setFormData) => (
@@ -102,6 +145,17 @@ const HomeTab = () => {
               onChange={(e) => setFormData({...formData, src: e.target.files[0]})} 
               previewUrl={typeof formData.src === 'string' ? (formData.src.startsWith('http') || formData.src.startsWith('.') ? formData.src : `${BASE_URL}/${formData.src.replace(/^\/+/, '')}`) : (formData.src ? URL.createObjectURL(formData.src) : null)}
             />
+            {isUploadingMedia && (
+              <div style={{ marginTop: '0.75rem', padding: '0.75rem', background: '#eff6ff', borderRadius: '6px', border: '1px solid #bfdbfe' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: 'bold', color: '#1d4ed8', marginBottom: '4px' }}>
+                  <span>⚡ Direct Cloudinary Media Uploading...</span>
+                  <span>{mediaProgress}%</span>
+                </div>
+                <div style={{ width: '100%', background: '#dbeafe', height: '8px', borderRadius: '999px', overflow: 'hidden' }}>
+                  <div style={{ width: `${mediaProgress}%`, background: '#2563eb', height: '100%', transition: 'width 0.2s ease-out' }} />
+                </div>
+              </div>
+            )}
           </>
         )}
       />

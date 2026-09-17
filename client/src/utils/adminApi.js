@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+const rawApiUrl = import.meta.env.VITE_API_URL;
+const rawBaseUrl = import.meta.env.VITE_BASE_URL;
+const BASE_URL = rawBaseUrl || (rawApiUrl ? rawApiUrl.replace(/\/api\/?$/, '') : 'http://localhost:5000');
 
 export const fetchAdminData = async (endpoint) => {
   const res = await axios.get(`${BASE_URL}${endpoint}`);

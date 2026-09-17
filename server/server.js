@@ -49,7 +49,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database Connection 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/college-website';
+const MONGO_URI = process.env.MONGO_URI
 mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 5000,
 })

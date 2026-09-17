@@ -20,7 +20,8 @@ const createSlide = async (req, res) => {
         
         let mediaSrc = textSrc || '';
         if (req.file) {
-            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides');
+            const isVideo = (type === 'video') || req.file.mimetype.startsWith('video/') || req.file.originalname.match(/\.(mp4|webm|ogg|mov)$/i);
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides', isVideo ? 'video' : 'auto');
             mediaSrc = uploadResult.secure_url;
         }
 
@@ -62,10 +63,11 @@ const updateSlide = async (req, res) => {
         if (order !== undefined) updateData.order = parseInt(order, 10);
 
         if (req.file) {
-            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides');
+            const isVideo = (type === 'video') || req.file.mimetype.startsWith('video/') || req.file.originalname.match(/\.(mp4|webm|ogg|mov)$/i);
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/hero-slides', isVideo ? 'video' : 'auto');
             updateData.src = uploadResult.secure_url;
             if (!type) {
-                updateData.type = req.file.mimetype.startsWith('video/') || uploadResult.secure_url.match(/\.(mp4|webm|ogg|mov)$/i) ? 'video' : 'image';
+                updateData.type = isVideo ? 'video' : 'image';
             }
         } else if (textSrc !== undefined && textSrc !== '') {
             updateData.src = textSrc;

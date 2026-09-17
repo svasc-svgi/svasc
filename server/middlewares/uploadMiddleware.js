@@ -31,6 +31,7 @@ const uploadToCloudinary = (fileBuffer, folder = 'svasc', resourceType = 'auto')
       return reject(new Error('Invalid file buffer for upload'));
     }
 
+    const isVideo = resourceType === 'video';
     const options = {
       folder: folder,
       resource_type: resourceType,
@@ -38,15 +39,22 @@ const uploadToCloudinary = (fileBuffer, folder = 'svasc', resourceType = 'auto')
       timeout: 300000, // 5 min timeout for high quality videos
     };
 
-    const uploadStream = cloudinary.uploader.upload_stream(
-      options,
-      (error, result) => {
-        if (error) {
-          return reject(error);
-        }
-        resolve(result);
-      }
-    );
+    // Use upload_chunked_stream for videos to prevent stream timeout/hang
+    const uploadStream = isVideo
+      ? cloudinary.uploader.upload_chunked_stream(
+          options,
+          (error, result) => {
+            if (error) return reject(error);
+            resolve(result);
+          }
+        )
+      : cloudinary.uploader.upload_stream(
+          options,
+          (error, result) => {
+            if (error) return reject(error);
+            resolve(result);
+          }
+        );
 
     uploadStream.on('error', (err) => {
       reject(err);

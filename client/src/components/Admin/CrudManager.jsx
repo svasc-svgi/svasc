@@ -43,7 +43,7 @@ const CrudManager = ({
       handleCloseModal();
     } catch (error) {
       console.error("Error saving data:", error);
-      alert("Failed to save data. Please check the console.");
+      alert(error.message || "Failed to save data. Please check the console.");
     } finally {
       setIsSubmitting(false);
     }
