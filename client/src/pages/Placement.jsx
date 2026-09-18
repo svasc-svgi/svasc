@@ -32,7 +32,7 @@ const PlacementCell = () => {
             <Hero
                 title="Placement and Training Cell"
                 description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training, and placement opportunities at Shree Venkateshwara Arts and Science College."
-                image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200"
+                image="/placement/placementhero.jpg"
             />
             <header className={styles.heroSection}>
                 <div className={styles.heroBackground}></div>
@@ -66,7 +66,7 @@ const PlacementCell = () => {
                         <div className={styles.heroGridLeft}>
                             <div className={styles.heroImageLarge}>
                                 <img
-                                    src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=600"
+                                    src="/placement/placement1.jpg"
                                     alt="Student Interview Prep"
                                 />
                             </div>
@@ -88,7 +88,7 @@ const PlacementCell = () => {
                             </div>
                             <div className={styles.heroImageLarge}>
                                 <img
-                                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600"
+                                    src="/placement/placement2.jpg"
                                     alt="Professional Career Seminar"
                                 />
                             </div>

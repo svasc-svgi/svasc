@@ -9,6 +9,13 @@ import seminar from "@/assets/hero-seminar.jpg";
 
 /* ─── image pool for section imagery ──────────────────────────────────────── */
 const imgPool = [campus, students, seminar, service];
+const imgMap: Record<string, string> = { campus, students, service, seminar };
+
+function resolveImg(val: any, fallback: string): string {
+  if (!val) return fallback;
+  if (typeof val === "string" && imgMap[val]) return imgMap[val];
+  return val;
+}
 
 /* ─── shared inline style helpers ─────────────────────────────────────────── */
 const bodyText: React.CSSProperties = {
@@ -780,7 +787,10 @@ export function BlockRenderer({
 }) {
   const tinted = index % 2 === 1;
   const imageLeft = index % 2 === 0;
-  const sectionImg = (block as any).image || imgPool[index % imgPool.length] ?? campus;
+  const rawImg = (block as any).image;
+  const sectionImg = resolveImg(rawImg, imgPool[index % imgPool.length] || campus);
+  const planImg1 = resolveImg((block as any).image1 || (block as any).image, campus);
+  const planImg2 = resolveImg((block as any).image2 || ((block as any).images && (block as any).images[1]), students);
   const cardCols =
     variant % 3 === 0
       ? "md:grid-cols-3"
@@ -1033,7 +1043,7 @@ export function BlockRenderer({
                       }}
                     >
                       <img
-                        src={(c as any).image || imgPool[i % imgPool.length] ?? campus}
+                        src={(c as any).image || imgPool[i % imgPool.length] || campus}
                         alt=""
                         aria-hidden="true"
                         loading="lazy"
@@ -1172,7 +1182,7 @@ export function BlockRenderer({
                   }}
                 >
                   <img
-                    src={campus}
+                    src={planImg1}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
@@ -1189,7 +1199,7 @@ export function BlockRenderer({
                   }}
                 >
                   <img
-                    src={students}
+                    src={planImg2}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
@@ -1229,7 +1239,7 @@ export function BlockRenderer({
               }}
             >
               <img
-                src={service}
+                src={resolveImg((block as any).image, service)}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

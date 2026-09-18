@@ -1158,19 +1158,22 @@ export const pages = [
     title: "Placement & Training Cell",
     hero: "Placement & Training",
     intro: "Engineering career breakthroughs — from classroom to boardroom — through world-class training, relentless industry partnerships and personalized placement support.",
-    image: "students",
+    image: "/placement/placementhero.jpg",
     blocks: [
       {
         kind: "prose",
         title: "Vision",
+        image: "/placement/placement1.jpg", 
         body: [
           "The Placement & Training Cell of SVASC College envisions every graduate stepping out of campus gates not just with a degree, but with a validated set of professional competencies, a polished career narrative and a confirmed employment offer in hand — prepared not merely for the job market of today but for the dynamic, technology-driven workplace of tomorrow.",
           "We aspire to be the institutional bridge between SVASC's academic rigor and the ever-evolving expectations of India's leading employers — building graduates who are not only knowledgeable but also adaptable, communicative, ethical and genuinely ready to create value from Day One of their professional careers.",
         ],
+         
       },
       {
         kind: "list",
         title: "Mission",
+        image: "/placement/placement2.jpg", 
         items: [
           "Deliver a structured, progressive three-year training roadmap that systematically builds each student's aptitude strength, technical knowledge, communication confidence and professional readiness — aligned with the actual requirements of campus recruitment drives.",
           "Establish and actively nurture an expanding network of corporate partnerships — including MNC recruiters, SME employers, IT companies and public sector organizations — to create a robust, diverse pipeline of on-campus and off-campus placement opportunities.",
@@ -1198,6 +1201,8 @@ export const pages = [
       {
         kind: "plan",
         title: "Semester-Wise Placement Readiness Training Plan",
+        image: "/placement/placementcell.jpg",
+        image2: "/placement/statics.jpg",
         items: [
           {
             when: "I Year · II Semester",

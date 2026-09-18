@@ -63,7 +63,7 @@ const Statistics = () => {
             <Hero
                 title="Placement Statistics"
                 description="Excellence • Success • Global Competence"
-                image="https://images.unsplash.com/photo-1438109491414-7198515b166b?q=90&fm=jpg"
+                image="/placement/svgi.jpg"
             />
 
             {/* Focus Section */}
@@ -71,7 +71,7 @@ const Statistics = () => {
                 <div className={`${styles.container} ${styles.focusContent}`}>
                     <div className={styles.focusImageContent}>
                         <img
-                            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000&auto=format&fit=crop"
+                            src="/placement/statics.jpg"
                             alt="Student Excellence"
                         />
                     </div>
@@ -194,7 +194,7 @@ const Statistics = () => {
                 <div className={`${styles.container} ${styles.recruiterCategories}`}>
                     <div className={styles.focusImageContent}>
                         <img
-                            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1000&auto=format&fit=crop"
+                            src="placement/placementcell.jpg"
                             alt="Student Group"
                         />
                     </div>
