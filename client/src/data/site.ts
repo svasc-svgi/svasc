@@ -1,3 +1,6 @@
+import her0Img from "@/assets/her0.jpg";
+import newImg from "@/assets/new.jpg";
+
 export type Member = {
   name: string;
   role: string;
@@ -1620,7 +1623,8 @@ export const pages: PageDef[] = [
     title: "Grievance Redressal Committee",
     hero: "Grievance Redressal",
     intro: "Providing a structured, confidential platform for students to raise academic, administrative, and personal concerns.",
-    image: "campus",
+    image: her0Img,
+    introImage: newImg,
     blocks: [
       {
         kind: "prose",

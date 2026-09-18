@@ -12,6 +12,8 @@ import home3Img from '../assets/home3.jpg';
 import libraryImg from '../assets/library.JPG';
 import mileImg from '../assets/mile.jpg';
 import whyImg from '../assets/why.jpg';
+import her0Img from '../assets/her0.jpg';
+import newImg from '../assets/new.jpg';
 
 export const defaultActivities = [
   {
@@ -880,7 +882,8 @@ export const pages = [
     title: "Internal Grievances Committee",
     hero: "Grievance Redressal",
     intro: "Ensuring every voice at SVASC is heard, every concern is addressed with fairness, and every stakeholder feels safe, respected and protected by a just institutional system.",
-    image: "campus",
+    image: her0Img,
+    introImage: newImg,
     blocks: [
       {
         kind: "prose",
