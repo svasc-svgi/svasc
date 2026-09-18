@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { pages } from "@/data/activitiesData";
+import { pages, type Block } from "@/data/site";
 import { Hero } from "./Hero";
 import { BlockRenderer } from "./BlockRenderer";
 import { Reveal } from "./Reveal";
@@ -29,13 +29,18 @@ export function CellPage({ page }: { page: any }) {
   
   const introImg = page.introImage || pageImg;
 
+  const cleanSubtitle = typeof page.intro === "string"
+    ? (page.intro.includes("<") && page.intro.includes(">")
+        ? page.intro.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()
+        : page.intro)
+    : "";
 
   return (
     <div style={{ fontSize: "16px", fontFamily: "'Jost', system-ui, sans-serif" }}>
       <main>
         <Hero
           title={page.hero}
-          subtitle={page.intro}
+          subtitle={cleanSubtitle}
           image={pageImg}
           eyebrow={`SVASC · ${page.nav}`}
         />
@@ -162,7 +167,7 @@ export function CellPage({ page }: { page: any }) {
                     maxWidth: "48ch",
                   }}
                 >
-                  {page.intro}
+                  {cleanSubtitle}
                 </p>
               </Reveal>
             </div>
@@ -240,7 +245,7 @@ export function CellPage({ page }: { page: any }) {
         </section>
 
         {/* ── Content blocks ────────────────────────────────────── */}
-        {(page.blocks || []).map((b, i) => (
+        {(page.blocks || []).map((b: Block, i: number) => (
           <BlockRenderer key={i} block={b} index={i} variant={idx} />
         ))}
 

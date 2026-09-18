@@ -34,6 +34,49 @@ export default function DynamicClubDetail() {
             return titleClean === cleanSlug || linkClean === cleanSlug || (c.title || '').toLowerCase().includes(slugPattern);
           });
 
+          const getFallback = (slugStr) => {
+            let fb = pageBySlug(`/${slugStr}`);
+            if (!fb) {
+              fb = pages.find((p) => {
+                const pSlug = (p.slug || '').replace(/^\//, '').toLowerCase();
+                return pSlug === slugStr || pSlug.includes(slugStr) || slugStr.includes(pSlug);
+              });
+            }
+            return fb;
+          };
+
+          const extractCleanIntro = (cardOrCategory, fallbackPage, defaultTitle) => {
+            if (cardOrCategory.intro && typeof cardOrCategory.intro === 'string' && !cardOrCategory.intro.includes('<') && !cardOrCategory.intro.includes('>')) {
+              return cardOrCategory.intro.trim();
+            }
+            if (cardOrCategory.rawDescription && typeof cardOrCategory.rawDescription === 'string' && !cardOrCategory.rawDescription.includes('<') && !cardOrCategory.rawDescription.includes('>')) {
+              return cardOrCategory.rawDescription.trim();
+            }
+            if (fallbackPage?.intro && typeof fallbackPage.intro === 'string' && !fallbackPage.intro.includes('<')) {
+              return fallbackPage.intro.trim();
+            }
+            if (cardOrCategory.description && typeof cardOrCategory.description === 'string' && !cardOrCategory.description.includes('<') && !cardOrCategory.description.includes('>')) {
+              return cardOrCategory.description.trim();
+            }
+            if (cardOrCategory.vision && typeof cardOrCategory.vision === 'string' && cardOrCategory.vision.trim()) {
+              const firstLine = cardOrCategory.vision.trim().split('\n')[0];
+              if (firstLine) {
+                const sentenceMatch = firstLine.match(/^(.*?[.!?])(?:\s|$)/);
+                return sentenceMatch ? sentenceMatch[1] : (firstLine.length > 180 ? firstLine.slice(0, 177) + '...' : firstLine);
+              }
+            }
+            if (cardOrCategory.description && typeof cardOrCategory.description === 'string') {
+              const pMatch = cardOrCategory.description.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+              const textToClean = pMatch ? pMatch[1] : cardOrCategory.description;
+              const stripped = textToClean.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+              if (stripped && !stripped.toLowerCase().startsWith('vision') && !stripped.toLowerCase().startsWith('mission')) {
+                const sentenceMatch = stripped.match(/^(.*?[.!?])(?:\s|$)/);
+                return sentenceMatch ? sentenceMatch[1] : (stripped.length > 180 ? stripped.slice(0, 177) + '...' : stripped);
+              }
+            }
+            return `Welcome to ${defaultTitle || 'the club'} at SVASC.`;
+          };
+
           if (matchedCard) {
             const blocks = [];
 
@@ -90,13 +133,16 @@ export default function DynamicClubDetail() {
               });
             }
 
+            const fb = getFallback(cleanSlug);
+            const cardIntro = extractCleanIntro(matchedCard, fb, matchedCard.title);
+
             const formatted = {
               slug: `/${cleanSlug}`,
               nav: matchedCard.title,
               title: matchedCard.title,
               hero: matchedCard.title,
-              intro: matchedCard.description || `Welcome to ${matchedCard.title} at SVASC.`,
-              motto: matchedCard.motto || 'Empowering Students Through Holistic Co-Curricular Learning',
+              intro: cardIntro,
+              motto: matchedCard.motto || fb?.motto || 'Empowering Students Through Holistic Co-Curricular Learning',
               image: matchedCard.image || apiData.bannerImage || '/hero-campus.jpg',
               customImage: matchedCard.image || apiData.bannerImage,
               blocks: blocks
@@ -138,13 +184,16 @@ export default function DynamicClubDetail() {
               }
             }
 
+            const fb = getFallback(cleanSlug);
+            const categoryIntro = extractCleanIntro(apiData, fb, apiData.category);
+
             const formatted = {
               slug: `/${cleanSlug}`,
               nav: apiData.category,
               title: apiData.category,
               hero: apiData.category,
-              intro: apiData.intro || apiData.description || `Welcome to the ${apiData.category} of SVASC.`,
-              motto: apiData.clubsSummary || 'Excellence in Action · SVASC',
+              intro: categoryIntro,
+              motto: apiData.clubsSummary && !apiData.clubsSummary.includes('<') ? apiData.clubsSummary.split('\n')[0] : (fb?.motto || 'Excellence in Action · SVASC'),
               image: apiData.bannerImage || '/hero-campus.jpg',
               customImage: apiData.bannerImage,
               blocks: blocks

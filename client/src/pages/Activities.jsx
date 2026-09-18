@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
-import { defaultActivities } from '../data/activitiesData';
 import { getActivities } from '../services/activityService';
 import campusHeroImg from '../assets/campushero.jpg';
 import clubImg from '../assets/club.jpg';
@@ -17,7 +16,8 @@ import commitiesImg from '../assets/commities.JPG';
 const ProjectsPortfolio = () => {
   const navigate = useNavigate();
   const { category: categoryParam } = useParams();
-  const [projects, setProjects] = useState(defaultActivities);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
   const [projectHeights, setProjectHeights] = useState({});
@@ -44,7 +44,10 @@ const ProjectsPortfolio = () => {
   }, []);
 
   const compileCopyHTML = (item) => {
-    if (item.description && item.description.includes('<h3')) {
+    if (item.categoryMode === 'html' && item.description) {
+      return item.description;
+    }
+    if (item.description && (item.description.includes('<h3') || (!item.intro && !item.vision && !item.mission && !item.clubsSummary && !item.objectives))) {
       return item.description;
     }
     
@@ -114,22 +117,24 @@ const ProjectsPortfolio = () => {
   };
 
   useEffect(() => {
+    let isMounted = true;
     const fetchActivities = async () => {
       try {
+        setLoading(true);
         const res = await getActivities();
         const activityList = res?.data || res || [];
-        if (Array.isArray(activityList) && activityList.length > 0) {
+        if (isMounted && Array.isArray(activityList)) {
           const mapped = activityList.map(item => {
-            let overrideImg = null;
+            let fallbackImg = campusHeroImg;
             const catLower = (item.category || '').toLowerCase();
-            if (catLower.includes("svasc cells") || catLower === "svasc cells") overrideImg = clubImg;
-            else if (catLower.includes("committee") || catLower === "committee") overrideImg = commitiesImg;
-            else if (catLower.includes("college club") || catLower === "college club") overrideImg = cellImg;
+            if (catLower.includes("svasc cells") || catLower === "svasc cells") fallbackImg = clubImg;
+            else if (catLower.includes("committee") || catLower === "committee") fallbackImg = commitiesImg;
+            else if (catLower.includes("college club") || catLower === "college club") fallbackImg = cellImg;
 
             return {
               ID: item._id,
               category: item.category,
-              bImage: overrideImg || resolveImage(item.bannerImage),
+              bImage: resolveImage(item.bannerImage) || fallbackImg,
               copy: compileCopyHTML(item),
               cards: (item.cards || []).map(card => {
                 return {
@@ -144,41 +149,43 @@ const ProjectsPortfolio = () => {
           setProjects(mapped);
         }
       } catch (err) {
-        console.error("Error fetching activities", err);
+        console.error("Error fetching activities from API:", err);
+      } finally {
+        if (isMounted) setLoading(false);
       }
     };
     fetchActivities();
+    return () => { isMounted = false; };
   }, []);
 
-
-
-
-  const getProjectFromParam = (param) => {
-    if (!param) return null;
+  const getProjectFromParam = (param, list = projects) => {
+    if (!param || !list || list.length === 0) return null;
     const p = param.toLowerCase().trim().replace(/[^a-z0-9]+/g, '');
-    return projects.find((item) => {
-      const id = item.ID.toLowerCase();
-      const cat = item.category.toLowerCase().replace(/[^a-z0-9]+/g, '');
+    return list.find((item) => {
+      const id = (item.ID || '').toString().toLowerCase();
+      const cat = (item.category || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
       if (p === 'club' || p === 'clubs' || p === 'collegeclub' || p === 'collegeclubs') return id === 'collegeclub' || cat.includes('club');
       if (p === 'cell' || p === 'cells' || p === 'svasccells' || p === 'svasccell') return id === 'svasccells' || cat.includes('cell');
-      if (p === 'committee' || p === 'committees') return id === 'committee' || cat.includes('committee');
-      return id === p || cat === p;
+      if (p === 'committee' || p === 'committees' || p === 'collegecommittee') return id === 'committee' || cat.includes('committee');
+      if (p === 'wing' || p === 'wings' || p === 'professionalwings' || p === 'professionalwing') return cat.includes('wing') || cat.includes('professional');
+      return id === p || cat === p || cat.includes(p) || p.includes(cat);
     });
   };
 
   const getSlugFromProject = (project) => {
     if (!project) return '';
-    const id = project.ID.toLowerCase();
-    if (id === 'collegeclub') return 'college-club';
-    if (id === 'svasccells') return 'svasc-cells';
-    if (id === 'committee') return 'committee';
+    const catLower = (project.category || '').toLowerCase();
+    if (catLower.includes('college club')) return 'college-club';
+    if (catLower.includes('cell')) return 'svasc-cells';
+    if (catLower.includes('committee')) return 'committee';
+    if (catLower.includes('professional') || catLower.includes('wing')) return 'professional-wings';
     return project.category.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
   };
 
   // Synchronize categoryParam with active project state
   useEffect(() => {
-    if (categoryParam) {
-      const match = getProjectFromParam(categoryParam);
+    if (categoryParam && projects.length > 0) {
+      const match = getProjectFromParam(categoryParam, projects);
       if (match) {
         setSelectedProject(match.ID);
         setHighlightedContent(match);
@@ -186,7 +193,7 @@ const ProjectsPortfolio = () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 300);
       }
-    } else {
+    } else if (!categoryParam) {
       setSelectedProject(null);
     }
   }, [categoryParam, projects]);
