@@ -780,7 +780,7 @@ export function BlockRenderer({
 }) {
   const tinted = index % 2 === 1;
   const imageLeft = index % 2 === 0;
-  const sectionImg = imgPool[index % imgPool.length] ?? campus;
+  const sectionImg = (block as any).image || imgPool[index % imgPool.length] ?? campus;
   const cardCols =
     variant % 3 === 0
       ? "md:grid-cols-3"
@@ -1033,7 +1033,7 @@ export function BlockRenderer({
                       }}
                     >
                       <img
-                        src={imgPool[i % imgPool.length] ?? campus}
+                        src={(c as any).image || imgPool[i % imgPool.length] ?? campus}
                         alt=""
                         aria-hidden="true"
                         loading="lazy"

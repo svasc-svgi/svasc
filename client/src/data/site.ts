@@ -15,10 +15,10 @@ export type GalleryItem = {
 };
 
 export type Block =
-  | { kind: "prose"; title?: string; body: string[] }
-  | { kind: "list"; title: string; items: string[] }
-  | { kind: "numbered"; title: string; items: string[] }
-  | { kind: "cards"; title: string; items: { title: string; body: string }[] }
+  | { kind: "prose"; title?: string; body: string[]; image?: any }
+  | { kind: "list"; title: string; items: string[]; image?: any }
+  | { kind: "numbered"; title: string; items: string[]; image?: any }
+  | { kind: "cards"; title: string; items: { title: string; body: string; image?: any }[] }
   | { kind: "members"; title: string; items: Member[] }
   | { kind: "plan"; title: string; items: { when: string; label: string; body: string }[] }
   | { kind: "gallery"; title: string; subtitle?: string; items: GalleryItem[] };
@@ -29,7 +29,8 @@ export type PageDef = {
   title: string;
   hero: string;
   intro: string;
-  image: "campus" | "students" | "service" | "seminar" | string;
+  image: "campus" | "students" | "service" | "seminar" | string | any;
+  introImage?: any;
   customImage?: string;
   motto?: string;
   blocks: Block[];

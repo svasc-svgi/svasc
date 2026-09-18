@@ -26,6 +26,8 @@ export function CellPage({ page }: { page: any }) {
     (typeof next?.image === "string" && (next.image.startsWith("/") || next.image.startsWith("http"))
       ? next.image
       : imgMap[next?.image as keyof typeof imgMap] || campus);
+  
+  const introImg = page.introImage || pageImg;
 
 
   return (
@@ -177,7 +179,7 @@ export function CellPage({ page }: { page: any }) {
                   }}
                 >
                   <img
-                    src={pageImg}
+                    src={introImg}
                     alt={page.title}
                     loading="lazy"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}

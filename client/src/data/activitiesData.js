@@ -4,6 +4,13 @@ import cellImg from '../assets/cell.JPG';
 import commitiesImg from '../assets/commities.JPG';
 import sportheroImg from '../assets/sporthero1.jpg';
 import examImg from '../assets/exam1.jpg';
+import club0Img from '../assets/club0.jpg';
+import campus1Img from '../assets/campus1.jpg';
+import home1Img from '../assets/home1.jpg';
+import home3Img from '../assets/home3.jpg';
+import libraryImg from '../assets/library.JPG';
+import mileImg from '../assets/mile.jpg';
+import whyImg from '../assets/why.jpg';
 
 export const defaultActivities = [
   {
@@ -519,12 +526,14 @@ export const pages = [
     title: "Rotaract Club",
     hero: "Rotaract Club",
     intro: "Service Above Self — where student leaders transform compassion into action, and local service into global impact.",
-    image: "service",
+    image: club0Img,
+    introImage: clubImg,
     motto: "Service Above Self",
     blocks: [
       {
         kind: "prose",
         title: "Vision",
+        image: campus1Img,
         body: [
           "The Rotaract Club of SVASC College envisions a campus culture where service is not an obligation but a calling — where every student leader understands that their education carries the privilege and responsibility to uplift those less fortunate. We aspire to build the next generation of ethical, globally aware professionals who lead with empathy, serve with integrity and innovate for social good.",
           "Our vision extends beyond campus gates: we seek to create ripples of sustainable, community-rooted change in the areas of health, education, environment and livelihood through purposeful student-driven projects. We believe that Rotaract membership is not a four-year college experience — it is a lifelong identity defined by the motto 'Service Above Self.'",
@@ -547,22 +556,27 @@ export const pages = [
         items: [
           {
             title: "Community Service & Social Impact",
+            image: home1Img,
             body: "Execute a minimum of four major community service projects annually spanning healthcare (free medical camps), environmental stewardship (tree plantation, plastic-free drives), literacy (tutoring underserved children) and sanitation — partnering with at least two local NGOs or Rotary clubs to ensure co-investment and community ownership for lasting, verifiable impact.",
           },
           {
             title: "Professional Development & Employability",
+            image: home3Img,
             body: "Deliver six structured skill-building workshops per year covering high-demand competencies: public speaking and leadership, advanced resume and LinkedIn optimization, entrepreneurship ideation and pitch preparation, and corporate interview strategies. Leverage the Rotary Global Network for mentorship connections, internship placements and live project opportunities that bridge academia and industry.",
           },
           {
             title: "Club Service, Culture & Fellowship",
+            image: libraryImg,
             body: "Sustain a vibrant, participatory club culture with 80%+ member engagement at weekly meetings, bi-monthly leadership team activities and clearly defined rotational service roles. Mark key milestones — Rotaract Week, Charter Anniversary, World Service Day — with fellowship outings and celebration events that reinforce the Rotaract identity and belonging.",
           },
           {
             title: "International Understanding & Global Citizenship",
+            image: mileImg,
             body: "Complete at least one internationally themed service project or cultural exchange collaboration annually — aligned with Rotary International's global campaigns. Promote cross-cultural awareness, multilingual communication and global citizenship values among members through international speaker sessions, documentary screenings and collaborative social media campaigns with Rotaract clubs worldwide.",
           },
           {
             title: "Campus & Institutional Contribution",
+            image: whyImg,
             body: "Serve as the social conscience of SVASC campus by running student welfare initiatives: voluntary blood donation drives, mental health awareness weeks (in partnership with counselors), zero-waste campus campaigns, peer tutoring programs for academically at-risk students and a student-administration dialogue forum that gives students a structured voice in institutional matters.",
           },
         ],
