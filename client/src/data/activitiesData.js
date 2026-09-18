@@ -5,6 +5,7 @@ import commitiesImg from '../assets/commities.JPG';
 import sportheroImg from '../assets/sporthero1.jpg';
 import examImg from '../assets/exam1.jpg';
 import club0Img from '../assets/club0.jpg';
+import club2Img from '../assets/club2.jpg';
 import campus1Img from '../assets/campus1.jpg';
 import home1Img from '../assets/home1.jpg';
 import home3Img from '../assets/home3.jpg';
@@ -527,7 +528,7 @@ export const pages = [
     hero: "Rotaract Club",
     intro: "Service Above Self — where student leaders transform compassion into action, and local service into global impact.",
     image: club0Img,
-    introImage: clubImg,
+    introImage: club2Img,
     motto: "Service Above Self",
     blocks: [
       {
