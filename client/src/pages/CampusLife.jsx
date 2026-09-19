@@ -12,7 +12,7 @@ import campusImage from '../assets/campus.jpg';
 import campusHeroImage from '../assets/campushero.jpg';
 import computerLabImg from '../assets/computerlab.JPG';
 import libraryImg from '../assets/library.JPG';
-import clubImg from '../assets/club.jpg';
+import clubImg from '../assets/why4.jpg';
 import sportsImg from '../assets/sports1.jpg';
 import campusDroneImg from '../assets/DJI_0589.JPG';
 import danceImg from '../assets/dance.jpg';
