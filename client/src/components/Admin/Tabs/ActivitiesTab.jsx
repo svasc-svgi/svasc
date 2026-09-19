@@ -198,7 +198,8 @@ const buildActivityFormData = (formData) => {
     return {
       title: card.title || '',
       description: compileCardHTML(card),
-      rawDescription: card.description || '',
+      intro: card.intro || '',
+      rawDescription: card.intro || card.description || '',
       image: isNewFile ? '' : (typeof card.image === 'string' ? card.image : ''),
       mode: card.mode || 'structured',
       vision: card.vision || '',
@@ -223,6 +224,7 @@ const CardBuilder = ({ cards, setCards }) => {
     ...cards, 
     { 
       title: '', 
+      intro: '',
       mode: 'structured', 
       vision: '', 
       mission: '', 
@@ -346,6 +348,14 @@ const CardBuilder = ({ cards, setCards }) => {
               <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0a1264', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Structured Card Details (Vision, Mission, Objectives & Tables)
               </div>
+
+              <FormInput
+                label="Introduction / Tagline (Hero Subtitle)"
+                type="textarea"
+                value={card.intro || ''}
+                onChange={(e) => updateCard(idx, 'intro', e.target.value)}
+                placeholder="Enter a concise 1-2 sentence tagline/intro for the hero section..."
+              />
 
               <FormInput
                 label="Vision"

@@ -86,6 +86,7 @@ const createActivity = async (req, res) => {
                 cards.push({
                     title: c.title || '',
                     description: c.description || c.rawDescription || '',
+                    intro: c.intro || '',
                     image: cardImg,
                     vision: c.vision || '',
                     mission: c.mission || '',
@@ -210,6 +211,7 @@ const updateActivity = async (req, res) => {
                 updatedCards.push({
                     title: c.title || '',
                     description: c.description || c.rawDescription || '',
+                    intro: c.intro !== undefined ? c.intro : ((oldActivity.cards && oldActivity.cards[i]) ? oldActivity.cards[i].intro : ''),
                     image: cardImg,
                     vision: c.vision || '',
                     mission: c.mission || '',

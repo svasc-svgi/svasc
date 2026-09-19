@@ -22,6 +22,10 @@ const activityCardSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
+    intro: {
+        type: String,
+        default: ''
+    },
     image: {
         type: String,
         required: true

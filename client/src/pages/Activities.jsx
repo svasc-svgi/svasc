@@ -22,7 +22,7 @@ const ProjectsPortfolio = () => {
   const [highlightedContent, setHighlightedContent] = useState({ ID: "", category: "", bImage: "", copy: "", cards: [] });
   const [projectHeights, setProjectHeights] = useState({});
   const [heroData, setHeroData] = useState({
-    title: 'SVASC Campus Activities',
+    title: 'Campus Activities',
     description: 'Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC.',
     image: campusHeroImg
   });

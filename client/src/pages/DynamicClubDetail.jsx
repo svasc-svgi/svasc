@@ -1,81 +1,98 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { CellPage } from '@/components/site/CellPage';
-import { pageBySlug, pages } from '@/data/activitiesData';
-import { getActivityById } from '@/services/activityService';
+import { getActivityById, getActivities } from '@/services/activityService';
 
 export default function DynamicClubDetail() {
-  const { slug, category } = useParams();
+  const { slug } = useParams();
   const [pageData, setPageData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\//, '');
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchClubDetail = async () => {
       if (!cleanSlug) {
-        setLoading(false);
+        if (isMounted) setLoading(false);
         return;
       }
 
       try {
-        setLoading(true);
+        if (isMounted) setLoading(true);
 
-        // 1. Try fetching from Backend API
-        const res = await getActivityById(cleanSlug);
-        const apiData = res?.data || res;
+        // 1. Fetch from Backend API
+        let apiData = null;
+        let matchedCard = null;
 
-        if (apiData) {
-          // Check if a specific card in this category matches the slug
-          const slugPattern = cleanSlug.replace(/[-_]/g, ' ');
-          const matchedCard = (apiData.cards || []).find(c => {
-            const titleClean = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
-            const linkClean = (c.link || '').toLowerCase().replace(/^\//, '');
-            return titleClean === cleanSlug || linkClean === cleanSlug || (c.title || '').toLowerCase().includes(slugPattern);
-          });
+        try {
+          const res = await getActivityById(cleanSlug);
+          if (res?.success && res?.data) {
+            apiData = res.data;
+            matchedCard = res.data.matchedCard || null;
+          }
+        } catch (e) {
+          // Fall through to query all activities
+        }
 
-          const getFallback = (slugStr) => {
-            let fb = pageBySlug(`/${slugStr}`);
-            if (!fb) {
-              fb = pages.find((p) => {
-                const pSlug = (p.slug || '').replace(/^\//, '').toLowerCase();
-                return pSlug === slugStr || pSlug.includes(slugStr) || slugStr.includes(pSlug);
+        // If not found directly, fetch all activities and search across categories and cards
+        if (!apiData || (!matchedCard && !apiData.category)) {
+          try {
+            const allRes = await getActivities();
+            const allCategories = allRes?.data || (Array.isArray(allRes) ? allRes : []);
+            const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
+            const cleanWords = cleanSlug.replace(/[^a-z0-9]+/g, ' ').trim();
+
+            for (const cat of allCategories) {
+              const card = (cat.cards || []).find(c => {
+                const cardSlug = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const cardWords = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+                const linkSlug = (c.link || '').toLowerCase().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-');
+                return cardSlug === normSlug ||
+                       linkSlug === normSlug ||
+                       (cleanWords.length > 3 && cardWords.includes(cleanWords)) ||
+                       (cardWords.length > 3 && cleanWords.includes(cardWords));
               });
-            }
-            return fb;
-          };
 
-          const extractCleanIntro = (cardOrCategory, fallbackPage, defaultTitle) => {
-            if (cardOrCategory.intro && typeof cardOrCategory.intro === 'string' && !cardOrCategory.intro.includes('<') && !cardOrCategory.intro.includes('>')) {
-              return cardOrCategory.intro.trim();
-            }
-            if (cardOrCategory.rawDescription && typeof cardOrCategory.rawDescription === 'string' && !cardOrCategory.rawDescription.includes('<') && !cardOrCategory.rawDescription.includes('>')) {
-              return cardOrCategory.rawDescription.trim();
-            }
-            if (fallbackPage?.intro && typeof fallbackPage.intro === 'string' && !fallbackPage.intro.includes('<')) {
-              return fallbackPage.intro.trim();
-            }
-            if (cardOrCategory.description && typeof cardOrCategory.description === 'string' && !cardOrCategory.description.includes('<') && !cardOrCategory.description.includes('>')) {
-              return cardOrCategory.description.trim();
-            }
-            if (cardOrCategory.vision && typeof cardOrCategory.vision === 'string' && cardOrCategory.vision.trim()) {
-              const firstLine = cardOrCategory.vision.trim().split('\n')[0];
-              if (firstLine) {
-                const sentenceMatch = firstLine.match(/^(.*?[.!?])(?:\s|$)/);
-                return sentenceMatch ? sentenceMatch[1] : (firstLine.length > 180 ? firstLine.slice(0, 177) + '...' : firstLine);
+              if (card) {
+                apiData = cat;
+                matchedCard = card;
+                break;
               }
             }
-            if (cardOrCategory.description && typeof cardOrCategory.description === 'string') {
-              const pMatch = cardOrCategory.description.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
-              const textToClean = pMatch ? pMatch[1] : cardOrCategory.description;
-              const stripped = textToClean.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-              if (stripped && !stripped.toLowerCase().startsWith('vision') && !stripped.toLowerCase().startsWith('mission')) {
-                const sentenceMatch = stripped.match(/^(.*?[.!?])(?:\s|$)/);
-                return sentenceMatch ? sentenceMatch[1] : (stripped.length > 180 ? stripped.slice(0, 177) + '...' : stripped);
+
+            if (!apiData) {
+              // Check category match
+              const catMatch = allCategories.find(cat => {
+                const catSlug = (cat.category || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const catWords = (cat.category || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+                return catSlug === normSlug || catWords === cleanWords || catWords.includes(cleanWords);
+              });
+              if (catMatch) {
+                apiData = catMatch;
               }
             }
-            return `Welcome to ${defaultTitle || 'the club'} at SVASC.`;
-          };
+          } catch (e) {
+            console.error("Error searching all activities:", e);
+          }
+        }
+
+        // Process data from API
+        if (apiData) {
+          if (!matchedCard && apiData.cards && apiData.cards.length > 0) {
+            const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
+            const cleanWords = cleanSlug.replace(/[^a-z0-9]+/g, ' ').trim();
+            matchedCard = apiData.cards.find(c => {
+              const cardSlug = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              const cardWords = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+              const linkSlug = (c.link || '').toLowerCase().replace(/^\//, '').replace(/[^a-z0-9]+/g, '-');
+              return cardSlug === normSlug ||
+                     linkSlug === normSlug ||
+                     (cleanWords.length > 3 && cardWords.includes(cleanWords)) ||
+                     (cardWords.length > 3 && cleanWords.includes(cardWords));
+            });
+          }
 
           if (matchedCard) {
             const blocks = [];
@@ -120,34 +137,121 @@ export default function DynamicClubDetail() {
               });
             }
 
+            // Members
+            let membersList = [];
             if (matchedCard.members && matchedCard.members.length > 0) {
+              membersList = matchedCard.members.map(m => ({
+                name: m.name,
+                role: m.designation,
+                email: m.email || '',
+                phone: m.phone || ''
+              }));
+            } else if (matchedCard.coordinator || matchedCard.memberList) {
+              if (matchedCard.coordinator) {
+                membersList.push({
+                  name: matchedCard.coordinator,
+                  role: 'Coordinator',
+                  email: '',
+                  phone: ''
+                });
+              }
+              if (matchedCard.memberList) {
+                matchedCard.memberList.split('\n').map(l => l.trim()).filter(Boolean).forEach(mLine => {
+                  const cleanName = mLine.replace(/^\d+[\.\)]\s*/, '');
+                  membersList.push({
+                    name: cleanName,
+                    role: 'Member',
+                    email: '',
+                    phone: ''
+                  });
+                });
+              }
+            }
+
+            if (membersList.length > 0) {
               blocks.push({
                 kind: 'members',
                 title: 'Committee Members & Coordinators',
-                items: matchedCard.members.map(m => ({
-                  name: m.name,
-                  role: m.designation,
-                  email: m.email || '',
-                  phone: m.phone || ''
-                }))
+                items: membersList
               });
             }
 
-            const fb = getFallback(cleanSlug);
-            const cardIntro = extractCleanIntro(matchedCard, fb, matchedCard.title);
+            const CLUB_INTROS = {
+              'voter-literacy-club': 'Transforming every eligible citizen into an informed, ethical and empowered voter — because democracy is only as strong as its most engaged participant.',
+              'nss': 'Forging youth into agents of change — guided by the timeless motto ‘Not Me But You’ — to serve society with dedication, empathy and purpose.',
+              'national-service-scheme': 'Forging youth into agents of change — guided by the timeless motto ‘Not Me But You’ — to serve society with dedication, empathy and purpose.',
+              'rotaract-club': 'Service Above Self — where student leaders transform compassion into action, and local service into global impact.',
+              'junior-jci-wing': 'Developing tomorrow’s ethical, visionary leaders through the proven JCI philosophy of active citizenship, community service and lifelong personal growth.',
+              'fine-arts-club': 'Nurturing student creativity, artistic expression, cultural traditions, and stage confidence through diverse cultural events.',
+              'consumer-protection-club': 'Educating consumers on statutory rights, fair-trade standards, ethical purchasing, and legal redressal pathways.',
+              'red-ribbon-club': 'Harnessing the potential of youth in health promotion, HIV/AIDS awareness, voluntary blood donation, and compassionate community care.',
+              'literary-club': 'Fostering linguistic flair, public speaking, debating excellence, and creative literary pursuits among students.',
+              'eco-club': 'Instilling environmental stewardship, campus sustainability, bio-diversity conservation, and climate responsibility.',
+              'anti-drug-club': 'Building an informed, healthy, and substance-free campus through proactive youth awareness, peer education, and wellness counseling.',
+              'research-development-cell': 'Cultivating a thriving ecosystem of innovation, interdisciplinary inquiry and transformative research that connects academic knowledge to national development.',
+              'innovation-entrepreneurship': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
+              'iiedc': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
+              'institution-innovation-entrepreneurial-development-cell': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
+              'placement-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming, and premier placement opportunities.',
+              'placement-and-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming, and premier placement opportunities.',
+              'exam-cell': 'Administering transparent, rigorous, and seamless continuous assessments, university examinations, and academic evaluation.',
+              'women-empowerment-cell': 'Championing gender equity, self-reliance, leadership, campus safety, and holistic empowerment for women students and faculty.',
+              'media-cell': 'Amplifying campus milestones, academic achievements, student life, and institutional storytelling across modern media platforms.',
+              'social-media-media-cell': 'Amplifying campus milestones, academic achievements, student life, and institutional storytelling across modern media platforms.',
+              'iqac': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence, and holistic institutional governance.',
+              'internal-quality-assurance-cell': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence, and holistic institutional governance.',
+              'internal-grievances-committee': 'Providing prompt, transparent, and fair dispute redressal mechanisms to ensure harmonious campus relations.',
+              'grievance-redressal-committee': 'Providing prompt, transparent, and fair dispute redressal mechanisms to ensure harmonious campus relations.',
+              'anti-ragging-cell': 'Upholding strict zero-tolerance protocols, respectful student fellowship, and a secure, supportive campus atmosphere.',
+              'anti-ragging-cell-committee': 'Upholding strict zero-tolerance protocols, respectful student fellowship, and a secure, supportive campus atmosphere.',
+              'swayam-nptel': 'Bridging the digital education frontier — empowering SVASC students and faculty with world-class online certifications that redefine career trajectories.',
+              'youth-red-cross': 'Instilling emergency preparedness, humanitarian relief, voluntary blood donation, and health awareness in youth.',
+              'physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence, and competitive university championship honors.',
+              'department-of-physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence, and competitive university championship honors.'
+            };
+
+            const cleanIntro = (card) => {
+              // 1. Explicit clean intro field
+              if (card.intro && typeof card.intro === 'string' && card.intro.trim()) {
+                return card.intro.trim();
+              }
+              // 2. Curated tagline by card title or slug
+              const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
+              const titleSlug = (card.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              if (CLUB_INTROS[normSlug]) return CLUB_INTROS[normSlug];
+              if (CLUB_INTROS[titleSlug]) return CLUB_INTROS[titleSlug];
+
+              // 3. Clean rawDescription or description if it does NOT contain combined HTML sections
+              const candidate = (card.rawDescription || card.description || '').trim();
+              if (candidate) {
+                const lower = candidate.toLowerCase();
+                const isCombinedPayload = candidate.includes('<h3') || 
+                                          candidate.includes('modalDescContent') || 
+                                          candidate.includes('table-wrapper') ||
+                                          lower.includes('vision') || 
+                                          lower.includes('responsibilit');
+                if (!isCombinedPayload) {
+                  const stripped = candidate.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                  if (stripped && stripped.length < 350) return stripped;
+                }
+              }
+
+              return `Explore the initiatives, objectives, and activities of the ${card.title} at SVASC.`;
+            };
 
             const formatted = {
               slug: `/${cleanSlug}`,
               nav: matchedCard.title,
               title: matchedCard.title,
               hero: matchedCard.title,
-              intro: cardIntro,
-              motto: matchedCard.motto || fb?.motto || 'Empowering Students Through Holistic Co-Curricular Learning',
+              intro: cleanIntro(matchedCard),
+              motto: matchedCard.motto || 'Empowering Students Through Holistic Co-Curricular Learning',
               image: matchedCard.image || apiData.bannerImage || '/hero-campus.jpg',
               customImage: matchedCard.image || apiData.bannerImage,
               blocks: blocks
             };
-            setPageData(formatted);
+
+            if (isMounted) setPageData(formatted);
             return;
           }
 
@@ -184,49 +288,48 @@ export default function DynamicClubDetail() {
               }
             }
 
-            const fb = getFallback(cleanSlug);
-            const categoryIntro = extractCleanIntro(apiData, fb, apiData.category);
+            const cleanCatIntro = (cat) => {
+              if (cat.intro && typeof cat.intro === 'string' && cat.intro.trim()) return cat.intro.trim();
+              if (cat.description && typeof cat.description === 'string') {
+                const candidate = cat.description.trim();
+                const lower = candidate.toLowerCase();
+                if (!candidate.includes('<h3') && !candidate.includes('activitySection') && !lower.includes('vision') && !lower.includes('mission')) {
+                  const stripped = candidate.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+                  if (stripped && stripped.length < 350) return stripped;
+                }
+              }
+              return `Discover all activities, cells, and clubs under ${cat.category} at SVASC.`;
+            };
 
             const formatted = {
               slug: `/${cleanSlug}`,
               nav: apiData.category,
               title: apiData.category,
               hero: apiData.category,
-              intro: categoryIntro,
-              motto: apiData.clubsSummary && !apiData.clubsSummary.includes('<') ? apiData.clubsSummary.split('\n')[0] : (fb?.motto || 'Excellence in Action · SVASC'),
+              intro: cleanCatIntro(apiData),
+              motto: apiData.clubsSummary && !apiData.clubsSummary.includes('<') ? apiData.clubsSummary.split('\n')[0] : 'Excellence in Action · SVASC',
               image: apiData.bannerImage || '/hero-campus.jpg',
               customImage: apiData.bannerImage,
               blocks: blocks
             };
-            setPageData(formatted);
+
+            if (isMounted) setPageData(formatted);
             return;
           }
         }
 
-
-
-        // 2. Fallback to site.ts / Activities local data
-        loadFallback();
+        // If no data found from API
+        if (isMounted) setPageData(null);
       } catch (error) {
-        // If API fails / not found, use local fallback
-        loadFallback();
+        console.error('Error fetching activity details from API:', error);
+        if (isMounted) setPageData(null);
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
-    };
-
-    const loadFallback = () => {
-      let fallback = pageBySlug(`/${cleanSlug}`);
-      if (!fallback) {
-        fallback = pages.find((p) => {
-          const pSlug = p.slug.replace(/^\//, '').toLowerCase();
-          return pSlug === cleanSlug || pSlug.includes(cleanSlug) || cleanSlug.includes(pSlug);
-        });
-      }
-      setPageData(fallback || null);
     };
 
     fetchClubDetail();
+    return () => { isMounted = false; };
   }, [cleanSlug]);
 
   if (loading) {
@@ -238,7 +341,15 @@ export default function DynamicClubDetail() {
   }
 
   if (!pageData) {
-    return <Navigate to="/activities" replace />;
+    return (
+      <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', padding: '40px 20px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#021f4b', marginBottom: '12px' }}>Activity Not Found</h2>
+        <p style={{ color: '#64748b', marginBottom: '24px' }}>The requested activity or club could not be loaded from the server.</p>
+        <Link to="/activities" style={{ background: '#021f4b', color: '#fff', padding: '10px 24px', borderRadius: '6px', textDecoration: 'none', fontWeight: 600 }}>
+          Back to Activities
+        </Link>
+      </div>
+    );
   }
 
   return <CellPage page={pageData} />;
