@@ -8,7 +8,7 @@
 
 /* HERO SECTION */
 .hero {
-    height: 60vh;
+    height: 56vh;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -20,7 +20,7 @@
 .heroOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0, 33, 75, 0.4), rgba(0, 33, 75, 0.6));
+    background: linear-gradient(rgba(0, 33, 75, 0.45), rgba(0, 33, 75, 0.65));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,10 +30,11 @@
     text-align: center;
     color: white;
     z-index: 2;
+    padding: 0 2rem;
 }
 
 .heroContent h1 {
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: clamp(2.6rem, 4vw, 3.8rem);
     font-weight: 700;
     text-transform: capitalize;
     margin-bottom: 1rem;
@@ -45,7 +46,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.8rem;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     opacity: 0.9;
 }
 
@@ -67,10 +68,9 @@
     width: 100%;
     background: #021f4b;
     color: white;
-    padding: 1.2rem 0;
+    padding: 1rem 0;
     overflow: hidden;
     z-index: 1000;
-    /* Stays above everything */
 }
 
 .tickerContent {
@@ -78,7 +78,7 @@
     gap: 4rem;
     white-space: nowrap;
     animation: scrollTicker 20s linear infinite;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -86,46 +86,49 @@
     0% {
         transform: translateX(100%);
     }
-
     100% {
         transform: translateX(-100%);
     }
 }
 
-/* ABOUT SECTION */
-.aboutWrapper {
-    margin-top: 2rem;
-    /* Removed -5rem overlap */
-    position: relative;
-    z-index: 5;
-    margin-bottom: 6rem;
-}
-
+/* CONTAINER */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
+.mainContent {
+    padding-bottom: 5rem;
+}
+
+/* ABOUT SECTION */
+.aboutWrapper {
+    margin-top: 2.8rem;
+    position: relative;
+    z-index: 5;
+    margin-bottom: 5rem;
+}
+
 .aboutCard {
     background: white;
-    border-radius: 1.5rem;
-    padding: 4rem;
-    box-shadow: 0 15px 50px rgba(0, 33, 75, 0.08);
+    border-radius: 1.4rem;
+    padding: 3rem 3.5rem;
+    box-shadow: 0 10px 40px rgba(0, 33, 75, 0.07);
 }
 
 .aboutGrid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
+    gap: 3.5rem;
     align-items: center;
 }
 
 .aboutText p {
-    font-size: 1.8rem;
-    line-height: 1.8;
+    font-size: 1.45rem;
+    line-height: 1.75;
     color: #444;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .distinctivenessBtn {
@@ -133,10 +136,10 @@
     border: none;
     color: #021f4b;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.35rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     cursor: pointer;
     padding: 0;
     transition: transform 0.3s;
@@ -153,31 +156,26 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.mainContent {
-    padding-bottom: 6rem;
-    /* Space for the fixed ticker */
-}
-
 /* VISION & MISSION */
 .visionMissionSection {
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
 }
 
 .vmStack {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .visionCard {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    padding: 3.5rem 4rem;
-    border-radius: 1.5rem;
-    border-top: 5px solid #f5b400;
+    padding: 2.6rem 3.2rem;
+    border-radius: 1.3rem;
+    border-top: 4px solid #f5b400;
     border-left: 1px solid #e2e8f0;
     border-right: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.04);
+    box-shadow: 0 8px 25px rgba(0, 33, 75, 0.04);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
@@ -185,37 +183,37 @@
 
 .visionCard:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 35px rgba(0, 33, 75, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 33, 75, 0.08);
 }
 
 .missionCard {
     background: white;
-    padding: 3.5rem 4rem;
-    border-radius: 1.5rem;
-    border-top: 5px solid #021f4b;
+    padding: 2.6rem 3.2rem;
+    border-radius: 1.3rem;
+    border-top: 4px solid #021f4b;
     border-left: 1px solid #e2e8f0;
     border-right: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.04);
+    box-shadow: 0 8px 25px rgba(0, 33, 75, 0.04);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .missionCard:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 35px rgba(0, 33, 75, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 33, 75, 0.08);
 }
 
 .vmHeader {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1.3rem;
+    margin-bottom: 1.6rem;
 }
 
 .vmIconBadge {
-    width: 4.6rem;
-    height: 4.6rem;
-    border-radius: 1.2rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 0.9rem;
     background: rgba(245, 180, 0, 0.15);
     color: #d97706;
     display: flex;
@@ -225,9 +223,9 @@
 }
 
 .missionIconBadge {
-    width: 4.6rem;
-    height: 4.6rem;
-    border-radius: 1.2rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 0.9rem;
     background: rgba(2, 31, 75, 0.1);
     color: #021f4b;
     display: flex;
@@ -237,27 +235,27 @@
 }
 
 .vmHeader h2 {
-    font-size: 2.6rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: #021f4b;
     margin: 0;
 }
 
 .visionText {
-    font-size: 1.75rem;
-    line-height: 1.8;
+    font-size: 1.45rem;
+    line-height: 1.75;
     color: #1e293b;
     font-style: italic;
     margin: 0;
     position: relative;
-    padding-left: 1.6rem;
+    padding-left: 1.5rem;
     border-left: 3px solid #f5b400;
 }
 
 .missionGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.8rem;
+    gap: 1.4rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -266,28 +264,28 @@
 .missionItem {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 1.2rem;
-    padding: 1.8rem 2rem;
+    border-radius: 0.9rem;
+    padding: 1.3rem 1.6rem;
     display: flex;
     align-items: flex-start;
-    gap: 1.4rem;
+    gap: 1.2rem;
     transition: all 0.25s ease;
 }
 
 .missionItem:hover {
     background: #ffffff;
     border-color: #f5b400;
-    box-shadow: 0 6px 20px rgba(245, 180, 0, 0.12);
+    box-shadow: 0 5px 18px rgba(245, 180, 0, 0.12);
     transform: translateY(-2px);
 }
 
 .missionBullet {
-    margin-top: 0.2rem;
+    margin-top: 0.15rem;
     color: #f5b400;
     background: rgba(245, 180, 0, 0.15);
     border-radius: 50%;
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 2.2rem;
+    height: 2.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,48 +293,38 @@
 }
 
 .missionItem span {
-    font-size: 1.55rem;
-    line-height: 1.65;
+    font-size: 1.35rem;
+    line-height: 1.6;
     color: #334155;
     flex: 1;
 }
 
 .missionText {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.7;
     color: #555;
     margin: 0;
 }
 
-@media (max-width: 900px) {
-    .missionGrid {
-        grid-template-columns: 1fr;
-    }
-    .visionCard,
-    .missionCard {
-        padding: 2.5rem 2rem;
-    }
-}
-
 /* OBJECTIVES & ROLES SECTIONS */
 .objectivesSection,
 .rolesSection {
-    margin-bottom: 6rem;
+    margin-bottom: 5.5rem;
 }
 
 .sectionCard {
     background: white;
-    padding: 4rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.05);
-    border-left: 5px solid #021f4b;
+    padding: 2.8rem 3.2rem;
+    border-radius: 1.3rem;
+    box-shadow: 0 8px 25px rgba(0, 33, 75, 0.05);
+    border-left: 4px solid #021f4b;
 }
 
 .sectionCard h2 {
-    font-size: 2.8rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: #021f4b;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .bulletList {
@@ -345,40 +333,46 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: 1.3rem;
 }
 
 .bulletList li {
-    font-size: 1.7rem;
-    line-height: 1.6;
+    font-size: 1.38rem;
+    line-height: 1.65;
     color: #444;
     display: flex;
     align-items: flex-start;
-    gap: 1.2rem;
+    gap: 1rem;
 }
 
 .bulletList li span {
     flex: 1;
 }
 
+.doubleArrow {
+    color: #f5b400;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
 /* STAFF DETAILS SECTION */
 .staffSection {
     background: white;
-    padding: 8rem 0;
-    margin-bottom: 8rem;
+    padding: 5.5rem 0;
+    margin-bottom: 6rem;
 }
 
 .tableWrapper {
     overflow-x: auto;
-    border-radius: 1.2rem;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 33, 75, 0.06);
     border: 1px solid #e2e8f0;
 }
 
 .staffTable {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1.6rem;
+    font-size: 1.35rem;
     text-align: left;
 }
 
@@ -388,14 +382,14 @@
 }
 
 .staffTable th {
-    padding: 2rem;
+    padding: 1.4rem 1.6rem;
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.42rem;
     letter-spacing: 0.5px;
 }
 
 .staffTable td {
-    padding: 2rem;
+    padding: 1.3rem 1.6rem;
     border-bottom: 1px solid #edf2f7;
     color: #334155;
 }
@@ -421,27 +415,26 @@
 .facilitiesSection {
     background: #021f4b;
     color: white;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
 }
 
 .facilitiesFlex {
     display: flex;
-    min-height: 50vh;
+    min-height: 44vh;
 }
 
 .facilitiesContent {
     flex: 1;
-    padding: 8rem 4rem 8rem 15%;
-    /* Alignment with container */
+    padding: 5.5rem 3.5rem 5.5rem 9%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .facilitiesContent h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 4rem;
+    margin-bottom: 2.2rem;
 }
 
 .facilitiesList {
@@ -449,19 +442,15 @@
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 1.6rem;
 }
 
 .facilitiesList li {
-    font-size: 1.7rem;
+    font-size: 1.38rem;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.1rem;
     font-weight: 400;
-}
-
-.doubleArrow {
-    color: #f5b400;
 }
 
 .facilitiesImage {
@@ -477,31 +466,31 @@
 /* CAREER OPPORTUNITIES */
 .careerSection {
     background: white;
-    padding: 8rem 0;
-    margin-bottom: 8rem;
+    padding: 5.5rem 0;
+    margin-bottom: 6rem;
 }
 
 .sectionTitle {
     text-align: center;
-    font-size: 4rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: #021f4b;
-    margin-bottom: 6rem;
+    margin-bottom: 3.5rem;
 }
 
 .careerGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    gap: 1.4rem;
 }
 
 .careerBox {
     background: #f8fafc;
     border: 1.5px solid #e2e8f0;
-    border-radius: 1rem;
-    padding: 3rem 2rem;
+    border-radius: 0.9rem;
+    padding: 1.8rem 1.5rem;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #1e293b;
     transition: all 0.3s;
@@ -511,52 +500,59 @@
     border-color: #f5b400;
     background: white;
     color: #021f4b;
-    box-shadow: 0 10px 30px rgba(0, 33, 75, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 33, 75, 0.08);
     transform: translateY(-3px);
 }
 
-/* FAQ SECTION */
+/* FAQ SECTION - PROPORTIONATE & CLEAN */
 .faqSection {
-    padding-bottom: 10rem;
+    padding-bottom: 6.5rem;
 }
 
 .faqFlex {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 6rem;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 4rem;
     align-items: start;
 }
 
 .faqLeftImage img {
     width: 100%;
-    height: 450px;
+    height: 380px;
     object-fit: cover;
-    border-radius: 2rem;
+    border-radius: 1.3rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .faqRight h2 {
-    font-size: 4rem;
+    font-size: 2.6rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 4rem;
+    margin-bottom: 2.2rem;
 }
 
 .faqList {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .faqItem {
     background: white;
-    border-radius: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-radius: 0.85rem;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.faqItem:hover {
+    border-color: #cbd5e1;
 }
 
 .faqItem summary {
-    padding: 2.5rem;
-    font-size: 1.8rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.45rem;
     font-weight: 600;
     cursor: pointer;
     list-style: none;
@@ -564,23 +560,34 @@
     justify-content: space-between;
     align-items: center;
     color: #1e293b;
+    line-height: 1.5;
+}
+
+.faqItem summary::-webkit-details-marker {
+    display: none;
 }
 
 .faqIcon {
-    opacity: 0.4;
-    transition: opacity 0.3s;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 1rem;
 }
 
 .faqItem[open] summary .faqIcon {
     opacity: 1;
     color: #021f4b;
+    transform: rotate(180deg);
 }
 
 .faqAnswer {
-    padding: 0 2.5rem 2.5rem 2.5rem;
-    font-size: 1.6rem;
+    padding: 0 2rem 1.6rem 2rem;
+    font-size: 1.35rem;
     line-height: 1.7;
     color: #64748b;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 0.2rem;
+    padding-top: 1.2rem;
 }
 
 /* STICKY ENQUIRY */
@@ -593,144 +600,40 @@
     background: #021f4b;
     color: white;
     text-decoration: none;
-    padding: 2rem 1rem;
+    padding: 1.6rem 1rem;
     font-weight: 700;
-    font-size: 1.6rem;
-    border-radius: 1rem 0 0 1rem;
+    font-size: 1.25rem;
+    border-radius: 0.85rem 0 0 0.85rem;
     cursor: pointer;
     z-index: 100;
     box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
     transition: padding 0.3s;
 }
 
 .admissionSticky:hover {
-    padding-right: 2rem;
+    padding-right: 1.8rem;
 }
 
 .admissionSticky span {
     transform: rotate(90deg);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-    .facilitiesFlex {
-        flex-direction: column;
-    }
-
-    .facilitiesContent {
-        padding: 6rem 2rem;
-    }
-
-    .aboutGrid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .heroContent h1 {
-        font-size: 3.2rem;
-    }
-
-    .breadcrumbs {
-        font-size: 1.2rem;
-    }
-
-    .aboutCard {
-        padding: 2.5rem;
-    }
-
-    .container {
-        padding: 0 0.4rem;
-    }
-
-    .aboutText p {
-        font-size: 1.5rem;
-    }
-
-    .vmCard h2 {
-        font-size: 2.2rem;
-    }
-
-    .vmCard p {
-        font-size: 1.4rem;
-    }
-
-    .facilitiesContent h2 {
-        font-size: 2.5rem;
-    }
-
-    .facilitiesList li {
-        font-size: 1.4rem;
-    }
-
-    .sectionTitle {
-        font-size: 2.8rem;
-        margin-bottom: 4rem;
-    }
-
-    .careerBox {
-        font-size: 1.5rem;
-        padding: 2rem 1.5rem;
-    }
-
-    .faqRight h2 {
-        font-size: 2.8rem;
-    }
-
-    .faqItem summary {
-        font-size: 1.5rem;
-        padding: 1.8rem;
-    }
-
-    .faqAnswer {
-        font-size: 1.4rem;
-        padding: 0 1.8rem 1.8rem 1.8rem;
-    }
-
-    .admissionSticky {
-        padding: 1rem 0.6rem;
-        font-size: 1rem;
-        gap: 0.6rem;
-    }
-
-    .gridTwo,
-    .faqFlex {
-        grid-template-columns: 1fr;
-    }
-
-    .faqLeftImage img {
-        height: 300px;
-    }
-
-    .hero {
-        height: 50vh;
-    }
-
-    .tickerContent {
-        font-size: 1.2rem;
-    }
-
-    .facilitiesList {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* ================= DEPARTMENT ACTIVITIES & GALLERY ================= */
 .gallerySection {
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     padding: 2rem 0;
 }
 
 .galleryHeader {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .galleryHeader h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #021f4b;
     margin-bottom: 1rem;
@@ -741,19 +644,19 @@
 .galleryHeader h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
+    width: 55px;
+    height: 3px;
     background: #f5b400;
     border-radius: 2px;
 }
 
 .galleryHeader p {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
     color: #666;
-    margin-top: 1.5rem;
+    margin-top: 1.4rem;
 }
 
 .filterTabs {
@@ -762,16 +665,16 @@
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 
 .filterTab {
     background: white;
     color: #021f4b;
     border: 1.5px solid #021f4b;
-    padding: 0.8rem 1.8rem;
+    padding: 0.65rem 1.5rem;
     border-radius: 30px;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -791,16 +694,16 @@
 
 .galleryGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 2rem;
 }
 
 .galleryCard {
     background: white;
-    border-radius: 0;
+    border-radius: 0.7rem;
     border: 1px solid #e2e8f0;
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0, 33, 75, 0.06);
+    box-shadow: 0 4px 18px rgba(0, 33, 75, 0.05);
     transition: all 0.35s ease;
     cursor: pointer;
     display: flex;
@@ -808,15 +711,15 @@
 }
 
 .galleryCard:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(0, 33, 75, 0.16);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(0, 33, 75, 0.12);
     border-color: #021f4b;
 }
 
 .galleryImageWrapper {
     position: relative;
     width: 100%;
-    height: 230px;
+    height: 225px;
     overflow: hidden;
     background: #eef2f5;
 }
@@ -829,7 +732,7 @@
 }
 
 .galleryCard:hover .galleryImageWrapper img {
-    transform: scale(1.06);
+    transform: scale(1.05);
 }
 
 .galleryOverlay {
@@ -851,23 +754,23 @@
     color: white;
     background: #021f4b;
     border: 1.5px solid #f5b400;
-    padding: 10px;
-    border-radius: 0;
+    padding: 8px;
+    border-radius: 0.4rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
 }
 
 .categoryBadge {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 10px;
+    left: 10px;
     background: rgba(2, 31, 75, 0.9);
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    padding: 0.4rem 1rem;
-    border-radius: 0;
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.3rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -875,10 +778,10 @@
 }
 
 .galleryCardContent {
-    padding: 1.6rem 1.8rem;
+    padding: 1.4rem 1.6rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
     flex-grow: 1;
     background: #ffffff;
     border-top: 3px solid #021f4b;
@@ -893,13 +796,13 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     color: #f5b400;
     font-weight: 600;
 }
 
 .galleryCardContent h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: #021f4b;
     line-height: 1.45;
@@ -927,7 +830,7 @@
 
 .lightboxContent {
     position: relative;
-    max-width: 1000px;
+    max-width: 920px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -940,7 +843,7 @@
     flex-direction: column;
     align-items: center;
     background: #021f4b;
-    border-radius: 1.5rem;
+    border-radius: 1.2rem;
     overflow: hidden;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
     max-width: 90%;
@@ -954,7 +857,7 @@
 }
 
 .lightboxCaption {
-    padding: 2rem;
+    padding: 1.8rem;
     width: 100%;
     background: #021f4b;
     color: white;
@@ -962,16 +865,16 @@
 }
 
 .lightboxCaption h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.7rem;
 }
 
 .lightboxMeta {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    font-size: 1.4rem;
+    gap: 1.8rem;
+    font-size: 1.25rem;
     color: #f5b400;
 }
 
@@ -983,13 +886,13 @@
 
 .closeBtn {
     position: absolute;
-    top: -50px;
+    top: -48px;
     right: 0;
     background: white;
     color: #021f4b;
     border: none;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1009,8 +912,8 @@
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1032,14 +935,139 @@
     transform: translateY(-50%) scale(1.1);
 }
 
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+    .facilitiesFlex {
+        flex-direction: column;
+    }
+
+    .facilitiesContent {
+        padding: 4.5rem 2.5rem;
+    }
+
+    .aboutGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .faqFlex {
+        grid-template-columns: 1fr;
+    }
+
+    .faqLeftImage img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .missionGrid {
+        grid-template-columns: 1fr;
+    }
+    .visionCard,
+    .missionCard {
+        padding: 2.2rem 1.8rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .hero {
+        height: 46vh;
+    }
+
+    .heroContent h1 {
+        font-size: 2.4rem;
+    }
+
+    .breadcrumbs {
+        font-size: 1.1rem;
+    }
+
+    .aboutCard {
+        padding: 2.2rem 1.6rem;
+    }
+
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    .aboutText p {
+        font-size: 1.35rem;
+    }
+
+    .vmHeader h2 {
+        font-size: 1.8rem;
+    }
+
+    .visionText {
+        font-size: 1.35rem;
+    }
+
+    .sectionCard {
+        padding: 2.2rem 1.6rem;
+    }
+
+    .sectionCard h2 {
+        font-size: 1.8rem;
+    }
+
+    .bulletList li {
+        font-size: 1.3rem;
+    }
+
+    .facilitiesContent h2 {
+        font-size: 2rem;
+    }
+
+    .facilitiesList {
+        grid-template-columns: 1fr;
+    }
+
+    .facilitiesList li {
+        font-size: 1.3rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .careerBox {
+        font-size: 1.3rem;
+        padding: 1.5rem 1.2rem;
+    }
+
+    .faqRight h2 {
+        font-size: 2rem;
+    }
+
+    .faqItem summary {
+        font-size: 1.35rem;
+        padding: 1.3rem 1.4rem;
+    }
+
+    .faqAnswer {
+        font-size: 1.25rem;
+        padding: 0 1.4rem 1.3rem 1.4rem;
+    }
+
+    .admissionSticky {
+        padding: 1.2rem 0.7rem;
+        font-size: 1.1rem;
+        gap: 0.6rem;
+    }
+
+    .tickerContent {
+        font-size: 1.1rem;
+    }
+
     .galleryGrid {
         grid-template-columns: 1fr;
     }
+
     .lightboxMeta {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.6rem;
     }
+
     .prevBtn { left: 5px; }
     .nextBtn { right: 5px; }
 }

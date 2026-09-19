@@ -1,5 +1,6 @@
 import cshome from "../assets/cs.jpg";
 import bscai from '../assets/exam4.jpg';
+import facility1 from "../assets/computerlab.JPG";
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -31,7 +32,7 @@ export const programDetailsData = {
             "Student Mentoring: Assign faculty mentors to guide students academically, monitor performance, and provide counseling.",
             "Professional Ethics & Alumni: Promote ethical computing practices, responsible technology usage, and foster strong alumni relationships."
         ],
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilitiesImage: facility1,
         facilities: [
             "State-of-the-art computer laboratories",
             "WiFi Enabled Campus",
@@ -62,6 +63,35 @@ export const programDetailsData = {
         faqs: [
             { question: "What is B.Sc. Computer Science?", answer: "The B.Sc. Computer Science is a 3-year undergraduate program that covers core areas such as data structures, database management, and software development." },
             { question: "Who can apply for B.Sc. Computer Science?", answer: "Students who have completed 10+2 with a background in Science and Mathematics are eligible to apply." }
+        ],
+        gallery: [
+            {
+                title: "Freshers Day Celebration & Chief Guest Felicitation",
+                category: "Celebration",
+                image: "/cs/cs1.jpg"
+            },
+            {
+                title: "Computer Science Association Inauguration & Kuthuvilakku Lighting",
+                category: "Association",
+                image: "/cs/cs2.jpg"
+            },
+            {
+                title: "Department Awareness Programme & Resource Person Honouring",
+                category: "Awareness",
+                image: "/cs/cs3.jpg"
+            },
+            {
+                title: "MoU Signing & Technical Collaboration Event",
+                category: "Academic",
+                date: "26-12-2024",
+                image: "/cs/cs4.jpg"
+            },
+            {
+                title: "Special Seminar & Guest Lecture on Computing Technologies",
+                category: "Seminar",
+                date: "07-08-2024",
+                image: "/cs/cs5.jpg"
+            }
         ]
     },
     "bsccomputer-ai-ds": {
@@ -696,6 +726,55 @@ export const programDetailsData = {
         ],
         faqs: [
             { question: "Is there an entrance exam for BBA?", answer: "Typically, admission is based on academic merit and a personal interview." }
+        ],
+        gallery: [
+            {
+                title: "Industrial Visit to Texvalley Market, Erode",
+                category: "Industrial Visit",
+                image: "/bba/texvall iv.jpg"
+            },
+            {
+                title: "Interactive Workshop on Digital Marketing & Business Communication",
+                category: "Workshop",
+                image: "/bba/digitalworkshop.jpeg"
+            },
+            {
+                title: "Career Awareness & Management Orientation Programme - SVISDOM",
+                category: "Career Guidance",
+                image: "/bba/carereawarenes.jpg"
+            },
+            {
+                title: "Seminar on Financial Literacy & Investment Strategies",
+                category: "Seminar",
+                date: "10-09-2025",
+                image: "/bba/financial awarenes.jpeg"
+            },
+            {
+                title: "Practical Computer Lab & Business Data Analytics Training",
+                category: "Lab Training",
+                image: "/bba/dataanalist.jpeg"
+            },
+            {
+                title: "Executive Personality & Soft Skills Development Programme",
+                category: "Skill Development",
+                image: "/bba/skill development.jpg"
+            },
+            {
+                title: "Workshop & Hands-on Training on Business Analytics",
+                category: "Workshop",
+                date: "20-12-2025",
+                image: "/bba/20.12.2025 Workshop & hands on training.jfif"
+            },
+            {
+                title: "Department Farewell Celebration & Valedictory Meet",
+                category: "Celebration",
+                image: "/bba/farewell.jpg"
+            },
+            {
+                title: "BBA Student Gathering & Cultural Day Celebrations",
+                category: "Celebration",
+                image: "/bba/farewell (2).jpg"
+            }
         ]
     },
     "bsc-physics": {
@@ -1490,3 +1569,5 @@ export const programDetailsData = {
     }
 };
 
+// Alias bba to management for flexible routing
+programDetailsData["bba"] = programDetailsData["management"];
