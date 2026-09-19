@@ -31,14 +31,11 @@ const ProjectsPortfolio = () => {
 
   useEffect(() => {
     axios.get(`${BASE_URL}/api/page-heros/activities`).then(res => {
-      if (res.data.success && res.data.data) {
-        const d = res.data.data;
-        const cleanImg = d.image ? d.image.replace(/^\/+/, '') : '';
-        setHeroData({
-          title: d.title || heroData.title,
-          description: d.description || heroData.description,
-          image: d.image ? (d.image.startsWith('http') ? d.image : `${BASE_URL}/${cleanImg}`) : campusHeroImg
-        });
+      if (res.data?.success && res.data?.data?.title) {
+        setHeroData(prev => ({
+          ...prev,
+          title: res.data.data.title
+        }));
       }
     }).catch(() => {});
   }, []);

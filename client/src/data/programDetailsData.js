@@ -1,9 +1,12 @@
+import cshome from "../assets/cs.jpg";
+import bscai from '../assets/exam4.jpg';
+
 export const programDetailsData = {
     "bsc-computer-science": {
         title: "B.Sc. Computer Science",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Computer Science was established in 2019–2020 with the objective of providing quality education in computing and IT, and was upgraded with a PG Programme in 2023–2024. Equipped with modern infrastructure, advanced computing labs, high-speed internet, and dedicated faculty, the department emphasizes outcome-based education, hands-on lab sessions, research activities, seminars, workshops, and industrial visits to nurture industry-ready professionals.",
+        heroImage: cshome,
+        aboutImage: cshome,
+        about: "The Department of Computer Science was established in the academic year 2019–2020 with the objective of providing quality education in the field of computing and information technology. Owing to its consistent academic growth and commitment to excellence, the department was upgraded with a Postgraduate (PG) Programme in the academic year 2023–2024.The department is equipped with modern infrastructure, well-furnished computer laboratories, high-speed internet connectivity, and advanced computing facilities to support effective teaching and learning. It is staffed by a team of dedicated, experienced, and highly qualified faculty members who are committed to nurturing students' academic, technical, and professional skills.The department emphasizes outcome-based education through innovative teaching methodologies, hands-on laboratory sessions, seminars, workshops, guest lectures, industrial visits, value-added courses, and skill development programmes. Students are encouraged to participate in research activities, project-based learning, technical competitions, and co-curricular events to enhance their practical knowledge and problem-solving abilities.With a strong focus on academic excellence, innovation, and industry readiness, the Department of Computer Science strives to produce competent professionals who are well-prepared to meet the challenges of the rapidly evolving technological world and contribute meaningfully to society.",
         vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
         mission: [
             "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
@@ -63,7 +66,7 @@ export const programDetailsData = {
     },
     "bsccomputer-ai-ds": {
         title: "B.Sc.Artificial Intelligence and Data Science",
-        heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: bscai,
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         about: "To equip students with a robust understanding of computer science principles while specializing in artificial intelligence, preparing them to innovate and solve complex problems across various domains.",
         vision: "To be a leading center of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
