@@ -4,8 +4,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Laboratory.module.css';
 import Hero from '../Common/Hero';
 import labheroImg from '../../assets/labhero.jpg';
+import lab from '../../assets/why3.jpg';
+import computerlab from '../../assets/computerlab.JPG';
+import cdf2 from '../../assets/cdf.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const resolveLabImage = (img) => {
+    if (!img) return '';
+    if (typeof img === 'object' && img !== null) {
+        return Object.values(img)[0] || '';
+    }
+    return img;
+};
 
 const Laboratory = () => {
     const labs = [
@@ -13,25 +24,23 @@ const Laboratory = () => {
             id: 'computer-lab',
             header: 'Computer Lab',
             desc: 'Our state-of-the-art computer lab features fully air-conditioned facilities with Intel Core i3 systems, 8GB RAM, and 24/7 high-speed internet connectivity. Students benefit from LAN-connected workstations and digital learning platforms for both theoretical and practical sessions.',
-            image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+            image: computerlab,
             index: 7
         },
         {
             id: 'sewing-lab',
             header: 'Sewing Laboratory',
             desc: 'A comprehensive facility equipped with modern sewing machines including single-needle, overlock, and flatlock systems. Students master garment construction, precision stitching, and innovative design under expert faculty supervision.',
-            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+            image: cdf2,
             index: 6
         },
         {
             id: 'microbiology-lab',
             header: 'Microbiology Lab',
             desc: 'Features advanced equipment including laminar airflow chambers, microscopes, incubators, and spectrophotometers. Electronic classrooms with LCD projectors support computer-aided teaching for comprehensive microbiology studies.',
-            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
+            image: lab,
             index: 3
-        },
-      
-    ];
+        },    ];
     const containerRef = useRef(null);
     const rightSideRef = useRef(null);
     const imagesRef = useRef([]);
@@ -190,7 +199,7 @@ const Laboratory = () => {
                                         order: idx * 2 + 1
                                     }}
                                 >
-                                    <img src={lab.image} alt={lab.header} />
+                                    <img src={resolveLabImage(lab.image)} alt={lab.header} />
                                 </div>
                             ))}
                         </div>
