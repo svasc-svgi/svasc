@@ -10,6 +10,17 @@ import {
 import heroImage from '../assets/DJI_0595.JPG';
 import campusImage from '../assets/campus.jpg';
 import campusHeroImage from '../assets/campushero.jpg';
+import computerLabImg from '../assets/computerlab.JPG';
+import libraryImg from '../assets/library.JPG';
+import clubImg from '../assets/club.jpg';
+import sportsImg from '../assets/sports1.jpg';
+import campusDroneImg from '../assets/DJI_0589.JPG';
+import danceImg from '../assets/dance.jpg';
+import drawingImg from '../assets/drawing.jpg';
+import hostelImg from '../assets/hostel.jpg';
+import committeeImg from '../assets/commities.JPG';
+import teachingImg from '../assets/teaching.jpg';
+import sportsHeroImg from '../assets/sporthero1.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -20,35 +31,39 @@ const fallbackHero = {
 };
 
 const fallbackGallery = [
-    { _id: 1, img: "https://assets.codepen.io/1159990/smart-watch.jpg", title: "Smart Watch", category: "Showcase" },
-    { _id: 2, img: "https://assets.codepen.io/1159990/camera-film.jpg", title: "Camera Film", category: "Showcase" },
-    { _id: 3, img: "https://assets.codepen.io/1159990/coffee.jpg", title: "Coffee", category: "Showcase" },
-    { _id: 4, img: "https://assets.codepen.io/1159990/phone.jpg", title: "Phone", category: "Showcase" },
-    { _id: 5, img: "https://assets.codepen.io/1159990/keyboard.jpg", title: "Keyboard", category: "Showcase" },
-    { _id: 6, img: "https://assets.codepen.io/1159990/wrist-watch.jpg", title: "Wrist Watch", category: "Showcase" }
+    { _id: 1, img: danceImg, title: "Cultural Celebrations", category: "Fine Arts & Dance" },
+    { _id: 2, img: computerLabImg, title: "High-Tech Computing Labs", category: "Practical Training" },
+    { _id: 3, img: sportsHeroImg, title: "Sports & Athletics", category: "Physical Fitness" },
+    { _id: 4, img: libraryImg, title: "Central Library", category: "Knowledge Repository" },
+    { _id: 5, img: committeeImg, title: "Student Committees & Clubs", category: "Leadership & Teamwork" },
+    { _id: 6, img: hostelImg, title: "Campus Hostel", category: "Community Living" }
 ];
 
 const fallbackScroll = [
     {
-        img: 'https://unsplash.it/450/800?image=508',
-        title: 'Scrolling half by half',
-        text: 'Made in pure #CSS and almost all is "old properties" method. And a bit imagination. Yes, the flexbox is old now.',
+        img: computerLabImg,
+        title: 'Modern High-Tech Laboratories',
+        text: 'Equipped with cutting-edge computing systems, advanced network infrastructure, and modern lab facilities providing hands-on technical skill development and practical exposure.',
     },
     {
-        img: 'https://unsplash.it/450/800?image=817',
-        title: "I'm Kseso, a #obCSServer",
-        text: 'Ramajero Argonauta, Enredique Amanuense de #CSS.',
+        img: libraryImg,
+        title: 'Central Library & Knowledge Hub',
+        text: 'A comprehensive repository featuring thousands of academic texts, national and international journals, periodicals, and e-learning resources fostering research and intellectual curiosity.',
     },
     {
-        img: 'https://unsplash.it/450/800?image=948',
-        title: 'ξsCSS Blog',
-        text: '#impoCSSible inside EsCSS. A Spanish #CSS blog where the borders & limits of #CSS disappear.',
-        link: 'https://escss.blogspot.com',
+        img: clubImg,
+        title: 'Vibrant Clubs & Cultural Fests',
+        text: 'From SVASC Diwas and Star Night to Freshers Day and festival celebrations, providing dynamic platforms for students to showcase artistic talents, creativity, and leadership.',
     },
     {
-        img: 'https://unsplash.it/450/800?image=737',
-        title: '#impoCSSible is nothing',
-        text: 'You don´t need Javascript or #CSS processors either for almost 100% of what you want to do.',
+        img: sportsImg,
+        title: 'Sports, Fitness & Athletics',
+        text: 'Sprawling grounds for cricket, football, volleyball, track and field, and indoor facilities nurturing athletic spirit, discipline, teamwork, and healthy lifestyle habits.',
+    },
+    {
+        img: campusDroneImg,
+        title: 'Eco-Friendly Green Campus',
+        text: 'Nestled amidst lush coconut groves and scenic greenery at Othakuthirai, Gobichettipalayam, offering a serene, inspiring, and eco-conscious atmosphere for holistic education.',
     }
 ];
 
@@ -197,7 +212,7 @@ const CampusLife = () => {
                 <div className={styles.content}>
                     <div className={styles.text}>
                         <p>
-                            Nestled amidst lush coconut groves, SVASC College of Arts and Science, Coimbatore,
+                            Nestled amidst lush coconut groves, Shree Venkateshwara Arts and Science (Co-Education) College (SVASC), Erode,
                             is an eco-friendly campus that offers a vibrant and enriching experience for students.
                             The college remains lively throughout the year, seamlessly blending academic and cultural
                             programs that provide students with hands-on learning experiences while sharpening their skills.
@@ -278,12 +293,7 @@ const CampusLife = () => {
                         </figure>
                         <section className={styles.scrollSection}>
                             <div>
-                                {item.title.includes('show the PEN') ? (
-                                    <h2>
-                                        show the PEN.<br />
-                                        <a href={item.link}>{item.title.split('. ')[1]}</a>
-                                    </h2>
-                                ) : item.link ? (
+                                {item.link ? (
                                     <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
                                 ) : (
                                     <h1>{item.title}</h1>
