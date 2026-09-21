@@ -176,24 +176,46 @@ export const compileCardHTML = (card) => {
 const buildActivityFormData = (formData) => {
   const fd = new FormData();
   fd.append('category', formData.category || '');
+  fd.append('categoryMode', formData.categoryMode || 'structured');
+  fd.append('intro', formData.intro || '');
+  fd.append('vision', formData.vision || '');
+  fd.append('mission', formData.mission || '');
+  fd.append('clubsSummary', formData.clubsSummary || '');
+  fd.append('objectives', formData.objectives || '');
   fd.append('description', compileCategoryDescriptionHTML(formData));
 
   if (formData.bannerImage instanceof File) {
     fd.append('bannerImage', formData.bannerImage);
+  } else if (typeof formData.bannerImage === 'string' && formData.bannerImage) {
+    fd.append('bannerImageUrl', formData.bannerImage);
   }
 
-  const cardTitles = [];
-  const cardDescriptions = [];
-  (formData.cards || []).forEach((card) => {
-    cardTitles.push(card.title || '');
-    cardDescriptions.push(compileCardHTML(card));
-    if (card.image instanceof File) {
-      fd.append('cardImages', card.image);
+  const cardsData = (formData.cards || []).map((card, idx) => {
+    const isNewFile = card.image instanceof File;
+    if (isNewFile) {
+      fd.append(`cardImage_${idx}`, card.image);
     }
+    return {
+      title: card.title || '',
+      description: compileCardHTML(card),
+      intro: card.intro || '',
+      rawDescription: card.intro || card.description || '',
+      image: isNewFile ? '' : (typeof card.image === 'string' ? card.image : ''),
+      mode: card.mode || 'structured',
+      vision: card.vision || '',
+      mission: card.mission || '',
+      objectives: card.objectives || '',
+      showRoles: !!card.showRoles,
+      roles: card.roles || [],
+      showMembers: !!card.showMembers,
+      memberFormat: card.memberFormat || 'table',
+      coordinator: card.coordinator || '',
+      memberList: card.memberList || '',
+      members: card.members || []
+    };
   });
-  fd.append('cardTitles', JSON.stringify(cardTitles));
-  fd.append('cardDescriptions', JSON.stringify(cardDescriptions));
 
+  fd.append('cardsData', JSON.stringify(cardsData));
   return fd;
 };
 
@@ -202,6 +224,7 @@ const CardBuilder = ({ cards, setCards }) => {
     ...cards, 
     { 
       title: '', 
+      intro: '',
       mode: 'structured', 
       vision: '', 
       mission: '', 
@@ -305,8 +328,8 @@ const CardBuilder = ({ cards, setCards }) => {
               label={`Card ${idx + 1} Cover Image`}
               onChange={(e) => updateCard(idx, 'image', e.target.files[0])}
               previewUrl={
-                typeof card.image === 'string'
-                  ? `${BASE_URL}/${card.image.replace(/^\/+/, '')}`
+                typeof card.image === 'string' && card.image
+                  ? (card.image.startsWith('http') ? card.image : `${BASE_URL}/${card.image.replace(/^\/+/, '')}`)
                   : (card.image ? URL.createObjectURL(card.image) : null)
               }
             />
@@ -325,6 +348,14 @@ const CardBuilder = ({ cards, setCards }) => {
               <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#0a1264', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Structured Card Details (Vision, Mission, Objectives & Tables)
               </div>
+
+              <FormInput
+                label="Introduction / Tagline (Hero Subtitle)"
+                type="textarea"
+                value={card.intro || ''}
+                onChange={(e) => updateCard(idx, 'intro', e.target.value)}
+                placeholder="Enter a concise 1-2 sentence tagline/intro for the hero section..."
+              />
 
               <FormInput
                 label="Vision"
@@ -592,8 +623,8 @@ const CategoryForm = (formData, setFormData, pageKey) => (
       label="Banner Image"
       onChange={(e) => setFormData({ ...formData, bannerImage: e.target.files[0] })}
       previewUrl={
-        typeof formData.bannerImage === 'string'
-          ? `${BASE_URL}/${formData.bannerImage.replace(/^\/+/, '')}`
+        typeof formData.bannerImage === 'string' && formData.bannerImage
+          ? (formData.bannerImage.startsWith('http') ? formData.bannerImage : `${BASE_URL}/${formData.bannerImage.replace(/^\/+/, '')}`)
           : (formData.bannerImage ? URL.createObjectURL(formData.bannerImage) : null)
       }
     />

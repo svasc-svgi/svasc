@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { programDetailsData } from '../data/programDetailsData';
 import styles from './ProgramDetails.module.css';
-import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2 } from 'lucide-react';
+import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2, Target, Compass } from 'lucide-react';
 
 const ProgramDetails = () => {
     const { id } = useParams();
@@ -86,31 +86,49 @@ const ProgramDetails = () => {
                 </section>
 
                 {/* VISION & MISSION */}
-                <section className={styles.visionMissionSection}>
-                    <div className={styles.container}>
-                        <div className={styles.gridTwo}>
-                            <div className={styles.vmCard}>
-                                <h2>Vision</h2>
-                                <p>{program.vision}</p>
-                            </div>
-                            <div className={styles.vmCard}>
-                                <h2>Mission</h2>
-                                {Array.isArray(program.mission) ? (
-                                    <ul className={styles.vmList}>
-                                        {program.mission.map((item, idx) => (
-                                            <li key={idx}>
-                                                <ChevronsRight className={styles.doubleArrow} size={18} />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p>{program.mission}</p>
+                {(program.vision || program.mission) && (
+                    <section className={styles.visionMissionSection}>
+                        <div className={styles.container}>
+                            <div className={styles.vmStack}>
+                                {program.vision && (
+                                    <div className={styles.visionCard}>
+                                        <div className={styles.vmHeader}>
+                                            <div className={styles.vmIconBadge}>
+                                                <Target size={24} />
+                                            </div>
+                                            <h2>Vision</h2>
+                                        </div>
+                                        <p className={styles.visionText}>"{program.vision}"</p>
+                                    </div>
+                                )}
+                                {program.mission && (
+                                    <div className={styles.missionCard}>
+                                        <div className={styles.vmHeader}>
+                                            <div className={styles.missionIconBadge}>
+                                                <Compass size={24} />
+                                            </div>
+                                            <h2>Mission</h2>
+                                        </div>
+                                        {Array.isArray(program.mission) ? (
+                                            <ul className={styles.missionGrid}>
+                                                {program.mission.map((item, idx) => (
+                                                    <li key={idx} className={styles.missionItem}>
+                                                        <div className={styles.missionBullet}>
+                                                            <ChevronsRight size={16} />
+                                                        </div>
+                                                        <span>{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className={styles.missionText}>{program.mission}</p>
+                                        )}
+                                    </div>
                                 )}
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* OBJECTIVES */}
                 {program.objectives && (

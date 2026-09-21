@@ -12,6 +12,8 @@ import lab2Img from '../assets/lab2.jpg';
 import lab4Img from '../assets/lab4.jpg';
 import sportsImg from '../assets/sports1.jpg';
 import teachingImg from '../assets/teaching.jpg';
+import cs from '../assets/cs.jpg';
+import bcsai from '../assets/exam4.jpg';
 
 const slugify = (text) => {
     return text
@@ -86,13 +88,13 @@ const Schools = () => {
                 name: "School of Computer Science & IT",
                 acronym: "SCSIT",
                 programs: [
-                    { title: "B.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc.Computer AI & DS", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "Bachelor of Computer Applications (BCA)", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc. Computer Science", image: cs },
+                    { title: "B.Sc.Computer AI & DS", image: bcsai },
+                    { title: "Bachelor of Computer Applications (BCA)", image: cs },
 
-                    { title: "B.Sc.Information Technology", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B.Sc.Information Technology", image: cs },
 
-                    { title: "B.Sc.Cyber Security", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "B.Sc.Cyber Security", image: cs }
                 ]
             },
             {

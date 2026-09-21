@@ -1,9 +1,13 @@
+import cshome from "../assets/cs.jpg";
+import bscai from '../assets/exam4.jpg';
+import facility1 from "../assets/computerlab.JPG";
+
 export const programDetailsData = {
     "bsc-computer-science": {
         title: "B.Sc. Computer Science",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        about: "The Department of Computer Science was established in 2019–2020 with the objective of providing quality education in computing and IT, and was upgraded with a PG Programme in 2023–2024. Equipped with modern infrastructure, advanced computing labs, high-speed internet, and dedicated faculty, the department emphasizes outcome-based education, hands-on lab sessions, research activities, seminars, workshops, and industrial visits to nurture industry-ready professionals.",
+        heroImage: cshome,
+        aboutImage: cshome,
+        about: "The Department of Computer Science was established in the academic year 2019–2020 with the objective of providing quality education in the field of computing and information technology. Owing to its consistent academic growth and commitment to excellence, the department was upgraded with a Postgraduate (PG) Programme in the academic year 2023–2024.The department is equipped with modern infrastructure, well-furnished computer laboratories, high-speed internet connectivity, and advanced computing facilities to support effective teaching and learning. ",
         vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
         mission: [
             "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
@@ -28,7 +32,7 @@ export const programDetailsData = {
             "Student Mentoring: Assign faculty mentors to guide students academically, monitor performance, and provide counseling.",
             "Professional Ethics & Alumni: Promote ethical computing practices, responsible technology usage, and foster strong alumni relationships."
         ],
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilitiesImage: facility1,
         facilities: [
             "State-of-the-art computer laboratories",
             "WiFi Enabled Campus",
@@ -59,11 +63,40 @@ export const programDetailsData = {
         faqs: [
             { question: "What is B.Sc. Computer Science?", answer: "The B.Sc. Computer Science is a 3-year undergraduate program that covers core areas such as data structures, database management, and software development." },
             { question: "Who can apply for B.Sc. Computer Science?", answer: "Students who have completed 10+2 with a background in Science and Mathematics are eligible to apply." }
+        ],
+        gallery: [
+            {
+                title: "Freshers Day Celebration & Chief Guest Felicitation",
+                category: "Celebration",
+                image: "/cs/cs1.jpg"
+            },
+            {
+                title: "Computer Science Association Inauguration & Kuthuvilakku Lighting",
+                category: "Association",
+                image: "/cs/cs2.jpg"
+            },
+            {
+                title: "Department Awareness Programme & Resource Person Honouring",
+                category: "Awareness",
+                image: "/cs/cs3.jpg"
+            },
+            {
+                title: "MoU Signing & Technical Collaboration Event",
+                category: "Academic",
+                date: "26-12-2024",
+                image: "/cs/cs4.jpg"
+            },
+            {
+                title: "Special Seminar & Guest Lecture on Computing Technologies",
+                category: "Seminar",
+                date: "07-08-2024",
+                image: "/cs/cs5.jpg"
+            }
         ]
     },
     "bsccomputer-ai-ds": {
         title: "B.Sc.Artificial Intelligence and Data Science",
-        heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: bscai,
         aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         about: "To equip students with a robust understanding of computer science principles while specializing in artificial intelligence, preparing them to innovate and solve complex problems across various domains.",
         vision: "To be a leading center of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
@@ -693,6 +726,55 @@ export const programDetailsData = {
         ],
         faqs: [
             { question: "Is there an entrance exam for BBA?", answer: "Typically, admission is based on academic merit and a personal interview." }
+        ],
+        gallery: [
+            {
+                title: "Industrial Visit to Texvalley Market, Erode",
+                category: "Industrial Visit",
+                image: "/bba/texvall iv.jpg"
+            },
+            {
+                title: "Interactive Workshop on Digital Marketing & Business Communication",
+                category: "Workshop",
+                image: "/bba/digitalworkshop.jpeg"
+            },
+            {
+                title: "Career Awareness & Management Orientation Programme - SVISDOM",
+                category: "Career Guidance",
+                image: "/bba/carereawarenes.jpg"
+            },
+            {
+                title: "Seminar on Financial Literacy & Investment Strategies",
+                category: "Seminar",
+                date: "10-09-2025",
+                image: "/bba/financial awarenes.jpeg"
+            },
+            {
+                title: "Practical Computer Lab & Business Data Analytics Training",
+                category: "Lab Training",
+                image: "/bba/dataanalist.jpeg"
+            },
+            {
+                title: "Executive Personality & Soft Skills Development Programme",
+                category: "Skill Development",
+                image: "/bba/skill development.jpg"
+            },
+            {
+                title: "Workshop & Hands-on Training on Business Analytics",
+                category: "Workshop",
+                date: "20-12-2025",
+                image: "/bba/20.12.2025 Workshop & hands on training.jfif"
+            },
+            {
+                title: "Department Farewell Celebration & Valedictory Meet",
+                category: "Celebration",
+                image: "/bba/farewell.jpg"
+            },
+            {
+                title: "BBA Student Gathering & Cultural Day Celebrations",
+                category: "Celebration",
+                image: "/bba/farewell (2).jpg"
+            }
         ]
     },
     "bsc-physics": {
@@ -1487,3 +1569,5 @@ export const programDetailsData = {
     }
 };
 
+// Alias bba to management for flexible routing
+programDetailsData["bba"] = programDetailsData["management"];

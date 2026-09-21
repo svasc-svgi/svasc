@@ -64,6 +64,7 @@ function App() {
             <Route path="/chairman" element={<ChairmanMessage />} />
             <Route path="/awards" element={<AwardsGallery />} />
             <Route path="/news" element={<NewsLetter />} />
+            <Route path="/newsletter" element={<NewsLetter />} />
             <Route path="/why-svasc" element={<WhySvasc />} />
             <Route path="/cafeteria" element={<Cafeteria />} />
             <Route path="/lms" element={<LMS />} />

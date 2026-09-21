@@ -9,6 +9,13 @@ import seminar from "@/assets/hero-seminar.jpg";
 
 /* ─── image pool for section imagery ──────────────────────────────────────── */
 const imgPool = [campus, students, seminar, service];
+const imgMap: Record<string, string> = { campus, students, service, seminar };
+
+function resolveImg(val: any, fallback: string): string {
+  if (!val) return fallback;
+  if (typeof val === "string" && imgMap[val]) return imgMap[val];
+  return val;
+}
 
 /* ─── shared inline style helpers ─────────────────────────────────────────── */
 const bodyText: React.CSSProperties = {
@@ -780,7 +787,17 @@ export function BlockRenderer({
 }) {
   const tinted = index % 2 === 1;
   const imageLeft = index % 2 === 0;
-  const sectionImg = ((block as any).image || imgPool[index % imgPool.length]) ?? campus;
+  const imgMap: Record<string, string> = { campus, students, service, seminar };
+  function resolveImg(val: any, fallback: string): string {
+    if (!val) return fallback;
+    if (typeof val === "string" && imgMap[val]) return imgMap[val];
+    return val;
+  }
+  const rawImg = (block as any).image;
+  const sectionImg = resolveImg(rawImg, imgPool[index % imgPool.length] || campus);
+  const planImg1 = resolveImg((block as any).image1 || (block as any).image, campus);
+  const planImg2 = resolveImg((block as any).image2 || ((block as any).images && (block as any).images[1]), students);
+
   const cardCols =
     variant % 3 === 0
       ? "md:grid-cols-3"
@@ -793,6 +810,11 @@ export function BlockRenderer({
     "title" in block && block.title
       ? block.title.split(" ")[0]?.toUpperCase() ?? ""
       : "";
+
+  const isRolesSection =
+    "title" in block &&
+    typeof block.title === "string" &&
+    /roles?|responsibilit/i.test(block.title);
 
   return (
     <section
@@ -838,11 +860,13 @@ export function BlockRenderer({
               }}
             >
               {/* Side image */}
-              <SideImage
-                src={sectionImg}
-                alt={block.title ?? "Section image"}
-                imageLeft={imageLeft}
-              />
+              {!isRolesSection && (
+                <SideImage
+                  src={sectionImg}
+                  alt={block.title ?? "Section image"}
+                  imageLeft={imageLeft}
+                />
+              )}
 
               {/* Text content */}
               <div style={{ flex: "1 1 300px", minWidth: 0 }}>
@@ -864,29 +888,31 @@ export function BlockRenderer({
             <SectionHead title={block.title} index={index} />
             {/* Floating image overlay for visual depth */}
             <div style={{ position: "relative" }}>
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  top: "-40px",
-                  right: "-80px",
-                  width: "260px",
-                  height: "320px",
-                  borderRadius: "4px",
-                  overflow: "hidden",
-                  opacity: 0.08,
-                  pointerEvents: "none",
-                  zIndex: 0,
-                }}
-              >
-                <img
-                  src={sectionImg}
-                  alt=""
+              {!isRolesSection && (
+                <div
                   aria-hidden="true"
-                  loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
+                  style={{
+                    position: "absolute",
+                    top: "-40px",
+                    right: "-80px",
+                    width: "260px",
+                    height: "320px",
+                    borderRadius: "4px",
+                    overflow: "hidden",
+                    opacity: 0.08,
+                    pointerEvents: "none",
+                    zIndex: 0,
+                  }}
+                >
+                  <img
+                    src={sectionImg}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
+              )}
               <ul
                 style={{
                   display: "grid",
@@ -937,20 +963,22 @@ export function BlockRenderer({
             <SectionHead title={block.title} index={index} />
             {/* Image strip behind numbered items */}
             <div style={{ position: "relative" }}>
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  backgroundImage: `url(${sectionImg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  opacity: 0.04,
-                  borderRadius: "8px",
-                  pointerEvents: "none",
-                  zIndex: 0,
-                }}
-              />
+              {!isRolesSection && (
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    backgroundImage: `url(${sectionImg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    opacity: 0.04,
+                    borderRadius: "8px",
+                    pointerEvents: "none",
+                    zIndex: 0,
+                  }}
+                />
+              )}
               <ol
                 style={{
                   display: "grid",
@@ -1014,24 +1042,26 @@ export function BlockRenderer({
               }}
             />
             <div className={`grid gap-6 ${cardCols}`}>
-              {block.items.map((c, i) => (
-                <Reveal as="article" key={i} delay={i * 70} className="h-full">
-                  <div
-                    className="surface-card group h-full"
-                    style={{
-                      borderRadius: "4px",
-                      overflow: "hidden",
-                      position: "relative",
-                    }}
-                  >
-                    {/* Card image top strip */}
+              {block.items.map((c, i) => {
+                const hasCardImage = !isRolesSection && Boolean((c as any).image);
+
+                return (
+                  <Reveal as="article" key={i} delay={i * 70} className="h-full">
                     <div
+                      className="surface-card group h-full"
                       style={{
-                        height: "140px",
+                        borderRadius: "8px",
                         overflow: "hidden",
                         position: "relative",
+                        display: "flex",
+                        flexDirection: "column",
+                        border: "1px solid color-mix(in oklab, var(--gold) 20%, transparent)",
+                        background: tinted ? "rgba(255, 255, 255, 0.85)" : "white",
+                        boxShadow: "0 4px 20px -8px color-mix(in oklab, var(--ink) 10%, transparent)",
+                        transition: "all 0.3s ease",
                       }}
                     >
+<<<<<<< HEAD
                       <img
                         src={((c as any).image || imgPool[i % imgPool.length]) ?? campus}
                         alt=""
@@ -1069,27 +1099,98 @@ export function BlockRenderer({
                         }}
                       >
                         {String(i + 1).padStart(2, "0")}
+=======
+                      {/* Card image top strip */}
+                      {hasCardImage && (
+                        <div
+                          style={{
+                            height: "140px",
+                            overflow: "hidden",
+                            position: "relative",
+                          }}
+                        >
+                          <img
+                            src={(c as any).image}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "center 40%",
+                              transition: "transform 0.6s ease",
+                            }}
+                            className="group-hover:scale-105"
+                          />
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              background:
+                                "linear-gradient(to top, color-mix(in oklab, var(--ink) 55%, transparent), transparent 60%)",
+                            }}
+                          />
+                          {/* Card number badge */}
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "12px",
+                              left: "14px",
+                              fontSize: "10px",
+                              fontWeight: 700,
+                              letterSpacing: "0.2em",
+                              textTransform: "uppercase",
+                              color: "var(--gold)",
+                              fontFamily: "'Playfair Display', Georgia, serif",
+                            }}
+                          >
+                            {String(i + 1).padStart(2, "0")}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Card text */}
+                      <div style={{ padding: "24px 22px 22px", display: "flex", flexDirection: "column", flex: 1 }}>
+                        {!hasCardImage && (
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "14px" }}>
+                            <span
+                              style={{
+                                fontSize: "11px",
+                                fontWeight: 700,
+                                letterSpacing: "0.18em",
+                                textTransform: "uppercase",
+                                color: "var(--gold-deep)",
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                background: "color-mix(in oklab, var(--gold) 14%, transparent)",
+                                padding: "3px 9px",
+                                borderRadius: "4px",
+                                border: "1px solid color-mix(in oklab, var(--gold) 28%, transparent)",
+                              }}
+                            >
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                          </div>
+                        )}
+
+                        <div
+                          style={{
+                            height: "2px",
+                            width: "40px",
+                            background: "var(--gradient-gold)",
+                            marginBottom: "12px",
+                            transition: "width 0.4s ease",
+                          }}
+                          className="group-hover:w-full"
+                        />
+                        <h3 style={{ ...heading4, marginBottom: "10px", color: "var(--ink)" }}>{c.title}</h3>
+                        <p style={{ ...bodyText, fontSize: "14px", flex: 1 }}>{c.body}</p>
+>>>>>>> a5e5b113e112d15943fb00dd8429085c4fa1bcd9
                       </div>
                     </div>
-
-                    {/* Card text */}
-                    <div style={{ padding: "20px 22px 22px" }}>
-                      <div
-                        style={{
-                          height: "2px",
-                          width: "40px",
-                          background: "var(--gradient-gold)",
-                          marginBottom: "12px",
-                          transition: "width 0.5s ease",
-                        }}
-                        className="group-hover:w-full"
-                      />
-                      <h3 style={{ ...heading4, marginBottom: "10px" }}>{c.title}</h3>
-                      <p style={{ ...bodyText, fontSize: "14px" }}>{c.body}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                );
+              })}
             </div>
           </>
         )}
@@ -1172,7 +1273,7 @@ export function BlockRenderer({
                   }}
                 >
                   <img
-                    src={campus}
+                    src={planImg1}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
@@ -1189,7 +1290,7 @@ export function BlockRenderer({
                   }}
                 >
                   <img
-                    src={students}
+                    src={planImg2}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
@@ -1229,7 +1330,7 @@ export function BlockRenderer({
               }}
             >
               <img
-                src={service}
+                src={resolveImg((block as any).image, service)}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

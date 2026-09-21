@@ -4,8 +4,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Laboratory.module.css';
 import Hero from '../Common/Hero';
 import labheroImg from '../../assets/labhero.jpg';
+import lab from '../../assets/why3.jpg';
+import computerlab from '../../assets/computerlab.JPG';
+import cdf2 from '../../assets/cdf.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const resolveLabImage = (img) => {
+    if (!img) return '';
+    if (typeof img === 'object' && img !== null) {
+        return Object.values(img)[0] || '';
+    }
+    return img;
+};
 
 const Laboratory = () => {
     const labs = [
@@ -13,52 +24,23 @@ const Laboratory = () => {
             id: 'computer-lab',
             header: 'Computer Lab',
             desc: 'Our state-of-the-art computer lab features fully air-conditioned facilities with Intel Core i3 systems, 8GB RAM, and 24/7 high-speed internet connectivity. Students benefit from LAN-connected workstations and digital learning platforms for both theoretical and practical sessions.',
-            image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+            image: computerlab,
             index: 7
         },
         {
             id: 'sewing-lab',
             header: 'Sewing Laboratory',
             desc: 'A comprehensive facility equipped with modern sewing machines including single-needle, overlock, and flatlock systems. Students master garment construction, precision stitching, and innovative design under expert faculty supervision.',
-            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+            image: cdf2,
             index: 6
-        },
-        {
-            id: 'construction-lab',
-            header: 'Advanced Construction Lab',
-            desc: 'Features high-speed industrial machines and computerized embroidery systems for advanced garment construction. Students gain hands-on experience in precision stitching, pattern making, and creative embroidery techniques.',
-            image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800&q=80",
-            index: 5
-        },
-        {
-            id: 'dyeing-lab',
-            header: 'Dyeing & Processing Lab',
-            desc: 'Equipped with modern testing instruments and dyeing facilities for analyzing fabric quality. Students learn eco-friendly dyeing practices, colourfastness testing, and sustainable fashion techniques through practical application.',
-            image: "https://images.unsplash.com/photo-1582719471137-c3967ffb1c42?w=800&q=80",
-            index: 4
         },
         {
             id: 'microbiology-lab',
             header: 'Microbiology Lab',
             desc: 'Features advanced equipment including laminar airflow chambers, microscopes, incubators, and spectrophotometers. Electronic classrooms with LCD projectors support computer-aided teaching for comprehensive microbiology studies.',
-            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
+            image: lab,
             index: 3
-        },
-        {
-            id: 'ai-lab',
-            header: 'AI & Machine Learning Lab',
-            desc: 'The AI Lab focuses on understanding the nature of brainpower and engineering intelligent computer systems. Students practice neural network technology and explore AI systems that play major roles across various industries and applications.',
-            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-            index: 2
-        },
-        {
-            id: 'cyber-security-lab',
-            header: 'Cyber Security Lab',
-            desc: 'Equipped with advanced security tools and penetration testing environments. Students learn ethical hacking, network security, cryptography, and threat analysis to protect digital infrastructure against cyber attacks and vulnerabilities.',
-            image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-            index: 1
-        }
-    ];
+        },    ];
     const containerRef = useRef(null);
     const rightSideRef = useRef(null);
     const imagesRef = useRef([]);
@@ -217,7 +199,7 @@ const Laboratory = () => {
                                         order: idx * 2 + 1
                                     }}
                                 >
-                                    <img src={lab.image} alt={lab.header} />
+                                    <img src={resolveLabImage(lab.image)} alt={lab.header} />
                                 </div>
                             ))}
                         </div>
