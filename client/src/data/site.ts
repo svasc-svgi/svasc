@@ -1,5 +1,6 @@
 import her0Img from "@/assets/her0.jpg";
 import newImg from "@/assets/new.jpg";
+import traImg from "@/assets/tra.jpg";
 
 export type Member = {
   name: string;
@@ -913,6 +914,7 @@ export const pages: PageDef[] = [
       {
         kind: "prose",
         title: "Vision",
+        image: traImg,
         body: [
           "The Placement & Training Cell of SVASC College envisions every graduate stepping out of campus gates not just with a degree, but with a validated set of professional competencies, a polished career narrative and a confirmed employment offer in hand — prepared not merely for the job market of today but for the dynamic, technology-driven workplace of tomorrow.",
           "We aspire to be the institutional bridge between SVASC's academic rigor and the ever-evolving expectations of India's leading employers — building graduates who are not only knowledgeable but also adaptable, communicative, ethical and genuinely ready to create value from Day One of their professional careers.",
