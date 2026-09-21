@@ -97,10 +97,18 @@ export default function DynamicClubDetail() {
           if (matchedCard) {
             const blocks = [];
 
+            // Slug → image for Vision prose block (images served from /public)
+            const VISION_IMAGES = {
+              'placement-training-cell': '/tra.jpg',
+              'placement-and-training-cell': '/tra.jpg',
+            };
+            const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
+
             if (matchedCard.vision) {
               blocks.push({
                 kind: 'prose',
                 title: 'Vision',
+                image: VISION_IMAGES?.[normSlug] || undefined,
                 body: matchedCard.vision.split('\n').filter(Boolean)
               });
             }
@@ -263,6 +271,7 @@ export default function DynamicClubDetail() {
               blocks.push({
                 kind: 'prose',
                 title: 'Vision',
+                image: VISION_IMAGES?.[normSlug] || undefined,
                 body: apiData.vision.split('\n').filter(Boolean)
               });
             }
