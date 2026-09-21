@@ -1061,45 +1061,6 @@ export function BlockRenderer({
                         transition: "all 0.3s ease",
                       }}
                     >
-<<<<<<< HEAD
-                      <img
-                        src={((c as any).image || imgPool[i % imgPool.length]) ?? campus}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          objectPosition: "center 40%",
-                          transition: "transform 0.6s ease",
-                        }}
-                        className="group-hover:scale-105"
-                      />
-                      <div
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          background:
-                            "linear-gradient(to top, color-mix(in oklab, var(--ink) 55%, transparent), transparent 60%)",
-                        }}
-                      />
-                      {/* Card number badge */}
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: "12px",
-                          left: "14px",
-                          fontSize: "10px",
-                          fontWeight: 700,
-                          letterSpacing: "0.2em",
-                          textTransform: "uppercase",
-                          color: "var(--gold)",
-                          fontFamily: "'Playfair Display', Georgia, serif",
-                        }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-=======
                       {/* Card image top strip */}
                       {hasCardImage && (
                         <div
@@ -1185,7 +1146,7 @@ export function BlockRenderer({
                         />
                         <h3 style={{ ...heading4, marginBottom: "10px", color: "var(--ink)" }}>{c.title}</h3>
                         <p style={{ ...bodyText, fontSize: "14px", flex: 1 }}>{c.body}</p>
->>>>>>> a5e5b113e112d15943fb00dd8429085c4fa1bcd9
+
                       </div>
                     </div>
                   </Reveal>
