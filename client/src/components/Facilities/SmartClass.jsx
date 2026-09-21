@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styles from './SmartClass.module.css';
 import Hero from '../Common/Hero';
 
+import smartImg from '../../assets/smart.jpg';
+import smart1Img from '../../assets/smart1.jpg';
+import smart2Img from '../../assets/smart2.jpg';
+
 const SmartClass = () => {
     const images = [
-        "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=800&q=80"
+        smart1Img,
+        smart2Img
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -23,7 +26,7 @@ const SmartClass = () => {
             <Hero
                 title="Smart Wall Class Rooms"
                 description="Technology-enabled learning spaces for futuristic education"
-                image="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1600&q=80"
+                image={smartImg}
             />
             <section className={styles.section}>
                 <div className={styles.container}>
