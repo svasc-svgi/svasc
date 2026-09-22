@@ -238,14 +238,14 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    background-image: url(../Img/icon-btn.png);
+    /* background-image: url(../Img/icon-btn.png); */
     background-position: center;
     background-size: 100%;
     cursor: pointer;
 }
 
 .steps .steps-container .content button.icon-toggle-box.clicked {
-    background-image: url(../Img/icon-btn-clicked.png);
+    /* background-image: url(../Img/icon-btn-clicked.png); */
 }
 
 .steps .steps-container .date {
