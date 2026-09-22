@@ -2,13 +2,15 @@ import React from 'react';
 import styles from './Cafeteria.module.css';
 import Hero from '../Common/Hero';
 
+import campus1Img from '../../assets/campus1.jpg';
+
 const Cafeteria = () => {
     return (
         <>
             <Hero
                 title="SVASC Cafeteria"
                 description="Quality, Hygiene, and Affordability"
-                image="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80"
+                image={campus1Img}
             />
             <main className={styles.container}>
                 {/* LEFT CONTENT */}
