@@ -1,6 +1,16 @@
 import cshome from "../assets/cs.jpg";
 import bscai from '../assets/exam4.jpg';
 import facility1 from "../assets/computerlab.JPG";
+import campusImg from "../assets/campus.jpg";
+import cellImg from "../assets/cell.JPG";
+import computerlabImg from "../assets/computerlab.JPG";
+import her0Img from "../assets/her0.jpg";
+import learningImg from "../assets/learning.jpg";
+import mileImg from "../assets/mile.jpg";
+import ugpgImg from "../assets/ugpg.jpg";
+import AboutheroImg from "../assets/Abouthero.jpg";
+import examheroImg from "../assets/exam hero.JPG";
+import home1Img from "../assets/home1.jpg";
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -287,8 +297,8 @@ export const programDetailsData = {
     },
     "b-com-bachelor-of-commerce": {
         title: "B. Com – Bachelor of Commerce",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: campusImg,
+        aboutImage: mileImg,
         about: "The Department of Commerce was established in 2019 with the introduction of the B.Com programme. The department is supported by seven dedicated and experienced faculty members and a vibrant community of enthusiastic students. The Department of Bachelor of Commerce (B.Com) is committed to providing quality education in commerce, accounting, finance, taxation, banking, and business management. The department focuses on developing students' academic knowledge, professional skills, ethical values and leadership qualities through innovative teaching methods, practical learning and industry exposure.",
         vision: "To be a centre of excellence in commerce education by developing competent, ethical and socially responsible professionals.",
         mission: [
@@ -376,8 +386,8 @@ export const programDetailsData = {
     },
     "b-combi-bachelor-of-commerce-with-banking-insurance": {
         title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance",
-        heroImage: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: cellImg,
+        aboutImage: ugpgImg,
         about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (B&I) alongside other UG, M.Com, and Ph.D. research programs. The department is manned by well-qualified and experienced faculty striving hard for holistic student development in Accounting, Banking, Insurance, Leadership, and Research skills.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
         mission: [
@@ -444,8 +454,8 @@ export const programDetailsData = {
     },
     "bcom-it-bachelor-of-information-technology": {
         title: "B.Com(IT) - Bachelor of Information Technology",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: computerlabImg,
+        aboutImage: AboutheroImg,
         about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (IT) alongside other UG, M.Com, and Ph.D. research programs. B.Com Information Technology combines business and technology, imparting design, development, implementation, and management of information systems along with adapting software applications in accounting and business.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
         mission: [
@@ -512,8 +522,8 @@ export const programDetailsData = {
     },
     "bcomca-computer-applications": {
         title: "B.Com (Computer Applications)",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: her0Img,
+        aboutImage: examheroImg,
         about: "The B.Com (Computer Applications) degree programme was introduced in 2019. The Department of B.Com (Computer Applications) integrates commerce education with computer application skills. It enables students to acquire knowledge in accounting, finance, business management, programming, and information technology. The department prepares students for careers in business, banking, finance, information technology and entrepreneurship through a balanced combination of theoretical knowledge and practical learning.",
         vision: "To provide quality education in commerce and computer applications and to develop skilled, ethical and confident professionals.",
         mission: [
@@ -600,8 +610,8 @@ export const programDetailsData = {
     },
     "bcom-pa-professional-accounting": {
         title: "B.Com(PA)-Professional Accounting",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: learningImg,
+        aboutImage: home1Img,
         about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (PA) alongside other UG, M.Com, and Ph.D. research programs. B.Com Professional Accounting is specifically aligned with professional accounting standards (CA, CMA, CS), building strong research, finance, corporate tax, and accounting careers.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
         mission: [

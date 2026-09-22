@@ -14,6 +14,11 @@ import sportsImg from '../assets/sports1.jpg';
 import teachingImg from '../assets/teaching.jpg';
 import cs from '../assets/cs.jpg';
 import bcsai from '../assets/exam4.jpg';
+import campusImg from '../assets/campus.jpg';
+import cellImg from '../assets/cell.JPG';
+import computerlabImg from '../assets/computerlab.JPG';
+import her0Img from '../assets/her0.jpg';
+import learningImg from '../assets/learning.jpg';
 
 const slugify = (text) => {
     return text
@@ -101,14 +106,11 @@ const Schools = () => {
                 name: "School of Commerce",
                 acronym: "SOC",
                 programs: [
-                    { title: "B. Com – Bachelor of Commerce", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-
-                    { title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance", image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-
-                    { title: "B.Com (IT) – Bachelor of Information Technology", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-
-                    { title: "B.Com(CA) - Computer Applications", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Com (PA) - Professional Accounting", image: "https://images.unsplash.com/photo-1554224155-1696413565d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "B. Com – Bachelor of Commerce", image: campusImg },
+                    { title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance", image: cellImg },
+                    { title: "B.Com (IT) – Bachelor of Information Technology", image: computerlabImg },
+                    { title: "B.Com(CA) - Computer Applications", image: her0Img },
+                    { title: "B.Com (PA) - Professional Accounting", image: learningImg },
                 ]
             },
             {
