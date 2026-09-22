@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './AwardsGallery.module.css';
 import { ChevronsDown } from 'lucide-react';
 import Hero from '../components/Common/Hero';
-import { getAwards } from '../services/awardService';
+import { getAwards, getAwardsPageHero } from '../services/awardService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -21,9 +21,34 @@ const AwardsGallery = () => {
     const [imageCollections, setImageCollections] = useState({});
     const [loading, setLoading] = useState(true);
 
+    const [heroData, setHeroData] = useState({
+        title: "Awards & Recognition",
+        description: "Celebrating Excellence, Achievement, and Innovation",
+        image: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"
+    });
+
     useEffect(() => {
         fetchAwards();
+        fetchHero();
     }, []);
+
+    const fetchHero = async () => {
+        try {
+            const res = await getAwardsPageHero();
+            if (res?.data) {
+                const cleanImage = res.data.image ? res.data.image.replace(/^\/+/, '') : '';
+                setHeroData({
+                    title: res.data.title || "Awards & Recognition",
+                    description: res.data.description || "Celebrating Excellence, Achievement, and Innovation",
+                    image: res.data.image 
+                           ? (res.data.image.startsWith('http') ? res.data.image : `${BASE_URL}/${cleanImage}`) 
+                           : "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching awards hero:', error);
+        }
+    };
 
     const fetchAwards = async () => {
         try {
@@ -89,9 +114,9 @@ const AwardsGallery = () => {
     return (
         <>
             <Hero
-                title="Awards & Recognition"
-                description="Celebrating Excellence, Achievement, and Innovation"
-                image="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"
+                title={heroData.title}
+                description={heroData.description}
+                image={heroData.image}
             />
             <div className={styles.wrapper}>
                 <aside className={styles.sideContent}>
