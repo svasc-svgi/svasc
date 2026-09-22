@@ -70,23 +70,7 @@ const SmartClass = () => {
                                 </div>
                             </div>
 
-                            {/* FLOATING BOX 1 */}
-                            <div className={styles.floatingBox1}>
-                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="User" className={styles.floatingAvatar} />
-                                <div>
-                                    <h3 className={styles.floatingName}>antone heller</h3>
-                                    <span className={styles.floatingRating}>⭐ 4.8</span>
-                                </div>
-                            </div>
 
-                            {/* FLOATING BOX 2 */}
-                            <div className={styles.floatingBox2}>
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="User" className={styles.floatingAvatar} />
-                                <div>
-                                    <h3 className={styles.floatingName}>chaya bradtke</h3>
-                                    <span className={styles.floatingRating}>⭐ 5.0</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
