@@ -14,6 +14,9 @@ import sportsImg from '../assets/sports1.jpg';
 import teachingImg from '../assets/teaching.jpg';
 import cs from '../assets/cs.jpg';
 import bcsai from '../assets/exam4.jpg';
+import about3Img from '../assets/about3.jpg';
+import commitiesImg from '../assets/commities.JPG';
+import examheroImg from '../assets/exam hero.JPG';
 import campusImg from '../assets/campus.jpg';
 import cellImg from '../assets/cell.JPG';
 import computerlabImg from '../assets/computerlab.JPG';
@@ -93,13 +96,11 @@ const Schools = () => {
                 name: "School of Computer Science & IT",
                 acronym: "SCSIT",
                 programs: [
-                    { title: "B.Sc. Computer Science", image: cs },
-                    { title: "B.Sc.Computer AI & DS", image: bcsai },
+                    { title: "B.Sc. Computer Science", image: about3Img },
+                    { title: "B.Sc.Computer AI & DS", image: commitiesImg },
                     { title: "Bachelor of Computer Applications (BCA)", image: cs },
-
-                    { title: "B.Sc.Information Technology", image: cs },
-
-                    { title: "B.Sc.Cyber Security", image: cs }
+                    { title: "B.Sc.Information Technology", image: examheroImg },
+                    { title: "B.Sc.Cyber Security", image: bcsai }
                 ]
             },
             {

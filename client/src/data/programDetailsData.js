@@ -11,12 +11,19 @@ import ugpgImg from "../assets/ugpg.jpg";
 import AboutheroImg from "../assets/Abouthero.jpg";
 import examheroImg from "../assets/exam hero.JPG";
 import home1Img from "../assets/home1.jpg";
+import about3Img from "../assets/about3.jpg";
+import commitiesImg from "../assets/commities.JPG";
+import home3Img from "../assets/home3.jpg";
+import home4Img from "../assets/home4.JPG";
+import home5Img from "../assets/home5.jpg";
+import intImg from "../assets/int.jpeg";
+import libImg from "../assets/lib.jpg";
 
 export const programDetailsData = {
     "bsc-computer-science": {
         title: "B.Sc. Computer Science",
-        heroImage: cshome,
-        aboutImage: cshome,
+        heroImage: about3Img,
+        aboutImage: home3Img,
         about: "The Department of Computer Science was established in the academic year 2019–2020 with the objective of providing quality education in the field of computing and information technology. Owing to its consistent academic growth and commitment to excellence, the department was upgraded with a Postgraduate (PG) Programme in the academic year 2023–2024.The department is equipped with modern infrastructure, well-furnished computer laboratories, high-speed internet connectivity, and advanced computing facilities to support effective teaching and learning. ",
         vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
         mission: [
@@ -106,8 +113,8 @@ export const programDetailsData = {
     },
     "bsccomputer-ai-ds": {
         title: "B.Sc.Artificial Intelligence and Data Science",
-        heroImage: bscai,
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: commitiesImg,
+        aboutImage: home4Img,
         about: "To equip students with a robust understanding of computer science principles while specializing in artificial intelligence, preparing them to innovate and solve complex problems across various domains.",
         vision: "To be a leading center of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
         mission: "To provide quality education through cutting-edge curriculum, research opportunities, and industry partnerships while supporting students through career guidance and skill development. Provide a comprehensive and rigorous curriculum that balances theoretical knowledge with practical skills.",
@@ -138,8 +145,8 @@ export const programDetailsData = {
 
     "bachelor-of-computer-applications-bca": {
         title: "Bachelor of Computer Applications (BCA)",
-        heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: cshome,
+        aboutImage: home5Img,
         about: "The Department of Computer Applications offers a 3-year undergraduate degree program (BCA) designed to provide a comprehensive education in computer applications, programming, and software development. The program integrates rigorous academic curriculum with hands-on technical training, research culture, and industry collaborations to prepare students for rewarding tech careers and higher studies.",
         vision: "To be a leading centre of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
         mission: "The Department is to provide quality education through a comprehensive and rigorous curriculum that integrates theoretical knowledge with practical skills while fostering creativity, critical thinking, and problem-solving abilities. The Department is committed to promoting research and innovation by encouraging faculty and students to undertake cutting-edge research projects and publish their findings in reputed journals. It strives to strengthen industry collaboration through partnerships, internships, workshops, and guest lectures that provide real-world exposure and align academic programs with current technological trends.",
@@ -238,8 +245,8 @@ export const programDetailsData = {
     },
     "bscinformation-technology": {
         title: "B.Sc. Information Technology",
-        heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: examheroImg,
+        aboutImage: intImg,
         about: "This degree is primarily focused on subjects such as software, databases, and networking. The B.Sc degree in IT is awarded for completing a program of study in the field of software development, software testing, software engineering, web design, databases, programming, and computer networking and computer systems.",
         vision: "To be a leading center of excellence in information technology education, fostering innovation in software development and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
         mission: "To provide quality education through a cutting-edge IT curriculum focused on application development, practical programming, and emerging technologies, while offering research opportunities, industry partnerships, and strong support for students through career guidance, skill development workshops, and hands-on training. Provide a comprehensive and rigorous curriculum that balances theoretical foundations with extensive practical application skills.",
@@ -267,8 +274,8 @@ export const programDetailsData = {
     },
     "bsccyber-security": {
         title: "B.Sc. Cyber Security",
-        heroImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: bscai,
+        aboutImage: libImg,
         about: "B.Sc Computer Science (Cyber Security). The three-year degree program Cyber Security courses aim to equip students with the knowledge and skills required to defend computer operating systems, networks, and data from cyber-attacks",
         vision: "To be a leading center of excellence in information technology education, fostering innovation in software development and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
         mission: "To provide quality education through a cutting-edge IT curriculum focused on application development, practical programming, and emerging technologies, while offering research opportunities, industry partnerships, and strong support for students through career guidance, skill development workshops, and hands-on training. Provide a comprehensive and rigorous curriculum that balances theoretical foundations with extensive practical application skills.",
