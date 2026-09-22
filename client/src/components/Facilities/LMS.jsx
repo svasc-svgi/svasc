@@ -2,12 +2,14 @@ import React from 'react';
 import styles from './LMS.module.css';
 import Hero from '../Common/Hero';
 
+import learningImg from '../../assets/learning.jpg';
+import learn1Img from '../../assets/learn1.jpg';
+import libImg from '../../assets/lib.jpg';
+
 const LMS = () => {
     const images = [
-        'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee',
-        'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9',
-        'https://images.unsplash.com/photo-1500835556837-99ac94a94552',
-        'https://images.unsplash.com/photo-1498307833015-e7b400441eb8'
+        learn1Img,
+        libImg
     ];
 
     return (
@@ -15,7 +17,7 @@ const LMS = () => {
             <Hero
                 title="Learning Management System"
                 description="Streamlining Communication and Academic Excellence"
-                image="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&w=1600&q=80"
+                image={learningImg}
             />
             <section className={styles.section}>
 
