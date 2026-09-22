@@ -22,6 +22,7 @@ import cellImg from '../assets/cell.JPG';
 import computerlabImg from '../assets/computerlab.JPG';
 import her0Img from '../assets/her0.jpg';
 import learningImg from '../assets/learning.jpg';
+import smart1Img from '../assets/smart1.jpg';
 
 const slugify = (text) => {
     return text
@@ -118,7 +119,7 @@ const Schools = () => {
                 name: "School of Management",
                 acronym: "SOM",
                 programs: [
-                    { title: "Management", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "Management", image: smart1Img },
                 ]
             },
             {

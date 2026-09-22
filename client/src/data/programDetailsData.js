@@ -18,6 +18,8 @@ import home4Img from "../assets/home4.JPG";
 import home5Img from "../assets/home5.jpg";
 import intImg from "../assets/int.jpeg";
 import libImg from "../assets/lib.jpg";
+import smart1Img from "../assets/smart1.jpg";
+import smart2Img from "../assets/smart2.jpg";
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -685,8 +687,8 @@ export const programDetailsData = {
     },
     "management": {
         title: "Management (BBA)",
-        heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: smart1Img,
+        aboutImage: smart2Img,
         about: "The Department of Business Administration (BBA) offers a fundamental education in business and management principles. It provides comprehensive knowledge and practical training in leadership, analytical, decision-making, and entrepreneurial skills to prepare students for managerial roles, corporate careers, higher education, and successful business ventures.",
         vision: "The department strives to develop the knowledge and skills required to act as responsible stewards and provide meaningful guidance to students in achieving their career goals.",
         mission: [
