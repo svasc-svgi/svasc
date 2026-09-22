@@ -80,9 +80,18 @@ export default function DynamicClubDetail() {
 
         // Process data from API
         if (apiData) {
+          const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
+          const cleanWords = cleanSlug.replace(/[^a-z0-9]+/g, ' ').trim();
+
+          // Slug → image for Vision prose block (images served from /public)
+          const VISION_IMAGES = {
+            'placement-training-cell': '/tra.jpg',
+            'placement-and-training-cell': '/tra.jpg',
+            'internal-grievances-committee': '/int.jpeg',
+            'grievance-redressal-committee': '/int.jpeg',
+          };
+
           if (!matchedCard && apiData.cards && apiData.cards.length > 0) {
-            const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
-            const cleanWords = cleanSlug.replace(/[^a-z0-9]+/g, ' ').trim();
             matchedCard = apiData.cards.find(c => {
               const cardSlug = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
               const cardWords = (c.title || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -96,13 +105,6 @@ export default function DynamicClubDetail() {
 
           if (matchedCard) {
             const blocks = [];
-
-            // Slug → image for Vision prose block (images served from /public)
-            const VISION_IMAGES = {
-              'placement-training-cell': '/tra.jpg',
-              'placement-and-training-cell': '/tra.jpg',
-            };
-            const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
 
             if (matchedCard.vision) {
               blocks.push({
