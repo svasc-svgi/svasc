@@ -23,13 +23,15 @@
 }
 
 .header-wrap {
-    width: 100%;
+    max-width: 100%;
+    width: 1600px;
     margin: auto;
-    padding: 10px 40px;
+
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 .header-wrap a {
@@ -86,14 +88,6 @@
 
 .header .college-text {
     line-height: 1.6;
-    margin-left: 20px;
-}
-
-.navbar-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
 }
 
 .header .college-text h1 {
@@ -305,10 +299,6 @@
 
 /* TABLET (768px - 1024px) */
 @media (max-width: 1024px) {
-    .navbar-divider {
-        display: none;
-    }
-
     .header-wrap {
         padding: 10px 20px;
         width: 100%;

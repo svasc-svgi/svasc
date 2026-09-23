@@ -46,13 +46,6 @@ const Navbar = ({ className }) => {
                     </div>
                 </Link>
 
-                {/* S-Shape Divider for Desktop */}
-                <div className="navbar-divider">
-                    <svg width="40" height="70" viewBox="0 0 40 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 28 10 C 4 10, 4 35, 20 35 C 36 35, 36 60, 12 60" stroke="#f5b400" strokeWidth="3" strokeLinecap="round" fill="none" />
-                    </svg>
-                </div>
-
                 {/* HAMBURGER MENU BUTTON - Mobile Only */}
                 <button
                     className="hamburger"
