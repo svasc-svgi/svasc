@@ -226,18 +226,18 @@ const HomeTab = () => {
         data={alumni}
         columns={[
           { key: 'name', label: 'Name', type: 'text' },
-          { key: 'batch', label: 'Batch', type: 'text' },
+          { key: 'subTitle', label: 'Role/Batch', type: 'text' },
           { key: 'image', label: 'Image', type: 'image' }
         ]}
         onSave={(data, id) => handleSave('/api/home/alumni-slider', 'image', data, id)}
         onDelete={(id) => handleDelete('/api/home/alumni-slider', id)}
-        initialFormState={{ name: '', batch: '', role: '', description: '', image: null }}
+        initialFormState={{ name: '', subTitle: '', content: '', link: '#', image: null }}
         renderForm={(formData, setFormData) => (
           <>
-            <FormInput label="Name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-            <FormInput label="Batch" value={formData.batch} onChange={(e) => setFormData({...formData, batch: e.target.value})} required />
-            <FormInput label="Role/Position" value={formData.role} onChange={(e) => setFormData({...formData, role: e.target.value})} required />
-            <FormInput label="Description" type="textarea" value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} required />
+            <FormInput label="Name" value={formData.name || ''} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
+            <FormInput label="Role/Batch" value={formData.subTitle || ''} onChange={(e) => setFormData({...formData, subTitle: e.target.value})} required />
+            <FormInput label="Description" type="textarea" value={formData.content || ''} onChange={(e) => setFormData({...formData, content: e.target.value})} required />
+            <FormInput label="Link (optional)" value={formData.link || ''} onChange={(e) => setFormData({...formData, link: e.target.value})} />
             <FileUploader 
               label="Alumni Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
@@ -252,19 +252,21 @@ const HomeTab = () => {
         data={events}
         columns={[
           { key: 'title', label: 'Title', type: 'text' },
-          { key: 'day', label: 'Day', type: 'text' },
-          { key: 'month', label: 'Month', type: 'text' },
+          { key: 'subtitle', label: 'Subtitle', type: 'text' },
+          { key: 'date', label: 'Date', type: 'text' },
           { key: 'image', label: 'Image', type: 'image' }
         ]}
         onSave={(data, id) => handleSave('/api/home/events', 'image', data, id)}
         onDelete={(id) => handleDelete('/api/home/events', id)}
-        initialFormState={{ day: '', month: '', title: '', description: '', image: null }}
+        initialFormState={{ title: '', subtitle: '', description: '', author: '', date: '', link: '#', image: null }}
         renderForm={(formData, setFormData) => (
           <>
-            <FormInput label="Day (e.g. 28)" value={formData.day} onChange={(e) => setFormData({...formData, day: e.target.value})} required />
-            <FormInput label="Month (e.g. Apr)" value={formData.month} onChange={(e) => setFormData({...formData, month: e.target.value})} required />
-            <FormInput label="Title" value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} required />
-            <FormInput label="Description" type="textarea" value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} required />
+            <FormInput label="Title" value={formData.title || ''} onChange={(e) => setFormData({...formData, title: e.target.value})} required />
+            <FormInput label="Subtitle" value={formData.subtitle || ''} onChange={(e) => setFormData({...formData, subtitle: e.target.value})} required />
+            <FormInput label="Author" value={formData.author || ''} onChange={(e) => setFormData({...formData, author: e.target.value})} required />
+            <FormInput label="Date (e.g. Aug. 24, 2015)" value={formData.date || ''} onChange={(e) => setFormData({...formData, date: e.target.value})} required />
+            <FormInput label="Description" type="textarea" value={formData.description || ''} onChange={(e) => setFormData({...formData, description: e.target.value})} required />
+            <FormInput label="Link (optional)" value={formData.link || ''} onChange={(e) => setFormData({...formData, link: e.target.value})} />
             <FileUploader 
               label="Event Image"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})} 
