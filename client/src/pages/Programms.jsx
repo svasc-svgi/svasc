@@ -28,6 +28,11 @@ import why3Img from '../assets/why3.jpg';
 import researchImg from '../assets/research.jpg';
 import exam3Img from '../assets/exam3.jpg';
 import sports2Img from '../assets/sports2.jpg';
+import home5Img from '../assets/home5.jpg';
+import home1Img from '../assets/home1.jpg';
+import newImg from '../assets/new.jpg';
+import club0Img from '../assets/club0.jpg';
+import why2Img from '../assets/why2.JPG';
 
 const slugify = (text) => {
     return text
@@ -166,8 +171,8 @@ const Schools = () => {
                 name: "School of Computer Science",
                 acronym: "SCS",
                 programs: [
-                    { title: "M.Sc. Computer Science", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "M.Sc Microbiology", image: lab4Img },
+                    { title: "M.Sc. Computer Science", image: home5Img },
+                    { title: "M.Sc Microbiology", image: home1Img },
 
                 ]
             },
@@ -175,8 +180,8 @@ const Schools = () => {
                 name: "School of Arts & Languages",
                 acronym: "SCS",
                 programs: [
-                    { title: "M.A English", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "M.A Tamil", image: teachingImg },
+                    { title: "M.A English", image: exam3Img },
+                    { title: "M.A Tamil", image: her0Img },
 
                 ]
             },
@@ -184,7 +189,7 @@ const Schools = () => {
                 name: "School of Commerce & Management",
                 acronym: "SCM",
                 programs: [
-                    { title: "M.Com", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "M.Com", image: newImg },
                 ]
             }
         ],
@@ -193,8 +198,8 @@ const Schools = () => {
                 name: "Research & Development",
                 acronym: "R&D",
                 programs: [
-                    { title: "Ph.D. Tamil", image: teachingImg },
-                    { title: "Ph.D. English", image: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
+                    { title: "Ph.D. Tamil", image: club0Img },
+                    { title: "Ph.D. English", image: why2Img },
 
                 ]
             }

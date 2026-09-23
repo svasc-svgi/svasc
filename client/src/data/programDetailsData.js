@@ -34,6 +34,12 @@ import cdfImg from '../assets/cdf.jpg';
 import cdf2Img from '../assets/cdf2.jpg';
 import sports2Img from '../assets/sports2.jpg';
 import sporthero1Img from '../assets/sporthero1.jpg';
+import newImg from '../assets/new.jpg';
+import libraryImg from '../assets/library.JPG';
+import club0Img from '../assets/club0.jpg';
+import why2Img from '../assets/why2.JPG';
+import aboutusImg from '../assets/aboutus.jpg';
+import ugpgheroImg from '../assets/ugpghero.jpg';
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -1239,8 +1245,8 @@ export const programDetailsData = {
     },
     "msc-computer-science": {
         title: "M.Sc. Computer Science",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: home5Img,
+        aboutImage: home4Img,
         about: "To gain a deep understanding of advanced topics such as algorithms, data structures, artificial intelligence, machine learning, cyber security, and software engineering..",
         vision: "To be a center of excellence in advanced computer science education and research.",
         mission: "To produce highly skilled computer science professionals through rigorous academic and research programs.",
@@ -1272,8 +1278,8 @@ export const programDetailsData = {
     },
     "mcom": {
         title: "Master of Commerce (M.Com)",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: newImg,
+        aboutImage: libraryImg,
         about: "The PG & Research Department of Commerce has been functioning since 2019, offering M.Com in the Post Graduate stream alongside Ph.D. research courses. The department is manned by academically well-qualified, experienced, and committed faculty members. It strives for the holistic development of students in acquiring advanced Accounting, Banking, Managerial, Leadership, Entrepreneurial, and Research Skills.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership, and global competence to address emerging challenges in business and society.",
         mission: [
@@ -1341,8 +1347,8 @@ export const programDetailsData = {
     },
     "msc-microbiology": {
         title: "M.Sc Microbiology",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: home1Img,
+        aboutImage: aboutusImg,
         about: "Microbiology, the study of microorganisms is of major importance to our lives. It will prepare you to enter rapidly expanding careers in Microbiology Research with practical application in Business, Industry, and Medicine.",
         vision: "To be a center of excellence in microbial research and advanced biological sciences.",
         mission: "To provide quality education and research opportunities in microbiology for the betterment of society and industry.",
@@ -1370,8 +1376,8 @@ export const programDetailsData = {
     },
     "phd-tamil": {
         title: "Ph.D. Tamil",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: club0Img,
+        aboutImage: ugpgImg,
         about: "The Ph.D. program in Tamil is a research-intensive course focusing on Tamil literature, linguistics, culture, and history. It encourages original scholarly contributions to the Tamil language.",
         vision: "To preserve and promote the richness of Tamil language and literature through academic research.",
         mission: "To foster a research environment that produces high-quality scholars and researchers in Tamil studies.",
@@ -1402,8 +1408,8 @@ export const programDetailsData = {
     },
     "phd-english": {
         title: "Ph.D. English",
-        heroImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1454165833762-02ad50c748e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: why2Img,
+        aboutImage: ugpgheroImg,
         about: "The Ph.D. program in English is designed for advanced research in English literature, literary theory, linguistics, and cultural studies.",
         vision: "To create world-class researchers and scholars in the English language and literature.",
         mission: "To inspire literary criticism and innovative research that contributes to global academic discourse.",
@@ -1434,8 +1440,8 @@ export const programDetailsData = {
     },
     "ma-english": {
         title: "M.A English",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: exam3Img,
+        aboutImage: dji0589Img,
         about: "Master of Arts in English is a two-year post-graduate program that offers an in-depth study of English Literature and Language from around the world. It provides students with the critical skills to analyze texts and understand the evolution of the English language.",
         vision: "To produce globally competent scholars and professionals in the field of English studies.",
         mission: "To foster a deep appreciation for literature and to equip students with advanced communication and analytical skills.",
@@ -1460,8 +1466,8 @@ export const programDetailsData = {
     },
     "ma-tamil": {
         title: "M.A Tamil",
-        heroImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: her0Img,
+        aboutImage: dji0587Img,
         about: "Master of Arts in Tamil is a two-year postgraduate degree designed to provide deep knowledge in Tamil literature, linguistics, and cultural history. The course covers ancient, medieval, and modern Tamil literature.",
         vision: "To preserve and promote the heritage of Tamil language and literature through advanced academic studies.",
         mission: "To develop linguists and literary critics who can contribute to the growth and global recognition of Tamil culture and language.",
