@@ -26,6 +26,8 @@ import smart1Img from '../assets/smart1.jpg';
 import why1Img from '../assets/why1.jpg';
 import why3Img from '../assets/why3.jpg';
 import researchImg from '../assets/research.jpg';
+import exam3Img from '../assets/exam3.jpg';
+import sports2Img from '../assets/sports2.jpg';
 
 const slugify = (text) => {
     return text
@@ -140,8 +142,8 @@ const Schools = () => {
                 name: "School of Arts & Languages",
                 acronym: "SOAL",
                 programs: [
-                    { title: "B.A. Tamil", image: teachingImg },
-                    { title: "B.A. English", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" }
+                    { title: "B.A. Tamil", image: her0Img },
+                    { title: "B.A. English", image: exam3Img }
                 ]
             },
             {
@@ -155,7 +157,7 @@ const Schools = () => {
                 name: "School of Physical Education",
                 acronym: "SOPE",
                 programs: [
-                    { title: "Department of Physical Education", image: sportsImg }
+                    { title: "Department of Physical Education", image: sports2Img }
                 ]
             }
         ],

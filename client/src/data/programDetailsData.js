@@ -27,6 +27,13 @@ import whyImg from '../assets/why.jpg';
 import labheroImg from '../assets/labhero.jpg';
 import lab4Img from '../assets/lab4.jpg';
 import teachingImg from '../assets/teaching.jpg';
+import dji0587Img from '../assets/DJI_0587.JPG';
+import dji0589Img from '../assets/DJI_0589.JPG';
+import exam3Img from '../assets/exam3.jpg';
+import cdfImg from '../assets/cdf.jpg';
+import cdf2Img from '../assets/cdf2.jpg';
+import sports2Img from '../assets/sports2.jpg';
+import sporthero1Img from '../assets/sporthero1.jpg';
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -1058,8 +1065,8 @@ export const programDetailsData = {
     },
     "ba-tamil": {
         title: "B.A. Tamil",
-        heroImage: "https://images.unsplash.com/photo-1544411047-c491584222f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1544411047-c491584222f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: her0Img,
+        aboutImage: dji0587Img,
         about: "2019ஆம் ஆண்டு கல்லூரி தொடங்கப்பட்ட காலத்திலிருந்தே தமிழ்த்துறை சிறப்பாக இயங்கி வருகிறது. இளங்கலை மாணவர்களுக்கு பகுதி–I தமிழ்ப்பாடம் கற்பிக்கப்பட்டு, மொழித்திறன், இலக்கியப்புலமை, பண்பாட்டு விழிப்புணர்வு, நற்பண்புகள் மற்றும் சமூகப்பொறுப்புணர்வு ஆகியவற்றை மாணவர்களிடம் வளர்ப்பதே துறையின் முக்கிய நோக்கமாகும். தரமான கற்பித்தலுடன், இலக்கியமன்ற நிகழ்வுகள், கருத்தரங்குகள், பயிலரங்குகள், போட்டிகள் போன்ற கல்விசார் செயல்பாடுகள் தொடர்ந்து நடத்தப்பட்டு, மாணவர்களின் படைப்பாற்றல், ஆய்வுத்திறன், பேச்சுத்திறன், எழுத்துத்திறன் ஆகியவை மேம்படுத்தப்படுகின்றன. 2025ஆம் ஆண்டில், பாரதியார் பல்கலைக்கழகம் தமிழ்த்துறைக்கு முனைவர்பட்ட (Ph.D.) ஆய்வுப்படிப்பு வழங்குவதற்கான அங்கீகாரத்தை வழங்கியது — இது துறையின் கல்வித்தரத்தையும் ஆய்வுச்சிறப்பையும் வெளிப்படுத்தும் முக்கிய மைல்கல்.",
         vision: "தமிழ்மொழியின் தொன்மையையும் பண்பாட்டு மரபுகளையும் போற்றி, ஆய்வுமனப்பான்மையும் இலக்கியப்புலமையும் மிக்க, சமூகப்பொறுப்புணர்வுடன் செயல்படும் தலைமுறையினரை உருவாக்கும் சிறந்த தமிழ்த்துறையாக விளங்குவது.",
         mission: [
@@ -1107,8 +1114,8 @@ export const programDetailsData = {
     },
     "ba-english": {
         title: "B.A. English",
-        heroImage: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: exam3Img,
+        aboutImage: dji0589Img,
         about: "The PG & Research Department of English came to full form in 2019 with the introduction of B.A English. The department provides students with education of the highest quality in English language, literature, critical thinking, and creative writing. It regularly conducts literary fests, essay, short story, poetry, creative writing competitions, and literary exhibitions to expand students' horizons, vocabulary, and scholarly depth.",
         vision: "To be a centre of excellence in English language and literary studies by nurturing critical thinking, effective communication, creativity, ethical values and global perspectives, empowering students to become competent professionals and responsible citizens.",
         mission: [
@@ -1169,8 +1176,8 @@ export const programDetailsData = {
     },
     "bsc-costume-design-fashion": {
         title: "B.Sc Costume Design & Fashion",
-        heroImage: "../src/assets/cdf.jpg",
-        aboutImage: "../src/assets/cdf2.jpg",
+        heroImage: cdfImg,
+        aboutImage: cdf2Img,
         about: "The Department of Costume Design and Fashion, established in 2019, is committed to nurturing creative, skilled, and industry-ready fashion professionals through quality education that integrates theoretical knowledge with practical training. The curriculum provides comprehensive learning in costume design, garment construction, textile science, fashion illustration, apparel production, and computer-aided design (CAD). The department is equipped with well-established laboratories to provide students with hands-on training, technical competence, and foster innovation.",
         vision: "To become a center of excellence in costume design and fashion education, empowering students to lead the global fashion industry with creativity, innovation and sustainability.",
         mission: [
@@ -1537,8 +1544,8 @@ export const programDetailsData = {
     },
     "department-of-physical-education": {
         title: "Department of Physical Education",
-        heroImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1517649763962-0c623266200a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: sports2Img,
+        aboutImage: sporthero1Img,
         about: "The Department of Physical Education at Shree Venkateshwara Arts and Science College is dedicated to promoting physical fitness, mental well-being, and the holistic development of students. The department strives to create a healthy and active campus environment by encouraging students to participate in sports, games, yoga, physical fitness programmes, and recreational activities. Through regular coaching, training camps, and fitness initiatives, the department instills discipline, teamwork, leadership, perseverance, and sportsmanship.",
         vision: "To be a Centre of Excellence in Physical Education by promoting physical fitness, sportsmanship, ethical values, leadership, and holistic personality development, empowering students to lead healthy, active, disciplined, and socially responsible lives.",
         mission: [
