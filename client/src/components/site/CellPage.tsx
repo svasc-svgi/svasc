@@ -123,7 +123,7 @@ export function CellPage({ page }: { page: any }) {
             }}
           >
             {/* Text */}
-            <div style={{ flex: "1 1 360px" }}>
+            <div style={{ flex: "2 1 400px" }}>
               <Reveal>
                 <p
                   style={{
@@ -173,8 +173,8 @@ export function CellPage({ page }: { page: any }) {
             </div>
 
             {/* Side image — overlapping frame effect */}
-            <Reveal style={{ flexShrink: 0 }}>
-              <div style={{ position: "relative", width: "clamp(240px, 36%, 420px)" }}>
+            <Reveal style={{ flex: "1 1 320px", maxWidth: "420px" }}>
+              <div style={{ position: "relative", width: "100%" }}>
                 <div
                   style={{
                     borderRadius: "4px",
