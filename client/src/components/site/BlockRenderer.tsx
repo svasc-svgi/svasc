@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { Block } from "@/data/site";
 import { Reveal } from "./Reveal";
 import { Calendar, Tag, Eye, X, ChevronLeft, ChevronRight } from "lucide-react";
-import campus from "@/assets/hero-campus.jpg";
+import campus from "@/assets/DJI_0595.JPG";
 import students from "@/assets/hero-students.jpg";
 import service from "@/assets/hero-service.jpg";
 import seminar from "@/assets/hero-seminar.jpg";

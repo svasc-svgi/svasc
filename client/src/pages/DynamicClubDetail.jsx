@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CellPage } from '@/components/site/CellPage';
 import { getActivityById, getActivities } from '@/services/activityService';
+import defaultHeroImg from '@/assets/DJI_0595.JPG';
 
 export default function DynamicClubDetail() {
   const { slug } = useParams();
@@ -256,7 +257,7 @@ export default function DynamicClubDetail() {
               hero: matchedCard.title,
               intro: cleanIntro(matchedCard),
               motto: matchedCard.motto || 'Empowering Students Through Holistic Co-Curricular Learning',
-              image: matchedCard.image || apiData.bannerImage || '/hero-campus.jpg',
+              image: matchedCard.image || apiData.bannerImage || defaultHeroImg,
               customImage: matchedCard.image || apiData.bannerImage,
               blocks: blocks
             };
@@ -319,7 +320,7 @@ export default function DynamicClubDetail() {
               hero: apiData.category,
               intro: cleanCatIntro(apiData),
               motto: apiData.clubsSummary && !apiData.clubsSummary.includes('<') ? apiData.clubsSummary.split('\n')[0] : 'Excellence in Action · SVASC',
-              image: apiData.bannerImage || '/hero-campus.jpg',
+              image: apiData.bannerImage || defaultHeroImg,
               customImage: apiData.bannerImage,
               blocks: blocks
             };

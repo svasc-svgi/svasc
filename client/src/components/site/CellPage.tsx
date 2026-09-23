@@ -4,7 +4,7 @@ import { pages, type Block } from "@/data/site";
 import { Hero } from "./Hero";
 import { BlockRenderer } from "./BlockRenderer";
 import { Reveal } from "./Reveal";
-import campus from "@/assets/hero-campus.jpg";
+import campus from "@/assets/DJI_0595.JPG";
 import students from "@/assets/hero-students.jpg";
 import service from "@/assets/hero-service.jpg";
 import seminar from "@/assets/hero-seminar.jpg";
