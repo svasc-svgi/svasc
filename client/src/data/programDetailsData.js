@@ -20,6 +20,13 @@ import intImg from "../assets/int.jpeg";
 import libImg from "../assets/lib.jpg";
 import smart1Img from "../assets/smart1.jpg";
 import smart2Img from "../assets/smart2.jpg";
+import why1Img from '../assets/why1.jpg';
+import why3Img from '../assets/why3.jpg';
+import researchImg from '../assets/research.jpg';
+import whyImg from '../assets/why.jpg';
+import labheroImg from '../assets/labhero.jpg';
+import lab4Img from '../assets/lab4.jpg';
+import teachingImg from '../assets/teaching.jpg';
 
 export const programDetailsData = {
     "bsc-computer-science": {
@@ -798,8 +805,8 @@ export const programDetailsData = {
     },
     "bsc-physics": {
         title: "B.Sc. Physics",
-        heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: why1Img,
+        aboutImage: whyImg,
         about: "The physics department was established in the year 2018. The department has highly qualified and well-experienced faculty members. The department is carrying out various research works in the fields of Thin films, Solar thermal energy, Crystal growth, Single crystal XRD studies, Membrane technology and Condensed matter physics",
         vision: "To be a center of excellence in physics education and research, fostering scientific curiosity and innovation.",
         mission: "To provide high-quality education in physics through rigorous academic curriculum and hands-on laboratory experiences.",
@@ -823,8 +830,8 @@ export const programDetailsData = {
     },
     "bsc-chemistry": {
         title: "B.Sc. Chemistry",
-        heroImage: "/chemistry/INTERNATIONAL SEMINAR-17.07.2026  (4).jpeg",
-        aboutImage: "/chemistry/ASSOCIATION INAUGURATION & GUEST LECTURE- CHEMISTRY FOR A SUSTAINABLE FUTURE(1).jpeg",
+        heroImage: why3Img,
+        aboutImage: labheroImg,
         about: "The Department of Chemistry was established in 2020. It lays a strong foundation for future researchers and professionals by imparting knowledge of essential chemical and physical principles. The department equips students with theoretical foundations, practical skills, scientific integrity, and hands-on laboratory experience to excel in diverse career paths and advanced studies.",
         vision: "Emerges as a centre of excellence in undergraduate chemistry education, where students develop into competent professionals equipped with strong theoretical foundations, practical skills, and scientific integrity to excel in diverse career paths.",
         mission: [
@@ -942,7 +949,7 @@ export const programDetailsData = {
     },
     "bsc-mathematics": {
         title: "B.Sc. Mathematics",
-        heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+        heroImage: teachingImg,
         aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         about: "The Department of Mathematics came to full form in the year 2019 with the introduction of the 3-year full-time B.Sc Mathematics programme. Guided by 7 inspiring faculty members and dynamic students, the department stimulates excellent navigation for students to expose their competency, build strong logical reasoning, and apply mathematical concepts to solve real-world problems. Motto: 'Think Logically, Solve Creatively.'",
         vision: "To develop competent graduates through quality education, research, and innovation.",
@@ -995,8 +1002,8 @@ export const programDetailsData = {
     },
     "bsc-microbiology": {
         title: "B.Sc. Microbiology",
-        heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
-        aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        heroImage: researchImg,
+        aboutImage: lab4Img,
         about: "The Department of Microbiology was established in 2020 with the UG course, upgraded to PG course in 2023, and established its Research program in 2024 to promote an integrated approach to teaching and research in modern microbiology. It aims to provide world-class life science education to empower students to build character, strengthen their minds, and become self-reliant. Equipped with modest UG & PG laboratories and common instrument facilities, the department contributes significantly to academic and professional communities.",
         vision: "To emerge as a leading center for microbiological education and research, fostering innovation and scientific inquiry to tackle health, agricultural, and environmental challenges, with a strong foundation in rural needs and a global outlook.",
         mission: [

@@ -23,6 +23,9 @@ import computerlabImg from '../assets/computerlab.JPG';
 import her0Img from '../assets/her0.jpg';
 import learningImg from '../assets/learning.jpg';
 import smart1Img from '../assets/smart1.jpg';
+import why1Img from '../assets/why1.jpg';
+import why3Img from '../assets/why3.jpg';
+import researchImg from '../assets/research.jpg';
 
 const slugify = (text) => {
     return text
@@ -126,10 +129,10 @@ const Schools = () => {
                 name: "School of Sciences",
                 acronym: "SOHS",
                 programs: [
-                    { title: "B.Sc. Physics", image: lab1Img },
-                    { title: "B.Sc. Chemistry", image: lab2Img },
-                    { title: "B.Sc. Mathematics", image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
-                    { title: "B.Sc. Microbiology", image: lab4Img },
+                    { title: "B.Sc. Physics", image: why1Img },
+                    { title: "B.Sc. Chemistry", image: why3Img },
+                    { title: "B.Sc. Mathematics", image: teachingImg },
+                    { title: "B.Sc. Microbiology", image: researchImg },
 
                 ]
             },
