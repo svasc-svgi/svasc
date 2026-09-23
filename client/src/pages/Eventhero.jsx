@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Eventhero.css';
+import danceImg from '../assets/dance.jpg';
+import why4Img from '../assets/why4.jpg';
 
 const HeroSection = () => {
   const observerRef = useRef(null);
@@ -67,7 +69,7 @@ const HeroSection = () => {
               <div className="hero-images-wrapper">
                 <div className="hero-image-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80"
+                    src={danceImg}
                     alt="Cultural Event"
                   />
                 </div>
@@ -79,14 +81,14 @@ const HeroSection = () => {
 
                 <div className="hero-image-md">
                   <img
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80"
+                    src={why4Img}
                     alt="Tech Fest"
                   />
                 </div>
 
                 <div className="hero-image-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=300&q=80"
+                    src="/SVCAS-Logo.png"
                     alt="Sports Event"
                   />
                 </div>
@@ -161,7 +163,7 @@ const HeroSection = () => {
           <div className="hero-desktop-images reveal-on-scroll">
             <div className="hero-image-desktop-lg">
               <img
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80"
+                src={danceImg}
                 alt="Cultural Event"
               />
             </div>
@@ -173,14 +175,14 @@ const HeroSection = () => {
 
             <div className="hero-image-desktop-md">
               <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80"
+                src={why4Img}
                 alt="Tech Fest"
               />
             </div>
 
             <div className="hero-image-desktop-sm">
               <img
-                src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=300&q=80"
+                src="/SVCAS-Logo.png"
                 alt="Sports Event"
               />
             </div>
