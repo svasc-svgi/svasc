@@ -5,7 +5,8 @@ import Eventhero from './Eventhero'
 import Hero from '../components/Common/Hero';
 import {
     getEventsPageHero,
-    getEventsGrid
+    getEventsGrid,
+    getEventsMarquee
 } from '../services/eventService';
 import { getHomeEvents } from '../services/homeService';
 
@@ -41,10 +42,11 @@ const Events = () => {
     useEffect(() => {
         const fetchEventsData = async () => {
             try {
-                const [heroRes, gridRes, marqueeRes] = await Promise.allSettled([
+                const [heroRes, gridRes, homeEventsRes, marqueeRes] = await Promise.allSettled([
                     getEventsPageHero(),
                     getEventsGrid(),
-                    getHomeEvents()
+                    getHomeEvents(),
+                    getEventsMarquee()
                 ]);
 
                 if (heroRes.status === 'fulfilled') {
@@ -72,10 +74,12 @@ const Events = () => {
                     }
                 }
 
-                if (marqueeRes.status === 'fulfilled') {
-                    const marqueeList = marqueeRes.value?.data ?? (Array.isArray(marqueeRes.value) ? marqueeRes.value : []);
-                    if (marqueeList.length > 0) {
-                        setMarqueeEvents(marqueeList.map(item => {
+                let mergedMarquee = [];
+
+                if (homeEventsRes.status === 'fulfilled') {
+                    const homeEventsList = homeEventsRes.value?.data ?? (Array.isArray(homeEventsRes.value) ? homeEventsRes.value : []);
+                    if (homeEventsList.length > 0) {
+                        const mappedHomeEvents = homeEventsList.map(item => {
                             const cleanImg = (item.image || '').replace(/^\/+/, '');
                             
                             let day = '01';
@@ -105,8 +109,32 @@ const Events = () => {
                                 image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
                                 url: item.link || "#"
                             };
-                        }));
+                        });
+                        mergedMarquee = [...mergedMarquee, ...mappedHomeEvents];
                     }
+                }
+
+                if (marqueeRes.status === 'fulfilled') {
+                    const marqueeList = marqueeRes.value?.data ?? (Array.isArray(marqueeRes.value) ? marqueeRes.value : []);
+                    if (marqueeList.length > 0) {
+                        const mappedMarquee = marqueeList.map(item => {
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
+                            return {
+                                ...item,
+                                day: item.day || "01",
+                                month: item.month || "Jan",
+                                title: item.title || "Event",
+                                desc: item.description || "",
+                                image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                url: item.url || "#"
+                            };
+                        });
+                        mergedMarquee = [...mergedMarquee, ...mappedMarquee];
+                    }
+                }
+
+                if (mergedMarquee.length > 0) {
+                    setMarqueeEvents(mergedMarquee);
                 }
             } catch (err) {
                 console.error("Error fetching events data:", err);
