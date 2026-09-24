@@ -43,12 +43,12 @@ const getEventById = async (req, res) => {
 
 const createEvent = async (req, res) => {
     try {
-        const { title, subtitle, description, author, date, link } = req.body;
+        const { title, subtitle, description, author, date, link, image: bodyImage } = req.body;
         
         // Automatically assign order based on current count
         const currentCount = await SvascEventsService.getEventCount();
 
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : (bodyImage || null);
         const event = await SvascEventsService.createEvent({
             title,
             subtitle,
@@ -75,7 +75,7 @@ const createEvent = async (req, res) => {
 const updateEvent = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, subtitle, description, author, date, link } = req.body;
+        const { title, subtitle, description, author, date, link, image: bodyImage } = req.body;
         let updateData = { title, subtitle, description, author, date, link };
 
         if (req.file) {
@@ -87,6 +87,8 @@ const updateEvent = async (req, res) => {
                 }
             }
             updateData.image = `/uploads/${req.file.filename}`;
+        } else if (bodyImage) {
+            updateData.image = bodyImage;
         }
 
         const updatedEvent = await SvascEventsService.updateEvent(id, updateData);

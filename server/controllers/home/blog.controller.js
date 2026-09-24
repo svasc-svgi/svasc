@@ -43,9 +43,9 @@ const getBlogById = async (req, res) => {
 
 const createBlog = async (req, res) => {
     try {
-        const { title, day, month, description } = req.body;
+        const { title, day, month, description, image: bodyImage } = req.body;
         
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : (bodyImage || null);
         const blog = await BlogService.createBlog({ title, day, month, description, image: imagePath });
         res.status(201).json({
             success: true,
@@ -63,7 +63,7 @@ const createBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, day, month, description } = req.body;
+        const { title, day, month, description, image: bodyImage } = req.body;
         let updateData = { title, day, month, description };
 
         if (req.file) {
@@ -75,6 +75,8 @@ const updateBlog = async (req, res) => {
                 }
             }
             updateData.image = `/uploads/${req.file.filename}`;
+        } else if (bodyImage) {
+            updateData.image = bodyImage;
         }
 
         const updatedBlog = await BlogService.updateBlog(id, updateData);

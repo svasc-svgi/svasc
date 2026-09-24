@@ -43,12 +43,12 @@ const getAlumniById = async (req, res) => {
 
 const createAlumni = async (req, res) => {
     try {
-        const { subTitle, name, content, link } = req.body;
+        const { subTitle, name, content, link, image: bodyImage } = req.body;
         
         // Automatically assign order based on current count
         const currentCount = await AlumniSliderService.getAlumniCount();
 
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+        const imagePath = req.file ? `/uploads/${req.file.filename}` : (bodyImage || null);
         const alumni = await AlumniSliderService.createAlumni({
             subTitle,
             name,
@@ -73,7 +73,7 @@ const createAlumni = async (req, res) => {
 const updateAlumni = async (req, res) => {
     try {
         const { id } = req.params;
-        const { subTitle, name, content, link } = req.body;
+        const { subTitle, name, content, link, image: bodyImage } = req.body;
         let updateData = { subTitle, name, content, link };
 
         if (req.file) {
@@ -85,6 +85,8 @@ const updateAlumni = async (req, res) => {
                 }
             }
             updateData.image = `/uploads/${req.file.filename}`;
+        } else if (bodyImage) {
+            updateData.image = bodyImage;
         }
 
         const updatedAlumni = await AlumniSliderService.updateAlumni(id, updateData);
