@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getEventsGrid } from '../../services/eventService';
+import { getHomeEvents } from '../../services/homeService';
 import './SvascEvents.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
@@ -53,7 +53,7 @@ const SvascEvents = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await getEventsGrid();
+                const response = await getHomeEvents();
                 const list = response?.data ?? (Array.isArray(response) ? response : []);
                 if (list && list.length > 0) {
                     // Take the latest 4 events
@@ -63,12 +63,12 @@ const SvascEvents = () => {
                         return {
                             _id: event._id,
                             title: event.title,
-                            subtitle: event.date || 'Campus Event',
+                            subtitle: event.subtitle || event.date || 'Campus Event',
                             date: event.date,
                             description: event.description,
                             image: imgUrl,
-                            author: "SVASC",
-                            link: "/events",
+                            author: event.author || "SVASC",
+                            link: event.link || "/events",
                             alt: idx >= 2 // follow alternative layout for cards 3 & 4
                         };
                     });

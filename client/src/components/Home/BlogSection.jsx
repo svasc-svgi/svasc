@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import { getBlogs } from '../../services/blogService';
+import { getHomeBlogs } from '../../services/homeService';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -58,42 +58,21 @@ const BlogSection = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await getBlogs();
-                const blogCategories = response?.data ?? (Array.isArray(response) ? response : []);
-                if (blogCategories && blogCategories.length > 0) {
-                    const allItems = [];
-                    blogCategories.forEach((blog) => {
-                        const blogDate = new Date(blog.createdAt || Date.now());
-                        const day = isNaN(blogDate.getDate()) ? 25 : blogDate.getDate();
-                        const month = isNaN(blogDate.getDate()) ? 'May' : blogDate.toLocaleString('default', { month: 'short' });
-
-                        if (blog.cards && blog.cards.length > 0) {
-                            blog.cards.forEach((card, idx) => {
-                                const cleanImg = (card.image || '').replace(/^\/+/, '');
-                                const imgUrl = card.image?.startsWith('http') ? card.image : `${BASE_URL}/${cleanImg}`;
-                                allItems.push({
-                                    _id: card._id || `${blog._id}-card-${idx}`,
-                                    day: day,
-                                    month: month,
-                                    title: card.title || blog.category,
-                                    description: card.description || blog.description,
-                                    image: imgUrl
-                                });
-                            });
-                        } else if (blog.bannerImage) {
-                            const cleanImg = (blog.bannerImage || '').replace(/^\/+/, '');
-                            const imgUrl = blog.bannerImage?.startsWith('http') ? blog.bannerImage : `${BASE_URL}/${cleanImg}`;
-                            allItems.push({
-                                _id: blog._id,
-                                day: day,
-                                month: month,
-                                title: blog.category,
-                                description: blog.description,
-                                image: imgUrl
-                            });
-                        }
+                const response = await getHomeBlogs();
+                const blogList = response?.data ?? (Array.isArray(response) ? response : []);
+                if (blogList && blogList.length > 0) {
+                    const allItems = blogList.map(blog => {
+                        const cleanImg = (blog.image || '').replace(/^\/+/, '');
+                        const imgUrl = blog.image?.startsWith('http') ? blog.image : `${BASE_URL}/${cleanImg}`;
+                        return {
+                            _id: blog._id,
+                            day: blog.day || 25,
+                            month: blog.month || 'May',
+                            title: blog.title || 'Insightful Blog',
+                            description: blog.description || '',
+                            image: imgUrl
+                        };
                     });
-
                     setBlogs(allItems.length > 0 ? allItems : fallbackBlogs);
                 } else {
                     setBlogs(fallbackBlogs);

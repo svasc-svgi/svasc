@@ -60,3 +60,20 @@ export const deleteValueSlide = async (id) => {
   return await apiClient.delete(`/home/value-slides/${id}`);
 };
 
+/**
+ * ==============================================================================
+ * 3. HOME BLOGS, ALUMNI & EVENTS SERVICES
+ * ==============================================================================
+ */
+
+export const getHomeBlogs = async (params = {}) => {
+  return await apiClient.get('/home/blogs', { params });
+};
+
+export const getHomeAlumni = async (params = {}) => {
+  return await apiClient.get('/home/alumni-slider', { params });
+};
+
+export const getHomeEvents = async (params = {}) => {
+  return await apiClient.get('/home/events', { params });
+};

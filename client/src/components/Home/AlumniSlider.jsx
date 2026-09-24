@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getRisingStars, getSuccessStories } from '../../services/alumniService';
+import { getHomeAlumni } from '../../services/homeService';
 import './AlumniSlider.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
@@ -48,42 +48,22 @@ const AlumniSlider = () => {
     useEffect(() => {
         const fetchAlumni = async () => {
             try {
-                const [starsRes, storiesRes] = await Promise.allSettled([
-                    getRisingStars(),
-                    getSuccessStories()
-                ]);
+                const response = await getHomeAlumni();
+                const alumniList = response?.data ?? (Array.isArray(response) ? response : []);
 
-                const stars = starsRes.status === 'fulfilled' ? (starsRes.value?.data ?? (Array.isArray(starsRes.value) ? starsRes.value : [])) : [];
-                const stories = storiesRes.status === 'fulfilled' ? (storiesRes.value?.data ?? (Array.isArray(storiesRes.value) ? storiesRes.value : [])) : [];
-
-                const combined = [];
-                stars.forEach(item => {
-                    const cleanImg = (item.image || '').replace(/^\/+/, '');
-                    const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
-                    combined.push({
-                        _id: item._id,
-                        subTitle: item.profession || item.batch || "Rising Star",
-                        name: item.name,
-                        content: item.quote || item.achievement || "An inspiring journey of excellence and achievement.",
-                        image: imgUrl,
-                        link: "/alumni"
+                if (alumniList.length > 0) {
+                    const combined = alumniList.map(item => {
+                        const cleanImg = (item.image || '').replace(/^\/+/, '');
+                        const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
+                        return {
+                            _id: item._id,
+                            subTitle: item.subTitle || item.batch || "Alumni",
+                            name: item.name,
+                            content: item.content || item.description || "An inspiring journey of excellence and achievement.",
+                            image: imgUrl,
+                            link: item.link || "/alumni"
+                        };
                     });
-                });
-
-                stories.forEach(item => {
-                    const cleanImg = (item.image || '').replace(/^\/+/, '');
-                    const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
-                    combined.push({
-                        _id: item._id,
-                        subTitle: item.title || item.batch || "Success Story",
-                        name: item.name,
-                        content: item.story || "A proud graduate making an impact in their field.",
-                        image: imgUrl,
-                        link: "/alumni"
-                    });
-                });
-
-                if (combined.length > 0) {
                     setAlumniData(combined);
                 } else {
                     setAlumniData(fallbackAlumni);
