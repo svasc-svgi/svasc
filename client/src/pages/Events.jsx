@@ -5,9 +5,9 @@ import Eventhero from './Eventhero'
 import Hero from '../components/Common/Hero';
 import {
     getEventsPageHero,
-    getEventsGrid,
-    getEventsMarquee
+    getEventsGrid
 } from '../services/eventService';
+import { getHomeEvents } from '../services/homeService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -44,7 +44,7 @@ const Events = () => {
                 const [heroRes, gridRes, marqueeRes] = await Promise.allSettled([
                     getEventsPageHero(),
                     getEventsGrid(),
-                    getEventsMarquee()
+                    getHomeEvents()
                 ]);
 
                 if (heroRes.status === 'fulfilled') {
@@ -77,10 +77,33 @@ const Events = () => {
                     if (marqueeList.length > 0) {
                         setMarqueeEvents(marqueeList.map(item => {
                             const cleanImg = (item.image || '').replace(/^\/+/, '');
+                            
+                            let day = '01';
+                            let month = 'Jan';
+                            if (item.date) {
+                                // Try parsing "Sep. 24, 2026" or regular date string
+                                const parsedDate = new Date(item.date.replace('.', '')); 
+                                if (!isNaN(parsedDate.getTime())) {
+                                    day = String(parsedDate.getDate()).padStart(2, '0');
+                                    month = parsedDate.toLocaleString('default', { month: 'short' });
+                                } else {
+                                    // Fallback text split if parsing fails
+                                    const parts = item.date.split(' ');
+                                    if (parts.length >= 2) {
+                                        month = parts[0].substring(0, 3);
+                                        day = parts[1].replace(',', '').padStart(2, '0');
+                                    }
+                                }
+                            }
+
                             return {
                                 ...item,
-                                desc: item.description,
-                                image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`
+                                day: day,
+                                month: month,
+                                title: item.title || "Event",
+                                desc: item.description || "",
+                                image: item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
+                                url: item.link || "#"
                             };
                         }));
                     }
