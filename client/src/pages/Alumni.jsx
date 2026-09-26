@@ -24,39 +24,6 @@ const fallbackRisingStars = [
     { name: "Divya R", degree: "B.Sc Chemistry", video: "https://media.w3.org/2010/05/bunny/trailer.mp4" }
 ];
 
-const fallbackSuccessStories = [
-    {
-        _id: '1',
-        name: "Bharathiar University Toppers 2023-26",
-        image: "/alumni/bharathiar-university-toppers-2023-26.jpg"
-    },
-    {
-        _id: '2',
-        name: "University Rank Achievers",
-        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-        _id: '3',
-        name: "Academic Excellence Banner",
-        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-        _id: '4',
-        name: "Graduation Merit Stars",
-        image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-        _id: '5',
-        name: "Alumni Leadership & Research",
-        image: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=1200&q=80"
-    },
-    {
-        _id: '6',
-        name: "Outstanding Graduates",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
-    }
-];
-
 const fallbackRankData = {
     2019: [
         { name: "KARTHIK R", degree: "B.Com", rank: "1st Rank Bharathiar University" },
@@ -166,7 +133,7 @@ const Alumni = () => {
                             const cleanImg = item.image ? item.image.replace(/^\/+/, '') : '';
                             const imgUrl = item.image
                                 ? (item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`)
-                                : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
+                                : '';
                             return {
                                 _id: item._id || idx,
                                 name: item.name || '',
@@ -177,10 +144,10 @@ const Alumni = () => {
                         });
                         setSuccessStories(stories);
                     } else {
-                        setSuccessStories(fallbackSuccessStories);
+                        setSuccessStories([]);
                     }
                 } catch (e) {
-                    setSuccessStories(fallbackSuccessStories);
+                    setSuccessStories([]);
                 }
 
                 // 4. Fetch Rank Holders
