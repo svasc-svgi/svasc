@@ -17,8 +17,9 @@ const rankHolderSchema = new mongoose.Schema({
         trim: true
     },
     year: {
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        trim: true
     }
 }, {
     timestamps: true

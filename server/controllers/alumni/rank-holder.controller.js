@@ -19,7 +19,7 @@ const getAllRankHolders = async (req, res) => {
 const getRankHoldersByYear = async (req, res) => {
     try {
         const { year } = req.params;
-        const rankHolders = await RankHolderService.getRankHoldersByYear(parseInt(year));
+        const rankHolders = await RankHolderService.getRankHoldersByYear(year);
         res.status(200).json({
             success: true,
             data: rankHolders,
@@ -44,7 +44,12 @@ const createRankHolder = async (req, res) => {
             });
         }
 
-        const rankHolder = await RankHolderService.createRankHolder({ name, degree, rank, year });
+        const rankHolder = await RankHolderService.createRankHolder({
+            name: String(name).trim(),
+            degree: String(degree).trim(),
+            rank: String(rank).trim(),
+            year: String(year).trim()
+        });
         res.status(201).json({
             success: true,
             data: rankHolder,
@@ -64,10 +69,10 @@ const updateRankHolder = async (req, res) => {
         const { name, degree, rank, year } = req.body;
 
         const updateData = {};
-        if (name) updateData.name = name;
-        if (degree) updateData.degree = degree;
-        if (rank) updateData.rank = rank;
-        if (year) updateData.year = year;
+        if (name !== undefined) updateData.name = String(name).trim();
+        if (degree !== undefined) updateData.degree = String(degree).trim();
+        if (rank !== undefined) updateData.rank = String(rank).trim();
+        if (year !== undefined) updateData.year = String(year).trim();
 
         const updatedRankHolder = await RankHolderService.updateRankHolder(id, updateData);
         if (!updatedRankHolder) {

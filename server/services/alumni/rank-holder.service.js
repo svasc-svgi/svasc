@@ -1,23 +1,7 @@
 const RankHolder = require('../../models/alumni/rank-holder.model');
 
 const getAllRankHolders = async () => {
-    const rankHolders = await RankHolder.find().sort({ year: -1, rank: 1 });
-
-    // Group by year
-    const groupedByYear = rankHolders.reduce((acc, holder) => {
-        if (!acc[holder.year]) {
-            acc[holder.year] = [];
-        }
-        acc[holder.year].push({
-            _id: holder._id,
-            name: holder.name,
-            degree: holder.degree,
-            rank: holder.rank
-        });
-        return acc;
-    }, {});
-
-    return groupedByYear;
+    return await RankHolder.find().sort({ year: -1, rank: 1 });
 };
 
 const getRankHoldersByYear = async (year) => {

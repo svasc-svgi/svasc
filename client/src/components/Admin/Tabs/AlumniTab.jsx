@@ -118,10 +118,10 @@ const AlumniTab = () => {
   // Rank Holder: backend uses { name, degree, rank, year }
   const handleSaveRankHolder = async (formData, id) => {
     const payload = {
-      name: formData.name || '',
-      degree: formData.degree || '',
-      rank: formData.rank || '',
-      year: Number(formData.year) || formData.year
+      name: String(formData.name || '').trim(),
+      degree: String(formData.degree || '').trim(),
+      rank: String(formData.rank || '').trim(),
+      year: String(formData.year || '').trim()
     };
 
     if (id) {

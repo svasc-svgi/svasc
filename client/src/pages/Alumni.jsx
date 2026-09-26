@@ -91,8 +91,8 @@ const Alumni = () => {
     const [risingStars, setRisingStars] = useState([]);
     const [successStories, setSuccessStories] = useState([]);
     const [rankData, setRankData] = useState({});
-    const [yearsList, setYearsList] = useState([2019]);
-    const [selectedYear, setSelectedYear] = useState(2019);
+    const [yearsList, setYearsList] = useState([]);
+    const [selectedYear, setSelectedYear] = useState('');
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -175,31 +175,37 @@ const Alumni = () => {
                 // 4. Fetch Rank Holders
                 try {
                     const ranksRes = await axios.get(`${BASE_URL}/api/alumni/rank-holders`);
-                    if (ranksRes.data.success && ranksRes.data.data.length > 0) {
+                    const rankHoldersList = Array.isArray(ranksRes.data?.data) ? ranksRes.data.data : [];
+                    if (ranksRes.data?.success && rankHoldersList.length > 0) {
                         // Group by year
                         const grouped = {};
-                        ranksRes.data.data.forEach(item => {
-                            const yr = item.year;
+                        rankHoldersList.forEach(item => {
+                            const yr = String(item.year || '').trim();
+                            if (!yr) return;
                             if (!grouped[yr]) grouped[yr] = [];
                             grouped[yr].push(item);
                         });
                         setRankData(grouped);
-                        const yrs = Object.keys(grouped).map(Number).sort((a, b) => b - a);
+                        const yrs = Object.keys(grouped).sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' }));
                         setYearsList(yrs);
                         if (yrs.length > 0) {
                             setSelectedYear(yrs[0]);
                         }
                     } else {
                         setRankData(fallbackRankData);
-                        const yrs = Object.keys(fallbackRankData).map(Number).sort((a, b) => b - a);
+                        const yrs = Object.keys(fallbackRankData).sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' }));
                         setYearsList(yrs);
-                        setSelectedYear(yrs[0]);
+                        if (yrs.length > 0) {
+                            setSelectedYear(yrs[0]);
+                        }
                     }
                 } catch (e) {
                     setRankData(fallbackRankData);
-                    const yrs = Object.keys(fallbackRankData).map(Number).sort((a, b) => b - a);
+                    const yrs = Object.keys(fallbackRankData).sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' }));
                     setYearsList(yrs);
-                    setSelectedYear(yrs[0]);
+                    if (yrs.length > 0) {
+                        setSelectedYear(yrs[0]);
+                    }
                 }
 
             } catch (err) {
