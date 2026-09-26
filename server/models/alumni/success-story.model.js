@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const successStorySchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: false,
+        default: 'Gallery Image'
     },
     role: {
         type: String,
-        required: true
+        required: false,
+        default: ''
     },
     description: {
         type: String,

@@ -260,123 +260,312 @@
     color: #666;
 }
 
-/* ================= SUCCESS STORY CAROUSEL SECTION ================= */
-.carouselSection {
-    margin: 4rem 0 6rem;
-    padding: 2rem 0 10rem;
-    overflow: hidden;
+/* ================= SUCCESS STORIES / ALUMNI IMAGE & BANNER GALLERY ================= */
+.storySection {
+    margin: 4rem auto 8rem;
+    padding: 2rem 3.5rem 4rem;
+    max-width: 140rem;
+    width: 100%;
 }
 
-.carouselTitle {
+.storyHeader {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
-.carouselTitle h1 {
+.storyTitle {
     font-family: 'Playfair Display', serif;
     font-size: 4.2rem;
     font-weight: 700;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
     color: #0a1264;
 }
 
-.carouselWrapper {
+/* 3-column on Desktop, 2-column on Tab, 1-column on Mobile */
+.storyGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
     width: 100%;
-    max-width: 100rem;
-    height: 40rem;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 2rem;
 }
 
-.carousel {
-    list-style: none;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    height: 100%;
-}
-
-.carousel li {
-    width: 60rem;
-    height: 33.7rem;
-    background: #333;
-    display: inline-block;
-    transition: all .3s ease-in-out;
+.storyCard {
+    background: #ffffff;
+    border-radius: 1.6rem;
     overflow: hidden;
-    position: absolute;
-    top: 0;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 6px 24px rgba(10, 18, 100, 0.08);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    cursor: pointer;
+    position: relative;
 }
 
-.carousel li img,
-.carousel li iframe {
+.storyCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(10, 18, 100, 0.18);
+    border-color: #facc15;
+}
+
+.storyImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: #060c3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyImage {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    pointer-events: auto;
+    object-fit: contain;
+    background: #060c3f;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Carousel Positions */
-.mainPos {
-    left: 50%;
-    margin-left: -30rem;
-    z-index: 3000;
-    transform: scale(1);
+.storyCard:hover .storyImage {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6, 12, 63, 0.75), rgba(6, 12, 63, 0.2));
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.storyCard:hover .imageOverlay {
     opacity: 1;
 }
 
-.leftPos {
-    left: 50%;
-    margin-left: -60rem;
-    transform: scale(0.75);
-    z-index: 1000;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.rightPos {
-    left: 50%;
-    margin-left: 0rem;
-    transform: scale(0.75);
-    z-index: 1000;
-    opacity: 0.3;
-    cursor: pointer;
-}
-
-.backPos {
-    left: 50%;
-    margin-left: -30rem;
-    transform: scale(0.5);
-    opacity: 0.05;
-    z-index: 500;
-    pointer-events: none;
-}
-
-.carouselControls {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -6rem;
+.zoomButton {
+    background: #ffffff;
+    color: #0a1264;
+    padding: 1rem 2.2rem;
+    border-radius: 3rem;
+    font-size: 1.35rem;
+    font-weight: 700;
     display: flex;
-    gap: 1rem;
-    z-index: 4000;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    transform: translateY(12px);
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
 }
 
-.carouselControls button {
-    padding: 2rem 3.5rem;
-    margin: 0 1rem;
-    cursor: pointer;
-    border: none;
-    background: #0b2c5d;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 2rem;
+.storyCard:hover .zoomButton {
+    transform: translateY(0);
+}
+
+.zoomIcon {
     font-size: 1.4rem;
-    transition: background 0.3s;
+    color: #2563eb;
 }
 
-.carouselControls button:hover {
-    background: #123d80;
+/* ================= FULLSCREEN ZOOM LIGHTBOX MODAL ================= */
+.lightboxOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(4, 7, 32, 0.95);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    cursor: zoom-out;
+}
+
+.lightboxCloseBtn {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+.lightboxCloseBtn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.1);
+}
+
+.lightboxNavBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+.lightboxNavBtn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightboxPrevBtn {
+    left: 3rem;
+}
+
+.lightboxNextBtn {
+    right: 3rem;
+}
+
+.lightboxContainer {
+    max-width: 96vw;
+    width: 94vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    animation: zoomModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes zoomModalIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lightboxImageWrapper {
+    max-height: 75vh;
+    max-width: 94vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.lightboxImage {
+    max-height: 75vh;
+    max-width: 94vw;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tablet (Tab): 2 columns */
+@media (max-width: 1024px) {
+    .storyGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .storySection {
+        padding: 2rem 2rem 3rem;
+    }
+
+    .lightboxContainer {
+        max-width: 96vw;
+        width: 96vw;
+        max-height: 76vh;
+    }
+
+    .lightboxImageWrapper {
+        max-height: 70vh;
+        max-width: 96vw;
+    }
+
+    .lightboxImage {
+        max-height: 70vh;
+        max-width: 96vw;
+        border-radius: 0;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+    .storyGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .storyTitle {
+        font-size: 3.2rem;
+    }
+
+    .storyImageWrapper {
+        aspect-ratio: 16 / 11;
+    }
+
+    .lightboxPrevBtn {
+        left: 1rem;
+        width: 4.2rem;
+        height: 4.2rem;
+        font-size: 1.8rem;
+    }
+
+    .lightboxNextBtn {
+        right: 1rem;
+        width: 4.2rem;
+        height: 4.2rem;
+        font-size: 1.8rem;
+    }
+
+    .lightboxCloseBtn {
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.8rem;
+    }
+
+    .lightboxContainer {
+        max-width: 98vw;
+        width: 98vw;
+        max-height: 70vh;
+    }
+
+    .lightboxImageWrapper {
+        max-height: 65vh;
+        max-width: 98vw;
+    }
+
+    .lightboxImage {
+        max-height: 65vh;
+        max-width: 98vw;
+        border-radius: 0;
+    }
 }
 
 /* ================= RANK HOLDERS SECTION ================= */
@@ -480,29 +669,6 @@
 
     .rankHolderSection {
         padding: 0 2rem 6rem;
-    }
-
-    .carouselWrapper {
-        height: auto;
-        padding-bottom: 8rem;
-    }
-
-    .carousel li {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
-        margin-left: 0 !important;
-        left: 0 !important;
-        position: relative;
-        display: none;
-        transform: none !important;
-        opacity: 0;
-    }
-
-    .mainPos {
-        display: block !important;
-        opacity: 1 !important;
-        z-index: 10;
     }
 
     .heroEffects .title {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './Alumni.module.css';
-import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers } from 'react-icons/fa';
+import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers, FaTimes, FaChevronLeft, FaChevronRight, FaExpand } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,13 +25,36 @@ const fallbackRisingStars = [
 ];
 
 const fallbackSuccessStories = [
-    { type: 'text', content: '1', id: 1 },
-    { type: 'img', src: 'http://farm9.staticflickr.com/8337/8234123289_2b23aeaf06.jpg', id: 2 },
-    { type: 'img', src: 'http://farm9.staticflickr.com/8337/8234711202_831b23a2b7.jpg', id: 3 },
-    { type: 'iframe', src: 'https://www.youtube.com/embed/szIEr2F61DU', id: 4 },
-    { type: 'iframe', src: 'https://player.vimeo.com/video/19464611', id: 5 },
-    { type: 'img', src: 'http://woofie2.pixiq.com/files/cache/20030323_img_7465_3072_x_2048_619x413.jpg', id: 6 },
-    { type: 'img', src: 'http://www.mishes.com/wp-content/uploads/2011/12/FlickrMonday07.jpg', id: 7 }
+    {
+        _id: '1',
+        name: "Bharathiar University Toppers 2023-26",
+        image: "/alumni/bharathiar-university-toppers-2023-26.jpg"
+    },
+    {
+        _id: '2',
+        name: "University Rank Achievers",
+        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+        _id: '3',
+        name: "Academic Excellence Banner",
+        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+        _id: '4',
+        name: "Graduation Merit Stars",
+        image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+        _id: '5',
+        name: "Alumni Leadership & Research",
+        image: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+        _id: '6',
+        name: "Outstanding Graduates",
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+    }
 ];
 
 const fallbackRankData = {
@@ -136,33 +160,20 @@ const Alumni = () => {
                 // 3. Fetch Success Stories
                 try {
                     const storiesRes = await axios.get(`${BASE_URL}/api/alumni/success-stories`);
-                    if (storiesRes.data.success && storiesRes.data.data && storiesRes.data.data.length > 0) {
-                        const stories = storiesRes.data.data.map((item, idx) => {
-                            if (item.image) {
-                                const cleanImg = item.image.replace(/^\/+/, '');
-                                return {
-                                    type: 'img',
-                                    src: item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`,
-                                    name: item.name,
-                                    role: item.role,
-                                    description: item.description,
-                                    id: item._id || idx
-                                };
-                            } else if (item.name || item.description) {
-                                return {
-                                    type: 'card',
-                                    name: item.name,
-                                    role: item.role,
-                                    description: item.description,
-                                    id: item._id || idx
-                                };
-                            } else {
-                                return {
-                                    type: 'text',
-                                    content: item.name || `${idx + 1}`,
-                                    id: item._id || idx
-                                };
-                            }
+                    const storiesList = Array.isArray(storiesRes.data?.data) ? storiesRes.data.data : [];
+                    if (storiesRes.data?.success && storiesList.length > 0) {
+                        const stories = storiesList.map((item, idx) => {
+                            const cleanImg = item.image ? item.image.replace(/^\/+/, '') : '';
+                            const imgUrl = item.image
+                                ? (item.image.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`)
+                                : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
+                            return {
+                                _id: item._id || idx,
+                                name: item.name || '',
+                                role: item.role || '',
+                                description: item.description || '',
+                                image: imgUrl
+                            };
                         });
                         setSuccessStories(stories);
                     } else {
@@ -258,84 +269,43 @@ const Alumni = () => {
         }
     };
 
-    // ================= CAROUSEL LOGIC =================
-    // State tracks the *index* of the item that is currently in the "main-pos"
-    const [mainIndex, setMainIndex] = useState(0);
-    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-    const totalItems = successStories.length;
+    // ================= FULLSCREEN ZOOM LIGHTBOX LOGIC =================
+    const [selectedStoryIndex, setSelectedStoryIndex] = useState(null);
 
-    // Listen for iframe postMessages from YouTube & Vimeo to pause/resume autoSwap
-    useEffect(() => {
-        const handleMessage = (event) => {
-            if (typeof event.data !== 'string') return;
+    const openLightbox = (index) => {
+        setSelectedStoryIndex(index);
+        document.body.style.overflow = 'hidden';
+    };
 
-            try {
-                const data = JSON.parse(event.data);
+    const closeLightbox = () => {
+        setSelectedStoryIndex(null);
+        document.body.style.overflow = 'unset';
+    };
 
-                // --- YouTube Embed API Events ---
-                if (data.event === 'initialDelivery' || data.event === 'onReady') {
-                    if (event.source && typeof event.source.postMessage === 'function') {
-                        event.source.postMessage(JSON.stringify({ event: 'listening' }), '*');
-                    }
-                }
-                if (data.event === 'infoDelivery' && data.info && data.info.playerState !== undefined) {
-                    const state = data.info.playerState;
-                    if (state === 1) { // playing
-                        setIsVideoPlaying(true);
-                    } else if (state === 2 || state === 0) { // paused or ended
-                        setIsVideoPlaying(false);
-                    }
-                }
-
-                // --- Vimeo Embed API Events ---
-                if (data.event === 'ready') {
-                    if (event.source && typeof event.source.postMessage === 'function') {
-                        event.source.postMessage(JSON.stringify({ method: 'addEventListener', value: 'play' }), '*');
-                        event.source.postMessage(JSON.stringify({ method: 'addEventListener', value: 'pause' }), '*');
-                        event.source.postMessage(JSON.stringify({ method: 'addEventListener', value: 'finish' }), '*');
-                    }
-                }
-                if (data.event === 'play') {
-                    setIsVideoPlaying(true);
-                } else if (data.event === 'pause' || data.event === 'finish') {
-                    setIsVideoPlaying(false);
-                }
-            } catch (e) {
-                // Ignore parsing errors for other non-API messaging payloads
-            }
-        };
-
-        window.addEventListener('message', handleMessage);
-        return () => window.removeEventListener('message', handleMessage);
-    }, []);
-
-    // Auto-swap effect
-    useEffect(() => {
-        if (isVideoPlaying) return;
-
-        const autoSwap = setInterval(() => {
-            moveCarousel('next');
-        }, 3500);
-        return () => clearInterval(autoSwap);
-    }, [mainIndex, isVideoPlaying]); // Restart timer on interaction or play/pause state change
-
-    const moveCarousel = (direction) => {
-        setIsVideoPlaying(false); // reset if they manually skip slides
-        if (direction === 'next') {
-            setMainIndex((prev) => (prev + 1) % totalItems);
-        } else {
-            setMainIndex((prev) => (prev - 1 + totalItems) % totalItems);
+    const showPrevStory = (e) => {
+        e?.stopPropagation();
+        if (selectedStoryIndex !== null) {
+            setSelectedStoryIndex((prev) => (prev - 1 + successStories.length) % successStories.length);
         }
     };
 
-    const getPositionClass = (index) => {
-        if (totalItems === 0) return '';
-        const diff = (index - mainIndex + totalItems) % totalItems;
-        if (diff === 0) return styles.mainPos;
-        if (diff === 1) return styles.rightPos;
-        if (diff === totalItems - 1) return styles.leftPos;
-        return styles.backPos;
+    const showNextStory = (e) => {
+        e?.stopPropagation();
+        if (selectedStoryIndex !== null) {
+            setSelectedStoryIndex((prev) => (prev + 1) % successStories.length);
+        }
     };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (selectedStoryIndex === null) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrevStory();
+            if (e.key === 'ArrowRight') showNextStory();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedStoryIndex, successStories.length]);
 
 
 
@@ -545,92 +515,85 @@ const Alumni = () => {
                     ))}
                 </div>
 
-                {/* ================= SUCCESS STORY CAROUSEL SECTION ================= */}
+                {/* ================= SUCCESS STORIES / ALUMNI IMAGE & BANNER GALLERY ================= */}
                 {successStories.length > 0 && (
-                    <div className={styles.carouselSection}>
-                        <div className={styles.carouselTitle}>
-                            <h1>Success Story</h1>
+                    <div className={styles.storySection}>
+                        <div className={styles.storyHeader}>
+                            <h1 className={styles.storyTitle}>Success Stories</h1>
                         </div>
 
-                        <div className={styles.carouselWrapper}>
-                            <ul className={styles.carousel}>
-                                {successStories.map((item, index) => (
-                                    <li
-                                        key={item.id || index}
-                                        className={getPositionClass(index)}
-                                        onClick={() => {
-                                            const posClass = getPositionClass(index);
-                                            if (posClass === styles.leftPos) moveCarousel('prev');
-                                            if (posClass === styles.rightPos) moveCarousel('next');
-                                        }}
-                                    >
-                                        {item.type === 'text' && (
-                                            <p style={{
-                                                color: 'white',
-                                                fontWeight: 'bold',
-                                                fontSize: '5em',
-                                                textAlign: 'center',
-                                                marginTop: '1.15em'
-                                            }}>{item.content}</p>
-                                        )}
-                                        {item.type === 'img' && (
-                                            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                                                <img src={item.src} alt={item.name || "Success Story"} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                                {(item.name || item.role) && (
-                                                    <div style={{
-                                                        position: 'absolute',
-                                                        bottom: 0,
-                                                        left: 0,
-                                                        right: 0,
-                                                        padding: '1.5rem',
-                                                        background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)',
-                                                        color: '#fff',
-                                                        textAlign: 'left'
-                                                    }}>
-                                                        <h4 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 'bold' }}>{item.name}</h4>
-                                                        <p style={{ margin: '0.3rem 0 0 0', fontSize: '1.1rem', opacity: 0.9 }}>{item.role}</p>
-                                                        {item.description && <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>"{item.description}"</p>}
-                                                    </div>
-                                                )}
+                        <div className={styles.storyGrid}>
+                            {successStories.map((story, index) => (
+                                <div
+                                    key={story._id || index}
+                                    className={styles.storyCard}
+                                    onClick={() => openLightbox(index)}
+                                    title="Click to view full image"
+                                >
+                                    <div className={styles.storyImageWrapper}>
+                                        <img
+                                            src={story.image}
+                                            alt={story.name || 'Alumni Gallery Image'}
+                                            className={styles.storyImage}
+                                            loading="lazy"
+                                        />
+                                        <div className={styles.imageOverlay}>
+                                            <div className={styles.zoomButton}>
+                                                <FaExpand className={styles.zoomIcon} />
+                                                <span>View Full Image</span>
                                             </div>
-                                        )}
-                                        {item.type === 'card' && (
-                                            <div style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                background: 'linear-gradient(135deg, #0a1264, #1b357d)',
-                                                color: '#fff',
-                                                padding: '2.5rem',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                                textAlign: 'center',
-                                                borderRadius: '8px'
-                                            }}>
-                                                <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.name}</h3>
-                                                <h5 style={{ fontSize: '1.2rem', color: '#ffb703', marginBottom: '1rem' }}>{item.role}</h5>
-                                                {item.description && <p style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.9 }}>"{item.description}"</p>}
-                                            </div>
-                                        )}
-                                        {item.type === 'iframe' && (
-                                            <iframe
-                                                src={item.src}
-                                                frameBorder="0"
-                                                allowFullScreen
-                                                title={`video-${index}`}
-                                            ></iframe>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <div className={styles.carouselControls}>
-                                <button onClick={() => moveCarousel('prev')}>Prev</button>
-                                <button onClick={() => moveCarousel('next')}>Next</button>
-                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
+                )}
+
+                {/* ================= FULLSCREEN ZOOM LIGHTBOX MODAL ================= */}
+                {selectedStoryIndex !== null && successStories[selectedStoryIndex] && typeof document !== 'undefined' && createPortal(
+                    <div className={styles.lightboxOverlay} onClick={closeLightbox}>
+                        <button
+                            className={styles.lightboxCloseBtn}
+                            onClick={closeLightbox}
+                            aria-label="Close modal"
+                            title="Close (Esc)"
+                        >
+                            <FaTimes />
+                        </button>
+
+                        {successStories.length > 1 && (
+                            <>
+                                <button
+                                    className={`${styles.lightboxNavBtn} ${styles.lightboxPrevBtn}`}
+                                    onClick={showPrevStory}
+                                    aria-label="Previous image"
+                                    title="Previous (Left Arrow)"
+                                >
+                                    <FaChevronLeft />
+                                </button>
+                                <button
+                                    className={`${styles.lightboxNavBtn} ${styles.lightboxNextBtn}`}
+                                    onClick={showNextStory}
+                                    aria-label="Next image"
+                                    title="Next (Right Arrow)"
+                                >
+                                    <FaChevronRight />
+                                </button>
+                            </>
+                        )}
+
+                        <div className={styles.lightboxContainer} onClick={(e) => e.stopPropagation()}>
+                            <div className={styles.lightboxImageWrapper}>
+                                <img
+                                    src={successStories[selectedStoryIndex].image}
+                                    alt={successStories[selectedStoryIndex].name || 'Alumni Image'}
+                                    className={styles.lightboxImage}
+                                />
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
                 )}
 
                 {/* ================= RANK HOLDERS SECTION ================= */}

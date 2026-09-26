@@ -101,9 +101,9 @@ const AlumniTab = () => {
     }
 
     const payload = {
-      name: formData.name || '',
-      role: formData.role || '',
-      description: formData.description || '',
+      name: String(formData.name || '').trim(),
+      role: String(formData.role || '').trim(),
+      description: String(formData.description || '').trim(),
       image: imageUrl || ''
     };
 
@@ -193,12 +193,11 @@ const AlumniTab = () => {
       />
 
       <CrudManager
-        title="Success Stories"
+        title="Alumni Gallery & Achievement Banners"
         data={successStories}
         columns={[
-          { key: 'name', label: 'Name', type: 'text' },
-          { key: 'role', label: 'Role', type: 'text' },
-          { key: 'image', label: 'Image', type: 'image' }
+          { key: 'image', label: 'Banner / Photo', type: 'image' },
+          { key: 'name', label: 'Caption / Note (Optional)', type: 'text' }
         ]}
         onSave={handleSaveStory}
         onDelete={async (id) => {
@@ -208,13 +207,15 @@ const AlumniTab = () => {
         initialFormState={{ name: '', role: '', description: '', image: null }}
         renderForm={(formData, setFormData) => (
           <>
-            <FormInput label="Name" value={formData.name || ''} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-            <FormInput label="Role / Position" value={formData.role || ''} onChange={(e) => setFormData({...formData, role: e.target.value})} required />
-            <FormInput label="Description / Quote" type="textarea" value={formData.description || ''} onChange={(e) => setFormData({...formData, description: e.target.value})} />
             <FileUploader
-              label="Photo"
+              label="Upload Banner / Poster Image (JPG / PNG / WEBP)"
               onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
               previewUrl={typeof formData.image === 'string' ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`) : (formData.image ? URL.createObjectURL(formData.image) : null)}
+            />
+            <FormInput 
+              label="Title / Caption (Optional)" 
+              value={formData.name || ''} 
+              onChange={(e) => setFormData({...formData, name: e.target.value})} 
             />
           </>
         )}

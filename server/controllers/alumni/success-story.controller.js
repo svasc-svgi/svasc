@@ -21,13 +21,6 @@ const createStory = async (req, res) => {
     try {
         const { name, role, description, order, image: textImage } = req.body;
 
-        if (!name || !role) {
-            return res.status(400).json({
-                success: false,
-                message: 'Name and role are required'
-            });
-        }
-
         let imageUrl = textImage || '';
         if (req.file) {
             const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/alumni/success-stories');
@@ -35,9 +28,9 @@ const createStory = async (req, res) => {
         }
 
         const storyData = {
-            name,
-            role,
-            description: description || '',
+            name: name ? String(name).trim() : 'Gallery Image',
+            role: role ? String(role).trim() : '',
+            description: description ? String(description).trim() : '',
             image: imageUrl,
             order: order ? parseInt(order, 10) : 0
         };
