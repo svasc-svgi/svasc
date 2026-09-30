@@ -313,7 +313,7 @@ const AwardsSection = () => {
                     {displayData.map((item, i) => (
                         <div key={i} className={styles.awardCard}>
                             <img 
-                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : (item.image?.startsWith('http') ? item.image : `${BASE_URL}/${(item.image || '').replace(/^\\/+/, '')}`)} 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : (item.image?.startsWith('http') ? item.image : `${BASE_URL}/${(item.image || '').replace(/^\/+/, '')}`)} 
                                 alt={`Certificate ${i + 1}`} 
                             />
                         </div>
@@ -322,7 +322,7 @@ const AwardsSection = () => {
                     {displayData.map((item, i) => (
                         <div key={`dup-${i}`} className={styles.awardCard}>
                             <img 
-                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : (item.image?.startsWith('http') ? item.image : `${BASE_URL}/${(item.image || '').replace(/^\\/+/, '')}`)} 
+                                src={typeof item === 'number' ? `https://dummyimage.com/800x600/ffffff/000000&text=Certificate+0${item}` : (item.image?.startsWith('http') ? item.image : `${BASE_URL}/${(item.image || '').replace(/^\/+/, '')}`)} 
                                 alt={`Certificate ${i + 1}`} 
                             />
                         </div>
