@@ -89,8 +89,8 @@ const SVASCExamination = () => {
                             floatingTitle: data.floatingTitle || fallbackConfig.floatingTitle,
                             floatingDateRange: data.floatingDateRange || fallbackConfig.floatingDateRange,
                             floatingSubjects: data.floatingSubjects || fallbackConfig.floatingSubjects,
-                            floatingStatus: data.floatingStatus || fallbackConfig.floatingStatus,
-                            schedules: data.schedules && data.schedules.length > 0 ? data.schedules : fallbackConfig.schedules
+                            floatingStatus: data.floatingStatus !== undefined ? data.floatingStatus : fallbackConfig.floatingStatus,
+                            schedules: Array.isArray(data.schedules) ? data.schedules : fallbackConfig.schedules
                         });
                     }
                 } catch (e) {
@@ -101,7 +101,7 @@ const SVASCExamination = () => {
                 try {
                     const timetableRes = await getExamTimeTables();
                     const timetables = timetableRes?.data ?? (Array.isArray(timetableRes) ? timetableRes : []);
-                    if (timetables.length > 0) {
+                    if (Array.isArray(timetables)) {
                         const allExams = timetables.map(exam => {
                             const cleanFile = (exam.file || '').replace(/^\/+/, '');
                             return {
