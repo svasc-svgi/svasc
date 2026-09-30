@@ -110,15 +110,13 @@ const AboutTab = () => {
         title="Awards & Certifications"
         data={certifications}
         columns={[
-          { key: 'order', label: 'Order', type: 'text' },
           { key: 'image', label: 'Certificate Image', type: 'image' }
         ]}
         onSave={handleSaveCert}
         onDelete={handleDeleteCert}
-        initialFormState={{ order: 0, image: null }}
+        initialFormState={{ image: null }}
         renderForm={(formData, setFormData) => (
           <>
-            <FormInput label="Display Order" type="number" value={formData.order || 0} onChange={(e) => setFormData({...formData, order: e.target.value})} />
             <FileUploader
               label="Certificate Image"
               accept="image/*"
