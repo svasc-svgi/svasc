@@ -10,7 +10,7 @@ const isFormData = (val) => typeof FormData !== 'undefined' && val instanceof Fo
 
 // 1. CERTIFICATIONS SERVICES
 export const getCertifications = async () => {
-  return await apiClient.get('/about/certifications');
+  return await apiClient.get(`/about/certifications?t=${new Date().getTime()}`);
 };
 
 export const createCertification = async (data) => {
@@ -35,11 +35,11 @@ export const deleteCertification = async (id) => {
 
 // 2. TEACHER AWARDS SERVICES
 export const getAllTeacherAwards = async () => {
-  return await apiClient.get('/about/teacher-awards');
+  return await apiClient.get(`/about/teacher-awards?t=${new Date().getTime()}`);
 };
 
 export const getGroupedTeacherAwards = async () => {
-  return await apiClient.get('/about/teacher-awards/grouped');
+  return await apiClient.get(`/about/teacher-awards/grouped?t=${new Date().getTime()}`);
 };
 
 export const createTeacherAward = async (data) => {
