@@ -224,16 +224,18 @@
 /* Existing Events Section (Marquee) */
 .eventsSection {
     background: #ffffff;
+    padding: 3.5rem 0 4.5rem;
+    border-top: 1px solid #f0ede8;
 }
 
 .eventsHeading {
-    color: #111;
-    font-size: 28px;
+    color: #111827;
+    font-size: 2.25rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
     margin-left: 40px;
-    margin-bottom: 10px;
-    font-family: 'Open Sans', Arial, sans-serif;
+    margin-bottom: 24px;
+    font-family: 'Playfair Display', Georgia, serif;
 }
 
 .eventsHeading::after {
@@ -242,7 +244,7 @@
     height: 4px;
     background: #ecbc2e;
     display: block;
-    margin-top: 8px;
+    margin-top: 10px;
     border-radius: 2px;
 }
 
@@ -250,13 +252,13 @@
 .marquee {
     width: 100%;
     overflow: hidden;
-    padding: 25px 0;
+    padding: 15px 0 25px;
 }
 
 .marqueeTrack {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: scroll 35s linear infinite;
 }
 
 .marquee:hover .marqueeTrack {
@@ -273,69 +275,123 @@
     }
 }
 
-/* Snip Cards (Marquee Items) */
+/* Event Cards (Marquee Items) */
 .snip1529 {
-    background-color: #000;
-    color: #fff;
-    margin: 0 15px;
-    max-width: 310px;
-    min-width: 250px;
+    background-color: #ffffff;
+    color: #1c1917;
+    margin: 10px 16px;
+    width: 320px;
+    min-width: 300px;
+    max-width: 320px;
+    border-radius: 14px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+    border: 1px solid #eef0f4;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.snip1529:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
 .snip1529 * {
     box-sizing: border-box;
-    transition: all 0.25s ease;
+}
+
+.cardImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f1f5f9;
 }
 
 .snip1529 img {
     width: 100%;
-    opacity: 0.8;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    opacity: 1;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.snip1529:hover img {
+    transform: scale(1.08);
 }
 
 .snip1529 figcaption {
-    padding: 25px 20px;
-    position: absolute;
-    bottom: 0;
+    padding: 18px 20px 22px;
+    background: #ffffff;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: static;
     z-index: 1;
 }
 
 .snip1529 .date {
-    background: #fff;
-    color: #333;
-    font-size: 18px;
+    background: #ffffff;
+    color: #1f2d5a;
+    font-size: 17px;
     font-weight: 800;
-    min-height: 48px;
+    min-height: 46px;
     min-width: 48px;
-    padding: 10px 0;
+    padding: 6px 10px;
     position: absolute;
-    right: 15px;
-    top: 0;
+    right: 12px;
+    top: 12px;
     text-align: center;
     text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    z-index: 2;
+    transition: transform 0.3s ease;
 }
 
 .snip1529 .date span {
     display: block;
-    line-height: 14px;
+    line-height: 1.1;
 }
 
 .snip1529 .month {
     font-size: 11px;
+    color: #d97706;
+    font-weight: 700;
 }
 
 .snip1529 h3 {
-    font-weight: 800;
-    margin: 0;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin: 0 0 8px 0;
+    color: #1c1917;
     font-family: 'Open Sans', Arial, sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s ease;
+}
+
+.snip1529:hover h3 {
+    color: #2563eb;
 }
 
 .snip1529 p {
     margin: 0;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #64748b;
+    font-family: 'Inter', sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .snip1529 .hover {
@@ -344,25 +400,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(236, 188, 46, 0.85);
-    font-size: 65px;
+    background: rgba(31, 45, 90, 0.3);
     opacity: 0;
-}
-
-.snip1529 a {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
+    transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
 .snip1529:hover .hover {
     opacity: 1;
-}
-
-.snip1529:hover figcaption {
-    opacity: 0;
-}
-
-.snip1529:hover .date {
-    transform: translateY(-100%);
 }

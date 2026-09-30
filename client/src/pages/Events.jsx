@@ -223,13 +223,23 @@ const Events = () => {
 
                 <div className={styles.marquee}>
                     <div className={styles.marqueeTrack}>
-                        {/* Render Marquee Items */}
-                        {marqueeEvents.map((item, index) => (
+                        {/* Render Marquee Items duplicated for seamless infinite scrolling */}
+                        {(marqueeEvents.length > 0 ? [...marqueeEvents, ...marqueeEvents] : []).map((item, index) => (
                             <figure key={index} className={styles.snip1529} onClick={(e) => handleMarqueeClick(e, item.url)}>
-                                <img src={item.image} alt={item.title} />
-                                <div className={styles.date}><span>{item.day}</span><span className={styles.month}>{item.month}</span></div>
-                                <figcaption><h3>{item.title}</h3><p>{item.desc}</p></figcaption>
-                                <div className={styles.hover}><ExternalLink color="white" size={32} /></div>
+                                <div className={styles.cardImageWrapper}>
+                                    <img src={item.image} alt={item.title} />
+                                    <div className={styles.date}>
+                                        <span>{item.day}</span>
+                                        <span className={styles.month}>{item.month}</span>
+                                    </div>
+                                    <div className={styles.hover}>
+                                        <ExternalLink color="white" size={28} />
+                                    </div>
+                                </div>
+                                <figcaption>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc || item.description}</p>
+                                </figcaption>
                             </figure>
                         ))}
                     </div>
