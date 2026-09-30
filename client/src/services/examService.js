@@ -43,7 +43,7 @@ export const deleteExamTimeTable = async (id) => {
 
 // 6. GET EXAM PORTAL CONFIG (3 Images & Exam Schedules)
 export const getExamPortalConfig = async () => {
-  return await apiClient.get('/exam/portal-config');
+  return await apiClient.get(`/exam/portal-config?t=${new Date().getTime()}`);
 };
 
 // 7. UPDATE EXAM PORTAL CONFIG (Supports Direct Cloudinary Image URLs or FormData)
