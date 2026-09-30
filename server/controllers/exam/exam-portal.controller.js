@@ -19,7 +19,7 @@ const updateConfig = async (req, res) => {
         if (floatingSubjects !== undefined) updateData.floatingSubjects = floatingSubjects;
         if (floatingStatus !== undefined) updateData.floatingStatus = floatingStatus;
 
-        if (schedules) {
+        if (schedules !== undefined) {
             if (typeof schedules === 'string') {
                 try {
                     updateData.schedules = JSON.parse(schedules);
