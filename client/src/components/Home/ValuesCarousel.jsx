@@ -130,6 +130,8 @@ const ValuesCarousel = () => {
 
         .values-carousel-scope .swiper {
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding-top: 20px; /* Reduced from 30px */
             padding-bottom: 50px; /* Reduced from 70px */
         }
@@ -268,6 +270,7 @@ const ValuesCarousel = () => {
                 grabCursor={true}
                 centeredSlides={true}
                 loop={slides.length > 2}
+                loopAdditionalSlides={3}
                 slidesPerView={'auto'}
                 coverflowEffect={{
                     rotate: 50,
