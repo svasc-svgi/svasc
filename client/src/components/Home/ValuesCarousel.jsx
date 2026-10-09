@@ -269,8 +269,9 @@ const ValuesCarousel = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
+                initialSlide={0}
+                onSwiper={(swiper) => swiper.slideToLoop(0, 0)}
                 loop={slides.length > 2}
-                loopAdditionalSlides={3}
                 slidesPerView={'auto'}
                 coverflowEffect={{
                     rotate: 50,
