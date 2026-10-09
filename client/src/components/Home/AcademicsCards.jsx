@@ -22,7 +22,7 @@ const AcademicsCards = () => {
                         </div>
 
                         <div className="academics-right">
-                            <p className="academics-text">
+                            <p className="academics-text" style={{ textAlign: 'justify' }}>
                                 Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is a growing institution dedicated to providing quality higher education in a supportive and inclusive learning environment. SVASC is committed to maintaining academic standards and nurturing the potential of every student.
                                 With a strong focus on practical learning, critical thinking, ethical values, leadership, and holistic development, we empower students to build knowledge, confidence, and essential skills for their future careers. Our student-centred approach encourages learners to explore their interests, develop their talents, and become responsible contributors to society.
                             </p>
@@ -51,7 +51,7 @@ const AcademicsCards = () => {
                                         </svg>
                                     </div>
                                     <h3><a href="/academics">Skill-Focused Learning</a></h3>
-                                    <p>Industry-aligned curriculum, hands-on training, and expert mentorship help students build real-world skills that make them job-ready from day one of graduation.</p>
+                                    <p style={{ textAlign: 'justify' }}>Industry-aligned curriculum, hands-on training, and expert mentorship help students build real-world skills that make them job-ready from day one of graduation.</p>
                                     <a className="read-more-btn" href="/academics"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ const AcademicsCards = () => {
                                         </svg>
                                     </div>
                                     <h3><a href="/facilities">Hi-Tech Laboratories</a></h3>
-                                    <p>State-of-the-art computer labs, science labs, and a fully automated digital library give students access to the latest tools and technology for practical, research-driven education.</p>
+                                    <p style={{ textAlign: 'justify' }}>State-of-the-art computer labs, science labs, and a fully automated digital library give students access to the latest tools and technology for practical, research-driven education.</p>
                                     <a className="read-more-btn" href="/facilities"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@ const AcademicsCards = () => {
                                         </svg>
                                     </div>
                                     <h3><a href="/placement">Vibrant Campus & Placements</a></h3>
-                                    <p>A lively campus with sports, cultural clubs, and annual events — combined with a dedicated Placement Cell that actively connects students with top companies across Tamil Nadu and beyond.</p>
+                                    <p style={{ textAlign: 'justify' }}>A lively campus with sports, cultural clubs, and annual events — combined with a dedicated Placement Cell that actively connects students with top companies across Tamil Nadu and beyond.</p>
                                     <a className="read-more-btn" href="/placement"><i className="fa-solid fa-angles-right"></i></a>
                                 </div>
                             </div>
