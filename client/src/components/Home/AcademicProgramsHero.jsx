@@ -145,7 +145,7 @@ export default function AcademicProgramsHero() {
           Academic Programs at SVASC
         </h1>
 
-        <p className="description">
+        <p className="description" style={{ textAlign: 'justify' }}>
           Explore our UGC-approved UG & PG programme that prepare students for careers
           in industry, research, and entrepreneurship
         </p>
