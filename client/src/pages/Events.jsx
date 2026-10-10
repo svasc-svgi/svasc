@@ -207,7 +207,13 @@ const Events = () => {
                                 <div className={styles.cardImageContainer}>
                                     <img src={event.image} className={styles.cardImage} alt={event.title} />
                                     <div className={styles.cardOverlay}></div>
-                                    <div className={styles.dateTag}>{event.date}</div>
+                                    <div className={styles.dateTag}>
+                                        {event.date?.split(',').map((part, i) => (
+                                            <span key={i} style={{ display: 'block', marginTop: i > 0 ? '4px' : '0' }}>
+                                                {part.trim()}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                                 <h3 className={styles.eventTitle}>{event.title}</h3>
                                 <p className={styles.eventDesc}>{event.description}</p>
