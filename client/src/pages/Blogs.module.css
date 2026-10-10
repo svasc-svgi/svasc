@@ -9,12 +9,9 @@
     margin: 10px 1%;
     overflow: hidden;
     transition: all 0.5s ease, opacity 0.1s;
-    width: 23%;
-}
-
-.project:nth-child(1),
-.project:nth-child(2) {
-    width: 48%;
+    width: 31.333%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 
@@ -79,18 +76,22 @@
 .beforeTitle {
     float: left;
     opacity: 1;
-    background: #fff;
-    font-size: 1.2rem;
-    padding: 10px 5px;
-    font-weight: 100;
-    letter-spacing: 2px;
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 1.15rem;
+    padding: 15px 5px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+    letter-spacing: 3px;
     text-transform: uppercase;
     transition: all 0.5s ease;
     position: absolute;
     width: 90%;
     text-align: center;
-    top: 45%;
+    top: 50%;
+    transform: translateY(-50%);
     margin: 0 5%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .project:hover .beforeTitle {

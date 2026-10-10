@@ -161,26 +161,19 @@ const ProjectsPortfolio = () => {
 
   const calculateHeights = () => {
     const winWidth = window.innerWidth;
-    const midRange = winWidth < 920 && winWidth > 620;
-    const smallRange = winWidth < 720;
+    
+    // Default 3 columns
+    let cols = 3;
+    if (winWidth < 920 && winWidth > 620) cols = 2;
+    if (winWidth <= 620) cols = 1;
+
+    const baseWidth = (winWidth * 0.96) / cols;
+    // Tall portrait aspect ratio (3:4 or similar)
+    const uniformHeight = baseWidth * 1.33;
 
     const heights = {};
-    projects.forEach((project, index) => {
-      const baseWidth = index < 2 ? (winWidth * 0.48 - 20) : (winWidth * 0.23 - 20);
-      let height;
-
-      if (index < 2) {
-        height = baseWidth;
-      } else {
-        if (midRange) {
-          height = baseWidth * 0.5;
-        } else if (smallRange) {
-          height = baseWidth;
-        } else {
-          height = baseWidth * 1.5;
-        }
-      }
-      heights[project.ID] = height;
+    projects.forEach((project) => {
+      heights[project.ID] = uniformHeight;
     });
 
     setProjectHeights(heights);
