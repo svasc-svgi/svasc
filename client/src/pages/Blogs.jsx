@@ -222,8 +222,7 @@ const ProjectsPortfolio = () => {
             key={project.ID}
             className={getProjectClass(project.ID)}
             style={{
-              backgroundImage: `url(${project.bImage})`,
-              height: projectHeights[project.ID] || '50px'
+              backgroundImage: `url(${project.bImage})`
             }}
             onClick={() => selectProject(project.ID)}
           >
