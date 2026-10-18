@@ -129,7 +129,7 @@ const Schools = () => {
                 name: "School of Management",
                 acronym: "SOM",
                 programs: [
-                    { title: "Management", image: smart1Img },
+                    { title: "Management(BBA)", image: smart1Img },
                 ]
             },
             {
@@ -200,7 +200,7 @@ const Schools = () => {
                 programs: [
                     { title: "Ph.D. Tamil", image: club0Img },
                     { title: "Ph.D. English", image: why2Img },
-
+                    { title: "Ph.D. Commerce", image: "/commercephd/phd1.jpg" }
                 ]
             }
         ]

@@ -816,31 +816,7 @@ export const programDetailsData = {
             }
         ]
     },
-    "bsc-physics": {
-        title: "B.Sc. Physics",
-        heroImage: why1Img,
-        aboutImage: whyImg,
-        about: "The physics department was established in the year 2018. The department has highly qualified and well-experienced faculty members. The department is carrying out various research works in the fields of Thin films, Solar thermal energy, Crystal growth, Single crystal XRD studies, Membrane technology and Condensed matter physics",
-        vision: "To be a center of excellence in physics education and research, fostering scientific curiosity and innovation.",
-        mission: "To provide high-quality education in physics through rigorous academic curriculum and hands-on laboratory experiences.",
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        facilities: [
-            "State-of-the-art computer laboratories",
-            "WiFi Enabled Campus",
-            "Well Equipped Laboratories",
-            "ICT Enabled Smart Classrooms",
-            "Electronic Library"
-        ],
-        careerOpportunities: [
-            { title: "Research Scientist" },
-            { title: "Physics Teacher/Lecturer" },
-            { title: "Lab Technician" },
-            { title: "Data Analyst" }
-        ],
-        faqs: [
-            { question: "What higher education options are available after B.Sc. Physics?", answer: "Students can pursue M.Sc. Physics, followed by Ph.D., or move into engineering, data science, or education fields." }
-        ]
-    },
+   
     "bsc-chemistry": {
         title: "B.Sc. Chemistry",
         heroImage: why3Img,
@@ -1067,55 +1043,6 @@ export const programDetailsData = {
         ],
         faqs: [
             { question: "What is the scope of Microbiology in healthcare?", answer: "Microbiologists play a crucial role in diagnostic labs, pharmaceutical research, and public health departments." }
-        ]
-    },
-    "ba-tamil": {
-        title: "B.A. Tamil",
-        heroImage: her0Img,
-        aboutImage: dji0587Img,
-        about: "2019ஆம் ஆண்டு கல்லூரி தொடங்கப்பட்ட காலத்திலிருந்தே தமிழ்த்துறை சிறப்பாக இயங்கி வருகிறது. இளங்கலை மாணவர்களுக்கு பகுதி–I தமிழ்ப்பாடம் கற்பிக்கப்பட்டு, மொழித்திறன், இலக்கியப்புலமை, பண்பாட்டு விழிப்புணர்வு, நற்பண்புகள் மற்றும் சமூகப்பொறுப்புணர்வு ஆகியவற்றை மாணவர்களிடம் வளர்ப்பதே துறையின் முக்கிய நோக்கமாகும். தரமான கற்பித்தலுடன், இலக்கியமன்ற நிகழ்வுகள், கருத்தரங்குகள், பயிலரங்குகள், போட்டிகள் போன்ற கல்விசார் செயல்பாடுகள் தொடர்ந்து நடத்தப்பட்டு, மாணவர்களின் படைப்பாற்றல், ஆய்வுத்திறன், பேச்சுத்திறன், எழுத்துத்திறன் ஆகியவை மேம்படுத்தப்படுகின்றன. 2025ஆம் ஆண்டில், பாரதியார் பல்கலைக்கழகம் தமிழ்த்துறைக்கு முனைவர்பட்ட (Ph.D.) ஆய்வுப்படிப்பு வழங்குவதற்கான அங்கீகாரத்தை வழங்கியது — இது துறையின் கல்வித்தரத்தையும் ஆய்வுச்சிறப்பையும் வெளிப்படுத்தும் முக்கிய மைல்கல்.",
-        vision: "தமிழ்மொழியின் தொன்மையையும் பண்பாட்டு மரபுகளையும் போற்றி, ஆய்வுமனப்பான்மையும் இலக்கியப்புலமையும் மிக்க, சமூகப்பொறுப்புணர்வுடன் செயல்படும் தலைமுறையினரை உருவாக்கும் சிறந்த தமிழ்த்துறையாக விளங்குவது.",
-        mission: [
-            "மாணவர்களிடம் தமிழ்மொழித்திறன், எழுத்துத்திறன், பேச்சுத்திறன் ஆகியவற்றை மேம்படுத்துதல்.",
-            "இலக்கியப்புலமையையும் ஆய்வுத்திறனையும் வளர்ப்பதற்கான கல்விசார் செயல்பாடுகளை மேற்கோள்ளுதல்.",
-            "கருத்தரங்குகள், பயிலரங்குகள், இலக்கியமன்ற நிகழ்வுகள் மற்றும் போட்டிகள் வாயிலாக மாணவர்களின் படைப்பாற்றலை ஊக்குவித்தல்.",
-            "முனைவர்பட்ட (Ph.D.) ஆய்வுப்படிப்பு மூலம் உயர்கல்வி மற்றும் ஆய்வுத்துறையில் சிறப்பான பங்களிப்பை வழங்குதல்.",
-            "தமிழ்மொழி மற்றும் பண்பாட்டு மரபுகளைப் பாதுகாத்து அடுத்த தலைமுறைக்குக் கொண்டுசெல்லுதல்.",
-            "மாணவர்களிடம் நற்பண்புகளையும் சமூகப்பொறுப்புணர்வையும் வளர்த்தல்."
-        ],
-        objectives: [
-            "தமிழின் பெருமையைப்போற்றி, அறிவை வளர்த்து, ஆய்வை ஊக்குவித்தல்.",
-            "தமிழ்மொழித்திறன், எழுத்துத்திறன், பேச்சுத்திறன் மற்றும் படைப்பாற்றலை மேம்படுத்துதல்.",
-            "பாரதியார் பல்கலைக்கழக அங்கீகாரத்துடன் முனைவர்பட்ட (Ph.D.) ஆய்வு வழிகாட்டல் வழங்குதல்."
-        ],
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        facilities: [
-            "State-of-the-art computer laboratories",
-            "WiFi Enabled Campus",
-            "Well Equipped Laboratories",
-            "ICT Enabled Smart Classrooms",
-            "Electronic Library"
-        ],
-        careerOpportunities: [
-            { title: "தமிழாசிரியர் & கல்லூரிப் பேராசிரியர் (Tamil Teacher / Professor)" },
-            { title: "தமிழ் ஊடகவியலாளர் & செய்தியாளர் (Tamil Journalist & Reporter)" },
-            { title: "படைப்பாளர் & எழுத்தாளர் (Creative Writer & Content Writer)" },
-            { title: "மொழிபெயர்ப்பாளர் & பதிப்புத்துறை (Translator & Publisher)" },
-            { title: "அரசுப்பணிகள் (TNPSC, UPSC Civil Services)" },
-            { title: "முனைவர்பட்ட ஆய்வு (Ph.D. Research Scholar)" }
-        ],
-        staffDetails: [
-            { sNo: 1, name: "முனைவர் இர. செந்தில்ராணி", qualification: "M.A., M.A. (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (உதவிப்பேராசிரியர் & துறைத்தலைவர்)" },
-            { sNo: 2, name: "திரு. ப. இராமன்", qualification: "M.A., B.Ed. (உதவிப்பேராசிரியர்)" },
-            { sNo: 3, name: "திரு. செ. செல்வக்குமார்", qualification: "M.A., M.Phil., B.Ed. (உதவிப்பேராசிரியர்)" },
-            { sNo: 4, name: "திரு. கு. ராஜேந்திரகுமார்", qualification: "M.A., B.Ed., NET, (Ph.D.) (உதவிப்பேராசிரியர்)" },
-            { sNo: 5, name: "திருமதி கு. யசோதா", qualification: "M.A., M.Phil., B.Ed., DCT. (உதவிப்பேராசிரியர்)" },
-            { sNo: 6, name: "திரு. பா. நந்தகுமார்", qualification: "M.A. (உதவிப்பேராசிரியர்)" },
-            { sNo: 7, name: "திரு. வே. விமல்ராஜ்", qualification: "M.A., DIE, (Ph.D.) (உதவிப்பேராசிரியர்)" },
-            { sNo: 8, name: "செல்வி ச. மைவிழி", qualification: "M.A. (உதவிப்பேராசிரியர்)" }
-        ],
-        faqs: [
-            { question: "What are the benefits of studying B.A. Tamil?", answer: "It opens doors to careers in education, media, administration, and creative writing, while strengthening cultural roots." }
         ]
     },
     "ba-english": {
@@ -1374,36 +1301,127 @@ export const programDetailsData = {
             { question: "Can I work in the pharmaceutical industry after this?", answer: "Yes, M.Sc. Microbiology graduates are in high demand for drug development and quality control roles." }
         ]
     },
-    "phd-tamil": {
-        title: "Ph.D. Tamil",
-        heroImage: club0Img,
-        aboutImage: ugpgImg,
-        about: "The Ph.D. program in Tamil is a research-intensive course focusing on Tamil literature, linguistics, culture, and history. It encourages original scholarly contributions to the Tamil language.",
-        vision: "To preserve and promote the richness of Tamil language and literature through academic research.",
-        mission: "To foster a research environment that produces high-quality scholars and researchers in Tamil studies.",
-        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-        facilities: [
-            "Tamil Research Library",
-            "Manuscripts Collection",
-            "Language Lab",
-            "Seminar Hall",
-            "Internet Facility"
+    "phd-commerce": {
+        title: "Ph.D. Commerce",
+        heroImage: "/commercephd/phd1.jpg",
+        aboutImage: "/commercephd/phd2.jpg",
+        about: "The PG and Research Department of Commerce, under the Kautilya Association, organised “Talentathon 2026 – Talent Hunt”, an Intra Collegiate Meet, from 7 September 2026 to 11 September 2026 at the College Campus. The event was organised with the objective of identifying and showcasing the hidden talents and creative abilities of students beyond the classroom and developing their confidence, communication, creativity and teamwork through active participation in various events. A wide range of competitions were conducted as part of Talentathon 2026, providing students with opportunities to demonstrate their talents and creative skills across Singing, Dancing, Elocution, Poetry, Mimicry, Stand-up Comedy, Drawing/Painting, Photography, Short Film, Storytelling, Quiz, Best Out of Waste, Innovative Ideas and Creative Writing. The Prize Distribution Function of Talentathon 2026 was held on 23 September 2026 in the Auditorium with the Presidential Address delivered by Dr. R. Ramkumar, Principal, an event overview by Dr. Chi. Nanjappa, Vice-Principal and Head, PG and Research Department of Commerce, and Chief Guest Addresses by Thiru. K. R. Kaviyarasu, Trustee, and Thiru. G. Gowtham, CEO. The BCA Department was declared the Overall Winner, while the English Department secured the Overall Runner position. The PG and Research Department of Commerce offers the Ph.D. in Commerce programme affiliated to Bharathiar University to cultivate doctoral scholars, researchers, and academicians equipped with advanced research methodology, ethical inquiry, and domain expertise in commerce and allied disciplines.",
+        vision: "To be a centre of excellence in doctoral research, academic scholarship, and holistic student development in Commerce by fostering innovative thinking, ethical inquiry, and leadership to address contemporary economic and societal challenges.",
+        mission: [
+            "To provide rigorous doctoral research guidance in commerce, finance, banking, taxation, and business management.",
+            "To promote original empirical and theoretical research contributing to high-impact scholarly publications in reputed indexed journals.",
+            "To identify and showcase hidden talents, creative abilities, and analytical skills beyond the classroom through dynamic departmental associations like the Kautilya Association.",
+            "To develop confidence, communication, creativity, and teamwork through active participation in academic meets, research symposiums, and competitions.",
+            "To instill strong professional ethics, academic integrity, and social responsibility among research scholars."
         ],
-        keyHighlights: [
-            "Specialized study on Sangam Literature",
-            "Research in Modern Tamil Linguistics",
-            "Participation in Literary Conferences",
-            "Interdisciplinary research options"
+        objectives: [
+            "To identify and showcase the hidden talents and creative abilities of students and research scholars beyond the classroom.",
+            "To develop confidence, communication, creativity, and teamwork through active participation in intra-collegiate and national events.",
+            "To provide comprehensive research training in quantitative and qualitative research methodologies and modern statistical tools.",
+            "To encourage inter-departmental interaction and healthy intellectual competition among scholars from diverse disciplines.",
+            "To prepare scholars for careers in university teaching, doctoral research, financial consulting, and policy formulation."
+        ],
+        rolesAndResponsibilities: [
+            "Provide dedicated research supervision and mentorship through recognized research guides and Doctoral Research Committees (DRC).",
+            "Organize intra-collegiate meets, talent hunts, and academic conferences under the Kautilya Association to promote holistic student development.",
+            "Conduct periodic research progress reviews, doctoral colloquiums, and pre-submission presentations in compliance with Bharathiar University regulations.",
+            "Facilitate workshops on research methodology, advanced statistical tools, and academic writing.",
+            "Provide access to rich departmental and central library resources, research archives, and digital databases.",
+            "Ensure strict adherence to research ethics, academic integrity, and university doctoral guidelines."
+        ],
+        facilitiesImage: "/commercephd/phd3.jpg",
+        facilities: [
+            "Dedicated Research Scholars Cubicle with High-Speed Internet Connectivity",
+            "Comprehensive Central & Departmental Library with 6,600+ Volumes and Research Archive",
+            "Digital Library with Access to INFLIBNET N-LIST, DELNET & e-Journal Subscriptions",
+            "Advanced Computing Facility with SPSS, R & Data Analysis Software",
+            "College Auditorium & Seminar Halls for Conferences, Talentathon Meets & Presentations",
+            "Smart Classrooms with ICT Facilities for Research Colloquiums"
         ],
         careerOpportunities: [
-            { title: "Tamil Professor" },
-            { title: "Researcher" },
-            { title: "Tamil Content Analyst" },
-            { title: "Linguist Specialist" }
+            { title: "University Professor / Associate Professor (UGC-NET / Ph.D)" },
+            { title: "Senior Research Scientist & Policy Analyst" },
+            { title: "Corporate Finance & Strategic Management Consultant" },
+            { title: "Financial Economist & Market Research Director" },
+            { title: "Banking, Insurance & Fintech Domain Specialist" },
+            { title: "Government Economic Advisory & Think-Tank Specialist (NITI Aayog, RBI, SEBI)" },
+            { title: "Director of Research & Academic Institutions" },
+            { title: "Post-Doctoral Fellow (PDF) in National & International Universities" },
+            { title: "Creative Writer, Academic Author & Independent Consultant" }
         ],
-        eligibility: "M.A. Tamil with research aptitude.",
+        staffDetails: [
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head / Research Supervisor)" },
+            { sNo: 2, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
+            { sNo: 3, name: "Dr. A. Savitha", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D., SET. (Assistant Professor & Research Supervisor)" },
+            { sNo: 4, name: "Dr. M. Kalaivani", qualification: "M.COM., M.PHIL., PGDCA., Ph.D. (Assistant Professor)" },
+            { sNo: 5, name: "Dr. K. Sureshkumar", qualification: "M.Com (CA)., M.Phil., Ph.D. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 9, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 10, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" }
+        ],
+        gallery: [
+            {
+                title: "Talentathon 2026 – Talent Hunt Inauguration & Student Events",
+                image: "/commercephd/phd1.jpg",
+                date: "07.09.2026 - 11.09.2026",
+                category: "Talentathon 2026"
+            },
+            {
+                title: "Creative Arts, Literary & Performing Competitions",
+                image: "/commercephd/phd2.jpg",
+                date: "08.09.2026",
+                category: "Competitions"
+            },
+            {
+                title: "Student Talent Showcase & Inter-Departmental Participation",
+                image: "/commercephd/phd3.jpg",
+                date: "10.09.2026",
+                category: "Competitions"
+            },
+            {
+                title: "Dignitaries Address - Thiru. K. R. Kaviyarasu, Trustee & Thiru. G. Gowtham, CEO",
+                image: "/commercephd/phd4.jpg",
+                date: "23.09.2026",
+                category: "Valedictory"
+            },
+            {
+                title: "Dr. Chi. Nanjappa, Vice-Principal & HOD Overview of Talentathon",
+                image: "/commercephd/phd5.jpg",
+                date: "23.09.2026",
+                category: "Valedictory"
+            },
+            {
+                title: "Prize Distribution Ceremony to Position Holders at College Auditorium",
+                image: "/commercephd/phd6.jpg",
+                date: "23.09.2026",
+                category: "Prize Distribution"
+            },
+            {
+                title: "Overall Winner (BCA) & Overall Runner (English) Championship Trophy Ceremony",
+                image: "/commercephd/phd7.jpg",
+                date: "23.09.2026",
+                category: "Prize Distribution"
+            }
+        ],
         faqs: [
-            { question: "What is the focus of Ph.D. Tamil?", answer: "The focus is on exploring new dimensions of Tamil literature and language through systematic research." }
+            { 
+                question: "What is Talentathon organised by the PG and Research Department of Commerce?", 
+                answer: "Talentathon 2026 – Talent Hunt is an Intra Collegiate Meet organised by the PG and Research Department of Commerce under the Kautilya Association from 7 September 2026 to 11 September 2026, featuring 15 competitions including Singing, Dancing, Elocution, Poetry, Mimicry, Stand-up Comedy, Drawing/Painting, Photography, Short Film, Storytelling, Quiz, Best Out of Waste, Innovative Ideas, and Creative Writing. The Prize Distribution was held on 23 September 2026 with BCA winning Overall Winner and English winning Overall Runner." 
+            },
+            { 
+                question: "What is the eligibility requirement for enrolling in Ph.D. Commerce?", 
+                answer: "Candidates must have passed a Master's degree in Commerce (M.Com, M.Com CA, M.Com IB, or related commerce specialization) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university, and qualify in the Common Eligibility Test (CET) conducted by Bharathiar University or hold UGC-NET / SET / M.Phil." 
+            },
+            { 
+                question: "Are both Full-Time and Part-Time Ph.D. programmes available in Commerce?", 
+                answer: "Yes, the PG & Research Department of Commerce offers both Full-Time and Part-Time Ph.D. research programmes in accordance with Bharathiar University guidelines and UGC regulations." 
+            },
+            { 
+                question: "What role does the Kautilya Association play in the department?", 
+                answer: "The Kautilya Association is the active student and research forum of the PG & Research Department of Commerce that organizes academic conferences, intra-collegiate talent hunts, workshops, and guest lectures to develop confidence, leadership, communication, and research acumen." 
+            }
         ]
     },
     "phd-english": {
@@ -1610,3 +1628,6 @@ export const programDetailsData = {
 
 // Alias bba to management for flexible routing
 programDetailsData["bba"] = programDetailsData["management"];
+programDetailsData["ph-d-commerce"] = programDetailsData["phd-commerce"];
+programDetailsData["phd-in-commerce"] = programDetailsData["phd-commerce"];
+programDetailsData["phdcommerce"] = programDetailsData["phd-commerce"];

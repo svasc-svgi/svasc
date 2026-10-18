@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './Alumni.module.css';
-import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers, FaTimes, FaChevronLeft, FaChevronRight, FaExpand } from 'react-icons/fa';
+import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers, FaTimes, FaChevronLeft, FaChevronRight, FaExpand, FaBriefcase, FaBuilding, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -75,6 +75,47 @@ const fallbackRankData = {
         { name: "AJAY R", degree: "B.Sc. Computer Science", rank: "9th Rank Bharathiar University" }
     ]
 };
+
+const recentAlumni = [
+    {
+        name: "Abishek C",
+        role: "Software Developer",
+        company: "Cognizant Technology Solutions",
+        companyDesc: "Software Company",
+        location: "Chennai, Tamil Nadu",
+        image: "/alumni/abishek.png",
+        badge: "Cognizant"
+    },
+    {
+        name: "M. Sujith",
+        role: "Software Engineer",
+        company: "Questudio",
+        companyDesc: "Software & Digital Product Studio",
+        location: "Chennai, Tamil Nadu",
+        image: "/alumni/sujith.png",
+        badge: "Questudio"
+    },
+    {
+        name: "Parameshwari S",
+        role: "Infrastructure Engineer",
+        company: "Tata Consultancy Services",
+        companyDesc: "Global IT Services & Consulting",
+        location: "Chennai, Tamil Nadu",
+        experience: "5 Months",
+        image: "/alumni/parameshwari.png",
+        badge: "TCS"
+    },
+    {
+        name: "Kaviya Sree V V",
+        role: "System Administrator",
+        company: "Tata Consultancy Services",
+        companyDesc: "Global IT Services & Consulting",
+        location: "Chennai, Tamil Nadu",
+        experience: "8 Months",
+        image: "/alumni/kaviya_sree.png",
+        badge: "TCS"
+    }
+];
 
 const Alumni = () => {
     // ================= DYNAMIC DATA LOADING =================
@@ -480,6 +521,61 @@ const Alumni = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* ================= RECENT ALUMNI PLACEMENTS SECTION ================= */}
+                <div className={styles.recentAlumniSection}>
+                    <div className={styles.sectionTitle}>
+                        <h1>Recent Alumni Placements</h1>
+                        <p className={styles.recentSubtitle}>
+                            Celebrating our proud recent graduates stepping into the tech and corporate world with premier organizations
+                        </p>
+                    </div>
+
+                    <div className={styles.recentAlumniGrid}>
+                        {recentAlumni.map((alum, idx) => (
+                            <div className={styles.recentAlumniCard} key={idx}>
+                                <div className={styles.recentImageWrapper}>
+                                    <img
+                                        src={alum.image}
+                                        alt={alum.name}
+                                        className={styles.recentImage}
+                                        loading="lazy"
+                                    />
+                                    <span className={styles.companyBadge}>{alum.badge}</span>
+                                </div>
+                                <div className={styles.recentCardBody}>
+                                    <h3 className={styles.recentName}>{alum.name}</h3>
+                                    
+                                    <div className={styles.recentRoleRow}>
+                                        <FaBriefcase className={styles.recentIcon} />
+                                        <span>{alum.role}</span>
+                                    </div>
+
+                                    <div className={styles.recentCompanyRow}>
+                                        <FaBuilding className={styles.recentIcon} />
+                                        <div>
+                                            <strong className={styles.recentCompany}>{alum.company}</strong>
+                                            {alum.companyDesc && (
+                                                <span className={styles.recentCompanyDesc}>{alum.companyDesc}</span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.recentMetaRow}>
+                                        <span className={styles.recentLocation}>
+                                            <FaMapMarkerAlt className={styles.recentSmallIcon} /> {alum.location}
+                                        </span>
+                                        {alum.experience && (
+                                            <span className={styles.recentExpBadge}>
+                                                <FaClock className={styles.recentSmallIcon} /> {alum.experience} exp
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* ================= SUCCESS STORIES / ALUMNI IMAGE & BANNER GALLERY ================= */}

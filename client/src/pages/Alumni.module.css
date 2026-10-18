@@ -1108,4 +1108,210 @@
     .footerSignature h4 {
         width: 20rem;
     }
-}
+}
+
+/* ================= RECENT ALUMNI SECTION ================= */
+.recentAlumniSection {
+    max-width: 1300px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.recentSubtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #64748b;
+    max-width: 700px;
+    margin: -1.5rem auto 3.5rem auto;
+    font-weight: 400;
+}
+
+.recentAlumniGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+}
+
+.recentAlumniCard {
+    background: #ffffff;
+    border-radius: 1.8rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.recentAlumniCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6, #06b6d4);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+}
+
+.recentAlumniCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.12);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.recentAlumniCard:hover::before {
+    opacity: 1;
+}
+
+.recentImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 290px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recentImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.5s ease;
+}
+
+.recentAlumniCard:hover .recentImage {
+    transform: scale(1.05);
+}
+
+.companyBadge {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.2rem;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    letter-spacing: 0.03em;
+}
+
+.recentCardBody {
+    padding: 2rem 2rem 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.recentName {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 1.2rem 0;
+    line-height: 1.3;
+}
+
+.recentRoleRow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.recentCompanyRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    color: #334155;
+    font-size: 1.3rem;
+    margin-bottom: 1.4rem;
+}
+
+.recentCompany {
+    display: block;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+}
+
+.recentCompanyDesc {
+    display: block;
+    font-size: 1.15rem;
+    color: #64748b;
+    margin-top: 0.2rem;
+}
+
+.recentIcon {
+    font-size: 1.4rem;
+    color: #3b82f6;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.recentMetaRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.recentLocation {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.15rem;
+    color: #64748b;
+}
+
+.recentExpBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #047857;
+    background: #ecfdf5;
+    padding: 0.3rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid #a7f3d0;
+}
+
+.recentSmallIcon {
+    font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .recentAlumniGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .recentAlumniGrid {
+        grid-template-columns: 1fr;
+    }
+    .recentImageWrapper {
+        height: 320px;
+    }
+}
+
