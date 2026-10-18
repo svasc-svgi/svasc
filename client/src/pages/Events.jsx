@@ -40,7 +40,16 @@ const Events = () => {
                 }
 
                 if (gridRes.status === 'fulfilled') {
-                    const gridList = gridRes.value?.data ?? (Array.isArray(gridRes.value) ? gridRes.value : []);
+                    const rawVal = gridRes.value;
+                    let gridList = [];
+                    if (Array.isArray(rawVal)) {
+                        gridList = rawVal;
+                    } else if (Array.isArray(rawVal?.data)) {
+                        gridList = rawVal.data;
+                    } else if (Array.isArray(rawVal?.data?.data)) {
+                        gridList = rawVal.data.data;
+                    }
+
                     if (gridList.length > 0) {
                         setGridEvents(gridList.map(item => {
                             const cleanImg = (item.image || '').replace(/^\/+/, '');
@@ -55,7 +64,16 @@ const Events = () => {
                 let mergedMarquee = [];
 
                 if (homeEventsRes.status === 'fulfilled') {
-                    const homeEventsList = homeEventsRes.value?.data ?? (Array.isArray(homeEventsRes.value) ? homeEventsRes.value : []);
+                    const rawHome = homeEventsRes.value;
+                    let homeEventsList = [];
+                    if (Array.isArray(rawHome)) {
+                        homeEventsList = rawHome;
+                    } else if (Array.isArray(rawHome?.data)) {
+                        homeEventsList = rawHome.data;
+                    } else if (Array.isArray(rawHome?.data?.data)) {
+                        homeEventsList = rawHome.data.data;
+                    }
+
                     if (homeEventsList.length > 0) {
                         const mappedHomeEvents = homeEventsList.map(item => {
                             const cleanImg = (item.image || '').replace(/^\/+/, '');
@@ -93,7 +111,16 @@ const Events = () => {
                 }
 
                 if (marqueeRes.status === 'fulfilled') {
-                    const marqueeList = marqueeRes.value?.data ?? (Array.isArray(marqueeRes.value) ? marqueeRes.value : []);
+                    const rawMarquee = marqueeRes.value;
+                    let marqueeList = [];
+                    if (Array.isArray(rawMarquee)) {
+                        marqueeList = rawMarquee;
+                    } else if (Array.isArray(rawMarquee?.data)) {
+                        marqueeList = rawMarquee.data;
+                    } else if (Array.isArray(rawMarquee?.data?.data)) {
+                        marqueeList = rawMarquee.data.data;
+                    }
+
                     if (marqueeList.length > 0) {
                         const mappedMarquee = marqueeList.map(item => {
                             const cleanImg = (item.image || '').replace(/^\/+/, '');
@@ -124,8 +151,8 @@ const Events = () => {
     // Intersection Observer for Reveal Animation
     useEffect(() => {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px -20px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -140,8 +167,18 @@ const Events = () => {
         const elements = document.querySelectorAll(`.${styles.revealOnScroll}`);
         elements.forEach(el => observer.observe(el));
 
-        return () => observer.disconnect();
-    }, []);
+        // Safety fallback: ensure dynamically loaded items smoothly become visible
+        const timer = setTimeout(() => {
+            const currentElements = document.querySelectorAll(`.${styles.revealOnScroll}`);
+            currentElements.forEach(el => el.classList.add(styles.visible));
+        }, 300);
+
+        return () => {
+            elements.forEach(el => observer.unobserve(el));
+            observer.disconnect();
+            clearTimeout(timer);
+        };
+    }, [gridEvents, marqueeEvents, heroData]);
 
     const handleEventClick = (title, date, desc) => {
         alert(`Event: ${title}\nDate: ${date}\nDescription: ${desc}\n\nRegistration details will be announced soon!`);
@@ -169,6 +206,7 @@ const Events = () => {
             {/* Events Grid Section */}
             {gridEvents.length > 0 && (
                 <section id="events" className={styles.eventsGridSection}>
+                    <span id="upcoming" style={{ display: 'block', position: 'relative', top: '-100px', visibility: 'hidden' }} />
                     <div className={styles.gridWrapper}>
                         <div className={`${styles.gridHeader} ${styles.revealOnScroll}`}>
                             <div className=''>
