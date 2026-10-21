@@ -1151,7 +1151,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6, #06b6d4);
+    background:#f5b400;
     opacity: 0;
     transition: opacity 0.35s ease;
     z-index: 2;
@@ -1160,7 +1160,7 @@
 .recentAlumniCard:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(30, 58, 138, 0.12);
-    border-color: rgba(59, 130, 246, 0.4);
+    border-color: rgba(244, 252, 11, 0.968);
 }
 
 .recentAlumniCard:hover::before {
@@ -1314,4 +1314,4 @@
         height: 320px;
     }
 }
-
+
