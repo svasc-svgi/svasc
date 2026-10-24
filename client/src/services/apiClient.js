@@ -14,7 +14,7 @@ const apiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000,
+  timeout: 60000,
 });
 
 apiClient.interceptors.request.use(
@@ -44,5 +44,18 @@ apiClient.interceptors.response.use(
     return Promise.reject(new Error(errorMsg));
   }
 );
+
+/**
+ * Non-blocking warm-up ping to wake Render backend from sleep on user entry
+ */
+export const warmUpBackend = () => {
+  try {
+    const base = (import.meta.env.VITE_API_URL || import.meta.env.VITE_BASE_URL || 'http://localhost:5000').trim().replace(/\/+$/, '');
+    const healthUrl = base.endsWith('/api') ? `${base}/health` : `${base}/api/health`;
+    fetch(healthUrl, { mode: 'cors' }).catch(() => {});
+  } catch (e) {
+    // Ignore warm-up failure
+  }
+};
 
 export default apiClient;

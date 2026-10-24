@@ -85,4 +85,23 @@ app.use((err, req, res, next) => {
 // Start Server - Bind to 0.0.0.0 for Railway / Container environments
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT} (0.0.0.0:${PORT})`);
+
+    // Render Free Tier Keep-Alive: Ping self every 14 minutes to prevent idle spin-down
+    const externalUrl = process.env.RENDER_EXTERNAL_URL || process.env.BACKEND_URL;
+    if (externalUrl) {
+        const keepAliveUrl = `${externalUrl.replace(/\/+$/, '')}/health`;
+        const INTERVAL_MS = 14 * 60 * 1000; // 14 minutes
+        setInterval(() => {
+            try {
+                const httpModule = keepAliveUrl.startsWith('https') ? require('https') : require('http');
+                httpModule.get(keepAliveUrl, (res) => {
+                    console.log(`[Keep-Alive] Pinged ${keepAliveUrl} - Status: ${res.statusCode}`);
+                }).on('error', (err) => {
+                    console.warn('[Keep-Alive] Ping note:', err.message);
+                });
+            } catch (e) {
+                // Ignore keepalive error
+            }
+        }, INTERVAL_MS);
+    }
 });

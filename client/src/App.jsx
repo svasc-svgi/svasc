@@ -35,7 +35,14 @@ import Transport from './components/Facilities/Transport';
 import Laboratory from './components/Facilities/Laboratory';
 import LibraryPortal from './components/Facilities/LibraryPortal';
 
+import React, { useEffect } from 'react';
+import { warmUpBackend } from './services/apiClient';
+
 function App() {
+  useEffect(() => {
+    warmUpBackend();
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
