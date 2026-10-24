@@ -20,9 +20,9 @@ const AboutHero = () => {
                     <a href="#" className="btn btn--outline">Learn more ↓</a>
                 </div>
                 <div className="hero-img-box">
-                    <img src={img1} alt="Campus View 1" className="hero-img-1" />
-                    <img src={img2} alt="Campus View 2" className="hero-img-2" />
-                    <img src={img3} alt="Campus View 3" className="hero-img-3" />
+                    <img src={img1} alt="Campus View 1" className="hero-img-1" loading="lazy" decoding="async" />
+                    <img src={img2} alt="Campus View 2" className="hero-img-2" loading="lazy" decoding="async" />
+                    <img src={img3} alt="Campus View 3" className="hero-img-3" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>

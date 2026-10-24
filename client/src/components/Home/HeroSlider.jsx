@@ -231,7 +231,13 @@ const HeroSlider = () => {
                                     </div>
                                 ) : (
                                     <picture>
-                                        <img src={slide.src} alt={slide.title} />
+                                        <img 
+                                            src={slide.src} 
+                                            alt={slide.title || 'SVASC Hero'} 
+                                            loading={index === 0 ? 'eager' : 'lazy'}
+                                            fetchPriority={index === 0 ? 'high' : 'auto'}
+                                            decoding="async"
+                                        />
                                     </picture>
                                 )}
                             </div>

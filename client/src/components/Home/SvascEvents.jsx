@@ -2,46 +2,50 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getHomeEvents } from '../../services/homeService';
 import './SvascEvents.css';
+import eventImg1 from '../../assets/learning.jpg';
+import eventImg2 from '../../assets/dance.jpg';
+import eventImg3 from '../../assets/campus1.jpg';
+import eventImg4 from '../../assets/sports1.jpg';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const fallbackEvents = [
     {
-        author: "John Doe",
-        date: "Aug. 24, 2015",
-        title: "Learning to Code",
-        subtitle: "Opening a door",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa debitis distinctio ducimus eligendi est.",
-        image: "https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg",
-        link: "#"
+        author: "SVASC",
+        date: "Oct. 15, 2026",
+        title: "National Tech Seminar",
+        subtitle: "Innovation & AI",
+        description: "Exploring future technologies, artificial intelligence innovations, and career pathways in modern computer science.",
+        image: eventImg1,
+        link: "/events"
     },
     {
-        author: "John Doe",
-        date: "Aug. 24, 2015",
-        title: "Learning to Code",
-        subtitle: "Opening a door",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa debitis distinctio ducimus eligendi est.",
-        image: "https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg",
-        link: "#"
+        author: "SVASC",
+        date: "Nov. 02, 2026",
+        title: "Annual Cultural Fest",
+        subtitle: "Art & Harmony",
+        description: "A vibrant multi-day festival celebrating student creativity, dance performances, fine arts, and musical talents.",
+        image: eventImg2,
+        link: "/events"
     },
     {
-        author: "Jane Doe",
-        date: "July. 15, 2015",
-        title: "Mastering JS",
-        subtitle: "Not Java",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa debitis distinctio ducimus eligendi est.",
-        image: "https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg",
-        link: "#",
+        author: "SVASC",
+        date: "Nov. 18, 2026",
+        title: "Campus Placement Drive",
+        subtitle: "Career Pathways",
+        description: "Top corporate partners visit SVASC to recruit talented graduates across arts, science, and commerce streams.",
+        image: eventImg3,
+        link: "/events",
         alt: true
     },
     {
-        author: "Jane Doe",
-        date: "July. 15, 2015",
-        title: "Mastering JS",
-        subtitle: "Not Java",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa debitis distinctio ducimus eligendi est.",
-        image: "https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg",
-        link: "#",
+        author: "SVASC",
+        date: "Dec. 05, 2026",
+        title: "Inter-College Sports Meet",
+        subtitle: "Athletic Excellence",
+        description: "High-energy athletic competitions fostering teamwork, physical fitness, and true sportsmanship among participants.",
+        image: eventImg4,
+        link: "/events",
         alt: true
     }
 ];

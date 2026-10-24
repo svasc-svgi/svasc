@@ -99,7 +99,7 @@ const BlogSection = () => {
         <section className="blog-section-wrapper">
             {/* Decorative Background */}
             <div className="blog-background">
-                <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Background Texture" loading="lazy" />
+                <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Background Texture" loading="lazy" decoding="async" />
             </div>
 
             <div className="blog-content-container">
@@ -157,7 +157,7 @@ const BlogSection = () => {
                                             Read More <span style={{ transition: 'transform 0.2s' }} className="readmore-arrow">→</span>
                                         </div>
                                         <div className="news__img">
-                                            <img src={blog.image} alt={blog.title} loading="lazy" />
+                                            <img src={blog.image} alt={blog.title} loading="lazy" decoding="async" />
                                         </div>
                                     </div>
                                 </Link>

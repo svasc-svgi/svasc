@@ -1,0 +1,62 @@
+.optimized-image-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background-color: #f1f3f5;
+    width: 100%;
+}
+
+.optimized-image-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(240, 242, 245, 0.8) 0%,
+        rgba(250, 250, 252, 0.95) 50%,
+        rgba(240, 242, 245, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    animation: optimized-image-pulse 1.5s infinite ease-in-out;
+    z-index: 1;
+}
+
+@keyframes optimized-image-pulse {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.optimized-image-element {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.35s ease, filter 0.35s ease;
+    will-change: opacity;
+}
+
+.optimized-image-loading {
+    opacity: 0;
+    filter: blur(4px);
+}
+
+.optimized-image-loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.optimized-image-error-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    color: #6c757d;
+    font-size: 13px;
+    gap: 8px;
+    z-index: 2;
+}

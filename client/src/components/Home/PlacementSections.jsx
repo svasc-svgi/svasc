@@ -46,7 +46,7 @@ const PlacementSections = () => {
                     <div className="placement-logo-slider">
                         {[...logos, ...logos].map((src, index) => (
                             <div className="placement-logo-item" key={index}>
-                                <img src={src} alt={`Company ${index + 1}`} />
+                                <img src={src} alt={`Company ${index + 1}`} loading="lazy" decoding="async" />
                             </div>
                         ))}
                     </div>
@@ -59,7 +59,7 @@ const PlacementSections = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="placement-about-img">
-                                <img src="/svgi image.png" alt="Campus" />
+                                <img src="/svgi image.png" alt="Campus" loading="lazy" decoding="async" />
                                 <div className="placement-about-text">
                                     <div className="placement-about-text-inner">
                                         <h1>20</h1>
@@ -98,7 +98,7 @@ const PlacementSections = () => {
                                     <p className='text-center'>SVASC College is a Best arts and science college Erode offers dynamic programs in arts and science, including specialized courses in computer applications, catering science, and augmented reality (AR).</p>
                                 </div>
                                 <div className="placement-choose-us-img">
-                                    <img src={hero6Image} alt="Why choose us" />
+                                    <img src={hero6Image} alt="Why choose us" loading="lazy" decoding="async" />
                                     <div className="placement-choose-icon">
                                         <a href="#"><span><i className="fas fa-play-circle"></i></span></a>
                                     </div>

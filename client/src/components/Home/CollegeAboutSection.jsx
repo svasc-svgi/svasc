@@ -51,12 +51,16 @@ const CollegeAboutSection = () => {
                             <img
                                 src={djiImg}
                                 className="svasc-about-image-main"
-                                alt="College Campus" />
+                                alt="College Campus"
+                                loading="lazy"
+                                decoding="async" />
                                 
                             <img
                                 src={home4Img}
                                 className="svasc-about-image-overlay"
-                                alt="Excellence in Education" />
+                                alt="Excellence in Education"
+                                loading="lazy"
+                                decoding="async" />
                         </div>
                     </div>
 

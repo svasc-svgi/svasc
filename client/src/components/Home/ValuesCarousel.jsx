@@ -12,7 +12,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const defaultSlides = [
     {
-        backgroundImage: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg',
+        backgroundImage: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=800',
         field1: 'Academic Excellence',
         field2: 'Interactive Learning',
         field3: 'Expert Faculty Members',
@@ -20,7 +20,7 @@ const defaultSlides = [
         field5: 'A-Grade Certification'
     },
     {
-        backgroundImage: 'https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg',
+        backgroundImage: 'https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=800',
         field1: '100% Placement Support',
         field2: 'Mock Interview Sessions',
         field3: 'Industry Collaboration',
@@ -28,7 +28,7 @@ const defaultSlides = [
         field5: 'Career Guidance Cells'
     },
     {
-        backgroundImage: 'https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg',
+        backgroundImage: 'https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg?auto=compress&cs=tinysrgb&w=800',
         field1: 'Vibrant Campus Life',
         field2: 'Rising Stars Club',
         field3: 'Annual Cultural Diwas',
@@ -36,7 +36,7 @@ const defaultSlides = [
         field5: 'Sports & Arts Clubs'
     },
     {
-        backgroundImage: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg',
+        backgroundImage: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=800',
         field1: 'Modern Laboratory Facilities',
         field2: 'Hi-Tech Research Centers',
         field3: 'Advanced Smart Classrooms',

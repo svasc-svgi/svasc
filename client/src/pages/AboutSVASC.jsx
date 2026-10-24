@@ -54,6 +54,8 @@ const HeroSection = () => (
                 <img
                     src={aboutUsImg}
                     alt="Welcome to SVASC"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className={styles.heroImageGradient}></div>
             </div>
