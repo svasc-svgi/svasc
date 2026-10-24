@@ -38,8 +38,18 @@ const fallbackAlumni = [
 const AlumniSlider = () => {
     const [scriptsLoaded, setScriptsLoaded] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(null);
-    const [alumniData, setAlumniData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [alumniData, setAlumniData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_alumni_slides');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {
+            // Fall back
+        }
+        return fallbackAlumni;
+    });
 
     const toggleExpand = (index) => {
         setExpandedIndex(expandedIndex === index ? null : index);
@@ -65,14 +75,12 @@ const AlumniSlider = () => {
                         };
                     });
                     setAlumniData(combined);
-                } else {
-                    setAlumniData(fallbackAlumni);
+                    try {
+                        localStorage.setItem('svasc_cached_alumni_slides', JSON.stringify(combined));
+                    } catch (e) {}
                 }
             } catch (error) {
                 console.error('Error fetching alumni slider data:', error);
-                setAlumniData(fallbackAlumni);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -115,13 +123,20 @@ const AlumniSlider = () => {
     }, []);
 
     useEffect(() => {
-        if (!scriptsLoaded || loading || alumniData.length === 0) return;
+        if (!scriptsLoaded || alumniData.length === 0) return;
 
         if (window.$ && window.Swiper) {
             const $ = window.$;
 
             $(document).ready(function () {
                 "use strict";
+
+                const container = $("#alumni-slider-root .swiper-container");
+                if (container.length > 0 && container[0].swiper) {
+                    try {
+                        container[0].swiper.destroy(true, true);
+                    } catch (e) {}
+                }
 
                 var mySwiper = new window.Swiper("#alumni-slider-root .swiper-container", {
                     nextButton: "#alumni-slider-root .swiper-button-next",
@@ -156,11 +171,7 @@ const AlumniSlider = () => {
                 });
             });
         }
-    }, [scriptsLoaded, loading, alumniData]);
-
-    if (loading) {
-        return <div style={{ padding: '60px 0', textAlign: 'center', background: '#0f0f0f', color: '#fff' }}>Loading Alumni Stories...</div>;
-    }
+    }, [scriptsLoaded, alumniData]);
 
     return (
         <div id="alumni-slider-root">

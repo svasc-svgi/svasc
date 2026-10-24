@@ -52,8 +52,18 @@ const fallbackBlogs = [
 ];
 
 const BlogSection = () => {
-    const [blogs, setBlogs] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [blogs, setBlogs] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_home_blogs');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {
+            // Fall back
+        }
+        return fallbackBlogs;
+    });
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -73,23 +83,17 @@ const BlogSection = () => {
                             image: imgUrl
                         };
                     });
-                    setBlogs(allItems.length > 0 ? allItems : fallbackBlogs);
-                } else {
-                    setBlogs(fallbackBlogs);
+                    setBlogs(allItems);
+                    try {
+                        localStorage.setItem('svasc_cached_home_blogs', JSON.stringify(allItems));
+                    } catch (e) {}
                 }
             } catch (error) {
                 console.error('Error fetching blogs:', error);
-                setBlogs(fallbackBlogs);
-            } finally {
-                setLoading(false);
             }
         };
         fetchBlogs();
     }, []);
-
-    if (loading) {
-        return <div style={{ padding: '60px 0', textAlign: 'center', color: '#fff', background: '#111' }}>Loading Blogs...</div>;
-    }
 
     return (
         <section className="blog-section-wrapper">

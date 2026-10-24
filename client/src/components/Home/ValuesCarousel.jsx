@@ -46,8 +46,18 @@ const defaultSlides = [
 ];
 
 const ValuesCarousel = () => {
-    const [slides, setSlides] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [slides, setSlides] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_value_slides');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {
+            // Fall back
+        }
+        return defaultSlides;
+    });
 
     useEffect(() => {
         const fetchSlides = async () => {
@@ -65,22 +75,16 @@ const ValuesCarousel = () => {
                         };
                     });
                     setSlides(mapped);
-                } else {
-                    setSlides(defaultSlides);
+                    try {
+                        localStorage.setItem('svasc_cached_value_slides', JSON.stringify(mapped));
+                    } catch (e) {}
                 }
             } catch (error) {
                 console.error('Error fetching value slides:', error.message || error);
-                setSlides(defaultSlides);
-            } finally {
-                setLoading(false);
             }
         };
         fetchSlides();
     }, []);
-
-    if (loading) {
-        return <div style={{ padding: '60px 0', textAlign: 'center', background: '#fff', color: '#333' }}>Loading Values...</div>;
-    }
 
     return (
         <div className="values-carousel-scope">

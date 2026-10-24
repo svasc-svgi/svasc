@@ -65,6 +65,10 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', uptime: process.uptime() });
 });
 
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
 // Routes
 const routes = require('./routes');
 app.use('/api', routes);

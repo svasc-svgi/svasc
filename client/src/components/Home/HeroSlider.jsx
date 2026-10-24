@@ -34,8 +34,18 @@ const fallbackSlides = [
 const HeroSlider = () => {
     const sliderRef = useRef(null);
     const paginationRef = useRef(null);
-    const [slides, setSlides] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [slides, setSlides] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_hero_slides');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {
+            // Ignore parse error and fall back
+        }
+        return fallbackSlides;
+    });
 
     useEffect(() => {
         const fetchSlides = async () => {
@@ -58,21 +68,21 @@ const HeroSlider = () => {
                         };
                     });
                     setSlides(mapped);
-                } else {
-                    setSlides(fallbackSlides);
+                    try {
+                        localStorage.setItem('svasc_cached_hero_slides', JSON.stringify(mapped));
+                    } catch (e) {
+                        // Ignore storage quotas
+                    }
                 }
             } catch (error) {
                 console.error('Error fetching hero slides:', error.message || error);
-                setSlides(fallbackSlides);
-            } finally {
-                setLoading(false);
             }
         };
         fetchSlides();
     }, []);
 
     useEffect(() => {
-        if (loading || slides.length === 0) return;
+        if (slides.length === 0) return;
 
         let swiperInstance = null;
         let rafId = null;
@@ -198,11 +208,7 @@ const HeroSlider = () => {
             if (rafId) cancelAnimationFrame(rafId);
             if (swiperInstance) swiperInstance.destroy();
         };
-    }, [loading, slides]);
-
-    if (loading) {
-        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', color: '#fff' }}>Loading Hero Section...</div>;
-    }
+    }, [slides]);
 
     return (
         <div className="wrapper-slider">

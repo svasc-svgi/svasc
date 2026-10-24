@@ -47,8 +47,18 @@ const fallbackEvents = [
 ];
 
 const SvascEvents = () => {
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [events, setEvents] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_home_events');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (e) {
+            // Fall back
+        }
+        return fallbackEvents;
+    });
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -73,14 +83,12 @@ const SvascEvents = () => {
                         };
                     });
                     setEvents(latest4);
-                } else {
-                    setEvents(fallbackEvents);
+                    try {
+                        localStorage.setItem('svasc_cached_home_events', JSON.stringify(latest4));
+                    } catch (e) {}
                 }
             } catch (error) {
                 console.error('Error fetching events:', error);
-                setEvents(fallbackEvents);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -109,10 +117,6 @@ const SvascEvents = () => {
         loadFont();
         loadIcons();
     }, []);
-
-    if (loading) {
-        return <div style={{ padding: '60px 0', textAlign: 'center', color: '#333' }}>Loading Svasc Events...</div>;
-    }
 
     return (
         <div id="svasc-events-section">
