@@ -354,9 +354,8 @@ const TeacherAwardsSection = () => {
         '2021': [["Azadi Ka Amrit Award", "Dr. M. Jasmine Priya"]]
     };
 
-    const [awardData, setAwardData] = useState({});
-    const [selectedYear, setSelectedYear] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [awardData, setAwardData] = useState(defaultAwardData);
+    const [selectedYear, setSelectedYear] = useState(2010);
 
     useEffect(() => {
         const fetchTeacherAwards = async () => {
@@ -366,22 +365,13 @@ const TeacherAwardsSection = () => {
                 if (grouped && Object.keys(grouped).length > 0) {
                     setAwardData(grouped);
                     setSelectedYear(parseInt(Object.keys(grouped)[0]));
-                } else {
-                    setAwardData(defaultAwardData);
-                    setSelectedYear(2010);
                 }
             } catch (error) {
                 console.error('Error fetching teacher awards:', error);
-                setAwardData(defaultAwardData);
-                setSelectedYear(2010);
-            } finally {
-                setLoading(false);
             }
         };
         fetchTeacherAwards();
     }, []);
-
-    if (loading) return <div className="text-center py-10">Loading Teacher Awards...</div>;
 
     const currentAwards = awardData[selectedYear] || [];
 

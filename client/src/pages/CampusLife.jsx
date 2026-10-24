@@ -73,10 +73,27 @@ const CampusLife = () => {
     const observerRef = useRef(null);
     const scrollRef = useRef(null);
 
-    const [heroData, setHeroData] = useState(fallbackHero);
-    const [galleryItems, setGalleryItems] = useState([]);
-    const [scrollItems, setScrollItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [heroData, setHeroData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_hero');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackHero;
+    });
+    const [galleryItems, setGalleryItems] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_gallery');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackGallery;
+    });
+    const [scrollItems, setScrollItems] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_scroll');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackScroll;
+    });
 
     useEffect(() => {
         const fetchCampusLifeData = async () => {
@@ -189,10 +206,6 @@ const CampusLife = () => {
         document.addEventListener('mousemove', handleMouseMove);
         return () => document.removeEventListener('mousemove', handleMouseMove);
     }, []);
-
-    if (loading) {
-        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#111' }}>Loading Campus Life...</div>;
-    }
 
     return (
         <div className={styles.campusLifePage}>

@@ -53,10 +53,21 @@ const fallbackImages = [
 ];
 
 const SVASCSports = () => {
-    const [heroData, setHeroData] = useState(fallbackHero);
-    const [sportHouses, setSportHouses] = useState([]);
+    const [heroData, setHeroData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_sports_hero');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackHero;
+    });
+    const [sportHouses, setSportHouses] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_sports_houses');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackHouses;
+    });
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSportsData = async () => {
@@ -131,10 +142,6 @@ const SVASCSports = () => {
         'Chess',
         'Carrom'
     ];
-
-    if (loading) {
-        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#111' }}>Loading Sports Page...</div>;
-    }
 
     return (
         <div className={styles['svasc-sports-root']}>

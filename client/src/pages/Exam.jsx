@@ -46,12 +46,35 @@ const fallbackCiaExams = [
 const SVASCExamination = () => {
     const [activeSection, setActiveSection] = useState('bu');
     const [typedText, setTypedText] = useState('');
-    const [heroData, setHeroData] = useState(fallbackHero);
-    const [portalConfig, setPortalConfig] = useState(fallbackConfig);
-    const [buExams, setBuExams] = useState([]);
-    const [ciaExams, setCiaExams] = useState([]);
+    const [heroData, setHeroData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_exam_hero');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackHero;
+    });
+    const [portalConfig, setPortalConfig] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_exam_config');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackConfig;
+    });
+    const [buExams, setBuExams] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_exam_bu');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackBuExams;
+    });
+    const [ciaExams, setCiaExams] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_exam_cia');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackCiaExams;
+    });
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchExamPageData = async () => {
@@ -155,7 +178,7 @@ const SVASCExamination = () => {
         if (window.lucide) {
             window.lucide.createIcons();
         }
-    }, [loading]);
+    }, [buExams, ciaExams]);
 
     const handleCardClick = (filePath) => {
         window.open(filePath, '_blank');
@@ -164,10 +187,6 @@ const SVASCExamination = () => {
     const handleSectionChange = (sectionId) => {
         setActiveSection(sectionId);
     };
-
-    if (loading) {
-        return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#111' }}>Loading Exam Portal...</div>;
-    }
 
     return (
         <div className="svasc-root">

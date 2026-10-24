@@ -5,11 +5,15 @@ import { getActivityById, getActivities } from '@/services/activityService';
 import defaultHeroImg from '@/assets/DJI_0595.JPG';
 
 export default function DynamicClubDetail() {
-  const { slug } = useParams();
-  const [pageData, setPageData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
   const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\//, '');
+  const [pageData, setPageData] = useState(() => {
+    try {
+      const cached = localStorage.getItem(`svasc_cached_club_${cleanSlug}`);
+      if (cached) return JSON.parse(cached);
+    } catch (e) {}
+    return null;
+  });
+  const [loading, setLoading] = useState(!pageData);
 
   useEffect(() => {
     let isMounted = true;
@@ -325,7 +329,12 @@ export default function DynamicClubDetail() {
               blocks: blocks
             };
 
-            if (isMounted) setPageData(formatted);
+            if (isMounted) {
+              setPageData(formatted);
+              try {
+                localStorage.setItem(`svasc_cached_club_${cleanSlug}`, JSON.stringify(formatted));
+              } catch (e) {}
+            }
             return;
           }
         }
@@ -344,10 +353,10 @@ export default function DynamicClubDetail() {
     return () => { isMounted = false; };
   }, [cleanSlug]);
 
-  if (loading) {
+  if (loading && !pageData) {
     return (
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', color: '#fff' }}>
-        <p>Loading Details...</p>
+      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', color: '#021f4b' }}>
+        <p style={{ fontWeight: 600 }}>Loading Activity...</p>
       </div>
     );
   }

@@ -7,8 +7,16 @@ import './NewsLetter.css';
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const NewsLetter = () => {
-  const [newsletters, setNewsletters] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [newsletters, setNewsletters] = useState(() => {
+    try {
+      const cached = localStorage.getItem('svasc_cached_newsletters');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch (e) {}
+    return [];
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -16,14 +24,16 @@ const NewsLetter = () => {
   useEffect(() => {
     const fetchNewsletters = async () => {
       try {
-        setLoading(true);
         const response = await getNewsletters();
         const list = response?.data ?? (Array.isArray(response) ? response : []);
-        setNewsletters(list);
+        if (list && list.length > 0) {
+          setNewsletters(list);
+          try {
+            localStorage.setItem('svasc_cached_newsletters', JSON.stringify(list));
+          } catch (e) {}
+        }
       } catch (error) {
         console.error('Error fetching newsletters:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -157,12 +167,7 @@ const NewsLetter = () => {
         {/* ================================================================
             UNEVEN BROADSHEET EDITORIAL GRID
             ================================================================ */}
-        {loading ? (
-          <div className="newspaper-loading-state">
-            <p>Gathering Today's Broadside Dispatches...</p>
-            <div className="newspaper-empty-subtext">Printing presses are running. Please stand by.</div>
-          </div>
-        ) : filteredNewsletters.length === 0 ? (
+        {filteredNewsletters.length === 0 ? (
           <div className="newspaper-empty-state">
             <p>No Dispatches Found Matching Your Query.</p>
             <div className="newspaper-empty-subtext">

@@ -18,8 +18,13 @@ const categoryTitles = {
 const AwardsGallery = () => {
     const [activeCategory, setActiveCategory] = useState('academic');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [imageCollections, setImageCollections] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [imageCollections, setImageCollections] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_awards_data');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return {};
+    });
 
     const [heroData, setHeroData] = useState({
         title: "Awards & Recognition",
@@ -57,10 +62,11 @@ const AwardsGallery = () => {
             const list = response?.data ?? (Array.isArray(response) ? response : []);
             const groupedData = groupAwards(list);
             setImageCollections(groupedData);
+            try {
+                localStorage.setItem('svasc_cached_awards_data', JSON.stringify(groupedData));
+            } catch (e) {}
         } catch (error) {
             console.error('Error fetching awards:', error);
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -106,10 +112,6 @@ const AwardsGallery = () => {
     };
 
     const currentData = imageCollections[activeCategory] || { title: categoryTitles[activeCategory], column1: [], column2: [] };
-
-    if (loading && Object.keys(imageCollections).length === 0) {
-        return <div className={styles.loading}>Loading Awards...</div>;
-    }
 
     return (
         <>
