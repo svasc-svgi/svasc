@@ -31,11 +31,7 @@ const AwardsGallery = () => {
         description: "Celebrating Excellence, Achievement, and Innovation",
         image: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"
     });
-
-    useEffect(() => {
-        fetchAwards();
-        fetchHero();
-    }, []);
+    const [loading, setLoading] = useState(false);
 
     const fetchHero = async () => {
         try {
@@ -67,8 +63,15 @@ const AwardsGallery = () => {
             } catch (e) {}
         } catch (error) {
             console.error('Error fetching awards:', error);
+        } finally {
+            setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchAwards();
+        fetchHero();
+    }, []);
 
     const groupAwards = (awards) => {
         const initial = Object.keys(categoryTitles).reduce((acc, cat) => {

@@ -160,8 +160,6 @@ const CampusLife = () => {
 
             } catch (err) {
                 console.error("Error fetching campus-life page data", err);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -197,7 +195,7 @@ const CampusLife = () => {
             if (observerRef.current) observerRef.current.disconnect();
             setIsNavbarVisible(true);
         };
-    }, [setIsNavbarVisible, loading]);
+    }, [setIsNavbarVisible]);
 
     useEffect(() => {
         const handleMouseMove = (e) => {

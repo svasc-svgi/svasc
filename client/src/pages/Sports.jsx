@@ -110,8 +110,6 @@ const SVASCSports = () => {
 
             } catch (err) {
                 console.error("Error fetching sports page data", err);
-            } finally {
-                setLoading(false);
             }
         };
 

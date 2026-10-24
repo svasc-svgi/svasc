@@ -5,6 +5,7 @@ import { getActivityById, getActivities } from '@/services/activityService';
 import defaultHeroImg from '@/assets/DJI_0595.JPG';
 
 export default function DynamicClubDetail() {
+  const { slug } = useParams();
   const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\//, '');
   const [pageData, setPageData] = useState(() => {
     try {

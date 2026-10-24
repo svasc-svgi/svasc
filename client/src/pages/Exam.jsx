@@ -148,8 +148,6 @@ const SVASCExamination = () => {
 
             } catch (err) {
                 console.error("Error fetching exam page data", err);
-            } finally {
-                setLoading(false);
             }
         };
 
