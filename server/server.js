@@ -3,11 +3,18 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
+const compression = require('compression');
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// ─── GZIP Compression (compress all responses >1kb) ─────────────────────────
+app.use(compression({
+    level: 6,           // balanced speed vs ratio
+    threshold: 1024,    // only compress responses > 1kb
+}));
 
 // CORS Configuration
 const allowedOrigins = [
@@ -23,7 +30,6 @@ if (process.env.CLIENT_URL) {
 
 const corsOptions = {
     origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps, curl, server-to-server)
         if (!origin) return callback(null, true);
         if (
             allowedOrigins.includes(origin) ||
@@ -32,7 +38,6 @@ const corsOptions = {
         ) {
             return callback(null, true);
         }
-        // Fallback allow for any preview/client domains
         return callback(null, true);
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -46,15 +51,36 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Database Connection 
-const MONGO_URI = process.env.MONGO_URI
+// ─── Static Assets with long-term caching ───────────────────────────────────
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+    maxAge: '7d',         // cache uploaded files for 7 days in browser
+    etag: true,           // ETag for conditional revalidation
+    lastModified: true,
+}));
+
+// ─── API Response Cache-Control Headers (short TTL for dynamic content) ──────
+app.use('/api', (req, res, next) => {
+    if (req.method === 'GET') {
+        // Allow browsers & CDN to cache GET API responses for 60s, stale-while-revalidate for 300s
+        res.setHeader('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
+    } else {
+        // Mutations must never be cached
+        res.setHeader('Cache-Control', 'no-store');
+    }
+    next();
+});
+
+// ─── Database Connection ─────────────────────────────────────────────────────
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 5000,
+    // Connection pool: handle concurrent requests without waiting
+    maxPoolSize: 10,
+    minPoolSize: 2,
 })
-    .then(() => console.log('MongoDB Connected Successfully 🚀'))
-    .catch(err => console.error('MongoDB Connection Error ❌:', err.message));
+    .then(() => console.log('MongoDB Connected Successfully'))
+    .catch(err => console.error('MongoDB Connection Error:', err.message));
 
 // Health Check & Root Routes
 app.get('/', (req, res) => {
@@ -82,10 +108,9 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start Server - Bind to 0.0.0.0 for Railway / Container environments
+// Start Server
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT} (0.0.0.0:${PORT})`);
-
     // Render Free Tier Keep-Alive: Ping self every 14 minutes to prevent idle spin-down
     const externalUrl = process.env.RENDER_EXTERNAL_URL || process.env.BACKEND_URL;
     if (externalUrl) {

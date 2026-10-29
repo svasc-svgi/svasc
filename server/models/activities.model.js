@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const memberSchema = new mongoose.Schema({
     name: { type: String, trim: true },
@@ -75,5 +75,8 @@ const activitiesSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+activitiesSchema.index({ order: 1, createdAt: -1 });
+activitiesSchema.index({ category: 1 });
 
 module.exports = mongoose.model('Activities', activitiesSchema);

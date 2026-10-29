@@ -1,13 +1,13 @@
-const EventsMarquee = require('../../models/events/marquee.model');
+﻿const EventsMarquee = require('../../models/events/marquee.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllEventsMarquee = async () => {
-    return await EventsMarquee.find().sort({ order: 1, createdAt: -1 });
+    return await EventsMarquee.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getEventMarqueeById = async (id) => {
-    return await EventsMarquee.findById(id);
+    return await EventsMarquee.findById(id).lean();
 };
 
 const getEventMarqueeCount = async () => {

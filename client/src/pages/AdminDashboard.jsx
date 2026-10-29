@@ -1,34 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import styles from './AdminDashboard.module.css';
-import HomeTab from '../components/Admin/Tabs/HomeTab';
-import AlumniTab from '../components/Admin/Tabs/AlumniTab';
-import SportsTab from '../components/Admin/Tabs/SportsTab';
-import CampusLifeTab from '../components/Admin/Tabs/CampusLifeTab';
-import ExamsTab from '../components/Admin/Tabs/ExamsTab';
-import ActivitiesTab from '../components/Admin/Tabs/ActivitiesTab';
-import BlogsTab from '../components/Admin/Tabs/BlogsTab';
-import EventsTab from '../components/Admin/Tabs/EventsTab';
-import AboutTab from '../components/Admin/Tabs/AboutTab';
-import NewsletterTab from '../components/Admin/Tabs/NewsletterTab';
-import AwardsGalleryTab from '../components/Admin/Tabs/AwardsGalleryTab';
-import LibraryActivitiesTab from '../components/Admin/Tabs/LibraryActivitiesTab';
-import LibraryAwardsTab from '../components/Admin/Tabs/LibraryAwardsTab';
 
-const tabs = [
-  { label: 'Home', component: <HomeTab /> },
-  { label: 'Alumni', component: <AlumniTab /> },
-  { label: 'Sports', component: <SportsTab /> },
-  { label: 'Campus Life', component: <CampusLifeTab /> },
-  { label: 'Exams', component: <ExamsTab /> },
-  { label: 'Activities', component: <ActivitiesTab /> },
-  { label: 'Blogs', component: <BlogsTab /> },
-  { label: 'Events', component: <EventsTab /> },
-  { label: 'About SVASC', component: <AboutTab /> },
-  { label: 'Newsletter', component: <NewsletterTab /> },
-  { label: 'Awards & Achievements', component: <AwardsGalleryTab /> },
-  { label: 'Library Activities', component: <LibraryActivitiesTab /> },
-  { label: 'Library Awards', component: <LibraryAwardsTab /> },
+// Lazy-load every tab — only the active tab code is downloaded
+const HomeTab = lazy(() => import('../components/Admin/Tabs/HomeTab'));
+const AlumniTab = lazy(() => import('../components/Admin/Tabs/AlumniTab'));
+const SportsTab = lazy(() => import('../components/Admin/Tabs/SportsTab'));
+const CampusLifeTab = lazy(() => import('../components/Admin/Tabs/CampusLifeTab'));
+const ExamsTab = lazy(() => import('../components/Admin/Tabs/ExamsTab'));
+const ActivitiesTab = lazy(() => import('../components/Admin/Tabs/ActivitiesTab'));
+const BlogsTab = lazy(() => import('../components/Admin/Tabs/BlogsTab'));
+const EventsTab = lazy(() => import('../components/Admin/Tabs/EventsTab'));
+const AboutTab = lazy(() => import('../components/Admin/Tabs/AboutTab'));
+const NewsletterTab = lazy(() => import('../components/Admin/Tabs/NewsletterTab'));
+const AwardsGalleryTab = lazy(() => import('../components/Admin/Tabs/AwardsGalleryTab'));
+const LibraryActivitiesTab = lazy(() => import('../components/Admin/Tabs/LibraryActivitiesTab'));
+const LibraryAwardsTab = lazy(() => import('../components/Admin/Tabs/LibraryAwardsTab'));
+const StaffTab = lazy(() => import('../components/Admin/Tabs/StaffTab'));
+
+const TAB_LABELS = [
+  'Home', 'Faculty & Staff', 'Alumni', 'Sports', 'Campus Life', 'Exams',
+  'Activities', 'Blogs', 'Events', 'About SVASC', 'Newsletter',
+  'Awards & Achievements', 'Library Activities', 'Library Awards',
 ];
+
+const TAB_COMPONENTS = {
+  'Home': <HomeTab />,
+  'Faculty & Staff': <StaffTab />,
+  'Alumni': <AlumniTab />,
+  'Sports': <SportsTab />,
+  'Campus Life': <CampusLifeTab />,
+  'Exams': <ExamsTab />,
+  'Activities': <ActivitiesTab />,
+  'Blogs': <BlogsTab />,
+  'Events': <EventsTab />,
+  'About SVASC': <AboutTab />,
+  'Newsletter': <NewsletterTab />,
+  'Awards & Achievements': <AwardsGalleryTab />,
+  'Library Activities': <LibraryActivitiesTab />,
+  'Library Awards': <LibraryAwardsTab />,
+};
+
+const TabLoader = () => (
+  <div style={{ padding: '40px', textAlign: 'center', color: '#888' }}>Loading tab...</div>
+);
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -68,8 +82,6 @@ const AdminDashboard = () => {
     );
   }
 
-  const activeComponent = tabs.find(t => t.label === activeTab)?.component;
-
   return (
     <div className={styles.adminLayout}>
       <div className={styles.sidebar}>
@@ -78,13 +90,13 @@ const AdminDashboard = () => {
           <span className={styles.sidebarTagline}>Admin Panel</span>
         </div>
         <ul className={styles.navLinks}>
-          {tabs.map((tab) => (
+          {TAB_LABELS.map((label) => (
             <li
-              key={tab.label}
-              className={`${styles.navItem} ${activeTab === tab.label ? styles.active : ''}`}
-              onClick={() => setActiveTab(tab.label)}
+              key={label}
+              className={`${styles.navItem} ${activeTab === label ? styles.active : ''}`}
+              onClick={() => setActiveTab(label)}
             >
-              {tab.label}
+              {label}
             </li>
           ))}
         </ul>
@@ -98,7 +110,9 @@ const AdminDashboard = () => {
           <span className={styles.topbarNote}>Changes reflect on the frontend immediately after saving.</span>
         </div>
         <div className={styles.contentArea}>
-          {activeComponent}
+          <Suspense fallback={<TabLoader />}>
+            {TAB_COMPONENTS[activeTab]}
+          </Suspense>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-const SuccessStory = require('../../models/alumni/success-story.model');
+﻿const SuccessStory = require('../../models/alumni/success-story.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllStories = async () => {
-    return await SuccessStory.find().sort({ order: 1, createdAt: -1 });
+    return await SuccessStory.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const createStory = async (data) => {
@@ -27,7 +27,7 @@ const deleteStory = async (id) => {
 };
 
 const getStoryById = async (id) => {
-    return await SuccessStory.findById(id);
+    return await SuccessStory.findById(id).lean();
 };
 
 module.exports = {

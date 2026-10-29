@@ -1,15 +1,15 @@
-const CampusLifeGallery = require('../../models/campus-life/campus-life-gallery.model');
+﻿const CampusLifeGallery = require('../../models/campus-life/campus-life-gallery.model');
 const CampusLifeScroll = require('../../models/campus-life/campus-life-scroll.model');
 const fs = require('fs');
 const path = require('path');
 
 // Gallery Services
 const getAllGallery = async () => {
-    return await CampusLifeGallery.find().sort({ order: 1, createdAt: -1 });
+    return await CampusLifeGallery.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getGalleryById = async (id) => {
-    return await CampusLifeGallery.findById(id);
+    return await CampusLifeGallery.findById(id).lean();
 };
 
 const createGallery = async (data) => {
@@ -34,11 +34,11 @@ const deleteGallery = async (id) => {
 
 // Scroll Items Services
 const getAllScroll = async () => {
-    return await CampusLifeScroll.find().sort({ order: 1, createdAt: -1 });
+    return await CampusLifeScroll.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getScrollById = async (id) => {
-    return await CampusLifeScroll.findById(id);
+    return await CampusLifeScroll.findById(id).lean();
 };
 
 const createScroll = async (data) => {

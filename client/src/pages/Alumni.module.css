@@ -860,6 +860,44 @@
     letter-spacing: 0.05rem;
 }
 
+.staffAvatarWrap {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staffRoundPhoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(10, 18, 100, 0.15);
+    display: block;
+}
+
+.staffInitialBadge {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0a1264 0%, #1e3a8a 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(10, 18, 100, 0.15);
+    user-select: none;
+}
+
+
 .staffCard h3 {
     font-size: 1.8rem;
     font-weight: 700;
@@ -1314,4 +1352,3 @@
         height: 320px;
     }
 }
-

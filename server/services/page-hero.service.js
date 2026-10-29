@@ -1,7 +1,7 @@
-const PageHero = require('../models/page-hero.model');
+﻿const PageHero = require('../models/page-hero.model');
 
 const getAllHeroes = async () => {
-    return await PageHero.find();
+    return await PageHero.find().lean();
 };
 
 const getHeroByPage = async (pageKey) => {

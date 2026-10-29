@@ -3,10 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import { programDetailsData } from '../data/programDetailsData';
 import styles from './ProgramDetails.module.css';
 import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2, Target, Compass } from 'lucide-react';
+import { useStaffPhotos } from '../hooks/useStaffPhotos';
+import { getStaffInitials } from '../utils/staffParser';
 
 const ProgramDetails = () => {
     const { id } = useParams();
     const program = programDetailsData[id];
+    const { getStaffPhoto } = useStaffPhotos();
 
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -215,19 +218,48 @@ const ProgramDetails = () => {
                                 <table className={styles.staffTable}>
                                     <thead>
                                         <tr>
-                                            <th>S.No</th>
+                                            <th className={styles.sNoCol}>S.No</th>
+                                            <th className={styles.photoCol}>Staff Photo</th>
                                             <th>Name of the Faculty</th>
                                             <th>Qualification</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {program.staffDetails.map((staff, idx) => (
-                                            <tr key={idx}>
-                                                <td>{staff.sNo || idx + 1}</td>
-                                                <td className={styles.facultyName}>{staff.name}</td>
-                                                <td>{staff.qualification}</td>
-                                            </tr>
-                                        ))}
+                                        {program.staffDetails.map((staff, idx) => {
+                                            const photoUrl = staff.photo || staff.image || getStaffPhoto(staff.name);
+                                            const initials = getStaffInitials(staff.name);
+
+                                            return (
+                                                <tr key={idx}>
+                                                    <td className={styles.sNoCell}>{staff.sNo || idx + 1}</td>
+                                                    <td className={styles.photoCell}>
+                                                        <div className={styles.avatarWrapper}>
+                                                            {photoUrl ? (
+                                                                <img
+                                                                    src={photoUrl}
+                                                                    alt={staff.name}
+                                                                    className={styles.staffAvatar}
+                                                                    loading="lazy"
+                                                                    onError={(e) => {
+                                                                        e.currentTarget.style.display = 'none';
+                                                                        const fallback = e.currentTarget.parentElement?.querySelector(`.${styles.staffPlaceholder}`);
+                                                                        if (fallback) fallback.style.display = 'flex';
+                                                                    }}
+                                                                />
+                                                            ) : null}
+                                                            <div
+                                                                className={styles.staffPlaceholder}
+                                                                style={{ display: photoUrl ? 'none' : 'flex' }}
+                                                            >
+                                                                {initials}
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td className={styles.facultyName}>{staff.name}</td>
+                                                    <td>{staff.qualification}</td>
+                                                </tr>
+                                            );
+                                        })}
                                     </tbody>
                                 </table>
                             </div>

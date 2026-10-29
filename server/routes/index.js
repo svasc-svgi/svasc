@@ -18,8 +18,10 @@ const pageHeroRoutes = require('./page-hero.route');
 const libraryActivityRoutes = require('./library-activity.route');
 const libraryAwardRoutes = require('./library-award.route');
 const uploadRoutes = require('./upload.route');
+const staffRoutes = require('./staff.route');
 
 router.use('/upload', uploadRoutes);
+router.use('/staff', staffRoutes);
 router.use('/alumni', alumniRoutes);
 router.use('/home', homeRoutes);
 router.use('/activities', activitiesRoutes);

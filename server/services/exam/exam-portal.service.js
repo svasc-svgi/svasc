@@ -1,16 +1,16 @@
-const ExamPortalConfig = require('../../models/exam/exam-portal-config.model');
+﻿const ExamPortalConfig = require('../../models/exam/exam-portal-config.model');
 
 const getConfig = async () => {
-    let config = await ExamPortalConfig.findOne();
+    let config = await ExamPortalConfig.findOne().lean();
     if (!config) {
-        config = new ExamPortalConfig({
+        const newConfig = new ExamPortalConfig({
             floatingTitle: 'Semester Exams',
             floatingDateRange: 'Jan 20 - Feb 05',
             floatingSubjects: '6 Papers',
             floatingStatus: 'Scheduled',
             schedules: []
         });
-        await config.save();
+        return await newConfig.save();
     }
     return config;
 };

@@ -1,11 +1,11 @@
-const RankHolder = require('../../models/alumni/rank-holder.model');
+﻿const RankHolder = require('../../models/alumni/rank-holder.model');
 
 const getAllRankHolders = async () => {
-    return await RankHolder.find().sort({ year: -1, rank: 1 });
+    return await RankHolder.find().sort({ year: -1, rank: 1 }).lean();
 };
 
 const getRankHoldersByYear = async (year) => {
-    return await RankHolder.find({ year }).sort({ rank: 1 });
+    return await RankHolder.find({ year }).sort({ rank: 1 }).lean();
 };
 
 const createRankHolder = async (data) => {
@@ -22,7 +22,7 @@ const deleteRankHolder = async (id) => {
 };
 
 const getRankHolderById = async (id) => {
-    return await RankHolder.findById(id);
+    return await RankHolder.findById(id).lean();
 };
 
 module.exports = {

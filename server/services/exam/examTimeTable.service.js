@@ -1,13 +1,13 @@
-const ExamTimeTable = require('../../models/exam/examTimeTable.model');
+﻿const ExamTimeTable = require('../../models/exam/examTimeTable.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllExamTimeTables = async () => {
-    return await ExamTimeTable.find().sort({ category: 1, createdAt: -1 });
+    return await ExamTimeTable.find().sort({ category: 1, createdAt: -1 }).lean();
 };
 
 const getExamTimeTableById = async (id) => {
-    return await ExamTimeTable.findById(id);
+    return await ExamTimeTable.findById(id).lean();
 };
 
 const createExamTimeTable = async (data) => {

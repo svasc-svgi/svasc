@@ -1,4 +1,4 @@
-const AwardGallery = require('../../models/awards-gallery/award-gallery.model');
+﻿const AwardGallery = require('../../models/awards-gallery/award-gallery.model');
 
 class AwardGalleryService {
     async createAward(data) {
@@ -6,11 +6,11 @@ class AwardGalleryService {
     }
 
     async getAllAwards() {
-        return await AwardGallery.find().sort({ createdAt: -1 });
+        return await AwardGallery.find().sort({ createdAt: -1 }).lean();
     }
 
     async getAwardsByCategory(category) {
-        return await AwardGallery.find({ category }).sort({ createdAt: -1 });
+        return await AwardGallery.find({ category }).sort({ createdAt: -1 }).lean();
     }
 
     async updateAward(id, data) {

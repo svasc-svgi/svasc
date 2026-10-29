@@ -1,7 +1,7 @@
-const Certification = require('../../models/about/certification.model');
+﻿const Certification = require('../../models/about/certification.model');
 
 const getAllCertifications = async () => {
-    return await Certification.find().sort({ order: 1, createdAt: -1 });
+    return await Certification.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const createCertification = async (data) => {

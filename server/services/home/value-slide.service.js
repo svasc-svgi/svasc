@@ -1,9 +1,9 @@
-const ValueSlide = require('../../models/home/value-slide.model');
+﻿const ValueSlide = require('../../models/home/value-slide.model');
 const path = require('path');
 const fs = require('fs');
 
 const getAllSlides = async () => {
-    return await ValueSlide.find().sort({ order: 1, createdAt: 1 });
+    return await ValueSlide.find().sort({ order: 1, createdAt: 1 }).lean();
 };
 
 const createSlide = async (data) => {
@@ -34,7 +34,7 @@ const deleteSlide = async (id) => {
 };
 
 const getSlideById = async (id) => {
-    return await ValueSlide.findById(id);
+    return await ValueSlide.findById(id).lean();
 };
 
 module.exports = {

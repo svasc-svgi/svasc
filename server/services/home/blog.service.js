@@ -1,13 +1,13 @@
-const Blog = require('../../models/home/blog.model');
+﻿const Blog = require('../../models/home/blog.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllBlogs = async () => {
-    return await Blog.find().sort({ createdAt: -1 });
+    return await Blog.find().sort({ createdAt: -1 }).lean();
 };
 
 const getBlogById = async (id) => {
-    return await Blog.findById(id);
+    return await Blog.findById(id).lean();
 };
 
 const createBlog = async (data) => {

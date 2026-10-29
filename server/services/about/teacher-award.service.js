@@ -1,11 +1,11 @@
-const TeacherAward = require('../../models/about/teacher-award.model');
+﻿const TeacherAward = require('../../models/about/teacher-award.model');
 
 const getAllTeacherAwards = async () => {
-    return await TeacherAward.find().sort({ year: -1, createdAt: -1 });
+    return await TeacherAward.find().sort({ year: -1, createdAt: -1 }).lean();
 };
 
 const getGroupedTeacherAwards = async () => {
-    const awards = await TeacherAward.find().sort({ year: -1 });
+    const awards = await TeacherAward.find().sort({ year: -1 }).lean();
     const grouped = {};
 
     awards.forEach(award => {

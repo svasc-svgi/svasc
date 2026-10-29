@@ -1,13 +1,13 @@
-const EventsGrid = require('../../models/events/grid.model');
+﻿const EventsGrid = require('../../models/events/grid.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllEventsGrid = async () => {
-    return await EventsGrid.find().sort({ order: 1, createdAt: -1 });
+    return await EventsGrid.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getEventGridById = async (id) => {
-    return await EventsGrid.findById(id);
+    return await EventsGrid.findById(id).lean();
 };
 
 const getEventGridCount = async () => {

@@ -66,9 +66,11 @@
     color: #4b5563;
     font-size: 1.125rem;
     line-height: 1.75;
-    max-width: 28rem;
-    margin-bottom: 2.5rem;
+    max-width: 45rem;
+    margin-bottom: 2rem;
     font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 @media (min-width: 768px) {

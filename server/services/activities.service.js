@@ -1,9 +1,9 @@
-const Activities = require('../models/activities.model');
+﻿const Activities = require('../models/activities.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllActivities = async () => {
-    return await Activities.find().sort({ order: 1, createdAt: -1 });
+    return await Activities.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const aliasMap = {

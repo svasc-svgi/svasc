@@ -1,9 +1,9 @@
-const RisingStar = require('../../models/alumni/rising-star.model');
+﻿const RisingStar = require('../../models/alumni/rising-star.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllStars = async () => {
-    return await RisingStar.find().sort({ createdAt: -1 });
+    return await RisingStar.find().sort({ createdAt: -1 }).lean();
 };
 
 const createStar = async (data) => {
@@ -27,7 +27,7 @@ const deleteStar = async (id) => {
 };
 
 const getStarById = async (id) => {
-    return await RisingStar.findById(id);
+    return await RisingStar.findById(id).lean();
 };
 
 module.exports = {

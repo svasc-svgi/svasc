@@ -1,8 +1,8 @@
-const LibraryActivity = require('../../models/library-activity.model');
+﻿const LibraryActivity = require('../../models/library-activity.model');
 
 class LibraryActivityService {
     async getAllActivities() {
-        return await LibraryActivity.find();
+        return await LibraryActivity.find().lean();
     }
 
     async getActivityById(id) {

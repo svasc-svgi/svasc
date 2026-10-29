@@ -1,13 +1,13 @@
-const SportHouse = require('../../models/sports/sport-house.model');
+﻿const SportHouse = require('../../models/sports/sport-house.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllHouses = async () => {
-    return await SportHouse.find().sort({ order: 1, createdAt: -1 });
+    return await SportHouse.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getHouseById = async (id) => {
-    return await SportHouse.findById(id);
+    return await SportHouse.findById(id).lean();
 };
 
 const createHouse = async (data) => {

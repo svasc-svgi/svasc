@@ -1,13 +1,13 @@
-const Blogs = require('../models/blogs.model');
+﻿const Blogs = require('../models/blogs.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllBlogs = async () => {
-    return await Blogs.find().sort({ order: 1, createdAt: -1 });
+    return await Blogs.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getBlogById = async (id) => {
-    return await Blogs.findById(id);
+    return await Blogs.findById(id).lean();
 };
 
 const getBlogCount = async () => {

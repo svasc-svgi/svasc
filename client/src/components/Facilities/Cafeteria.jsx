@@ -20,7 +20,8 @@ const Cafeteria = () => {
                         Our cafeteria operates from <b>8:00 AM to 6:00 PM</b>, catering to both day scholars
                         and hostel students. The SVASC canteen maintains high standards of hygiene, quality,
                         and affordability to meet student needs.
-                        <br /><br />
+                    </p>
+                    <p className={styles.description}>
                         Nutritious meals, snacks, and beverages are prepared in a clean and student-friendly
                         environment. The canteen also promotes experiential learning by supporting
                         student-run food stalls under faculty supervision, making it both a dining and

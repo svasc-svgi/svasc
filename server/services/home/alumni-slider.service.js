@@ -1,13 +1,13 @@
-const AlumniSlider = require('../../models/home/alumni-slider.model');
+﻿const AlumniSlider = require('../../models/home/alumni-slider.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllAlumni = async () => {
-    return await AlumniSlider.find().sort({ order: 1, createdAt: -1 });
+    return await AlumniSlider.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getAlumniById = async (id) => {
-    return await AlumniSlider.findById(id);
+    return await AlumniSlider.findById(id).lean();
 };
 
 const getAlumniCount = async () => {

@@ -17,12 +17,32 @@ const apiClient = axios.create({
   timeout: 60000,
 });
 
+// ─── In-flight request deduplication ────────────────────────────────────────
+// Prevents the same GET endpoint from being called multiple times simultaneously
+const pendingRequests = new Map();
+
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+
+    // Deduplicate concurrent GET requests to the same URL
+    if (config.method === 'get') {
+      const key = config.url + JSON.stringify(config.params || {});
+      if (pendingRequests.has(key)) {
+        const source = axios.CancelToken.source();
+        config.cancelToken = source.token;
+        source.cancel('Deduplicated request');
+      } else {
+        const source = axios.CancelToken.source();
+        config.cancelToken = source.token;
+        config._dedupeKey = key;
+        pendingRequests.set(key, source);
+      }
+    }
+
     return config;
   },
   (error) => {
@@ -32,9 +52,20 @@ apiClient.interceptors.request.use(
 
 apiClient.interceptors.response.use(
   (response) => {
+    if (response.config._dedupeKey) {
+      pendingRequests.delete(response.config._dedupeKey);
+    }
     return response.data;
   },
   (error) => {
+    if (error.config && error.config._dedupeKey) {
+      pendingRequests.delete(error.config._dedupeKey);
+    }
+
+    if (axios.isCancel(error)) {
+      return new Promise(() => {});
+    }
+
     if (error.response && error.response.status === 401) {
       localStorage.clear();
       window.location.href = '/';
@@ -58,4 +89,4 @@ export const warmUpBackend = () => {
   }
 };
 
-export default apiClient;
+export default apiClient;

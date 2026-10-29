@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const rankHolderSchema = new mongoose.Schema({
     name: {
@@ -24,5 +24,8 @@ const rankHolderSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+// Index for the most common query: sort by year desc, rank asc
+rankHolderSchema.index({ year: -1, rank: 1 });
 
 module.exports = mongoose.model('RankHolder', rankHolderSchema);

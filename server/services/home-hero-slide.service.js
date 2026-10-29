@@ -1,13 +1,13 @@
-const HomeHeroSlide = require('../models/home-hero-slide.model');
+﻿const HomeHeroSlide = require('../models/home-hero-slide.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllSlides = async () => {
-    return await HomeHeroSlide.find().sort({ order: 1, createdAt: -1 });
+    return await HomeHeroSlide.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getSlideById = async (id) => {
-    return await HomeHeroSlide.findById(id);
+    return await HomeHeroSlide.findById(id).lean();
 };
 
 const createSlide = async (data) => {

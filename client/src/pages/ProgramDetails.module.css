@@ -411,6 +411,62 @@
     color: #021f4b;
 }
 
+.sNoCol, .sNoCell {
+    width: 60px;
+    text-align: center;
+}
+
+.photoCol, .photoCell {
+    width: 90px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.avatarWrapper {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staffAvatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(2, 31, 75, 0.15);
+    background-color: #f1f5f9;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.staffAvatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 12px rgba(2, 31, 75, 0.25);
+}
+
+.staffPlaceholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #021f4b 0%, #1e3a8a 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 3px 8px rgba(2, 31, 75, 0.15);
+    user-select: none;
+}
+
 /* FACILITIES SECTION */
 .facilitiesSection {
     background: #021f4b;

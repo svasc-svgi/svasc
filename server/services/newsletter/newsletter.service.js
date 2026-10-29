@@ -1,4 +1,4 @@
-const Newsletter = require('../../models/newsletter/newsletter.model');
+﻿const Newsletter = require('../../models/newsletter/newsletter.model');
 
 class NewsletterService {
     async createNewsletter(data) {
@@ -6,7 +6,7 @@ class NewsletterService {
     }
 
     async getAllNewsletters() {
-        return await Newsletter.find().sort({ createdAt: -1 });
+        return await Newsletter.find().sort({ createdAt: -1 }).lean();
     }
 
     async updateNewsletter(id, data) {

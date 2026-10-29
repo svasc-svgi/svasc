@@ -1,4 +1,4 @@
-const LatestBlog = require('../models/latest-blog.model');
+﻿const LatestBlog = require('../models/latest-blog.model');
 
 class LatestBlogService {
     async createBlog(data) {
@@ -7,7 +7,7 @@ class LatestBlogService {
 
     async getAllBlogs() {
         // Sorted by createdAt desc to show latest first
-        return await LatestBlog.find().sort({ createdAt: -1 });
+        return await LatestBlog.find().sort({ createdAt: -1 }).lean();
     }
 
     async getBlogById(id) {

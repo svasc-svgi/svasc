@@ -1,13 +1,13 @@
-const SvascEvents = require('../../models/home/svasc-events.model');
+﻿const SvascEvents = require('../../models/home/svasc-events.model');
 const fs = require('fs');
 const path = require('path');
 
 const getAllEvents = async () => {
-    return await SvascEvents.find().sort({ order: 1, createdAt: -1 });
+    return await SvascEvents.find().sort({ order: 1, createdAt: -1 }).lean();
 };
 
 const getEventById = async (id) => {
-    return await SvascEvents.findById(id);
+    return await SvascEvents.findById(id).lean();
 };
 
 const getEventCount = async () => {

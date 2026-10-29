@@ -1,12 +1,12 @@
-const LibraryAward = require('../../models/library-award.model');
+﻿const LibraryAward = require('../../models/library-award.model');
 
 class LibraryAwardService {
     async getAllAwards() {
-        return await LibraryAward.find();
+        return await LibraryAward.find().lean();
     }
 
     async getAwardsByCategory(category) {
-        return await LibraryAward.find({ category });
+        return await LibraryAward.find({ category }).lean();
     }
 
     async getAwardById(id) {

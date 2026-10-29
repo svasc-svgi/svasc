@@ -115,8 +115,10 @@
     font-size: 1.7rem;
     color: #64748b;
     line-height: 1.75;
-    max-width: 42rem;
+    max-width: 48rem;
     font-weight: 300;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 @media (min-width: 768px) {
@@ -349,6 +351,8 @@
     font-weight: 300;
     line-height: 1.75;
     max-width: 30rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* About Section */
@@ -504,10 +508,12 @@
 
 .aboutText p {
     font-size: 1.68rem;
-    color: rgba(254, 243, 199, 0.8);
+    color: rgba(254, 243, 199, 0.9);
     font-weight: 300;
     line-height: 1.75;
     margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Services Section */
@@ -612,6 +618,8 @@
     font-weight: 300;
     line-height: 1.75;
     font-size: 1.68rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .permissionsBox {
@@ -670,6 +678,8 @@
     line-height: 1.75;
     margin: 0;
     font-size: 1.5rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Quote Section */
@@ -715,6 +725,8 @@
     letter-spacing: 0.1em;
     font-size: 1.125rem;
     line-height: 1.75;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* FAQ Section */
@@ -784,6 +796,8 @@
     line-height: 1.75;
     font-size: 1.6rem;
     animation: fadeIn 0.3s ease-in;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 @keyframes fadeIn {
@@ -911,6 +925,8 @@
     font-size: 1.3rem;
     line-height: 1.6;
     padding: 0 1rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .aboutSignature {

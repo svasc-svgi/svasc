@@ -1,4 +1,4 @@
-const Program = require('../models/programs.model');
+﻿const Program = require('../models/programs.model');
 
 const createProgram = async (data) => {
     const program = new Program(data);
@@ -6,11 +6,11 @@ const createProgram = async (data) => {
 };
 
 const getAllPrograms = async () => {
-    return await Program.find().sort({ createdAt: -1 });
+    return await Program.find().sort({ createdAt: -1 }).lean();
 };
 
 const getGroupedPrograms = async () => {
-    const programs = await Program.find();
+    const programs = await Program.find().lean();
 
     const groupedData = {
         "UG Programmes": [],

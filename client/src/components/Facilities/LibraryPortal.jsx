@@ -5,10 +5,12 @@ import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
 import { getLibraryActivities, getLibraryAwards } from '../../services/libraryService';
 import libraryImg from '../../assets/library.JPG';
+import { useStaffPhotos } from '../../hooks/useStaffPhotos';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
 const LibraryPortal = () => {
+    const { getStaffPhoto } = useStaffPhotos();
     const [activeBook, setActiveBook] = useState(null);
 
     const books = [
@@ -477,7 +479,6 @@ const LibraryPortal = () => {
                                             <th>S. No</th>
                                             <th>Staff Photo</th>
                                             <th>Name & Designation</th>
-                                            <th>Year of Joining</th>
                                             <th>Email ID</th>
                                         </tr>
                                     </thead>
@@ -485,8 +486,12 @@ const LibraryPortal = () => {
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <div style={{ width: '80px', height: '80px', borderRadius: '8px', overflow: 'hidden', margin: '0 auto', border: '1px solid #ddd' }}>
-                                                    <img src="/library_images/image45.jpeg" alt="Dr. P. Krishnakumari" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                <div style={{ width: '76px', height: '76px', borderRadius: '50%', overflow: 'hidden', margin: '0 auto', border: '2.5px solid #ffffff', boxShadow: '0 3px 8px rgba(43, 57, 144, 0.2)', backgroundColor: '#f8fafc' }}>
+                                                    <img
+                                                        src={getStaffPhoto("Dr. P. Krishnakumari", "/library_images/image45.jpeg")}
+                                                        alt="Dr. P. Krishnakumari"
+                                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                                                    />
                                                 </div>
                                             </td>
                                             <td className={styles.textLeft}>
@@ -494,14 +499,17 @@ const LibraryPortal = () => {
                                                 <span style={{ fontSize: '1.3rem', color: '#666' }}>MLIS., M.Phil., Ph.D.</span><br />
                                                 <span style={{ fontSize: '1.4rem', color: '#fb923c', fontWeight: '500' }}>Librarian & Head</span>
                                             </td>
-                                            <td>2024</td>
                                             <td><a href="mailto:krishna.phdlib13@gmail.com">krishna.phdlib13@gmail.com</a></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>
-                                                <div style={{ width: '80px', height: '80px', borderRadius: '8px', overflow: 'hidden', margin: '0 auto', border: '1px solid #ddd' }}>
-                                                    <img src="/library_images/image46.png" alt="Karthi P" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                <div style={{ width: '76px', height: '76px', borderRadius: '50%', overflow: 'hidden', margin: '0 auto', border: '2.5px solid #ffffff', boxShadow: '0 3px 8px rgba(43, 57, 144, 0.2)', backgroundColor: '#f8fafc' }}>
+                                                    <img
+                                                        src={getStaffPhoto("Karthi P", "/library_images/image46.png")}
+                                                        alt="Karthi P"
+                                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                                                    />
                                                 </div>
                                             </td>
                                             <td className={styles.textLeft}>
@@ -509,7 +517,6 @@ const LibraryPortal = () => {
                                                 <span style={{ fontSize: '1.3rem', color: '#666' }}>B.Com., BLIS.</span><br />
                                                 <span style={{ fontSize: '1.4rem', color: '#fb923c', fontWeight: '500' }}>Library Assistant</span>
                                             </td>
-                                            <td>2022</td>
                                             <td><a href="mailto:karthideva2311@gmail.com">karthideva2311@gmail.com</a></td>
                                         </tr>
                                     </tbody>

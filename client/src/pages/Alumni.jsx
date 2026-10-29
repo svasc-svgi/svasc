@@ -4,6 +4,8 @@ import styles from './Alumni.module.css';
 import { FaPlay, FaPause, FaEnvelope, FaPhone, FaGraduationCap, FaBook, FaUsers, FaTimes, FaChevronLeft, FaChevronRight, FaExpand, FaBriefcase, FaBuilding, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useStaffPhotos } from '../hooks/useStaffPhotos';
+import { getStaffInitials } from '../utils/staffParser';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -118,6 +120,7 @@ const recentAlumni = [
 ];
 
 const Alumni = () => {
+    const { getStaffPhoto } = useStaffPhotos();
     // ================= DYNAMIC DATA LOADING =================
     const [heroData, setHeroData] = useState(fallbackHero);
     const [risingStars, setRisingStars] = useState([]);
@@ -762,24 +765,49 @@ const Alumni = () => {
                         <h1>Committee Members</h1>
                     </div>
                     <div className={styles.staffGrid}>
-                        {committeeMembers.map((staff, idx) => (
-                            <div className={styles.staffCard} key={idx}>
-                                <div className={styles.staffHeader}>
-                                    <div className={styles.staffBadge}>{staff.role}</div>
-                                    <h3>{staff.name}</h3>
-                                    <p className={styles.staffDesignation}>{staff.designation}</p>
-                                    <p className={styles.staffDept}>Dept. of {staff.dept}</p>
+                        {committeeMembers.map((staff, idx) => {
+                            const photoUrl = staff.photo || getStaffPhoto(staff.name);
+                            const initials = getStaffInitials(staff.name);
+
+                            return (
+                                <div className={styles.staffCard} key={idx}>
+                                    <div className={styles.staffHeader}>
+                                        <div className={styles.staffBadge}>{staff.role}</div>
+                                        <div className={styles.staffAvatarWrap}>
+                                            {photoUrl ? (
+                                                <img
+                                                    src={photoUrl}
+                                                    alt={staff.name}
+                                                    className={styles.staffRoundPhoto}
+                                                    onError={(e) => {
+                                                        e.currentTarget.style.display = 'none';
+                                                        const fallback = e.currentTarget.parentElement?.querySelector(`.${styles.staffInitialBadge}`);
+                                                        if (fallback) fallback.style.display = 'flex';
+                                                    }}
+                                                />
+                                            ) : null}
+                                            <div
+                                                className={styles.staffInitialBadge}
+                                                style={{ display: photoUrl ? 'none' : 'flex' }}
+                                            >
+                                                {initials}
+                                            </div>
+                                        </div>
+                                        <h3>{staff.name}</h3>
+                                        <p className={styles.staffDesignation}>{staff.designation}</p>
+                                        <p className={styles.staffDept}>Dept. of {staff.dept}</p>
+                                    </div>
+                                    <div className={styles.staffContact}>
+                                        <a href={`mailto:${staff.email}`} className={styles.contactLink}>
+                                            <FaEnvelope className={styles.contactIcon} /> {staff.email}
+                                        </a>
+                                        <a href={`tel:${staff.mobile}`} className={styles.contactLink}>
+                                            <FaPhone className={styles.contactIcon} /> {staff.mobile}
+                                        </a>
+                                    </div>
                                 </div>
-                                <div className={styles.staffContact}>
-                                    <a href={`mailto:${staff.email}`} className={styles.contactLink}>
-                                        <FaEnvelope className={styles.contactIcon} /> {staff.email}
-                                    </a>
-                                    <a href={`tel:${staff.mobile}`} className={styles.contactLink}>
-                                        <FaPhone className={styles.contactIcon} /> {staff.mobile}
-                                    </a>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 

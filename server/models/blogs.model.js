@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const blogCardSchema = new mongoose.Schema({
     title: {
@@ -41,5 +41,7 @@ const blogsSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+blogsSchema.index({ order: 1, createdAt: -1 });
 
 module.exports = mongoose.model('Blogs', blogsSchema);
