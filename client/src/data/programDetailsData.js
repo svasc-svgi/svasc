@@ -1361,50 +1361,6 @@ export const programDetailsData = {
             { sNo: 9, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
             { sNo: 10, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" }
         ],
-        gallery: [
-            {
-                title: "Talentathon 2026 – Talent Hunt Inauguration & Student Events",
-                image: "/commercephd/phd1.jpg",
-                date: "07.09.2026 - 11.09.2026",
-                category: "Talentathon 2026"
-            },
-            {
-                title: "Creative Arts, Literary & Performing Competitions",
-                image: "/commercephd/phd2.jpg",
-                date: "08.09.2026",
-                category: "Competitions"
-            },
-            {
-                title: "Student Talent Showcase & Inter-Departmental Participation",
-                image: "/commercephd/phd3.jpg",
-                date: "10.09.2026",
-                category: "Competitions"
-            },
-            {
-                title: "Dignitaries Address - Thiru. K. R. Kaviyarasu, Trustee & Thiru. G. Gowtham, CEO",
-                image: "/commercephd/phd4.jpg",
-                date: "23.09.2026",
-                category: "Valedictory"
-            },
-            {
-                title: "Dr. Chi. Nanjappa, Vice-Principal & HOD Overview of Talentathon",
-                image: "/commercephd/phd5.jpg",
-                date: "23.09.2026",
-                category: "Valedictory"
-            },
-            {
-                title: "Prize Distribution Ceremony to Position Holders at College Auditorium",
-                image: "/commercephd/phd6.jpg",
-                date: "23.09.2026",
-                category: "Prize Distribution"
-            },
-            {
-                title: "Overall Winner (BCA) & Overall Runner (English) Championship Trophy Ceremony",
-                image: "/commercephd/phd7.jpg",
-                date: "23.09.2026",
-                category: "Prize Distribution"
-            }
-        ],
         faqs: [
             { 
                 question: "What is Talentathon organised by the PG and Research Department of Commerce?", 
