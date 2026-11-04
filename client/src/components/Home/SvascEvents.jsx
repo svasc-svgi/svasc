@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getHomeEvents } from '../../services/homeService';
+import { getEventsGrid, getEventsMarquee } from '../../services/eventService';
 import './SvascEvents.css';
 import eventImg1 from '../../assets/learning.jpg';
 import eventImg2 from '../../assets/dance.jpg';
@@ -50,6 +51,31 @@ const fallbackEvents = [
     }
 ];
 
+// Helper: normalize a raw event item into the card shape
+const normalizeEvent = (item, idx) => {
+    const cleanImg = (item.image || '').replace(/^\/+/, '');
+    const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
+    return {
+        _id: item._id || `event-${idx}`,
+        title: item.title || 'Event',
+        subtitle: item.subtitle || item.date || 'Campus Event',
+        date: item.date || '',
+        description: item.description || item.desc || '',
+        image: imgUrl,
+        author: item.author || 'SVASC',
+        link: item.link || item.url || '/events',
+        alt: false // will be re-assigned after slicing
+    };
+};
+
+// Helper: extract array safely from various API response shapes
+const extractList = (raw) => {
+    if (Array.isArray(raw)) return raw;
+    if (Array.isArray(raw?.data)) return raw.data;
+    if (Array.isArray(raw?.data?.data)) return raw.data.data;
+    return [];
+};
+
 const SvascEvents = () => {
     const [events, setEvents] = useState(() => {
         try {
@@ -67,25 +93,37 @@ const SvascEvents = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await getHomeEvents();
-                const list = response?.data ?? (Array.isArray(response) ? response : []);
-                if (list && list.length > 0) {
-                    // Take the latest 4 events
-                    const latest4 = list.slice(0, 4).map((event, idx) => {
-                        const cleanImg = (event.image || '').replace(/^\/+/, '');
-                        const imgUrl = event.image?.startsWith('http') ? event.image : `${BASE_URL}/${cleanImg}`;
-                        return {
-                            _id: event._id,
-                            title: event.title,
-                            subtitle: event.subtitle || event.date || 'Campus Event',
-                            date: event.date,
-                            description: event.description,
-                            image: imgUrl,
-                            author: event.author || "SVASC",
-                            link: event.link || "/events",
-                            alt: idx >= 2 // follow alternative layout for cards 3 & 4
-                        };
+                // Fetch from all 3 sources in parallel — same as Events.jsx
+                const [homeRes, gridRes, marqueeRes] = await Promise.allSettled([
+                    getHomeEvents(),
+                    getEventsGrid(),
+                    getEventsMarquee()
+                ]);
+
+                // Collect events from each source (deduplicate by title)
+                const seen = new Set();
+                const merged = [];
+
+                const addAll = (raw) => {
+                    extractList(raw).forEach((item, idx) => {
+                        const key = (item.title || '').trim().toLowerCase();
+                        if (key && !seen.has(key)) {
+                            seen.add(key);
+                            merged.push(normalizeEvent(item, merged.length));
+                        }
                     });
+                };
+
+                if (homeRes.status === 'fulfilled') addAll(homeRes.value);
+                if (gridRes.status === 'fulfilled') addAll(gridRes.value);
+                if (marqueeRes.status === 'fulfilled') addAll(marqueeRes.value);
+
+                if (merged.length > 0) {
+                    // Take the latest 4 and assign alt layout to cards 3 & 4
+                    const latest4 = merged.slice(0, 4).map((ev, idx) => ({
+                        ...ev,
+                        alt: idx >= 2
+                    }));
                     setEvents(latest4);
                     try {
                         localStorage.setItem('svasc_cached_home_events', JSON.stringify(latest4));

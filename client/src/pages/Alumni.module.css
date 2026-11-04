@@ -1263,7 +1263,7 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: #2563eb;
+    color: #f5b400;
     font-weight: 600;
     font-size: 1.35rem;
     margin-bottom: 1.2rem;
@@ -1296,7 +1296,7 @@
 
 .recentIcon {
     font-size: 1.4rem;
-    color: #3b82f6;
+    color:#f5b400;
     flex-shrink: 0;
     margin-top: 0.2rem;
 }

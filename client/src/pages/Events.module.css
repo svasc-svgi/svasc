@@ -264,7 +264,7 @@
 .marqueeTrack {
     display: flex;
     width: max-content;
-    animation: scroll 35s linear infinite;
+    animation: scroll 100s linear infinite;
 }
 
 .marquee:hover .marqueeTrack {
@@ -385,7 +385,7 @@
 }
 
 .snip1529:hover h3 {
-    color: #2563eb;
+    color: #f5b400;;
 }
 
 .snip1529 p {

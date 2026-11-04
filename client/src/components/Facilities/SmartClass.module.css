@@ -45,13 +45,13 @@
     grid-column: span 12;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-around
 }
 
 @media (min-width: 1024px) {
     .leftColumn {
-        grid-column: span 7;
-        max-width: 45rem;
+        grid-column: span 8;
+        
     }
 }
 
@@ -99,7 +99,7 @@
 
 @media (min-width: 1024px) {
     .rightColumn {
-        grid-column: span 5;
+        grid-column: span 4;
         order: 1;
     }
 }
