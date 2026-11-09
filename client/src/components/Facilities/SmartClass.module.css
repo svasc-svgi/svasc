@@ -70,6 +70,8 @@
     /* Scaled 1.5x */
     line-height: 1.75;
     margin-bottom: 2.5rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .ctaButton {

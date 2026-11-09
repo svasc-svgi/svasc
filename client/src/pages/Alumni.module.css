@@ -150,6 +150,12 @@
     color: #0a1264;
 }
 
+.risingStarsWrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -160,9 +166,60 @@
     margin: auto;
 }
 
+.starCardItem {
+    width: 100%;
+}
+
+.starCardClone {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .container {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .risingStarsWrapper {
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem 0 3rem;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: max-content;
+        gap: 2rem;
+        padding: 0 1.5rem;
+        margin: 0;
+        animation: risingStarsMarquee 26s linear infinite;
+        will-change: transform;
+    }
+
+    .risingStarsWrapper:hover .container,
+    .risingStarsWrapper:active .container {
+        animation-play-state: paused;
+    }
+
+    .starCardItem {
+        flex: 0 0 240px;
+        width: 240px;
+    }
+
+    .starCardClone {
+        display: block;
+    }
+}
+
+@keyframes risingStarsMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
 

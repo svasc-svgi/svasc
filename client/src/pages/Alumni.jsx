@@ -266,17 +266,19 @@ const Alumni = () => {
     }, []);
 
     // ================= VIDEO PLAY LOGIC =================
-    const toggleVideo = (e, index) => {
+    const toggleVideo = (e, videoId, btnId) => {
         e.stopPropagation();
-        const video = document.getElementById(`video-${index}`);
-        const btn = document.getElementById(`btn-${index}`);
+        const video = document.getElementById(videoId);
+        const btn = document.getElementById(btnId);
 
-        if (video.paused) {
-            video.play();
-            btn.textContent = '⏸';
-        } else {
-            video.pause();
-            btn.textContent = '▶';
+        if (video) {
+            if (video.paused) {
+                video.play();
+                if (btn) btn.textContent = '⏸';
+            } else {
+                video.pause();
+                if (btn) btn.textContent = '▶';
+            }
         }
     };
 
@@ -501,29 +503,55 @@ const Alumni = () => {
                     <h1>Rising Stars of SVASC</h1>
                 </div>
 
-                <div className={styles.container}>
-                    {risingStars.map((star, index) => (
-                        <div key={star._id || index}>
-                            <div className={styles.gameCard}>
-                                <div className={styles.gameCardCover}>
-                                    <video id={`video-${index}`} loop muted={false} key={star.video}>
-                                        <source src={star.video} />
-                                    </video>
-                                    <div
-                                        className={styles.playBtn}
-                                        id={`btn-${index}`}
-                                        onClick={(e) => toggleVideo(e, index)}
-                                    >
-                                        ▶
+                <div className={styles.risingStarsWrapper}>
+                    <div className={styles.container}>
+                        {risingStars.map((star, index) => (
+                            <div key={star._id || index} className={styles.starCardItem}>
+                                <div className={styles.gameCard}>
+                                    <div className={styles.gameCardCover}>
+                                        <video id={`video-${index}`} loop muted={false} key={star.video}>
+                                            <source src={star.video} />
+                                        </video>
+                                        <div
+                                            className={styles.playBtn}
+                                            id={`btn-${index}`}
+                                            onClick={(e) => toggleVideo(e, `video-${index}`, `btn-${index}`)}
+                                        >
+                                            ▶
+                                        </div>
                                     </div>
                                 </div>
+                                <div className={styles.studentInfo}>
+                                    <h3>{star.name}</h3>
+                                    <p>{star.degree}</p>
+                                </div>
                             </div>
-                            <div className={styles.studentInfo}>
-                                <h3>{star.name}</h3>
-                                <p>{star.degree}</p>
+                        ))}
+
+                        {/* Duplicated items for smooth, continuous, infinite marquee on mobile */}
+                        {risingStars.map((star, index) => (
+                            <div key={`clone-${star._id || index}`} className={`${styles.starCardItem} ${styles.starCardClone}`}>
+                                <div className={styles.gameCard}>
+                                    <div className={styles.gameCardCover}>
+                                        <video id={`video-clone-${index}`} loop muted={false} key={`clone-${star.video}`}>
+                                            <source src={star.video} />
+                                        </video>
+                                        <div
+                                            className={styles.playBtn}
+                                            id={`btn-clone-${index}`}
+                                            onClick={(e) => toggleVideo(e, `video-clone-${index}`, `btn-clone-${index}`)}
+                                        >
+                                            ▶
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={styles.studentInfo}>
+                                    <h3>{star.name}</h3>
+                                    <p>{star.degree}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
 
                 {/* ================= RECENT ALUMNI PLACEMENTS SECTION ================= */}

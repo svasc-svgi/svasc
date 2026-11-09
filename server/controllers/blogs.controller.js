@@ -1,5 +1,36 @@
 const BlogsService = require('../services/blogs.service');
+const HomeBlog = require('../models/home/blog.model');
 const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
+
+// Helper to automatically sync blog updates to Home Page "SVASC Insightful Blogs"
+const syncToHomeBlog = async (blogDoc) => {
+    try {
+        if (!blogDoc) return;
+        const now = new Date(blogDoc.createdAt || Date.now());
+        const plainDesc = (blogDoc.description || '')
+            .replace(/<[^>]+>/g, '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, 180);
+
+        const img = blogDoc.bannerImage || (blogDoc.cards && blogDoc.cards[0] ? blogDoc.cards[0].image : '');
+        if (!img) return;
+
+        await HomeBlog.findOneAndUpdate(
+            { title: blogDoc.category },
+            {
+                title: blogDoc.category,
+                description: plainDesc || 'Discover insightful articles and updates from SVASC.',
+                image: img,
+                day: now.getDate() || 25,
+                month: now.toLocaleString('en-US', { month: 'short' }) || 'May'
+            },
+            { upsert: true, new: true }
+        );
+    } catch (e) {
+        console.warn('Sync to home blog notice:', e.message);
+    }
+};
 
 const getAllBlogs = async (req, res) => {
     try {
@@ -81,6 +112,9 @@ const createBlog = async (req, res) => {
             order: currentCount
         });
 
+        // Automatically sync to Home Page "SVASC Insightful Blogs"
+        await syncToHomeBlog(blog);
+
         res.status(201).json({ success: true, data: blog, message: "Blog created successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
@@ -135,6 +169,10 @@ const updateBlog = async (req, res) => {
         if (!updatedBlog) {
             return res.status(404).json({ success: false, message: "Blog not found" });
         }
+
+        // Automatically sync to Home Page "SVASC Insightful Blogs"
+        await syncToHomeBlog(updatedBlog);
+
         res.status(200).json({ success: true, data: updatedBlog, message: "Blog updated successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
@@ -148,6 +186,12 @@ const deleteBlog = async (req, res) => {
         if (!deletedBlog) {
             return res.status(404).json({ success: false, message: "Blog not found" });
         }
+
+        // Clean up from Home Blog if present
+        if (deletedBlog.category) {
+            await HomeBlog.findOneAndDelete({ title: deletedBlog.category }).catch(() => {});
+        }
+
         res.status(200).json({ success: true, message: 'Blog deleted successfully' });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });

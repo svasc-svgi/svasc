@@ -31,3 +31,4 @@ const sportsDaySchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('SportsDay', sportsDaySchema);
+

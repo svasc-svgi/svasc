@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import { getHomeBlogs } from '../../services/homeService';
+import { getBlogs } from '../../services/blogService';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,37 +18,37 @@ const fallbackBlogs = [
     {
         day: 24,
         month: 'May',
-        title: 'Campus Life & Student Growth',
-        description: 'Insights into student achievements, campus culture, and the vibrant academic excellence that defines us.',
-        image: 'https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&w=600'
+        title: 'Academic Events',
+        description: 'Scholarly activities, guest lectures, seminars, research findings, and departmental workshops empowering student intellect.',
+        image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800'
     },
     {
         day: 25,
         month: 'May',
-        title: 'Innovative Learning',
-        description: 'Exploring modern teaching methods and technology that are shaping the future of education at SVASC.',
-        image: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=600'
+        title: 'Cultural Activities & Arts',
+        description: 'Celebrating diversity, creativity, and artistic expression through annual festival recaps, music, dance, and cultural shows.',
+        image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800'
     },
     {
         day: 26,
         month: 'May',
-        title: 'Student Activities',
-        description: 'From cultural fests to leadership camps, see how we encourage creativity and teamwork on campus.',
-        image: 'https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg?auto=compress&cs=tinysrgb&w=600'
+        title: 'Innovation in Education and Tech',
+        description: 'Hands-on project showcases, hackathons, coding contests, tech fests, startup journeys, and emerging AI technologies.',
+        image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800'
     },
     {
         day: 27,
         month: 'May',
-        title: 'Career Pathways',
-        description: 'Expert guidance on internships, placements, and building a strong professional portfolio for the future.',
-        image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600'
+        title: 'Student Achievements & Activities',
+        description: 'Celebrating students excelling in university rank honors, sports championships, national research, and community service.',
+        image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800'
     },
     {
         day: 28,
         month: 'May',
-        title: 'Alumni Success',
-        description: 'Celebrating the remarkable journeys of our graduations who are making waves in their industries.',
-        image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=600'
+        title: 'SVASC News & Announcements',
+        description: 'Official announcements, accreditation milestones, academic calendar updates, and institutional progress across SVASC.',
+        image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800'
     }
 ];
 
@@ -68,28 +69,74 @@ const BlogSection = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await getHomeBlogs();
-                const blogList = response?.data ?? (Array.isArray(response) ? response : []);
-                if (blogList && blogList.length > 0) {
-                    const allItems = blogList.map(blog => {
-                        const cleanImg = (blog.image || '').replace(/^\/+/, '');
-                        const imgUrl = blog.image?.startsWith('http') ? blog.image : `${BASE_URL}/${cleanImg}`;
-                        return {
-                            _id: blog._id,
-                            day: blog.day || 25,
-                            month: blog.month || 'May',
-                            title: blog.title || 'Insightful Blog',
-                            description: blog.description || '',
-                            image: imgUrl
-                        };
+                const [homeRes, mainRes] = await Promise.allSettled([
+                    getHomeBlogs(),
+                    getBlogs()
+                ]);
+
+                const merged = [];
+                const seenTitles = new Set();
+
+                // 1. Add blogs from main Blogs page (includes newly created/updated blogs)
+                if (mainRes.status === 'fulfilled') {
+                    const list = mainRes.value?.data ?? (Array.isArray(mainRes.value) ? mainRes.value : []);
+                    list.forEach(item => {
+                        const title = item.category || item.title || '';
+                        const norm = title.trim().toLowerCase();
+                        if (norm && !seenTitles.has(norm)) {
+                            seenTitles.add(norm);
+                            const cleanImg = (item.bannerImage || item.image || (item.cards && item.cards[0] ? item.cards[0].image : '') || '').replace(/^\/+/, '');
+                            const imgUrl = cleanImg
+                                ? (cleanImg.startsWith('http') ? cleanImg : `${BASE_URL}/${cleanImg}`)
+                                : 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800';
+                            const plainDesc = (item.description || item.copy || '')
+                                .replace(/<[^>]+>/g, '')
+                                .replace(/\s+/g, ' ')
+                                .trim()
+                                .slice(0, 160);
+                            const date = new Date(item.createdAt || Date.now());
+                            merged.push({
+                                _id: item._id || item.ID,
+                                day: date.getDate() || 25,
+                                month: date.toLocaleString('en-US', { month: 'short' }) || 'May',
+                                title: title,
+                                description: plainDesc || 'Discover insightful articles and updates from SVASC.',
+                                image: imgUrl
+                            });
+                        }
                     });
-                    setBlogs(allItems);
+                }
+
+                // 2. Also incorporate items from Home blogs
+                if (homeRes.status === 'fulfilled') {
+                    const list = homeRes.value?.data ?? (Array.isArray(homeRes.value) ? homeRes.value : []);
+                    list.forEach(item => {
+                        const title = item.title || item.category || '';
+                        const norm = title.trim().toLowerCase();
+                        if (norm && !seenTitles.has(norm)) {
+                            seenTitles.add(norm);
+                            const cleanImg = (item.image || '').replace(/^\/+/, '');
+                            const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
+                            merged.push({
+                                _id: item._id,
+                                day: item.day || 25,
+                                month: item.month || 'May',
+                                title: title || 'Insightful Blog',
+                                description: item.description || '',
+                                image: imgUrl
+                            });
+                        }
+                    });
+                }
+
+                if (merged.length > 0) {
+                    setBlogs(merged);
                     try {
-                        localStorage.setItem('svasc_cached_home_blogs', JSON.stringify(allItems));
+                        localStorage.setItem('svasc_cached_home_blogs', JSON.stringify(merged));
                     } catch (e) {}
                 }
             } catch (error) {
-                console.error('Error fetching blogs:', error);
+                console.error('Error fetching blogs for home section:', error);
             }
         };
         fetchBlogs();

@@ -1,10 +1,45 @@
 const BlogService = require('../../services/home/blog.service');
+const Blogs = require('../../models/blogs.model');
 const path = require('path');
 const fs = require('fs');
 
 const getAllBlogs = async (req, res) => {
     try {
-        const blogs = await BlogService.getAllBlogs();
+        let blogs = await BlogService.getAllBlogs();
+        
+        // Also sync & merge from the main Blogs page collection
+        try {
+            const mainBlogs = await Blogs.find().sort({ order: 1, createdAt: -1 }).lean();
+            if (mainBlogs && mainBlogs.length > 0) {
+                const homeTitles = new Set(blogs.map(b => (b.title || '').trim().toLowerCase()));
+                for (const mb of mainBlogs) {
+                    const titleNorm = (mb.category || '').trim().toLowerCase();
+                    if (!homeTitles.has(titleNorm)) {
+                        const now = new Date(mb.createdAt || Date.now());
+                        const plainDesc = (mb.description || '')
+                            .replace(/<[^>]+>/g, '')
+                            .replace(/\s+/g, ' ')
+                            .trim()
+                            .slice(0, 180);
+                        const img = mb.bannerImage || (mb.cards && mb.cards[0] ? mb.cards[0].image : '');
+                        if (img) {
+                            blogs.push({
+                                _id: mb._id,
+                                title: mb.category,
+                                day: now.getDate() || 25,
+                                month: now.toLocaleString('en-US', { month: 'short' }) || 'May',
+                                description: plainDesc || 'Discover insightful articles and updates from SVASC.',
+                                image: img
+                            });
+                            homeTitles.add(titleNorm);
+                        }
+                    }
+                }
+            }
+        } catch (syncErr) {
+            console.warn('Notice syncing main blogs to home:', syncErr.message);
+        }
+
         res.status(200).json({
             success: true,
             data: blogs,
