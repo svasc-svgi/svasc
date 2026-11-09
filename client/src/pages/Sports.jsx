@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Hero from '../components/Common/Hero';
 import styles from './Sports.module.css';
 import sportsHeroImage from '../assets/sporthero1.jpg';
-import { getSportHouses, getSportsPageHero } from '../services/sportsService';
+import { getSportHouses, getSportsPageHero, getSportsDay } from '../services/sportsService';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -52,6 +52,14 @@ const fallbackImages = [
     'https://images.pexels.com/photos/1432039/pexels-photo-1432039.jpeg'
 ];
 
+const fallbackSportsDay = {
+    title: "Sports Day",
+    subtitle: "Annual Athletic Meet",
+    description: "The Annual Sports Day at Shree Venkateshwara Arts and Science College is a grand celebration of athletic prowess, endurance, and team spirit. Students across all houses compete passionately in an inspiring array of track and field events, relay races, and championship tournaments. Fostering camaraderie, discipline, and healthy sportsmanship, the meet serves as a testament to our ongoing pursuit of physical well-being and collegiate excellence.",
+    pdfTitle: "Sports Day Event Schedule & Guidelines",
+    pdfUrl: ""
+};
+
 const SVASCSports = () => {
     const [heroData, setHeroData] = useState(() => {
         try {
@@ -66,6 +74,13 @@ const SVASCSports = () => {
             if (cached) return JSON.parse(cached);
         } catch (e) {}
         return fallbackHouses;
+    });
+    const [sportsDayData, setSportsDayData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_sports_day');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackSportsDay;
     });
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -108,6 +123,26 @@ const SVASCSports = () => {
                     setSportHouses(fallbackHouses);
                 }
 
+                // Fetch Sports Day
+                try {
+                    const dayRes = await getSportsDay();
+                    const dayData = dayRes?.data ?? dayRes;
+                    if (dayData && (dayData.description || dayData.title || dayData.pdfUrl)) {
+                        setSportsDayData({
+                            title: dayData.title || fallbackSportsDay.title,
+                            subtitle: dayData.subtitle || fallbackSportsDay.subtitle,
+                            description: dayData.description || fallbackSportsDay.description,
+                            pdfTitle: dayData.pdfTitle || fallbackSportsDay.pdfTitle,
+                            pdfUrl: dayData.pdfUrl || ''
+                        });
+                        try {
+                            localStorage.setItem('svasc_cached_sports_day', JSON.stringify(dayData));
+                        } catch (e) {}
+                    }
+                } catch (e) {
+                    console.log("Using fallback sports day data");
+                }
+
             } catch (err) {
                 console.error("Error fetching sports page data", err);
             }
@@ -140,6 +175,20 @@ const SVASCSports = () => {
         'Chess',
         'Carrom'
     ];
+
+    const getSportsDayTitleParts = () => {
+        const fullTitle = sportsDayData.title || 'Sports Day';
+        const parts = fullTitle.trim().split(' ');
+        if (parts.length === 1) {
+            return { first: parts[0], second: '' };
+        }
+        return {
+            first: parts[0],
+            second: parts.slice(1).join(' ')
+        };
+    };
+
+    const titleParts = getSportsDayTitleParts();
 
     return (
         <div className={styles['svasc-sports-root']}>
@@ -273,6 +322,131 @@ const SVASCSports = () => {
                         ))}
                     </div>
 
+                </div>
+            </section>
+
+            {/* SPORTS DAY SECTION */}
+            <section className={styles['svasc-sports-day']}>
+                <div className={styles['svasc-sports-day-container']}>
+                    <div className={styles['svasc-sports-day-row']}>
+
+                        {/* LEFT SIDE: Paragraph Content */}
+                        <div className={styles['svasc-sports-day-text']}>
+                            <div className={styles['svasc-sports-day-label']}>
+                                {sportsDayData.subtitle || 'Annual Athletic Meet'}
+                            </div>
+
+                            <h2 className={styles['svasc-sports-day-title']}>
+                                {titleParts.first}{' '}
+                                {titleParts.second ? (
+                                    <span className={styles['svasc-sports-gold-text']}>
+                                        {titleParts.second}
+                                    </span>
+                                ) : (
+                                    <span className={styles['svasc-sports-gold-text']}>
+                                        Day
+                                    </span>
+                                )}
+                            </h2>
+
+                            {sportsDayData.description ? (
+                                sportsDayData.description.split('\n').filter(p => p.trim()).map((paragraph, idx) => (
+                                    <p key={idx} className={styles['svasc-sports-day-description']}>
+                                        {paragraph}
+                                    </p>
+                                ))
+                            ) : (
+                                <p className={styles['svasc-sports-day-description']}>
+                                    {fallbackSportsDay.description}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* RIGHT SIDE: PDF File Display */}
+                        <div className={styles['svasc-sports-day-pdf-wrapper']}>
+                            {sportsDayData.pdfUrl ? (
+                                <div className={styles['svasc-sports-day-pdf-card']}>
+                                    <div className={styles['svasc-sports-day-pdf-header']}>
+                                        <div className={styles['svasc-sports-day-pdf-header-info']}>
+                                            <span className={styles['svasc-sports-day-pdf-badge']}>PDF</span>
+                                            <h3 className={styles['svasc-sports-day-pdf-title']}>
+                                                {sportsDayData.pdfTitle || 'Sports Day Schedule & Guidelines'}
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles['svasc-sports-day-pdf-preview']}>
+                                        <iframe
+                                            src={
+                                                sportsDayData.pdfUrl.startsWith('http')
+                                                    ? `${sportsDayData.pdfUrl}#toolbar=0`
+                                                    : `${BASE_URL}/${sportsDayData.pdfUrl.replace(/^\/+/, '')}#toolbar=0`
+                                            }
+                                            title={sportsDayData.pdfTitle || 'Sports Day PDF'}
+                                            className={styles['svasc-sports-day-pdf-frame']}
+                                        />
+                                    </div>
+
+                                    <div className={styles['svasc-sports-day-pdf-actions']}>
+                                        <a
+                                            href={
+                                                sportsDayData.pdfUrl.startsWith('http')
+                                                    ? sportsDayData.pdfUrl
+                                                    : `${BASE_URL}/${sportsDayData.pdfUrl.replace(/^\/+/, '')}`
+                                            }
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles['svasc-sports-day-pdf-btn']}
+                                        >
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                <polyline points="14 2 14 8 20 8"></polyline>
+                                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                                <polyline points="10 9 9 9 8 9"></polyline>
+                                            </svg>
+                                            View / Download PDF
+                                        </a>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className={styles['svasc-sports-day-pdf-empty']}>
+                                    <svg
+                                        className={styles['svasc-sports-day-pdf-empty-icon']}
+                                        width="56"
+                                        height="56"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <path d="M12 18v-6"></path>
+                                        <path d="m9 15 3 3 3-3"></path>
+                                    </svg>
+                                    <h3 className={styles['svasc-sports-day-pdf-empty-title']}>
+                                        {sportsDayData.pdfTitle || 'Sports Day Schedule & Circular'}
+                                    </h3>
+                                    <p className={styles['svasc-sports-day-pdf-empty-desc']}>
+                                        The official schedule, rules, and event circular will be published here upon official announcement.
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
                 </div>
             </section>
         </div>

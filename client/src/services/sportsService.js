@@ -40,3 +40,17 @@ export const deleteSportHouse = async (id) => {
 export const getSportsPageHero = async () => {
   return await apiClient.get('/page-heros/sports');
 };
+
+// 6. GET SPORTS DAY DETAILS (Paragraph & PDF)
+export const getSportsDay = async () => {
+  return await apiClient.get('/sports/day');
+};
+
+// 7. UPDATE SPORTS DAY DETAILS (Supports Direct Cloudinary URL or FormData upload)
+export const updateSportsDay = async (data) => {
+  return await apiClient.put(
+    '/sports/day',
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
+};
