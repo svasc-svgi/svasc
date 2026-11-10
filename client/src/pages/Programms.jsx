@@ -147,7 +147,6 @@ const Schools = () => {
                 name: "School of Arts & Languages",
                 acronym: "SOAL",
                 programs: [
-                    { title: "B.A. Tamil", image: her0Img },
                     { title: "B.A. English", image: exam3Img }
                 ]
             },
@@ -178,11 +177,9 @@ const Schools = () => {
             },
             {
                 name: "School of Arts & Languages",
-                acronym: "SCS",
+                acronym: "SOAL",
                 programs: [
                     { title: "M.A English", image: exam3Img },
-                    { title: "M.A Tamil", image: her0Img },
-
                 ]
             },
             {
