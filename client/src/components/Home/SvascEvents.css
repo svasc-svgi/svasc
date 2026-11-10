@@ -3,8 +3,7 @@
     font-family: sans-serif;
     /* Fallback */
     background: transparent;
-    padding: 40px 30px;
-    /* From body padding in snippet */
+    padding: 40px clamp(16px, 3vw, 30px);
     width: 100%;
     font-size: 16px;
     /* Override global scaling */
@@ -239,9 +238,24 @@
     }
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+/* TABLET & MOBILE (< 992px) */
+@media (max-width: 992px) {
     #svasc-events-section .blog-card-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    #svasc-events-section .section-header h1 {
+        font-size: 3.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #svasc-events-section .section-header h1 {
+        font-size: 2.6rem;
+    }
+
+    #svasc-events-section .section-header h2 {
+        font-size: 1.6rem;
     }
 }

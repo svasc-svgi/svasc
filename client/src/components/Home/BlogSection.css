@@ -35,11 +35,9 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    /* Full width */
-    max-width: 100%;
-    /* Ensure no constraint */
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(16px, 3vw, 30px);
 }
 
 .blog-section-wrapper .blog-header {
@@ -47,8 +45,7 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 50px;
-    padding: 0 40px;
-    /* Slight increase in padding for full width look */
+    padding: 0;
 }
 
 .blog-section-wrapper .blog-header h2 {

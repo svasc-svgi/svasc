@@ -22,17 +22,17 @@
 }
 
 .heading-primary {
-    font-size: 6rem;
+    font-size: clamp(3rem, 5vw, 6rem);
     font-weight: 700;
     letter-spacing: -0.5px;
-    line-height: 1.1;
+    line-height: 1.15;
     display: flex;
     align-items: center;
     gap: 1rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
     font-family: "Poppins", sans-serif;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .heading-primary .welcome {
@@ -42,7 +42,7 @@
 .heading-primary span {
     text-transform: uppercase;
     display: block;
-    font-size: 5.2rem;
+    font-size: clamp(2.5rem, 4.2vw, 5.2rem);
 }
 
 .heading-primary .college-name {
@@ -131,28 +131,39 @@
 /* TABLET (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
     .section-hero {
-        padding: 6rem 0 7rem 0;
+        padding: 5rem 0 5rem 0;
     }
 
     .hero {
         max-width: 100%;
         padding: 0 2.4rem;
-        gap: 0 4rem;
+        gap: 0 3rem;
+        grid-template-columns: 1fr 1fr;
     }
 
     .heading-primary {
-        font-size: 5rem;
-        margin-bottom: 2.8rem;
+        font-size: 3.8rem;
+        margin-bottom: 2rem;
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    .heading-primary span {
+        font-size: 3.2rem;
     }
 
     .hero-description {
-        font-size: 1.7rem;
-        margin-bottom: 3.6rem;
+        font-size: 1.5rem;
+        margin-bottom: 2.8rem;
     }
 
     .btn {
-        font-size: 1.8rem;
-        padding: 1.4rem 2.8rem;
+        font-size: 1.6rem;
+        padding: 1.2rem 2.4rem;
+    }
+
+    .hero-img-box {
+        min-height: 520px;
     }
 }
 

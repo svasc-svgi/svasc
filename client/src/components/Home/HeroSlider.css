@@ -11,7 +11,8 @@
 
 .item {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 80vh;
     overflow: hidden;
     opacity: 0;
@@ -227,6 +228,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
     z-index: 20;
     pointer-events: none;
     text-align: center;
@@ -237,7 +240,7 @@
 }
 
 .hero-main-title {
-    font-size: 5.5rem;
+    font-size: clamp(2.4rem, 5vw, 5.5rem);
     font-weight: 700;
     color: white;
     margin: 0;
@@ -248,7 +251,7 @@
 }
 
 .hero-sub-title {
-    font-size: 1.6rem;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
     font-weight: 300;
     color: #e0e0e0;
     margin-top: 15px;
@@ -265,11 +268,11 @@
 @keyframes butterfly-fade-in {
     from { 
         opacity: 0; 
-        transform: translate(-50%, -80%); /* Starts higher up to smooth down */
+        transform: translate(-50%, -80%);
     }
     to { 
         opacity: 1; 
-        transform: translate(-50%, -50%); /* Ends exactly in the center */
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -296,12 +299,30 @@
 
 @media (max-width: 768px) {
     .hero-main-title {
-        font-size: 3.5rem;
+        font-size: 3.2rem;
     }
     
     .hero-sub-title {
         font-size: 1.2rem;
         letter-spacing: 1px;
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-sub-title {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        margin-top: 8px;
+    }
+
+    .info-text a {
+        height: 4.5rem;
+        font-size: 1.2rem;
+        padding: 0 2rem;
     }
 }

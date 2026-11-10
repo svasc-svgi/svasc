@@ -7,9 +7,8 @@
     box-shadow: 0 -10px 40px rgba(255, 215, 0, 0.3);
     font-family: 'Poppins', sans-serif;
     color: #6c757d;
-    padding: 0 5rem 0 5rem;
+    padding: 0 clamp(1.2rem, 3vw, 4rem);
     z-index: 100;
-    
 }
 
 /* Yellow Decorative Elements */
@@ -397,7 +396,18 @@
     color: #FFD700;
 }
 
+@media (max-width: 991px) {
+    .footerSection {
+        margin-top: 40px;
+        padding: 0 1.5rem;
+    }
+}
+
 @media (max-width: 767px) {
+    .footerSection {
+        padding: 0 1rem;
+    }
+
     .footerLinks {
         columns: 1;
     }
@@ -409,6 +419,12 @@
 
     .footerMenu ul {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footerMenu li {
+        margin-left: 0;
     }
 
     .copyrightText {

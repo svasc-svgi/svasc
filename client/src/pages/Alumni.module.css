@@ -87,7 +87,7 @@
 }
 
 .heroEffects p {
-    width: 60vw;
+    width: min(90vw, 800px);
     margin: 0 auto;
     line-height: 1.5em;
     padding: 1rem 2rem 0;

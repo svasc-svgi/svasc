@@ -342,8 +342,11 @@
 
 @media only screen and (min-width: 768px) {
     #alumni-slider-root .sl-main-container {
-        width: 768px;
+        width: 100%;
+        max-width: 768px;
         margin: 0 auto;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 
     #alumni-slider-root .sl-header-wrapper {
@@ -388,7 +391,8 @@
 
 @media only screen and (min-width: 1024px) {
     #alumni-slider-root .sl-main-container {
-        width: 1024px;
+        width: 100%;
+        max-width: 1200px;
     }
      #alumni-slider-root {
     font-family: "Rubik", sans-serif;
@@ -436,7 +440,8 @@
 
 @media only screen and (min-width: 1440px) {
     #alumni-slider-root .sl-main-container {
-        width: 1440px;
+        width: 100%;
+        max-width: 1440px;
     }
 
     #alumni-slider-root .sl-wrapper,

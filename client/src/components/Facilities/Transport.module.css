@@ -51,7 +51,7 @@
 /* Gallery */
 .galleryGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
     gap: 4.5rem;
     margin: 7.5rem auto;
     justify-items: center;

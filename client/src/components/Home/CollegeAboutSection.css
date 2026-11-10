@@ -133,8 +133,8 @@
 
 @media (max-width: 576px) {
     .svasc-image-composition {
-        height: 400px;
-        max-width: 400px;
+        height: 380px;
+        max-width: 100%;
     }
     
     .svasc-about-image-main {
@@ -143,5 +143,12 @@
     
     .svasc-about-image-overlay {
         border: 6px solid #ffffff;
+    }
+}
+
+@media (max-width: 400px) {
+    .svasc-image-composition {
+        height: 280px;
+        max-width: 100%;
     }
 }

@@ -330,6 +330,15 @@
     }
 }
 
+@media(max-width: 480px) {
+    .valueCircle {
+        width: 190px !important;
+        height: 190px !important;
+        margin: 10px !important;
+        padding: 16px;
+    }
+}
+
 @media(max-width: 768px) {
     .headLarge {
         font-size: 15vw;

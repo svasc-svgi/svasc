@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 // import Logo from './SVCAS-Logo.jpg'; // Removed to use public PNG
@@ -8,24 +8,47 @@ const Navbar = ({ className }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
 
+    // Prevent background scrolling when mobile menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]);
+
+    // Automatically close mobile menu if resized to desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 1024 && isMenuOpen) {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMenuOpen]);
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     const handleMouseEnter = (index) => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
             setActiveDropdown(index);
         }
     };
 
     const handleMouseLeave = () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
             setActiveDropdown(null);
         }
     };
 
     const toggleDropdown = (index) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1024) {
             setActiveDropdown(activeDropdown === index ? null : index);
         }
     };
@@ -46,16 +69,26 @@ const Navbar = ({ className }) => {
                     </div>
                 </Link>
 
-                {/* HAMBURGER MENU BUTTON - Mobile Only */}
+                {/* HAMBURGER MENU BUTTON - Mobile & Tablet */}
                 <button
                     className="hamburger"
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
+                    aria-expanded={isMenuOpen}
                 >
                     <span className={isMenuOpen ? 'open' : ''}></span>
                     <span className={isMenuOpen ? 'open' : ''}></span>
                     <span className={isMenuOpen ? 'open' : ''}></span>
                 </button>
+
+                {/* Mobile/Tablet Backdrop */}
+                {isMenuOpen && (
+                    <div
+                        className="nav-backdrop"
+                        onClick={() => setIsMenuOpen(false)}
+                        aria-hidden="true"
+                    />
+                )}
 
                 {/* RIGHT */}
                 <div className={`right ${isMenuOpen ? 'menu-open' : ''}`}>

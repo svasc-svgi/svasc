@@ -169,7 +169,7 @@
     gap: 20px;
     width: 100%;
     justify-content: flex-end;
-    transform: translateX(20px);
+    transform: none;
 }
 
 /* INLINE DROPDOWN */
@@ -297,57 +297,31 @@
 
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
 
-/* TABLET (768px - 1024px) */
+/* TABLET & MOBILE (<= 1024px) - UNIFIED CLEAN DRAWER MENU */
 @media (max-width: 1024px) {
+    .header {
+        overflow-x: hidden;
+    }
+
     .header-wrap {
-        padding: 10px 20px;
-        width: 100%;
+        padding: 10px 18px;
+        position: relative;
+        gap: 15px;
     }
 
-    /* Reduce spacing in top nav */
-    .header .top-nav {
-        gap: 12px;
-        flex-wrap: wrap;
+    /* Show hamburger button */
+    .hamburger {
+        display: flex;
     }
 
-    .header .top-nav a {
-        font-size: 13px;
-    }
-
-    .header .top-pill {
-        padding: 6px 14px;
-        font-size: 13px;
-    }
-
-    /* Reduce bottom nav spacing */
-    .header .bottom-nav {
-        gap: 14px;
-        flex-wrap: wrap;
-    }
-
-    .header .bottom-nav a {
-        font-size: 13px;
-    }
-
-    .header .first-item {
-        margin-left: 0;
-    }
-
-    /* Reduce CTA spacing and size */
-    .header .cta {
-        margin-left: 16px;
+    /* Logo and college text */
+    .header .left {
         gap: 10px;
+        align-items: center;
     }
 
-    .header .btn-outline,
-    .header .btn-fill {
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-
-    /* Smaller logo and text */
     .header .left img {
-        height: 52px;
+        height: 50px;
     }
 
     .header .college-text h1 {
@@ -359,67 +333,28 @@
     }
 
     .header .college-text span {
-        font-size: 11px;
-    }
-}
-
-/* MOBILE (< 768px) - HAMBURGER MENU */
-@media (max-width: 768px) {
-    .header {
-        overflow-x: hidden;
-        /* Prevent off-canvas menu from causing scroll */
-    }
-
-    .header-wrap {
-        padding: 12px 16px;
-        position: relative;
-    }
-
-    /* Show hamburger button */
-    .hamburger {
-        display: flex;
-    }
-
-    /* Logo and college text */
-    .header .left {
-        gap: 12px;
-    }
-
-    .header .left img {
-        height: 48px;
-    }
-
-    .header .college-text h1 {
-        font-size: 16px;
-    }
-
-    .header .college-text h2 {
         font-size: 10px;
     }
 
-    .header .college-text span {
-        font-size: 10px;
-    }
-
-    /* RIGHT - Mobile Menu */
+    /* Sliding Drawer */
     .header .right {
         position: fixed;
         top: 0;
         right: 0;
-        width: 80%;
-        max-width: 320px;
+        width: 85%;
+        max-width: 360px;
         height: 100vh;
         background: #ffffff;
         border: none;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        padding: 50px 24px 24px;
-        align-items: center;
-        gap: 20px;
+        box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
+        padding: 60px 24px 30px;
+        align-items: stretch;
+        gap: 16px;
         overflow-y: auto;
         transform: translateX(100%);
         visibility: hidden;
-        transition: transform 0.3s ease, visibility 0.3s;
-        z-index: 999;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+        z-index: 1000;
     }
 
     .header .right.menu-open {
@@ -430,41 +365,47 @@
     /* Top nav - vertical stack */
     .header .top-nav {
         flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        align-items: stretch;
+        gap: 8px;
         width: 100%;
         text-align: center;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #f0f0f0;
     }
 
     .header .top-nav a {
-        font-size: 15px;
+        font-size: 14px;
         width: 100%;
-        padding: 8px 0;
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-align: left;
     }
 
     .header .top-pill {
-        padding: 10px 16px;
-        font-size: 14px;
-        display: inline-block;
-        width: auto;
+        padding: 8px 14px;
+        font-size: 13px;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
     /* Bottom nav - vertical stack */
     .header .bottom-nav {
         flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        align-items: stretch;
+        gap: 8px;
         width: 100%;
-        text-align: center;
+        text-align: left;
+        transform: none;
     }
 
     .header .bottom-nav a {
         font-size: 15px;
-        padding: 12px 0;
+        padding: 10px 12px;
         width: 100%;
         display: flex;
-        justify-content: center;
-        text-align: center;
+        justify-content: flex-start;
+        text-align: left;
         white-space: normal;
     }
 
@@ -474,29 +415,25 @@
 
     .header .dropdown {
         width: 100%;
-        justify-content: center;
+        justify-content: space-between;
         cursor: pointer;
-        padding: 12px 0;
+        padding: 10px 12px;
         border-bottom: 1px solid #f5b40022;
-        /* Light theme separator */
         white-space: normal;
-        text-align: center;
+        text-align: left;
         color: #111;
-        /* Dark text for visibility */
         font-weight: 700;
     }
 
     .nav-item-container {
         width: 100%;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         order: 2;
-        /* Default for dropdowns */
     }
 
     .nav-item-container:not(.has-dropdown) {
         order: 1;
-        /* Single links show first */
     }
 
     .dropdown-menu {
@@ -507,7 +444,7 @@
         margin: 0;
         width: 100%;
         box-shadow: none;
-        background: #ffffff;
+        background: #fffdf5;
         padding: 0;
         max-height: 0;
         opacity: 0;
@@ -515,6 +452,7 @@
         overflow: hidden;
         transition: max-height 0.3s ease-out, opacity 0.3s ease;
         border: none;
+        border-radius: 8px;
     }
 
     .dropdown-menu.mega-menu {
@@ -527,21 +465,16 @@
         max-height: 1000px;
         opacity: 1;
         visibility: visible;
-        margin-top: 5px;
-        border-left: none;
-        border-top: 2px solid #f5b400;
-        /* Theme accent */
+        margin-top: 4px;
+        border-left: 3px solid #f5b400;
+        padding: 6px 0;
         transform: none;
-        /* Override base desktop transform */
-        background: #fff9e6;
-        /* Light yellow background */
     }
 
     .header .dropdown span {
         font-size: 14px;
         transition: transform 0.3s;
         color: #f5b400;
-        /* Theme theme */
     }
 
     .nav-item-container.active .dropdown span {
@@ -549,74 +482,112 @@
     }
 
     .dropdown-item {
-        text-align: center;
-        padding: 14px 20px;
+        text-align: left;
+        padding: 10px 16px;
         width: 100%;
         display: block;
         white-space: normal;
-        color: #333;
+        color: #444;
+        font-size: 13.5px;
     }
 
     .dropdown-item:hover {
         padding-left: 20px;
-        background: #f5b40022;
-        /* Slightly darker light yellow on hover */
-        color: #f5b400;
+        background: #f5b40015;
+        color: #002147;
     }
 
     /* CTA buttons */
     .header .cta {
         flex-direction: column;
         margin-left: 0;
-        gap: 12px;
+        gap: 10px;
         width: 100%;
-        border-top: 1px solid #f5b40033;
-        /* Light theme separator */
+        border-top: 1px solid #f0f0f0;
+        padding-top: 14px;
         order: 3;
-        /* Show after links */
     }
 
     .header .btn-outline,
     .header .btn-fill {
-        padding: 14px 20px;
-        font-size: 15px;
+        padding: 12px 18px;
+        font-size: 14px;
         width: 100%;
         text-align: center;
         display: block;
+        border-radius: 10px;
+    }
+}
+
+/* Nav Backdrop Overlay */
+.nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    transition: opacity 0.3s ease;
+}
+
+/* MOBILE (< 768px) */
+@media (max-width: 768px) {
+    .header-wrap {
+        padding: 10px 14px;
     }
 
-    /* Overlay when menu is open */
-    .header .right.menu-open::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.7);
-        /* White overlay instead of gray */
-        backdrop-filter: blur(4px);
-        z-index: -1;
+    .header .left img {
+        height: 44px;
+    }
+
+    .header .college-text h1 {
+        font-size: 15px;
+    }
+
+    .header .college-text h2 {
+        font-size: 10px;
+    }
+
+    .header .college-text span {
+        font-size: 9px;
+    }
+
+    .header .right {
+        width: 85%;
+        max-width: 320px;
     }
 }
 
 /* VERY SMALL MOBILE (< 480px) */
 @media (max-width: 480px) {
     .header-wrap {
-        padding: 10px 12px;
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .header .left {
+        gap: 8px;
     }
 
     .header .left img {
-        height: 42px;
+        height: 38px;
     }
 
     .header .college-text h1 {
-        font-size: 14px;
+        font-size: 13px;
+        letter-spacing: 0;
     }
 
-    .header .college-text h2,
+    .header .college-text h2 {
+        font-size: 8.5px;
+        margin-left: 4px;
+    }
+
     .header .college-text span {
-        font-size: 9px;
+        font-size: 8px;
+        margin-left: 4px;
     }
 
     .hamburger {
@@ -629,13 +600,34 @@
     }
 
     .header .right {
-        width: 85%;
+        width: 88%;
         max-width: 280px;
-        padding: 70px 20px 20px;
+        padding: 50px 16px 20px;
     }
 }
 
-/* DESKTOP (> 1024px) - original design */
+/* DESKTOP (> 1024px) */
 @media (min-width: 1025px) {
-    /* Desktop styles are already defined above */
+    .header-wrap {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 10px 28px;
+    }
+
+    .header .left img {
+        height: 60px;
+    }
+
+    .header .college-text h1 {
+        font-size: 22px;
+    }
+
+    .header .college-text h2 {
+        font-size: 11.5px;
+    }
+
+    .header .college-text span {
+        font-size: 10.5px;
+    }
 }
