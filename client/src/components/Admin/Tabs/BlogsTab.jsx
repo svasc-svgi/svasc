@@ -8,9 +8,10 @@ import {
   createBlog,
   updateBlog,
   deleteBlog,
+  seedDefaultBlogs,
 } from '../../../services/blogService';
 import styles from '../CrudManager.module.css';
-import { Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2, RefreshCw, CheckCircle2 } from 'lucide-react';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -75,18 +76,53 @@ const BlogsTab = () => {
   const [blogs, setBlogs] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncNotice, setSyncNotice] = useState('');
 
   const loadData = async () => {
     try {
       const res = await getBlogs();
-      const bRes = res?.data ?? (Array.isArray(res) ? res : []);
-      setBlogs(bRes);
+      let bRes = res?.data ?? (Array.isArray(res) ? res : []);
+
+      // If backend has less than 6 blogs, auto-seed standard categories
+      if (bRes.length < 6) {
+        try {
+          await seedDefaultBlogs(false);
+          const freshRes = await getBlogs();
+          bRes = freshRes?.data ?? (Array.isArray(freshRes) ? freshRes : []);
+        } catch (e) {
+          console.warn('Auto-seed notice:', e.message);
+        }
+      }
+
+      const formatted = bRes.map(item => ({
+        ...item,
+        cardsCount: `${(item.cards || []).length} cards`
+      }));
+      setBlogs(formatted);
     } catch (err) {
       console.error('Error loading blogs data', err);
     }
   };
 
   useEffect(() => { loadData(); }, []);
+
+  const handleSyncDefaults = async () => {
+    if (!window.confirm('Do you want to sync all 6 standard categories and 24 cards into the backend? This ensures the database holds all website content.')) {
+      return;
+    }
+    setIsSyncing(true);
+    try {
+      await seedDefaultBlogs(true);
+      setSyncNotice('All 6 blog categories and 24 cards successfully synced into MongoDB!');
+      await loadData();
+      setTimeout(() => setSyncNotice(''), 4500);
+    } catch (err) {
+      alert(`Sync failed: ${err.message}`);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   const handleSave = async (formData, id) => {
     setIsUploading(true);
@@ -132,7 +168,11 @@ const BlogsTab = () => {
 
       const payload = {
         category: formData.category || '',
+        title: formData.title || formData.category || '',
         description: formData.description || '',
+        author: formData.author || 'SVASC Editorial',
+        date: formData.date || '25 May, 2026',
+        readTime: formData.readTime || '4 min read',
         bannerImage: bannerUrl || '',
         cards: uploadedCards
       };
@@ -156,13 +196,90 @@ const BlogsTab = () => {
 
   const activityColumns = [
     { key: 'category', label: 'Category', type: 'text' },
+    { key: 'title', label: 'Title', type: 'text' },
+    { key: 'author', label: 'Author', type: 'text' },
+    { key: 'date', label: 'Date', type: 'text' },
+    { key: 'cardsCount', label: 'Cards', type: 'text' },
     { key: 'bannerImage', label: 'Banner', type: 'image' }
   ];
-  const initialState = { category: '', description: '', bannerImage: null, cards: [] };
+
+  const initialState = {
+    category: '',
+    title: '',
+    author: 'SVASC Editorial',
+    date: '25 May, 2026',
+    readTime: '4 min read',
+    description: '',
+    bannerImage: null,
+    cards: []
+  };
 
   return (
     <div>
       <HeroForm pageKey="blogs" title="Blogs Page Hero Section" />
+
+      {/* Sync All Default Blogs Action Bar */}
+      <div style={{
+        background: '#f0fdf4',
+        border: '1px solid #bbf7d0',
+        borderRadius: '8px',
+        padding: '1rem 1.25rem',
+        marginBottom: '1.5rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '0.8rem'
+      }}>
+        <div>
+          <h4 style={{ margin: 0, color: '#166534', fontSize: '0.98rem', fontWeight: '700' }}>
+            Full Database Sync (All 6 Categories & 24 Cards)
+          </h4>
+          <p style={{ margin: '0.25rem 0 0', color: '#15803d', fontSize: '0.85rem' }}>
+            Ensure all front-end blog categories, full HTML stories, and card highlights exist in MongoDB.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={handleSyncDefaults}
+          disabled={isSyncing}
+          style={{
+            background: '#15803d',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            padding: '0.55rem 1.1rem',
+            fontSize: '0.88rem',
+            fontWeight: '600',
+            cursor: isSyncing ? 'not-allowed' : 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.45rem',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.08)'
+          }}
+        >
+          <RefreshCw size={14} className={isSyncing ? styles.spin : ''} />
+          {isSyncing ? 'Syncing...' : 'Sync / Seed All 6 Default Blogs'}
+        </button>
+      </div>
+
+      {syncNotice && (
+        <div style={{
+          background: '#ecfdf5',
+          border: '1px solid #6ee7b7',
+          color: '#065f46',
+          padding: '0.75rem 1rem',
+          borderRadius: '6px',
+          marginBottom: '1.25rem',
+          fontSize: '0.9rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem'
+        }}>
+          <CheckCircle2 size={18} color="#059669" />
+          <span>{syncNotice}</span>
+        </div>
+      )}
 
       <CrudManager
         title="College Blogs Categories & Cards"
@@ -180,7 +297,33 @@ const BlogsTab = () => {
               required
             />
             <FormInput
-              label="Description"
+              label="Article / Blog Title"
+              value={formData.title || ''}
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              placeholder="e.g. Campus Life & Community Overview"
+            />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+              <FormInput
+                label="Author"
+                value={formData.author || ''}
+                onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                placeholder="SVASC Editorial"
+              />
+              <FormInput
+                label="Published Date"
+                value={formData.date || ''}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                placeholder="25 May, 2026"
+              />
+              <FormInput
+                label="Read Time"
+                value={formData.readTime || ''}
+                onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
+                placeholder="4 min read"
+              />
+            </div>
+            <FormInput
+              label="Full Story / Description (HTML Allowed)"
               type="textarea"
               value={formData.description || ''}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}

@@ -8,11 +8,11 @@ const blogCardSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        default: ''
     },
     image: {
         type: String,
-        required: true
+        default: ''
     }
 }, { _id: false });
 
@@ -22,6 +22,11 @@ const blogsSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    title: {
+        type: String,
+        trim: true,
+        default: ''
+    },
     description: {
         type: String,
         required: true
@@ -29,6 +34,21 @@ const blogsSchema = new mongoose.Schema({
     bannerImage: {
         type: String,
         required: true
+    },
+    author: {
+        type: String,
+        trim: true,
+        default: 'SVASC Editorial'
+    },
+    date: {
+        type: String,
+        trim: true,
+        default: '25 May, 2026'
+    },
+    readTime: {
+        type: String,
+        trim: true,
+        default: '4 min read'
     },
     cards: {
         type: [blogCardSchema],

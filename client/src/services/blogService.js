@@ -45,3 +45,8 @@ export const deleteBlog = async (id) => {
 export const getBlogsPageHero = async () => {
   return await apiClient.get('/page-heros/blogs');
 };
+
+// 7. SEED / RESTORE ALL 6 DEFAULT BLOGS (ALL CATEGORIES & 24 CARDS)
+export const seedDefaultBlogs = async (force = false) => {
+  return await apiClient.post('/blogs/seed-default', { force });
+};

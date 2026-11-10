@@ -5,6 +5,7 @@ const upload = require('../middlewares/uploadMiddleware');
 
 // Blogs routes
 router.get('/', blogsController.getAllBlogs);
+router.post('/seed-default', blogsController.seedDefaultBlogs);
 router.get('/:id', blogsController.getBlogById);
 router.post('/', upload.fields([
     { name: 'bannerImage', maxCount: 1 },
