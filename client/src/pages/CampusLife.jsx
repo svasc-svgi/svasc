@@ -70,7 +70,6 @@ const fallbackScroll = [
 const CampusLife = () => {
     const { setIsNavbarVisible } = useOutletContext();
     const [galleryHoverPos, setGalleryHoverPos] = useState({ x: 0, y: 0 });
-    const observerRef = useRef(null);
     const scrollRef = useRef(null);
 
     const [heroData, setHeroData] = useState(() => {
@@ -166,35 +165,11 @@ const CampusLife = () => {
         fetchCampusLifeData();
     }, []);
 
+    // Ensure fixed navbar stays visible on Campus Life page
     useEffect(() => {
-        const observerOptions = {
-            threshold: 0,
-            rootMargin: '-10% 0px 0px 0px'
-        };
-
-        const handleIntersect = (entries) => {
-            const isMobile = window.innerWidth <= 768;
-            entries.forEach((entry) => {
-                if (isMobile) {
-                    setIsNavbarVisible(true);
-                    return;
-                }
-                if (entry.isIntersecting) {
-                    setIsNavbarVisible(false);
-                } else if (entry.boundingClientRect.top > 0) {
-                    setIsNavbarVisible(true);
-                }
-            });
-        };
-
-        observerRef.current = new IntersectionObserver(handleIntersect, observerOptions);
-        const target = scrollRef.current;
-        if (target) observerRef.current.observe(target);
-
-        return () => {
-            if (observerRef.current) observerRef.current.disconnect();
+        if (setIsNavbarVisible) {
             setIsNavbarVisible(true);
-        };
+        }
     }, [setIsNavbarVisible]);
 
     useEffect(() => {

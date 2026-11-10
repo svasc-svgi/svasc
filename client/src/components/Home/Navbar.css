@@ -4,14 +4,30 @@
     border-bottom: 1px solid #e2e2e2;
     width: 100%;
     font-family: "Inter", "Segoe UI", sans-serif;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.25s ease;
+}
+
+.header-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom-color: #d8d8d8;
 }
 
 .header-hidden {
     transform: translateY(-100%);
+}
+
+/* Header spacer to maintain normal document flow below fixed navbar */
+.header-spacer {
+    display: block;
+    width: 100%;
+    height: 96px; /* Desktop fallback before dynamic measurement */
+    flex-shrink: 0;
 }
 
 
@@ -49,7 +65,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
+    z-index: 1003;
 }
 
 .hamburger span {
@@ -233,7 +249,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 100;
+    z-index: 1005;
     border: 1px solid #eee;
 }
 
@@ -299,8 +315,8 @@
 
 /* TABLET & MOBILE (<= 1024px) - UNIFIED CLEAN DRAWER MENU */
 @media (max-width: 1024px) {
-    .header {
-        overflow-x: hidden;
+    .header-spacer {
+        height: 72px;
     }
 
     .header-wrap {
@@ -354,7 +370,7 @@
         transform: translateX(100%);
         visibility: hidden;
         transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
-        z-index: 1000;
+        z-index: 1002;
     }
 
     .header .right.menu-open {
@@ -528,12 +544,16 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(4px);
-    z-index: 998;
+    z-index: 1001;
     transition: opacity 0.3s ease;
 }
 
 /* MOBILE (< 768px) */
 @media (max-width: 768px) {
+    .header-spacer {
+        height: 64px;
+    }
+
     .header-wrap {
         padding: 10px 14px;
     }
@@ -562,6 +582,10 @@
 
 /* VERY SMALL MOBILE (< 480px) */
 @media (max-width: 480px) {
+    .header-spacer {
+        height: 56px;
+    }
+
     .header-wrap {
         padding: 8px 10px;
         gap: 8px;

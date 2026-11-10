@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 // import Logo from './SVCAS-Logo.jpg'; // Removed to use public PNG
@@ -7,6 +7,44 @@ import { navData } from './navData';
 const Navbar = ({ className }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [headerHeight, setHeaderHeight] = useState(0);
+    const headerRef = useRef(null);
+
+    // Track scroll for elevated shadow on fixed navbar
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Dynamically calculate navbar height to keep spacer perfectly in sync across devices
+    useEffect(() => {
+        const updateHeight = () => {
+            if (headerRef.current) {
+                setHeaderHeight(headerRef.current.offsetHeight);
+            }
+        };
+
+        updateHeight();
+
+        let resizeObserver;
+        if (typeof ResizeObserver !== 'undefined' && headerRef.current) {
+            resizeObserver = new ResizeObserver(() => {
+                updateHeight();
+            });
+            resizeObserver.observe(headerRef.current);
+        }
+
+        window.addEventListener('resize', updateHeight);
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+            if (resizeObserver) resizeObserver.disconnect();
+        };
+    }, []);
 
     // Prevent background scrolling when mobile menu is open
     useEffect(() => {
@@ -54,20 +92,24 @@ const Navbar = ({ className }) => {
     };
 
     return (
-        <header className={`header ${className || ''}`}>
-            <div className="header-wrap">
-                <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                    {/* LEFT */}
-                    <div className="left">
-                        <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
-                        <div className="college-text">
-                            <h1>SHREE VENKATESHWARA</h1>
-                            <h2>ARTS &amp; SCIENCE (Co-Education) COLLEGE</h2>
-                            <span className="college-recognition">Recognized u/s 2(f) of the UGC Act, 1956</span>
-                            <span className="college-affiliation">Affiliated to the Bharathiar University, Coimbatore.</span>
+        <>
+            <header
+                ref={headerRef}
+                className={`header ${isScrolled ? 'header-scrolled' : ''} ${className || ''}`}
+            >
+                <div className="header-wrap">
+                    <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                        {/* LEFT */}
+                        <div className="left">
+                            <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
+                            <div className="college-text">
+                                <h1>SHREE VENKATESHWARA</h1>
+                                <h2>ARTS &amp; SCIENCE (Co-Education) COLLEGE</h2>
+                                <span className="college-recognition">Recognized u/s 2(f) of the UGC Act, 1956</span>
+                                <span className="college-affiliation">Affiliated to the Bharathiar University, Coimbatore.</span>
+                            </div>
                         </div>
-                    </div>
-                </Link>
+                    </Link>
 
                 {/* HAMBURGER MENU BUTTON - Mobile & Tablet */}
                 <button
@@ -167,6 +209,14 @@ const Navbar = ({ className }) => {
                 </div>
             </div>
         </header>
+
+        {/* Spacer to keep layout in normal document flow below fixed navbar */}
+            <div
+                className="header-spacer"
+                style={{ height: headerHeight ? `${headerHeight}px` : undefined }}
+                aria-hidden="true"
+            />
+        </>
     );
 };
 

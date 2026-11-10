@@ -40,6 +40,7 @@ html {
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 *, *::before, *::after {
@@ -69,9 +70,16 @@ body {
 }
 
 /* Fluid responsive typography scaling for smaller mobile screens */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+}
+
 @media (max-width: 480px) {
   html {
     font-size: 58%;
+    scroll-padding-top: 60px;
   }
 }
 
