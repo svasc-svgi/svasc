@@ -129,7 +129,7 @@ const Schools = () => {
                 name: "School of Management",
                 acronym: "SOM",
                 programs: [
-                    { title: "Management(BBA)", image: smart1Img },
+                    { title: "Bachelor of Business Administration (BBA)", image: smart1Img },
                 ]
             },
             {

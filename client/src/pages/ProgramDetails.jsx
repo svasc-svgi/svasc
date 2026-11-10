@@ -8,7 +8,13 @@ import { getStaffInitials } from '../utils/staffParser';
 
 const ProgramDetails = () => {
     const { id } = useParams();
-    const program = programDetailsData[id];
+    const cleanId = (id || '').toLowerCase();
+    let program = programDetailsData[id] || programDetailsData[cleanId];
+    if (!program) {
+        if (cleanId.includes('bba') || cleanId.includes('management')) {
+            program = programDetailsData['management'] || programDetailsData['managementbba'] || programDetailsData['bba'];
+        }
+    }
     const { getStaffPhoto } = useStaffPhotos();
 
     const [activeCategory, setActiveCategory] = useState('All');
@@ -152,20 +158,62 @@ const ProgramDetails = () => {
                     </section>
                 )}
 
+                {/* FUNCTIONS OF THE DEPARTMENT */}
+                {program.functions && (
+                    <section className={styles.objectivesSection}>
+                        <div className={styles.container}>
+                            <div className={styles.sectionCard}>
+                                <h2>Functions of the Department</h2>
+                                {program.functionsDescription && (
+                                    <p className={styles.sectionLeadText}>{program.functionsDescription}</p>
+                                )}
+                                <ul className={styles.bulletList}>
+                                    {program.functions.map((func, idx) => (
+                                        <li key={idx}>
+                                            <ChevronsRight className={styles.doubleArrow} size={20} />
+                                            <span>{func}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
                 {/* ROLES AND RESPONSIBILITIES */}
                 {program.rolesAndResponsibilities && (
                     <section className={styles.rolesSection}>
                         <div className={styles.container}>
                             <div className={styles.sectionCard}>
                                 <h2>Roles and Responsibilities of the Department</h2>
-                                <ul className={styles.bulletList}>
-                                    {program.rolesAndResponsibilities.map((role, idx) => (
-                                        <li key={idx}>
-                                            <ChevronsRight className={styles.doubleArrow} size={20} />
-                                            <span>{role}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {Array.isArray(program.rolesAndResponsibilities) &&
+                                program.rolesAndResponsibilities.length > 0 &&
+                                typeof program.rolesAndResponsibilities[0] === 'object' ? (
+                                    <div className={styles.rolesGroupContainer}>
+                                        {program.rolesAndResponsibilities.map((group, gIdx) => (
+                                            <div key={gIdx} className={styles.roleSubGroup}>
+                                                <h3 className={styles.roleSubGroupTitle}>{group.category}</h3>
+                                                <ul className={styles.bulletList}>
+                                                    {group.items && group.items.map((role, idx) => (
+                                                        <li key={idx}>
+                                                            <ChevronsRight className={styles.doubleArrow} size={20} />
+                                                            <span>{role}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <ul className={styles.bulletList}>
+                                        {program.rolesAndResponsibilities.map((role, idx) => (
+                                            <li key={idx}>
+                                                <ChevronsRight className={styles.doubleArrow} size={20} />
+                                                <span>{role}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         </div>
                     </section>
@@ -193,8 +241,33 @@ const ProgramDetails = () => {
                     </section>
                 )}
 
-                {/* CAREER OPPORTUNITIES */}
-                {program.careerOpportunities && (
+                {/* OPPORTUNITIES (CATEGORIZED OR FLAT LIST) */}
+                {program.opportunities ? (
+                    <section className={styles.careerSection}>
+                        <div className={styles.container}>
+                            <h2 className={styles.sectionTitle}>Academic & Professional Opportunities</h2>
+                            {program.opportunitiesLead && (
+                                <p className={styles.sectionLeadCentered}>{program.opportunitiesLead}</p>
+                            )}
+                            <div className={styles.opportunitiesStack}>
+                                {program.opportunities.map((oppGroup, gIdx) => (
+                                    <div key={gIdx} className={styles.oppGroup}>
+                                        <div className={styles.oppGroupHeader}>
+                                            <span className={styles.oppGroupBadge}>{oppGroup.category}</span>
+                                        </div>
+                                        <div className={styles.careerGrid}>
+                                            {oppGroup.items.map((item, idx) => (
+                                                <div key={idx} className={styles.careerBox}>
+                                                    {typeof item === 'string' ? item : item.title}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                ) : program.careerOpportunities ? (
                     <section className={styles.careerSection}>
                         <div className={styles.container}>
                             <h2 className={styles.sectionTitle}>Career Opportunities</h2>
@@ -207,7 +280,7 @@ const ProgramDetails = () => {
                             </div>
                         </div>
                     </section>
-                )}
+                ) : null}
 
                 {/* STAFF DETAILS */}
                 {program.staffDetails && (

@@ -991,6 +991,91 @@
     transform: translateY(-50%) scale(1.1);
 }
 
+/* EXTENDED SECTIONS FOR FUNCTIONS, CATEGORIZED ROLES & OPPORTUNITIES */
+.sectionLeadText {
+    font-size: 1.45rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
+}
+
+.rolesGroupContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+.roleSubGroup {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2.2rem 2.4rem;
+    transition: all 0.25s ease;
+}
+
+.roleSubGroup:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 15px rgba(0, 33, 75, 0.04);
+}
+
+.roleSubGroupTitle {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #021f4b;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.8rem;
+}
+
+.sectionLeadCentered {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #475569;
+    max-width: 800px;
+    margin: -1.5rem auto 3.5rem auto;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.opportunitiesStack {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.oppGroup {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.2rem;
+    padding: 2.4rem;
+    transition: all 0.3s ease;
+}
+
+.oppGroup:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 20px rgba(0, 33, 75, 0.05);
+}
+
+.oppGroupHeader {
+    margin-bottom: 2rem;
+}
+
+.oppGroupBadge {
+    display: inline-block;
+    background: #021f4b;
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-weight: 700;
+    padding: 0.6rem 1.6rem;
+    border-radius: 0.6rem;
+    letter-spacing: 0.3px;
+    border-left: 4px solid #f5b400;
+}
+
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1024px) {
     .facilitiesFlex {
@@ -1126,4 +1211,32 @@
 
     .prevBtn { left: 5px; }
     .nextBtn { right: 5px; }
+
+    .sectionLeadCentered {
+        font-size: 1.35rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .oppGroup {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .oppGroupBadge {
+        font-size: 1.3rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .roleSubGroup {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .roleSubGroupTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .careerGrid {
+        grid-template-columns: 1fr;
+    }
 }

@@ -706,10 +706,10 @@ export const programDetailsData = {
         ]
     },
     "management": {
-        title: "Management (BBA)",
+        title: "Bachelor of Business Administration (BBA)",
         heroImage: smart1Img,
         aboutImage: smart2Img,
-        about: "The Department of Business Administration (BBA) offers a fundamental education in business and management principles. It provides comprehensive knowledge and practical training in leadership, analytical, decision-making, and entrepreneurial skills to prepare students for managerial roles, corporate careers, higher education, and successful business ventures.",
+        about: "The Department of Management offers a fundamental education in business and management principles. It provides comprehensive knowledge and practical training in leadership, analytical thinking, decision-making, and entrepreneurial skills to prepare students for managerial roles, corporate careers, higher education, and successful business ventures.",
         vision: "The department strives to develop the knowledge and skills required to act as responsible stewards and provide meaningful guidance to students in achieving their career goals.",
         mission: [
             "To empower students in their chosen disciplines by combining academic learning with hands-on industry experience.",
@@ -726,7 +726,8 @@ export const programDetailsData = {
             "To promote ethical values, social responsibility, and sustainable business practices.",
             "To prepare students for higher education, competitive examinations, and global career opportunities."
         ],
-        rolesAndResponsibilities: [
+        functionsDescription: "The Department of Business Administration performs the following functions:",
+        functions: [
             "Deliver quality teaching through an outcome-based curriculum.",
             "Organize seminars, workshops, conferences, guest lectures, and management development programmes.",
             "Facilitate industrial visits, internships, field projects, and experiential learning.",
@@ -736,9 +737,43 @@ export const programDetailsData = {
             "Establish collaborations with industries and professional organizations for academic enrichment.",
             "Provide mentoring, counselling, and career guidance to students.",
             "Organize placement training and campus recruitment activities.",
-            "Conduct extension and outreach programmes to develop social responsibility.",
-            "HOD & Faculty Leadership: Academic strategic direction, curriculum quality assurance, innovative pedagogy, research, and industry interaction.",
-            "Student Responsibilities: Active academic participation, discipline, leadership, internships, community service, and entrepreneurship initiatives."
+            "Conduct extension and outreach programmes to develop social responsibility."
+        ],
+        rolesAndResponsibilities: [
+            {
+                category: "Head of the Department",
+                items: [
+                    "Provide academic leadership and strategic direction to the department.",
+                    "Plan, coordinate, and monitor teaching-learning activities.",
+                    "Ensure effective curriculum implementation and quality assurance.",
+                    "Promote research, consultancy, innovation, and industry collaborations.",
+                    "Coordinate accreditation, ranking, and statutory requirements.",
+                    "Encourage faculty development and student progression."
+                ]
+            },
+            {
+                category: "Faculty Members",
+                items: [
+                    "Deliver quality teaching using innovative pedagogical methods.",
+                    "Prepare lesson plans, study materials, and assessment tools.",
+                    "Mentor students in academics, research, and career development.",
+                    "Conduct research and publish scholarly work.",
+                    "Organize academic and co-curricular activities.",
+                    "Build strong industry–institution interactions.",
+                    "Evaluate student performance fairly and provide constructive feedback."
+                ]
+            },
+            {
+                category: "Students",
+                items: [
+                    "Participate actively in academic and co-curricular activities.",
+                    "Maintain discipline, integrity, and professional ethics.",
+                    "Develop leadership, teamwork, and communication skills.",
+                    "Complete internships, projects, and industrial training.",
+                    "Engage in research, innovation, and entrepreneurship initiatives.",
+                    "Contribute to community service and extension activities."
+                ]
+            }
         ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
@@ -748,23 +783,107 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
+        opportunitiesLead: "The BBA programme provides students with diverse academic and professional opportunities, including:",
+        opportunities: [
+            {
+                category: "Higher Education",
+                items: [
+                    "MBA",
+                    "M.Com.",
+                    "MHRM",
+                    "MSW",
+                    "PGDM",
+                    "Professional certification programmes",
+                    "International postgraduate programmes"
+                ]
+            },
+            {
+                category: "Career Opportunities",
+                items: [
+                    "Human Resource Executive",
+                    "Marketing Executive",
+                    "Sales Manager",
+                    "Financial Analyst",
+                    "Operations Executive",
+                    "Business Development Executive",
+                    "Customer Relationship Manager",
+                    "Banking Professional",
+                    "Insurance Advisor",
+                    "Retail Manager",
+                    "Logistics and Supply Chain Executive",
+                    "Digital Marketing Executive",
+                    "Business Analyst",
+                    "Administrative Officer",
+                    "Management Trainee",
+                    "Project Coordinator"
+                ]
+            },
+            {
+                category: "Entrepreneurship Opportunities",
+                items: [
+                    "Start-up Founder",
+                    "Small Business Owner",
+                    "Family Business Management",
+                    "Business Consultant",
+                    "Franchise Development",
+                    "E-commerce Entrepreneur",
+                    "Social Entrepreneur"
+                ]
+            },
+            {
+                category: "Government Opportunities",
+                items: [
+                    "UPSC Civil Services",
+                    "TNPSC and State Public Service Commissions",
+                    "SSC",
+                    "Banking Examinations (IBPS, SBI, RBI)",
+                    "Insurance Sector Examinations",
+                    "Railway Recruitment",
+                    "Public Sector Undertakings (PSUs)"
+                ]
+            },
+            {
+                category: "Professional Skill Development Opportunities",
+                items: [
+                    "Industrial Training",
+                    "Internship Programmes",
+                    "Live Business Projects",
+                    "Corporate Workshops",
+                    "Leadership Development Programmes",
+                    "Entrepreneurship Development Programmes",
+                    "Research Projects",
+                    "Professional Certification Courses",
+                    "Placement Training",
+                    "Soft Skills and Personality Development Programmes"
+                ]
+            }
+        ],
         careerOpportunities: [
-            { title: "Human Resource & Talent Executive" },
-            { title: "Marketing Executive & Sales Manager" },
-            { title: "Financial Analyst & Operations Executive" },
-            { title: "Business Development Executive & CRM Manager" },
-            { title: "Banking Professional & Insurance Advisor" },
-            { title: "Logistics, Supply Chain & Retail Manager" },
-            { title: "Digital Marketing Executive & Business Analyst" },
-            { title: "Administrative Officer & Management Trainee" },
-            { title: "Start-up Founder & Business Consultant" },
-            { title: "Franchise & E-commerce Entrepreneur" },
-            { title: "Government Services (UPSC, TNPSC, SSC, Banking, Railways, PSUs)" },
-            { title: "Higher Education: MBA, M.Com, MHRM, MSW, PGDM" },
-            { title: "Professional Skill & Personality Development Programmes" }
+            { title: "Human Resource Executive" },
+            { title: "Marketing Executive" },
+            { title: "Sales Manager" },
+            { title: "Financial Analyst" },
+            { title: "Operations Executive" },
+            { title: "Business Development Executive" },
+            { title: "Customer Relationship Manager" },
+            { title: "Banking Professional" },
+            { title: "Insurance Advisor" },
+            { title: "Retail Manager" },
+            { title: "Logistics and Supply Chain Executive" },
+            { title: "Digital Marketing Executive" },
+            { title: "Business Analyst" },
+            { title: "Administrative Officer" },
+            { title: "Management Trainee" },
+            { title: "Project Coordinator" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Mrs. P. S. KAVITHA", qualification: "MBA., M.Phil. (Assistant Professor)" }
         ],
         faqs: [
-            { question: "Is there an entrance exam for BBA?", answer: "Typically, admission is based on academic merit and a personal interview." }
+            { question: "What is the scope and duration of the BBA programme?", answer: "The Bachelor of Business Administration (BBA) is a 3-year undergraduate degree designed to develop managerial acumen, strategic thinking, and leadership across major business domains like HR, Marketing, and Finance." },
+            { question: "What are the eligibility criteria for admission into BBA?", answer: "Candidates who have completed Higher Secondary (10+2) or equivalent from a recognized board in any stream (Commerce, Science, or Arts) are eligible to apply." },
+            { question: "Are internships and industrial visits part of the BBA curriculum?", answer: "Yes, the department actively conducts industrial visits, experiential workshops, live business projects, and mandatory internship programmes to provide direct exposure to corporate environments." },
+            { question: "What higher education paths can I pursue after BBA?", answer: "Graduates can pursue MBA, M.Com., MHRM, MSW, PGDM, or specialized international postgraduate and professional certification programmes." }
         ],
         gallery: [
             {
@@ -1584,6 +1703,10 @@ export const programDetailsData = {
 
 // Alias bba to management for flexible routing
 programDetailsData["bba"] = programDetailsData["management"];
+programDetailsData["managementbba"] = programDetailsData["management"];
+programDetailsData["management-bba"] = programDetailsData["management"];
+programDetailsData["bachelor-of-business-administration"] = programDetailsData["management"];
+programDetailsData["bachelor-of-business-administration-bba"] = programDetailsData["management"];
 programDetailsData["ph-d-commerce"] = programDetailsData["phd-commerce"];
 programDetailsData["phd-in-commerce"] = programDetailsData["phd-commerce"];
 programDetailsData["phdcommerce"] = programDetailsData["phd-commerce"];
