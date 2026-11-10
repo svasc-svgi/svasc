@@ -37,9 +37,9 @@ const syncToHomeBlog = async (blogDoc) => {
 
 const getAllBlogs = async (req, res) => {
     try {
-        // Auto-seed all 24 independent cards if DB has fewer than 24 cards
+        // Auto-seed all independent cards if DB has fewer than 34 cards
         const count = await BlogsService.getBlogCount();
-        if (count < 24) {
+        if (count < 34) {
             await BlogsService.seedDefaultBlogs(false);
         }
 

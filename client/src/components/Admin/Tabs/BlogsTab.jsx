@@ -16,14 +16,15 @@ import { RefreshCw, CheckCircle2, Filter } from 'lucide-react';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
-const CATEGORIES = [
-  'Campus Life & Community',
-  'Academic Events',
-  'Cultural',
-  'Innovations in Education and Technology',
-  'Student Activities and Achievements',
-  'SVASC News'
-];
+const resolveBlogImage = (img) => {
+  if (!img) return null;
+  if (img instanceof File) return URL.createObjectURL(img);
+  if (typeof img === 'string') {
+    if (img.startsWith('http') || img.startsWith('data:') || img.startsWith('/')) return img;
+    return `${BASE_URL}/${img.replace(/^\/+/, '')}`;
+  }
+  return null;
+};
 
 const BlogsTab = () => {
   const [blogs, setBlogs] = useState([]);
@@ -38,8 +39,8 @@ const BlogsTab = () => {
       const res = await getBlogs();
       let bRes = res?.data ?? (Array.isArray(res) ? res : []);
 
-      // If backend has fewer than 24 blogs, auto-seed so all 24 cards exist in MongoDB
-      if (bRes.length < 24) {
+      // If backend has fewer than 34 blogs, auto-seed so all cards exist in MongoDB
+      if (bRes.length < 34) {
         try {
           await seedDefaultBlogs(false);
           const freshRes = await getBlogs();
@@ -49,32 +50,36 @@ const BlogsTab = () => {
         }
       }
 
-      const mappedDbBlogs = bRes.map(item => ({
-        ...item,
-        image: item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : ''),
-        bannerImage: item.image || item.bannerImage,
-        description: item.description || item.copy || ''
-      }));
+      const mappedDbBlogs = bRes.map(item => {
+        const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '');
+        const imgUrl = resolveBlogImage(rawImg) || rawImg;
+        return {
+          ...item,
+          image: imgUrl,
+          bannerImage: imgUrl,
+          description: item.description || item.copy || ''
+        };
+      });
 
-      // Merge dynamic DB blogs with defaultBlogs fallback by title so ALL 24 CARDS are ALWAYS guaranteed to show in backend
+      // Merge dynamic DB blogs with defaultBlogs fallback by title so ALL cards are ALWAYS shown
       const existingTitles = new Set(mappedDbBlogs.map(b => (b.title || '').toLowerCase().trim()));
       const remainingDefaults = defaultBlogs
         .filter(d => !existingTitles.has((d.title || '').toLowerCase().trim()))
         .map(d => ({
           ...d,
-          image: d.image || d.bImage || d.bannerImage,
-          bannerImage: d.image || d.bImage || d.bannerImage,
+          image: resolveBlogImage(d.image),
+          bannerImage: resolveBlogImage(d.image),
           description: d.description || d.copy || ''
         }));
 
       setBlogs([...mappedDbBlogs, ...remainingDefaults]);
     } catch (err) {
       console.error('Error loading blogs data', err);
-      // Fallback to defaultBlogs on network failure so all 24 cards always show
+      // Fallback to defaultBlogs on network failure so all cards always show
       setBlogs(defaultBlogs.map(item => ({
         ...item,
-        image: item.image || item.bImage || item.bannerImage,
-        bannerImage: item.image || item.bImage || item.bannerImage,
+        image: resolveBlogImage(item.image),
+        bannerImage: resolveBlogImage(item.image),
         description: item.description || item.copy || ''
       })));
     }
@@ -84,14 +89,18 @@ const BlogsTab = () => {
     loadData();
   }, []);
 
+  // Dynamic categories extracted from all blog cards
+  const categoryList = Array.from(new Set(blogs.map(b => (b.category || '').trim()).filter(Boolean)));
+  const filterTabs = ['All', ...categoryList];
+
   const handleSyncDefaults = async () => {
-    if (!window.confirm('Do you want to sync/reset all 24 independent blog cards into MongoDB? This will ensure every card exists in the database.')) {
+    if (!window.confirm('Do you want to sync all blog cards with their complete previous content and poster graphics into MongoDB? This ensures all cards exist in the database.')) {
       return;
     }
     setIsSyncing(true);
     try {
       await seedDefaultBlogs(true);
-      setSyncNotice('All 24 blog cards successfully synced into MongoDB database!');
+      setSyncNotice('All blog cards successfully synced into MongoDB database!');
       await loadData();
       setTimeout(() => setSyncNotice(''), 4500);
     } catch (err) {
@@ -133,13 +142,13 @@ const BlogsTab = () => {
       };
 
       // 2. Check if valid MongoDB ObjectId or fallback ID
-      const isRealMongoId = id && !String(id).startsWith('blog-def-') && id !== 'all';
+      const isRealMongoId = id && !String(id).startsWith('blog-') && id !== 'all';
 
       if (isRealMongoId) {
         await updateBlog(id, payload);
       } else {
-        // Check if item already exists in local list with a mongo _id
-        const existingInList = blogs.find(b => b.title?.toLowerCase() === payload.title.toLowerCase() && b._id && !String(b._id).startsWith('blog-def-'));
+        // Check if item already exists in local list with a real mongo _id
+        const existingInList = blogs.find(b => b.title?.toLowerCase() === payload.title.toLowerCase() && b._id && !String(b._id).startsWith('blog-'));
         if (existingInList) {
           await updateBlog(existingInList._id, payload);
         } else {
@@ -154,8 +163,8 @@ const BlogsTab = () => {
   };
 
   const handleDelete = async (id) => {
-    if (!id || String(id).startsWith('blog-def-')) {
-      alert('Default seed item cannot be deleted directly from database without first syncing.');
+    if (!id || String(id).startsWith('blog-')) {
+      alert('This card is a default entry and has not yet been saved to MongoDB. Click "Sync All Cards" first or Edit and Save it.');
       return;
     }
     await deleteBlog(id);
@@ -193,7 +202,7 @@ const BlogsTab = () => {
     <div>
       <HeroForm pageKey="blogs" title="Blogs Page Hero Section" />
 
-      {/* Sync All 24 Cards Action Bar */}
+      {/* Sync All Cards Action Bar */}
       <div style={{
         background: '#f0fdf4',
         border: '1px solid #bbf7d0',
@@ -208,10 +217,10 @@ const BlogsTab = () => {
       }}>
         <div>
           <h4 style={{ margin: 0, color: '#166534', fontSize: '0.98rem', fontWeight: '700' }}>
-            Full Database Sync (All 24 Independent Blog Cards)
+            Full Database Sync (All {blogs.length} Independent Blog Cards)
           </h4>
           <p style={{ margin: '0.25rem 0 0', color: '#15803d', fontSize: '0.85rem' }}>
-            Ensure all 24 individual blog cards across all 6 categories are stored in MongoDB as separate editable cards.
+            Synchronize all complete cards, original poster graphics, and category stories into MongoDB.
           </p>
         </div>
         <button
@@ -234,7 +243,7 @@ const BlogsTab = () => {
           }}
         >
           <RefreshCw size={15} className={isSyncing ? 'animate-spin' : ''} />
-          {isSyncing ? 'Syncing 24 Cards...' : 'Sync / Reset 24 Cards'}
+          {isSyncing ? 'Syncing Cards...' : 'Sync All Cards'}
         </button>
       </div>
 
@@ -271,7 +280,7 @@ const BlogsTab = () => {
         <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
           <Filter size={14} /> Filter by Category:
         </span>
-        {['All', ...CATEGORIES].map((cat, idx) => {
+        {filterTabs.map((cat, idx) => {
           const isSelected = selectedFilterCategory.toLowerCase() === cat.toLowerCase();
           const count = cat === 'All' ? blogs.length : blogs.filter(b => (b.category || '').toLowerCase().trim() === cat.toLowerCase().trim()).length;
           return (
@@ -320,7 +329,7 @@ const BlogsTab = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
               <FormInput
                 label="Card Title *"
-                placeholder="e.g. Campus Overview, Guest Lectures, etc."
+                placeholder="e.g. Guest Lecture, Campus Overview, etc."
                 value={formData.title || ''}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 required
@@ -330,8 +339,10 @@ const BlogsTab = () => {
                 <label style={{ fontWeight: 600, color: '#333', fontSize: '0.88rem' }}>
                   Category *
                 </label>
-                <select
-                  value={formData.category || 'Campus Life & Community'}
+                <input
+                  list="category-suggestions"
+                  placeholder="Select or type category (e.g. Guest Lecture, Cultural, etc.)"
+                  value={formData.category || ''}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   style={{
                     padding: '0.6rem 0.8rem',
@@ -341,11 +352,13 @@ const BlogsTab = () => {
                     backgroundColor: '#fff',
                     outline: 'none'
                   }}
-                >
-                  {CATEGORIES.map((cat, idx) => (
-                    <option key={idx} value={cat}>{cat}</option>
+                  required
+                />
+                <datalist id="category-suggestions">
+                  {categoryList.map((cat, idx) => (
+                    <option key={idx} value={cat} />
                   ))}
-                </select>
+                </datalist>
               </div>
             </div>
 
@@ -354,15 +367,7 @@ const BlogsTab = () => {
                 label="Card Image *"
                 accept="image/*"
                 onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
-                previewUrl={
-                  typeof formData.image === 'string'
-                    ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`)
-                    : (formData.image ? URL.createObjectURL(formData.image) : (
-                        typeof formData.bannerImage === 'string'
-                          ? (formData.bannerImage.startsWith('http') ? formData.bannerImage : `${BASE_URL}/${formData.bannerImage.replace(/^\/+/, '')}`)
-                          : null
-                      ))
-                }
+                previewUrl={resolveBlogImage(formData.image || formData.bannerImage)}
               />
             </div>
 

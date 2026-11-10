@@ -105,7 +105,7 @@ const CrudManager = ({
 
     if (column.type === 'video') {
       if (!value) return <span style={{ color: '#999', fontSize: '12px' }}>No Video</span>;
-      const mediaUrl = (typeof value === 'string' && (value.startsWith('http') || value.startsWith('.'))) 
+      const mediaUrl = (typeof value === 'string' && (value.startsWith('http') || value.startsWith('.') || value.startsWith('/'))) 
         ? value 
         : `${BASE_URL}/${String(value).replace(/^\/+/, '')}`;
       return renderVideoThumbnail(mediaUrl);
@@ -113,7 +113,7 @@ const CrudManager = ({
 
     if (column.type === 'image' || column.type === 'media') {
       if (!value) return <span style={{ color: '#999', fontSize: '12px' }}>No Media</span>;
-      const mediaUrl = (typeof value === 'string' && (value.startsWith('http') || value.startsWith('.'))) 
+      const mediaUrl = (typeof value === 'string' && (value.startsWith('http') || value.startsWith('.') || value.startsWith('/'))) 
         ? value 
         : `${BASE_URL}/${String(value).replace(/^\/+/, '')}`;
       

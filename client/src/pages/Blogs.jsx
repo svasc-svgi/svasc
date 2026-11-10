@@ -7,15 +7,12 @@ import { Calendar, User, ArrowRight, Search, X, Layers, Clock } from 'lucide-rea
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
-const CATEGORIES = [
-    'All',
-    'Campus Life & Community',
-    'Academic Events',
-    'Cultural',
-    'Innovations in Education and Technology',
-    'Student Activities and Achievements',
-    'SVASC News'
-];
+const resolveBlogImage = (img) => {
+    if (!img) return 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800';
+    if (img.startsWith('http') || img.startsWith('data:') || img.startsWith('/')) return img;
+    const clean = img.replace(/^\/+/, '');
+    return `${BASE_URL}/${clean}`;
+};
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState(defaultBlogs);
@@ -51,8 +48,7 @@ const Blogs = () => {
                 if (data.length > 0) {
                     const mappedDbBlogs = data.map(item => {
                         const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '') || '';
-                        const cleanImg = rawImg.replace(/^\/+/, '');
-                        const imgUrl = rawImg.startsWith('http') ? rawImg : (cleanImg ? `${BASE_URL}/${cleanImg}` : '');
+                        const imgUrl = resolveBlogImage(rawImg);
 
                         return {
                             ID: item._id,
@@ -71,7 +67,7 @@ const Blogs = () => {
                         };
                     });
 
-                    // Merge dynamic DB blogs with default fallback cards so all 24 are always accessible
+                    // Merge dynamic DB blogs with default fallback cards so all cards are always accessible
                     const existingTitles = new Set(mappedDbBlogs.map(b => (b.title || '').toLowerCase().trim()));
                     const remainingDefaults = defaultBlogs.filter(d => !existingTitles.has((d.title || '').toLowerCase().trim()));
                     setBlogs([...mappedDbBlogs, ...remainingDefaults]);
@@ -82,6 +78,9 @@ const Blogs = () => {
         };
         fetchBlogs();
     }, []);
+
+    // Dynamic category tabs extracted from all available blogs
+    const categoryTabs = ['All', ...Array.from(new Set(blogs.map(b => (b.category || '').trim()).filter(Boolean)))];
 
     // Filter posts
     const filteredBlogs = blogs.filter(blog => {
@@ -122,7 +121,7 @@ const Blogs = () => {
                 {/* Category Smart Filter Tabs */}
                 <div className={styles.filterBarWrapper}>
                     <ul className={styles.filterTabsList}>
-                        {CATEGORIES.map((cat, idx) => {
+                        {categoryTabs.map((cat, idx) => {
                             const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
                             return (
                                 <li key={idx}>
@@ -167,7 +166,7 @@ const Blogs = () => {
                     </div>
                 </div>
 
-                {/* 3-Column Posts Grid (All 24 Independent Blog Cards) */}
+                {/* 3-Column Posts Grid */}
                 <div className={styles.postsGrid}>
                     {filteredBlogs.map((blog, idx) => (
                         <article
@@ -178,7 +177,7 @@ const Blogs = () => {
                             {/* Card Media */}
                             <div className={styles.cardMedia}>
                                 <img
-                                    src={blog.image || blog.bImage || blog.bannerImage}
+                                    src={resolveBlogImage(blog.image || blog.bImage || blog.bannerImage)}
                                     alt={blog.title || blog.category}
                                     className={styles.cardImage}
                                     loading="lazy"
@@ -271,7 +270,7 @@ const Blogs = () => {
                             {/* Hero Banner */}
                             <div className={styles.readerHeroBanner}>
                                 <img
-                                    src={readingBlog.image || readingBlog.bImage || readingBlog.bannerImage}
+                                    src={resolveBlogImage(readingBlog.image || readingBlog.bImage || readingBlog.bannerImage)}
                                     alt={readingBlog.title}
                                 />
                                 <div className={styles.readerHeroOverlay}>

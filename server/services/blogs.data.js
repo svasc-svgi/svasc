@@ -1,255 +1,344 @@
-// 24 Individual Blog Cards across all 6 categories
+// All 34 Complete Blog Cards from screenshots and database
 const DEFAULT_BLOGS = [
-    // ─── 1. Campus Life & Community ──────────────────────────────────────────
     {
-        title: "Campus Overview",
-        category: "Campus Life & Community",
-        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
-        description: "<p>A detailed glimpse into the SVASC state-of-the-art campus, modern learning zones, and green open spaces. Our college is committed to sharing experiences and knowledge that enriches the educational journey. From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow, and connect.</p><p>Explore our vibrant educational ecosystem featuring modern architecture, student recreational areas, botanical gardens, and world-class sports amenities that inspire greatness every day.</p>",
-        author: "SVASC Editorial",
-        date: "25 May, 2026",
-        readTime: "4 min read",
-        order: 0
+        "title": "Campus Life & Community Overview",
+        "category": "Campus Life & Community",
+        "image": "/blogs_images/campus_overview.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Welcome to our comprehensive college blogs portal. Here you'll find insightful articles and stories about all aspects of campus life including academic insights, cultural experiences, innovation showcases, student achievements, and official SVASC announcements.</p><p>Our college is committed to sharing experiences and knowledge that enriches the educational journey. From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow, and connect.</p><p>Stay updated with all the latest blog posts and stories from our campus. Check back regularly for new articles, insights, and opportunities to contribute to the vibrant narrative of our college community.</p>",
+        "order": 0
     },
     {
-        title: "Student Life",
-        category: "Campus Life & Community",
-        image: "https://images.unsplash.com/photo-1562774053-701939374585?w=800",
-        description: "<p>Vibrant clubs, daily campus activities, friendship, leadership opportunities, and community fellowship. Student life at SVASC is a balanced blend of academic discipline and co-curricular vibrancy where lifelong friendships and career foundations are built.</p><p>With dozens of student-led clubs, cultural committees, and technical forums, every learner finds their passion, hones soft skills, and experiences the warmth of our welcoming collegiate family.</p>",
-        author: "SVASC Editorial",
-        date: "25 May, 2026",
-        readTime: "4 min read",
-        order: 1
+        "title": "Guest Lecture",
+        "category": "Guest Lecture",
+        "image": "/blogs_images/guest_lecture.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Corporate Accounting Essentials for Future Professionals providing students with practical knowledge and professional insights into the field of Corporate Accounting.</p><p>The PG and Research Department of Commerce (Kautilya Association) organised a special guest lecture on \"Corporate Accounting Essentials for Future Professionals\". Resource person Dr. R. S. Mohanprakash, Associate Professor of Commerce (CA), delivered an illuminating presentation bridging academic knowledge with corporate industry practice and preparing students for competitive corporate accounting careers.</p>",
+        "order": 1
     },
     {
-        title: "Facilities",
-        category: "Campus Life & Community",
-        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
-        description: "<p>High-tech laboratories, modern smart classrooms, comprehensive library facilities, and recreational avenues. We provide cutting-edge physical and digital infrastructure to support both theoretical learning and experiential discovery.</p><p>From smart board enabled lecture halls to high-speed campus-wide WiFi and well-maintained hostel amenities, SVASC provides an unmatched learning environment.</p>",
-        author: "SVASC Editorial",
-        date: "24 May, 2026",
-        readTime: "3 min read",
-        order: 2
+        "title": "Scholarly Milestones & Departmental Seminars",
+        "category": "Academic Events",
+        "image": "/blogs_images/scholarly_milestones.jpg",
+        "date": "24 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "5 min read",
+        "description": "<p>Our Academic Blogs section features insightful articles about scholarly activities including guest lectures, seminars, workshops, research findings, and academic competitions. These blogs are designed to share knowledge and foster intellectual growth among students and faculty.</p><p>Recent blog posts cover distinguished speaker insights, departmental research highlights, competition experiences, and interdisciplinary explorations. Students share their experiences in music, dance, drama, art, and various traditional and contemporary art forms. These blog posts provide a platform for students to express themselves, appreciate different cultures, and build a sense of community and belonging.</p>",
+        "order": 2
     },
     {
-        title: "Activities",
-        category: "Campus Life & Community",
-        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800",
-        description: "<p>Extracurriculars, workshops, seminars, NSS, YRC, and campus celebration days throughout the academic year. Activities at SVASC empower students to step out of their comfort zones, discover hidden talents, and contribute meaningfully to society.</p><p>Participate in annual day functions, sports championships, awareness rallies, and leadership bootcamps that prepare students for tomorrow's challenges.</p>",
-        author: "SVASC Editorial",
-        date: "24 May, 2026",
-        readTime: "4 min read",
-        order: 3
-    },
-
-    // ─── 2. Academic Events ──────────────────────────────────────────────────
-    {
-        title: "Guest Lectures",
-        category: "Academic Events",
-        image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800",
-        description: "<p>Eminent industry experts, corporate leaders, and university scholars regularly visit SVASC to deliver masterclasses on cutting-edge topics. These lectures bridge the divide between theoretical curricula and contemporary industrial realities.</p><p>Students gain direct exposure to career avenues, emerging market requirements, and personal insights from industry leaders in technology, finance, life sciences, and literature.</p>",
-        author: "SVASC Editorial",
-        date: "24 May, 2026",
-        readTime: "5 min read",
-        order: 4
+        "title": "FIELD VISIT AND TRAINING",
+        "category": "Field Visit and Training",
+        "image": "/blogs_images/field_visit_honey_bee.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>The training session also focused on the process of honey production. Students observed various stages involved in honey extraction, processing, filtering, and packaging under hygienic conditions. The resource persons explained the nutritional and medicinal values of pure honey and discussed entrepreneurial opportunities in the beekeeping and agro-based products sector.</p><p>The PG and Research Department of Commerce (Kautilya Association) organised a one-day field visit and practical training at Manjari Honey Bee Farm (Sri Murugan Bee Keepers), Kolappalur on 11.08.2026.</p>",
+        "order": 3
     },
     {
-        title: "Seminars",
-        category: "Academic Events",
-        image: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800",
-        description: "<p>Interactive departmental seminars providing students with platforms to discuss research innovations, debate recent discoveries, and enhance their academic presentation skills.</p><p>Each department organizes state and national level seminars featuring paper presentations, panel discussions, and collaborative intellectual exchanges.</p>",
-        author: "SVASC Editorial",
-        date: "23 May, 2026",
-        readTime: "4 min read",
-        order: 5
+        "title": "Cultural Diversity & Artistic Celebrations",
+        "category": "Cultural",
+        "image": "/blogs_images/cultural_diversity.jpg",
+        "date": "23 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Cultural blogs at our college celebrate diversity, creativity, and artistic expression. From annual festival recaps to talent showcase features, traditional dance dramas to contemporary musical shows, our students actively express their heritage and artistic flair.</p><p>Through dance performances, musical events, dramatic interpretations, and folk artistry, the college campus provides an inspiring platform for cultural exploration and community celebration.</p>",
+        "order": 4
     },
     {
-        title: "Workshops",
-        category: "Academic Events",
-        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
-        description: "<p>Practical hands-on technical workshops bridging classroom theory with industrial practices. Participants master in-demand tools, experimental techniques, data analysis packages, and creative writing skills.</p><p>Guided by specialized practitioners, students complete live projects, gain certificates, and build strong professional portfolios.</p>",
-        author: "SVASC Editorial",
-        date: "23 May, 2026",
-        readTime: "4 min read",
-        order: 6
+        "title": "National Sports Day",
+        "category": "National Sports Day",
+        "image": "/blogs_images/national_sports_day.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Competitions were conducted for National Sports Day celebrating fitness, sportsmanship, and collegiate team spirit.</p><p>A wide range of events were organized including Volleyball (Men) and Throwball (Women) tournaments. Students across departments participated with tremendous energy and enthusiasm, setting new records and strengthening athletic excellence.</p>",
+        "order": 5
     },
     {
-        title: "Competitions",
-        category: "Academic Events",
-        image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800",
-        description: "<p>Inter-collegiate and intra-departmental academic challenges, hackathons, and quiz tournaments. These competitive platforms instill agility, critical problem solving, and confidence in our students.</p><p>SVASC scholars regularly secure top podium spots in state-wide competitions, bringing pride and distinction to the institution.</p>",
-        author: "SVASC Editorial",
-        date: "22 May, 2026",
-        readTime: "3 min read",
-        order: 7
-    },
-
-    // ─── 3. Cultural ─────────────────────────────────────────────────────────
-    {
-        title: "Music Events",
-        category: "Cultural",
-        image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
-        description: "<p>Live acoustic sessions, vocal recitals, instrumental jams, and annual musical competitions that capture the vibrant cultural pulse of campus life throughout the year.</p><p>From classical Carnatic and folk melodies to modern band performances, our music club cultivates auditory artistry and stage confidence.</p>",
-        author: "SVASC Editorial",
-        date: "22 May, 2026",
-        readTime: "4 min read",
-        order: 8
+        "title": "Tech Frontiers, AI & Digital Pedagogy",
+        "category": "Innovations in Education and Technology",
+        "image": "/blogs_images/tech_frontiers.jpg",
+        "date": "22 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Explore the future of education and technology through our innovative blog posts. We cover emerging trends in educational technology, digital learning tools, STEM initiatives, AI workstations, and modern teaching frameworks.</p><p>From high-speed computing laboratories to innovative student coding projects, our campus is committed to fostering technological curiosity and digital empowerment for every scholar.</p>",
+        "order": 6
     },
     {
-        title: "Dance Shows",
-        category: "Cultural",
-        image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800",
-        description: "<p>Traditional classical forms like Bharatanatyam, western contemporary dance, and vibrant folk performances celebrating heritage, synchronization, and athletic grace.</p><p>Our dance troupes light up the campus auditorium with mesmerizing choreography and storytelling through motion.</p>",
-        author: "SVASC Editorial",
-        date: "21 May, 2026",
-        readTime: "3 min read",
-        order: 9
+        "title": "Chemistry Department \u2013 Academic & Research Events",
+        "category": "Chemistry Department \u2013 Academic & Research Events",
+        "image": "/blogs_images/chemistry_events.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>A curated collection of news and highlights from the Department of Chemistry, featuring seminars, guest lectures, conferences, and association activities that foster scientific inquiry.</p><p>The department celebrated Freshers 2K26 welcoming new students with commemorative ceremonies, academic orientation, and inspiring motivational addresses by department faculty and scholars.</p>",
+        "order": 7
     },
     {
-        title: "Drama & Theater",
-        category: "Cultural",
-        image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800",
-        description: "<p>Thought-provoking theatrical plays, skits on social themes, and mime presentations giving voice to creativity, acting talent, and social consciousness.</p><p>Theater at SVASC teaches voice modulation, emotional expression, script writing, and teamwork that resonates deeply with audiences.</p>",
-        author: "SVASC Editorial",
-        date: "21 May, 2026",
-        readTime: "4 min read",
-        order: 10
+        "title": "Student Honors, Sports & Community Action",
+        "category": "Student Activities and Achievements",
+        "image": "/blogs_images/student_honors.jpg",
+        "date": "21 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Celebrate the accomplishments, talents, and active involvement of our students through these inspiring blog posts. We highlight academic honors, sports achievements, research discoveries, and community service.</p><p>Our students consistently demonstrate excellence, winning prestigious university rank awards, athletic medals, and volunteering in impactful community initiatives that create positive societal impact.</p>",
+        "order": 8
     },
     {
-        title: "Art Exhibitions",
-        category: "Cultural",
-        image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800",
-        description: "<p>Creative oil paintings, digital art, charcoal sketches, and handcrafted sculpture showcases providing aspiring student artists a platform to display their visual imaginations.</p><p>The annual SVASC Art Gallery attracts faculty, peers, and external art lovers who appreciate the delicate craftsmanship and vision of student artists.</p>",
-        author: "SVASC Editorial",
-        date: "20 May, 2026",
-        readTime: "3 min read",
-        order: 11
-    },
-
-    // ─── 4. Innovations in Education and Technology ───────────────────────────
-    {
-        title: "Hackathons",
-        category: "Innovations in Education and Technology",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800",
-        description: "<p>24-hour non-stop code sprints and solution challenges solving real community problems through software development, AI models, and collaborative teamwork.</p><p>Students develop practical prototypes, cloud-native apps, and machine learning solutions evaluated by seasoned tech industry judges.</p>",
-        author: "SVASC Editorial",
-        date: "20 May, 2026",
-        readTime: "5 min read",
-        order: 12
+        "title": "Official Announcements & Campus Updates",
+        "category": "SVASC News",
+        "image": "/blogs_images/official_announcements.jpg",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Stay informed with the latest official announcements, news articles, and blog updates from SVASC. This section includes important notices, policy updates, administrative circulars, and institutional development stories.</p><p>Recent highlights include new academic programs, infrastructure enhancements, placement milestones, and college achievements that reinforce SVASC's position as an educational beacon.</p>",
+        "order": 9
     },
     {
-        title: "Tech Fests",
-        category: "Innovations in Education and Technology",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
-        description: "<p>Annual technical extravaganza featuring project displays, robotics arenas, and tech talks from pioneers in computer science, science, and management.</p><p>Tech fests draw talent from across universities, creating an electric atmosphere of innovation, live challenges, and geek culture.</p>",
-        author: "SVASC Editorial",
-        date: "19 May, 2026",
-        readTime: "4 min read",
-        order: 13
+        "title": "Campus Overview",
+        "category": "Campus Life & Community",
+        "image": "/blogs_images/subcard_campus_overview.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>A detailed glimpse into the SVASC state-of-the-art campus, modern learning zones, and green open spaces. Our college is committed to sharing experiences and knowledge that enriches the educational journey.</p><p>From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow, and connect.</p>",
+        "order": 10
     },
     {
-        title: "Startup Programs",
-        category: "Innovations in Education and Technology",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800",
-        description: "<p>Incubation support, business pitching workshops, and student entrepreneurship guidance fostering commercial viability and startup innovation on campus.</p><p>The Entrepreneurship Development Cell (EDC) provides seed mentorship, legal patent guidance, and investor networking for student founders.</p>",
-        author: "SVASC Editorial",
-        date: "19 May, 2026",
-        readTime: "4 min read",
-        order: 14
+        "title": "Student Life",
+        "category": "Campus Life & Community",
+        "image": "/blogs_images/subcard_student_life.jpg",
+        "date": "25 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Vibrant clubs, daily campus activities, friendship, leadership opportunities, and community fellowship. Student life at SVASC is a balanced blend of academic discipline and co-curricular vibrancy where lifelong friendships and career foundations are built.</p>",
+        "order": 11
     },
     {
-        title: "Innovation Lab",
-        category: "Innovations in Education and Technology",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
-        description: "<p>Prototyping equipment, IoT sensors, AI workstations, and creative exploration spaces where students turn theoretical concepts into tangible working prototypes.</p><p>Equipped with modern computing hardware and rapid prototyping tools, the lab serves as an open playground for inventors and researchers.</p>",
-        author: "SVASC Editorial",
-        date: "18 May, 2026",
-        readTime: "4 min read",
-        order: 15
-    },
-
-    // ─── 5. Student Activities and Achievements ───────────────────────────────
-    {
-        title: "Awards",
-        category: "Student Activities and Achievements",
-        image: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=800",
-        description: "<p>State and national accolades, academic distinctions, and leadership recognition honoring outstanding students who demonstrate excellence in studies and co-curriculars.</p><p>Every year, SVASC honors students who raise the benchmark of excellence and represent our core values of dedication and integrity.</p>",
-        author: "SVASC Editorial",
-        date: "18 May, 2026",
-        readTime: "4 min read",
-        order: 16
+        "title": "Facilities",
+        "category": "Campus Life & Community",
+        "image": "/blogs_images/subcard_facilities.jpg",
+        "date": "24 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>High-tech laboratories, modern smart classrooms, comprehensive library facilities, and recreational avenues. We provide cutting-edge physical and digital infrastructure to support both theoretical learning and experiential discovery.</p>",
+        "order": 12
     },
     {
-        title: "Sports",
-        category: "Student Activities and Achievements",
-        image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
-        description: "<p>Medals, university championship trophies, and athletic records set by our student athletes across cricket, kabaddi, volleyball, athletics, and chess.</p><p>Our dedicated Department of Physical Education provides professional coaching, state-of-the-art courts, and nutrition support that powers champion teams.</p>",
-        author: "SVASC Editorial",
-        date: "17 May, 2026",
-        readTime: "3 min read",
-        order: 17
+        "title": "Activities",
+        "category": "Campus Life & Community",
+        "image": "/blogs_images/subcard_activities.jpg",
+        "date": "24 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Extracurriculars, workshops, seminars, NSS, YRC, and campus celebration days throughout the academic year. Activities at SVASC empower students to step out of their comfort zones, discover hidden talents, and contribute meaningfully to society.</p>",
+        "order": 13
     },
     {
-        title: "Research",
-        category: "Student Activities and Achievements",
-        image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800",
-        description: "<p>Peer-reviewed scientific journals, patents, and faculty-student collaborative papers demonstrating research rigor, curiosity, and academic inquiry.</p><p>Undergraduate and postgraduate scholars receive grants and guidance to publish findings in Scopus, UGC-CARE, and international journals.</p>",
-        author: "SVASC Editorial",
-        date: "17 May, 2026",
-        readTime: "4 min read",
-        order: 18
+        "title": "Guest Lectures",
+        "category": "Academic Events",
+        "image": "/blogs_images/subcard_guest_lectures.jpg",
+        "date": "24 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Eminent industry experts, corporate leaders, and university scholars regularly visit SVASC to deliver masterclasses on cutting-edge topics. These lectures bridge the divide between theoretical curricula and contemporary industrial realities.</p>",
+        "order": 14
     },
     {
-        title: "Community Service",
-        category: "Student Activities and Achievements",
-        image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800",
-        description: "<p>NSS village adoption drives, blood donation camps, and environmental conservation walks nurturing active civic responsibility and compassionate social leadership.</p><p>Our volunteers plant thousands of saplings, organize health screening clinics, and conduct digital literacy drives across rural neighboring communities.</p>",
-        author: "SVASC Editorial",
-        date: "16 May, 2026",
-        readTime: "4 min read",
-        order: 19
-    },
-
-    // ─── 6. SVASC News ───────────────────────────────────────────────────────
-    {
-        title: "Announcements",
-        category: "SVASC News",
-        image: "https://images.unsplash.com/photo-1586339949216-35c7e6b3c0ab?w=800",
-        description: "<p>Official college circulars, examination updates, and academic notifications ensuring clear and timely institutional communication with students and parents.</p><p>Stay informed about university examination schedules, application deadlines, scholarship announcements, and holiday declarations.</p>",
-        author: "SVASC Editorial",
-        date: "16 May, 2026",
-        readTime: "3 min read",
-        order: 20
+        "title": "Seminars",
+        "category": "Academic Events",
+        "image": "https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800",
+        "date": "24 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Interactive departmental seminars providing students with platforms to discuss research innovations, presentation skills, and scholarly papers across disciplines.</p>",
+        "order": 15
     },
     {
-        title: "Updates",
-        category: "SVASC News",
-        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800",
-        description: "<p>New curriculum additions, campus upgrades, and student services enhancements reflecting the continuous progress and modern development of SVASC.</p><p>We continually evolve our teaching-learning frameworks to align with NEP guidelines, international academic benchmarks, and industry skill demands.</p>",
-        author: "SVASC Editorial",
-        date: "15 May, 2026",
-        readTime: "3 min read",
-        order: 21
+        "title": "Workshops",
+        "category": "Academic Events",
+        "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800",
+        "date": "23 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Practical hands-on technical workshops bridging classroom theory with industrial practices in digital commerce, computational analysis, and science research.</p>",
+        "order": 16
     },
     {
-        title: "Infrastructure",
-        category: "SVASC News",
-        image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800",
-        description: "<p>Modern campus facilities, sports grounds, cafeteria, and smart classroom expansions built to provide a world-class environment for teaching and learning.</p><p>Recent infrastructure additions include high-capacity computer labs, an extended digital reading room, and eco-friendly solar lighting campus-wide.</p>",
-        author: "SVASC Editorial",
-        date: "15 May, 2026",
-        readTime: "3 min read",
-        order: 22
+        "title": "Competitions",
+        "category": "Academic Events",
+        "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800",
+        "date": "23 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Inter-collegiate and intra-departmental academic challenges, hackathons, business case studies, and quiz tournaments where our scholars win top honors.</p>",
+        "order": 17
     },
     {
-        title: "Achievements",
-        category: "SVASC News",
-        image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800",
-        description: "<p>Institutional rankings, NAAC accreditation distinctions, and university affiliations highlighting SVASC's standing as a leading higher education institution.</p><p>Our faculty, students, and management work hand-in-hand to attain stellar placement records, university gold medals, and state-level institutional awards.</p>",
-        author: "SVASC Editorial",
-        date: "14 May, 2026",
-        readTime: "4 min read",
-        order: 23
+        "title": "Music Events",
+        "category": "Cultural",
+        "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800",
+        "date": "23 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Classical vocal concerts, western band face-offs, fusion musical nights, and solo instrumental recitals celebrating melodious artistry.</p>",
+        "order": 18
+    },
+    {
+        "title": "Dance Shows",
+        "category": "Cultural",
+        "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800",
+        "date": "22 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Traditional Bharatanatyam, folk dances of Tamil Nadu, contemporary choreography, and thematic group routines on annual cultural days.</p>",
+        "order": 19
+    },
+    {
+        "title": "Drama & Theater",
+        "category": "Cultural",
+        "image": "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=800",
+        "date": "22 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Socially conscious street plays, theatrical adaptations, mime acts, and comedy skits performed by the college drama club.</p>",
+        "order": 20
+    },
+    {
+        "title": "Art Exhibitions",
+        "category": "Cultural",
+        "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800",
+        "date": "21 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Student painting galleries, sculpture displays, digital graphic design showcases, and photography exhibitions held in the central gallery.</p>",
+        "order": 21
+    },
+    {
+        "title": "Hackathons",
+        "category": "Innovations in Education and Technology",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+        "date": "22 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>24-hour coding marathons, software development challenges, and algorithmic problem-solving sprints building real-world digital solutions.</p>",
+        "order": 22
+    },
+    {
+        "title": "Tech Fests",
+        "category": "Innovations in Education and Technology",
+        "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+        "date": "21 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Annual inter-college symposiums featuring web design battles, technical paper presentations, debugging contests, and robotics expos.</p>",
+        "order": 23
+    },
+    {
+        "title": "Startup Programs",
+        "category": "Innovations in Education and Technology",
+        "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Incubation cell guidance, seed-funding support, business pitching workshops, and mentorship from startup founders and venture professionals.</p>",
+        "order": 24
+    },
+    {
+        "title": "Innovation Lab",
+        "category": "Innovations in Education and Technology",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Prototyping equipment, IoT sensors, AI workstations, and creative exploration spaces where students turn theoretical research into products.</p>",
+        "order": 25
+    },
+    {
+        "title": "Awards",
+        "category": "Student Activities and Achievements",
+        "image": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=800",
+        "date": "21 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>State and national accolades, academic distinctions, university gold medals, and leadership recognition earned by outstanding SVASC students.</p>",
+        "order": 26
+    },
+    {
+        "title": "Sports",
+        "category": "Student Activities and Achievements",
+        "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
+        "date": "21 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Medals, university championship trophies, and athletic records set by our student athletes in cricket, kabaddi, volleyball, and athletics.</p>",
+        "order": 27
+    },
+    {
+        "title": "Research",
+        "category": "Student Activities and Achievements",
+        "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Peer-reviewed scientific journals, patents, conference presentations, and faculty-student collaborative research published internationally.</p>",
+        "order": 28
+    },
+    {
+        "title": "Community Service",
+        "category": "Student Activities and Achievements",
+        "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>NSS village adoption drives, blood donation camps, environmental tree-plantation walks, and literacy outreach initiatives for local villages.</p>",
+        "order": 29
+    },
+    {
+        "title": "Announcements",
+        "category": "SVASC News",
+        "image": "https://images.unsplash.com/photo-1586339949216-35c7e6b3c0ab?w=800",
+        "date": "20 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Official college circulars, university examination schedules, scholarship notices, and important academic notifications for all departments.</p>",
+        "order": 30
+    },
+    {
+        "title": "Updates",
+        "category": "SVASC News",
+        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800",
+        "date": "19 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>New curriculum additions, campus upgrades, advanced laboratory additions, and enhanced student support services across the college.</p>",
+        "order": 31
+    },
+    {
+        "title": "Infrastructure",
+        "category": "SVASC News",
+        "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800",
+        "date": "19 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "3 min read",
+        "description": "<p>Modern campus facilities, sports grounds, cafeteria, digital seminar halls, and smart classroom expansions built for 21st-century education.</p>",
+        "order": 32
+    },
+    {
+        "title": "Achievements",
+        "category": "SVASC News",
+        "image": "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800",
+        "date": "18 May, 2026",
+        "author": "SVASC Editorial",
+        "readTime": "4 min read",
+        "description": "<p>Institutional rankings, NAAC accreditation distinctions, top placement records, and university affiliations highlighting SVASC's excellence.</p>",
+        "order": 33
     }
 ];
 

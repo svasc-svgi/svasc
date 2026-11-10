@@ -3,15 +3,6 @@ const { DEFAULT_BLOGS } = require('./blogs.data');
 const fs = require('fs');
 const path = require('path');
 
-const LEGACY_TITLES = [
-    "Campus Life & Community Overview",
-    "Scholarly Milestones & Departmental Seminars",
-    "Cultural Activities & Fine Arts",
-    "Innovation & Future Technologies",
-    "Student Leadership & Milestones",
-    "Institutional Announcements & Updates"
-];
-
 const getAllBlogs = async () => {
     return await Blogs.find().sort({ order: 1, createdAt: -1 }).lean();
 };
@@ -49,7 +40,7 @@ const deleteBlog = async (id) => {
     const blog = await Blogs.findById(id);
     if (blog) {
         const imgField = blog.image || blog.bannerImage;
-        if (imgField && !imgField.startsWith('http')) {
+        if (imgField && !imgField.startsWith('http') && !imgField.startsWith('/')) {
             const imgPath = path.join(__dirname, '..', 'uploads', path.basename(imgField));
             if (fs.existsSync(imgPath)) {
                 try { fs.unlinkSync(imgPath); } catch (e) { /* ignore */ }
@@ -60,23 +51,10 @@ const deleteBlog = async (id) => {
 };
 
 /**
- * Seed or restore all 24 default blog cards into MongoDB
+ * Seed or restore all default blog cards into MongoDB
  * @param {boolean} force - if true, overwrite/upsert all cards with default content
  */
 const seedDefaultBlogs = async (force = false) => {
-    // 1. Clean up legacy category overview documents so they don't clutter the independent cards
-    try {
-        await Blogs.deleteMany({
-            $or: [
-                { title: { $in: LEGACY_TITLES } },
-                { cards: { $exists: true, $not: { $size: 0 } } }
-            ]
-        });
-    } catch (e) {
-        // ignore
-    }
-
-    // 2. Ensure all 24 cards are created/updated
     const results = [];
     for (const def of DEFAULT_BLOGS) {
         const query = { title: new RegExp(`^${def.title.trim()}$`, 'i') };
