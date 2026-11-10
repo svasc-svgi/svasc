@@ -3,6 +3,15 @@ const { DEFAULT_BLOGS } = require('./blogs.data');
 const fs = require('fs');
 const path = require('path');
 
+const LEGACY_TITLES = [
+    "Campus Life & Community Overview",
+    "Scholarly Milestones & Departmental Seminars",
+    "Cultural Activities & Fine Arts",
+    "Innovation & Future Technologies",
+    "Student Leadership & Milestones",
+    "Institutional Announcements & Updates"
+];
+
 const getAllBlogs = async () => {
     return await Blogs.find().sort({ order: 1, createdAt: -1 }).lean();
 };
@@ -55,6 +64,19 @@ const deleteBlog = async (id) => {
  * @param {boolean} force - if true, overwrite/upsert all cards with default content
  */
 const seedDefaultBlogs = async (force = false) => {
+    // 1. Clean up legacy category overview documents so they don't clutter the independent cards
+    try {
+        await Blogs.deleteMany({
+            $or: [
+                { title: { $in: LEGACY_TITLES } },
+                { cards: { $exists: true, $not: { $size: 0 } } }
+            ]
+        });
+    } catch (e) {
+        // ignore
+    }
+
+    // 2. Ensure all 24 cards are created/updated
     const results = [];
     for (const def of DEFAULT_BLOGS) {
         const query = { title: new RegExp(`^${def.title.trim()}$`, 'i') };
@@ -70,7 +92,7 @@ const seedDefaultBlogs = async (force = false) => {
                 author: def.author,
                 date: def.date,
                 readTime: def.readTime,
-                order: def.order
+                order: def.order !== undefined ? def.order : 0
             });
             results.push(created);
         } else if (force) {
@@ -85,7 +107,7 @@ const seedDefaultBlogs = async (force = false) => {
                     author: def.author,
                     date: def.date,
                     readTime: def.readTime,
-                    order: def.order
+                    order: def.order !== undefined ? def.order : 0
                 },
                 { new: true }
             );

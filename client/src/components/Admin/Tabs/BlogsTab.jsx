@@ -38,8 +38,8 @@ const BlogsTab = () => {
       const res = await getBlogs();
       let bRes = res?.data ?? (Array.isArray(res) ? res : []);
 
-      // If backend has 0 blogs, auto-seed all 24 cards
-      if (bRes.length === 0) {
+      // If backend has fewer than 24 blogs, auto-seed so all 24 cards exist in MongoDB
+      if (bRes.length < 24) {
         try {
           await seedDefaultBlogs(false);
           const freshRes = await getBlogs();
@@ -49,26 +49,32 @@ const BlogsTab = () => {
         }
       }
 
-      // If still empty (e.g. backend offline), use defaultBlogs
-      if (bRes.length === 0) {
-        bRes = defaultBlogs;
-      }
-
-      const formatted = bRes.map(item => ({
+      const mappedDbBlogs = bRes.map(item => ({
         ...item,
         image: item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : ''),
         bannerImage: item.image || item.bannerImage,
         description: item.description || item.copy || ''
       }));
 
-      setBlogs(formatted);
+      // Merge dynamic DB blogs with defaultBlogs fallback by title so ALL 24 CARDS are ALWAYS guaranteed to show in backend
+      const existingTitles = new Set(mappedDbBlogs.map(b => (b.title || '').toLowerCase().trim()));
+      const remainingDefaults = defaultBlogs
+        .filter(d => !existingTitles.has((d.title || '').toLowerCase().trim()))
+        .map(d => ({
+          ...d,
+          image: d.image || d.bImage || d.bannerImage,
+          bannerImage: d.image || d.bImage || d.bannerImage,
+          description: d.description || d.copy || ''
+        }));
+
+      setBlogs([...mappedDbBlogs, ...remainingDefaults]);
     } catch (err) {
       console.error('Error loading blogs data', err);
-      // Fallback to defaultBlogs on network failure
+      // Fallback to defaultBlogs on network failure so all 24 cards always show
       setBlogs(defaultBlogs.map(item => ({
         ...item,
-        image: item.image || item.bImage,
-        bannerImage: item.image || item.bImage,
+        image: item.image || item.bImage || item.bannerImage,
+        bannerImage: item.image || item.bImage || item.bannerImage,
         description: item.description || item.copy || ''
       })));
     }
