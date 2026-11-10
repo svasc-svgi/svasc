@@ -24,21 +24,59 @@
 
 #alumni-slider-root .sl-nav {
     position: relative;
-    width: 100px;
-    height: 60px;
-}
-
-#alumni-slider-root .swiper-button-next,
-#alumni-slider-root .swiper-container-rtl .swiper-button-prev,
-#alumni-slider-root .swiper-button-prev,
-#alumni-slider-root .swiper-container-rtl .swiper-button-next {
-    background-image: url();
-    /* Hiding default swiper arrows to use SVG */
+    width: 110px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
 }
 
 #alumni-slider-root .swiper-button-next,
 #alumni-slider-root .swiper-button-prev {
-    width: 35px;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 10;
+}
+
+#alumni-slider-root .swiper-button-next:hover,
+#alumni-slider-root .swiper-button-prev:hover {
+    transform: scale(1.08);
+}
+
+#alumni-slider-root .swiper-button-next:active,
+#alumni-slider-root .swiper-button-prev:active {
+    transform: scale(0.92);
+}
+
+#alumni-slider-root .swiper-button-next::after,
+#alumni-slider-root .swiper-button-prev::after {
+    display: none !important;
+    content: '' !important;
+}
+
+#alumni-slider-root .swiper-button-next svg,
+#alumni-slider-root .swiper-button-prev svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
 }
 
 #alumni-slider-root .sl-bkg-img,
@@ -137,7 +175,8 @@
     }
 
     #alumni-slider-root .sl-nav {
-        display: none;
+        display: flex;
+        margin: 15px 0 20px 0;
     }
 
     #alumni-slider-root .swiper-slide-prev .slide-cover,
@@ -169,16 +208,22 @@
         visibility: hidden;
     }
 
+    #alumni-slider-root .swiper,
     #alumni-slider-root .swiper-container {
         width: 95%;
         height: 100%;
-        touch-action: pan-y;
-        /* Allow vertical scroll, let JS handle horizontal swipe */
+        touch-action: pan-y !important;
+        overflow: hidden;
+    }
+
+    #alumni-slider-root .swiper-slide {
+        touch-action: pan-y !important;
+        flex-shrink: 0;
     }
 
     #alumni-slider-root .swiper-button-next,
     #alumni-slider-root .swiper-button-prev {
-        display: none;
+        display: flex;
     }
 
     #alumni-slider-root .sl-card-wrapper {
@@ -430,11 +475,13 @@
 
     #alumni-slider-root .swiper-button-next,
     #alumni-slider-root .swiper-button-prev {
-        display: block;
+        display: flex;
     }
 
     #alumni-slider-root .sl-nav {
-        display: block;
+        display: flex;
+        margin-top: 25px;
+        margin-bottom: 0;
     }
 }
 
