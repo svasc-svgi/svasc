@@ -3,16 +3,25 @@ import styles from './Blogs.module.css';
 import Hero from '../components/Common/Hero';
 import { getBlogsPageHero, getBlogs } from '../services/blogService';
 import { defaultBlogs } from '../data/blogsData';
-import { Calendar, User, ArrowRight, Search, X, Layers, ExternalLink } from 'lucide-react';
+import { Calendar, User, ArrowRight, Search, X, Layers, Clock } from 'lucide-react';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
+const CATEGORIES = [
+    'All',
+    'Campus Life & Community',
+    'Academic Events',
+    'Cultural',
+    'Innovations in Education and Technology',
+    'Student Activities and Achievements',
+    'SVASC News'
+];
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState(defaultBlogs);
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
     const [readingBlog, setReadingBlog] = useState(null);
-    const [zoomedCard, setZoomedCard] = useState(null);
 
     const [heroData, setHeroData] = useState({
         title: 'SVASC College Blogs',
@@ -41,30 +50,30 @@ const Blogs = () => {
                 const data = res?.data ?? (Array.isArray(res) ? res : []);
                 if (data.length > 0) {
                     const mappedDbBlogs = data.map(item => {
-                        const cleanImg = (item.bannerImage || '').replace(/^\/+/, '');
+                        const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '') || '';
+                        const cleanImg = rawImg.replace(/^\/+/, '');
+                        const imgUrl = rawImg.startsWith('http') ? rawImg : (cleanImg ? `${BASE_URL}/${cleanImg}` : '');
+
                         return {
                             ID: item._id,
-                            category: item.category,
+                            _id: item._id,
+                            category: item.category || 'SVASC News',
                             title: item.title || item.category,
                             author: item.author || 'SVASC Editorial',
                             date: item.date || '25 May, 2026',
                             readTime: item.readTime || '4 min read',
-                            bImage: item.bannerImage?.startsWith('http') ? item.bannerImage : `${BASE_URL}/${cleanImg}`,
-                            copy: item.description,
-                            cards: (item.cards || []).map(card => {
-                                const cardClean = (card.image || '').replace(/^\/+/, '');
-                                return {
-                                    title: card.title,
-                                    description: card.description || 'No description provided.',
-                                    image: card.image?.startsWith('http') ? card.image : `${BASE_URL}/${cardClean}`
-                                };
-                            })
+                            image: imgUrl,
+                            bImage: imgUrl,
+                            bannerImage: imgUrl,
+                            description: item.description || item.copy || '',
+                            copy: item.description || item.copy || '',
+                            order: item.order ?? 0
                         };
                     });
 
-                    // Merge dynamic DB blogs with defaultBlogs without losing existing content
-                    const existingCategories = new Set(mappedDbBlogs.map(b => b.category.toLowerCase().trim()));
-                    const remainingDefaults = defaultBlogs.filter(d => !existingCategories.has(d.category.toLowerCase().trim()));
+                    // Merge dynamic DB blogs with default fallback cards so all 24 are always accessible
+                    const existingTitles = new Set(mappedDbBlogs.map(b => (b.title || '').toLowerCase().trim()));
+                    const remainingDefaults = defaultBlogs.filter(d => !existingTitles.has((d.title || '').toLowerCase().trim()));
                     setBlogs([...mappedDbBlogs, ...remainingDefaults]);
                 }
             } catch (err) {
@@ -74,18 +83,14 @@ const Blogs = () => {
         fetchBlogs();
     }, []);
 
-    // Extract dynamic category tabs matching the AJKCAS smart-filter tabs
-    const categoryTabs = ['All', ...Array.from(new Set(blogs.map(b => b.category).filter(Boolean)))];
-
     // Filter posts
     const filteredBlogs = blogs.filter(blog => {
-        const matchesCategory = selectedCategory === 'All' || blog.category.toLowerCase().trim() === selectedCategory.toLowerCase().trim();
+        const matchesCategory = selectedCategory === 'All' || (blog.category || '').toLowerCase().trim() === selectedCategory.toLowerCase().trim();
         const q = searchQuery.toLowerCase().trim();
         const plainDesc = (blog.copy || blog.description || '').replace(/<[^>]+>/g, '').toLowerCase();
-        const matchesSearch = !q ||
-            blog.category.toLowerCase().includes(q) ||
-            plainDesc.includes(q) ||
-            (blog.cards && blog.cards.some(c => (c.title || '').toLowerCase().includes(q) || (c.description || '').toLowerCase().includes(q)));
+        const titleMatch = (blog.title || '').toLowerCase().includes(q);
+        const catMatch = (blog.category || '').toLowerCase().includes(q);
+        const matchesSearch = !q || titleMatch || catMatch || plainDesc.includes(q);
         return matchesCategory && matchesSearch;
     });
 
@@ -114,10 +119,10 @@ const Blogs = () => {
                     </p>
                 </div>
 
-                {/* Category Smart Filter Tabs (AJKCAS Reference Style) */}
+                {/* Category Smart Filter Tabs */}
                 <div className={styles.filterBarWrapper}>
                     <ul className={styles.filterTabsList}>
-                        {categoryTabs.map((cat, idx) => {
+                        {CATEGORIES.map((cat, idx) => {
                             const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
                             return (
                                 <li key={idx}>
@@ -162,19 +167,19 @@ const Blogs = () => {
                     </div>
                 </div>
 
-                {/* 3-Column Posts Grid (AJKCAS Post Layout 1) */}
+                {/* 3-Column Posts Grid (All 24 Independent Blog Cards) */}
                 <div className={styles.postsGrid}>
                     {filteredBlogs.map((blog, idx) => (
                         <article
-                            key={blog.ID || idx}
+                            key={blog.ID || blog._id || idx}
                             className={styles.blogCard}
                             onClick={() => setReadingBlog(blog)}
                         >
                             {/* Card Media */}
                             <div className={styles.cardMedia}>
                                 <img
-                                    src={blog.bImage}
-                                    alt={blog.category}
+                                    src={blog.image || blog.bImage || blog.bannerImage}
+                                    alt={blog.title || blog.category}
                                     className={styles.cardImage}
                                     loading="lazy"
                                 />
@@ -194,27 +199,11 @@ const Blogs = () => {
                                     </span>
                                 </div>
 
-                                <h2 className={styles.cardTitle}>{blog.title || blog.category}</h2>
+                                <h2 className={styles.cardTitle}>{blog.title}</h2>
 
                                 <p className={styles.cardExcerpt}>
-                                    {getCleanExcerpt(blog.copy || blog.description)}
+                                    {getCleanExcerpt(blog.description || blog.copy)}
                                 </p>
-
-                                {/* Child Card Highlights Preview */}
-                                {blog.cards && blog.cards.length > 0 && (
-                                    <div className={styles.subtopicsRow}>
-                                        {blog.cards.slice(0, 3).map((card, cIdx) => (
-                                            <span key={cIdx} className={styles.subtopicChip}>
-                                                • {card.title}
-                                            </span>
-                                        ))}
-                                        {blog.cards.length > 3 && (
-                                            <span className={styles.subtopicChip}>
-                                                +{blog.cards.length - 3} more
-                                            </span>
-                                        )}
-                                    </div>
-                                )}
 
                                 <div className={styles.cardFooter}>
                                     <button
@@ -246,7 +235,7 @@ const Blogs = () => {
                 </div>
             </main>
 
-            {/* Rich Article Reader Modal (Full Story View with all Data & Sub-cards) */}
+            {/* Rich Article Reader Modal */}
             {readingBlog && (
                 <div
                     className={styles.readerModalOverlay}
@@ -262,8 +251,10 @@ const Blogs = () => {
                                 <span className={styles.categoryBadge} style={{ position: 'static' }}>
                                     {readingBlog.category}
                                 </span>
-                                <span style={{ fontSize: '0.9rem', color: '#6b7280' }}>
-                                    By {readingBlog.author || 'SVASC Editorial'} • {readingBlog.date || '25 May, 2026'} • {readingBlog.readTime || '4 min read'}
+                                <span style={{ fontSize: '0.9rem', color: '#6b7280', display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                                    <User size={13} color="#f4b706" /> {readingBlog.author || 'SVASC Editorial'} • 
+                                    <Calendar size={13} color="#f4b706" /> {readingBlog.date || '25 May, 2026'} • 
+                                    <Clock size={13} color="#f4b706" /> {readingBlog.readTime || '4 min read'}
                                 </span>
                             </div>
                             <button
@@ -279,84 +270,20 @@ const Blogs = () => {
                         <div className={styles.readerModalScroll}>
                             {/* Hero Banner */}
                             <div className={styles.readerHeroBanner}>
-                                <img src={readingBlog.bImage} alt={readingBlog.title || readingBlog.category} />
+                                <img
+                                    src={readingBlog.image || readingBlog.bImage || readingBlog.bannerImage}
+                                    alt={readingBlog.title}
+                                />
                                 <div className={styles.readerHeroOverlay}>
-                                    <h1 className={styles.readerHeroTitle}>{readingBlog.title || readingBlog.category}</h1>
+                                    <h1 className={styles.readerHeroTitle}>{readingBlog.title}</h1>
                                 </div>
                             </div>
 
                             {/* Full HTML Article Content */}
                             <div
                                 className={styles.readerBodyContent}
-                                dangerouslySetInnerHTML={{ __html: readingBlog.copy || readingBlog.description }}
+                                dangerouslySetInnerHTML={{ __html: readingBlog.description || readingBlog.copy }}
                             />
-
-                            {/* Associated Sub-cards / Activity Highlights */}
-                            {readingBlog.cards && readingBlog.cards.length > 0 && (
-                                <div className={styles.readerSubcardsSection}>
-                                    <h3 className={styles.readerSubcardsHeading}>
-                                        Key Highlights & Activity Topics
-                                    </h3>
-                                    <div className={styles.readerSubcardsGrid}>
-                                        {readingBlog.cards.map((card, cIdx) => (
-                                            <div
-                                                key={cIdx}
-                                                className={styles.subCardItem}
-                                                onClick={() => setZoomedCard(card)}
-                                                style={{ cursor: 'pointer' }}
-                                            >
-                                                <img
-                                                    src={card.image}
-                                                    alt={card.title}
-                                                    className={styles.subCardImage}
-                                                    loading="lazy"
-                                                />
-                                                <div className={styles.subCardContent}>
-                                                    <h4 className={styles.subCardTitle}>{card.title}</h4>
-                                                    <p className={styles.subCardDesc}>{card.description}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Sub-card Zoom Modal */}
-            {zoomedCard && (
-                <div
-                    className={styles.readerModalOverlay}
-                    style={{ zIndex: 2100 }}
-                    onClick={() => setZoomedCard(null)}
-                >
-                    <div
-                        className={styles.readerModalBox}
-                        style={{ maxWidth: '640px' }}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className={styles.readerModalHeader}>
-                            <h3 style={{ margin: 0, fontSize: '1.25rem', color: '#002147', fontFamily: 'Playfair Display, serif' }}>
-                                {zoomedCard.title}
-                            </h3>
-                            <button
-                                className={styles.readerCloseBtn}
-                                onClick={() => setZoomedCard(null)}
-                            >
-                                <X size={20} />
-                            </button>
-                        </div>
-                        <div style={{ padding: '20px' }}>
-                            <img
-                                src={zoomedCard.image}
-                                alt={zoomedCard.title}
-                                style={{ width: '100%', height: '320px', objectFit: 'cover', borderRadius: '8px', marginBottom: '16px' }}
-                            />
-                            <p style={{ fontSize: '1.15rem', color: '#374151', lineHeight: '1.7', textAlign: 'justify', margin: 0 }}>
-                                {zoomedCard.description}
-                            </p>
                         </div>
                     </div>
                 </div>

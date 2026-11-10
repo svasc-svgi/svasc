@@ -1,39 +1,28 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const blogCardSchema = new mongoose.Schema({
+const blogsSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
         trim: true
     },
-    description: {
-        type: String,
-        default: ''
-    },
-    image: {
-        type: String,
-        default: ''
-    }
-}, { _id: false });
-
-const blogsSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
         trim: true
     },
-    title: {
+    image: {
         type: String,
-        trim: true,
+        default: ''
+    },
+    bannerImage: {
+        type: String,
         default: ''
     },
     description: {
         type: String,
-        required: true
-    },
-    bannerImage: {
-        type: String,
-        required: true
+        required: true,
+        default: ''
     },
     author: {
         type: String,
@@ -50,10 +39,6 @@ const blogsSchema = new mongoose.Schema({
         trim: true,
         default: '4 min read'
     },
-    cards: {
-        type: [blogCardSchema],
-        default: []
-    },
     order: {
         type: Number,
         default: 0
@@ -63,5 +48,7 @@ const blogsSchema = new mongoose.Schema({
 });
 
 blogsSchema.index({ order: 1, createdAt: -1 });
+blogsSchema.index({ category: 1 });
+blogsSchema.index({ title: 1 });
 
 module.exports = mongoose.model('Blogs', blogsSchema);

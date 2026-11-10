@@ -1,4 +1,4 @@
-﻿const Blogs = require('../models/blogs.model');
+const Blogs = require('../models/blogs.model');
 const { DEFAULT_BLOGS } = require('./blogs.data');
 const fs = require('fs');
 const path = require('path');
@@ -16,74 +16,81 @@ const getBlogCount = async () => {
 };
 
 const createBlog = async (data) => {
-    const blog = new Blogs(data);
+    const payload = {
+        ...data,
+        bannerImage: data.bannerImage || data.image || '',
+        image: data.image || data.bannerImage || ''
+    };
+    const blog = new Blogs(payload);
     return await blog.save();
 };
 
 const updateBlog = async (id, data) => {
-    return await Blogs.findByIdAndUpdate(id, data, { new: true });
+    const payload = { ...data };
+    if (payload.image && !payload.bannerImage) {
+        payload.bannerImage = payload.image;
+    }
+    if (payload.bannerImage && !payload.image) {
+        payload.image = payload.bannerImage;
+    }
+    return await Blogs.findByIdAndUpdate(id, payload, { new: true });
 };
 
 const deleteBlog = async (id) => {
     const blog = await Blogs.findById(id);
     if (blog) {
-        // Delete banner image
-        if (blog.bannerImage) {
-            const bannerPath = path.join(__dirname, '..', 'uploads', path.basename(blog.bannerImage));
-            if (fs.existsSync(bannerPath)) {
-                fs.unlinkSync(bannerPath);
+        const imgField = blog.image || blog.bannerImage;
+        if (imgField && !imgField.startsWith('http')) {
+            const imgPath = path.join(__dirname, '..', 'uploads', path.basename(imgField));
+            if (fs.existsSync(imgPath)) {
+                try { fs.unlinkSync(imgPath); } catch (e) { /* ignore */ }
             }
-        }
-        // Delete all card images
-        if (blog.cards && blog.cards.length > 0) {
-            blog.cards.forEach(card => {
-                if (card.image) {
-                    const cardImagePath = path.join(__dirname, '..', 'uploads', path.basename(card.image));
-                    if (fs.existsSync(cardImagePath)) {
-                        fs.unlinkSync(cardImagePath);
-                    }
-                }
-            });
         }
     }
     return await Blogs.findByIdAndDelete(id);
 };
 
 /**
- * Seed or restore default blogs into MongoDB
- * @param {boolean} force - if true, overwrite/upsert all standard categories with default content
+ * Seed or restore all 24 default blog cards into MongoDB
+ * @param {boolean} force - if true, overwrite/upsert all cards with default content
  */
 const seedDefaultBlogs = async (force = false) => {
     const results = [];
     for (const def of DEFAULT_BLOGS) {
-        const query = { category: new RegExp(`^${def.category.trim()}$`, 'i') };
+        const query = { title: new RegExp(`^${def.title.trim()}$`, 'i') };
         const existing = await Blogs.findOne(query);
 
         if (!existing) {
-            const created = await Blogs.create({ ...def });
+            const created = await Blogs.create({
+                title: def.title,
+                category: def.category,
+                image: def.image,
+                bannerImage: def.image,
+                description: def.description,
+                author: def.author,
+                date: def.date,
+                readTime: def.readTime,
+                order: def.order
+            });
             results.push(created);
         } else if (force) {
             const updated = await Blogs.findByIdAndUpdate(
                 existing._id,
                 {
                     title: def.title,
+                    category: def.category,
+                    image: def.image,
+                    bannerImage: def.image,
                     description: def.description,
-                    bannerImage: def.bannerImage,
                     author: def.author,
                     date: def.date,
                     readTime: def.readTime,
-                    cards: def.cards,
                     order: def.order
                 },
                 { new: true }
             );
             results.push(updated);
         } else {
-            // If existing document has 0 cards, populate with default cards
-            if (!existing.cards || existing.cards.length === 0) {
-                existing.cards = def.cards;
-                await existing.save();
-            }
             results.push(existing);
         }
     }

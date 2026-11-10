@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const BlogsService = require('../services/blogs.service');
 const HomeBlog = require('../models/home/blog.model');
 const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
@@ -13,10 +14,10 @@ const syncToHomeBlog = async (blogDoc) => {
             .trim()
             .slice(0, 180);
 
-        const img = blogDoc.bannerImage || (blogDoc.cards && blogDoc.cards[0] ? blogDoc.cards[0].image : '');
+        const img = blogDoc.image || blogDoc.bannerImage || '';
         if (!img) return;
 
-        const blogTitle = blogDoc.category || blogDoc.title || 'Insightful Blog';
+        const blogTitle = blogDoc.title || blogDoc.category || 'Insightful Blog';
 
         await HomeBlog.findOneAndUpdate(
             { title: blogTitle },
@@ -36,9 +37,9 @@ const syncToHomeBlog = async (blogDoc) => {
 
 const getAllBlogs = async (req, res) => {
     try {
-        // Auto-seed all default 6 categories and 24 cards if DB has less than 6 blogs
+        // Auto-seed default 24 cards if DB is empty
         const count = await BlogsService.getBlogCount();
-        if (count < 6) {
+        if (count === 0) {
             await BlogsService.seedDefaultBlogs(false);
         }
 
@@ -56,6 +57,9 @@ const getAllBlogs = async (req, res) => {
 const getBlogById = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ success: false, message: "Invalid blog ID format" });
+        }
         const blog = await BlogsService.getBlogById(id);
         if (!blog) {
             return res.status(404).json({ success: false, message: "Blog not found" });
@@ -71,15 +75,15 @@ const seedDefaultBlogs = async (req, res) => {
         const force = req.body?.force === true;
         const seeded = await BlogsService.seedDefaultBlogs(force);
 
-        // Sync all to Home Blogs
-        for (const blog of seeded) {
+        // Sync first 6 to Home Blogs
+        for (const blog of seeded.slice(0, 6)) {
             await syncToHomeBlog(blog);
         }
 
         res.status(200).json({
             success: true,
             data: seeded,
-            message: `Successfully seeded/synced ${seeded.length} standard blog categories and cards`
+            message: `Successfully seeded/synced ${seeded.length} independent blog cards`
         });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
@@ -96,72 +100,46 @@ const createBlog = async (req, res) => {
             date,
             readTime,
             order,
-            cardTitles,
-            cardDescriptions,
-            bannerImage: textBanner,
-            cards: textCards
+            image: textImage,
+            bannerImage: textBanner
         } = req.body;
 
-        if (!category) {
-            return res.status(400).json({ success: false, message: "Category is required" });
+        if (!title && !category) {
+            return res.status(400).json({ success: false, message: "Title or Category is required" });
         }
 
-        // 1. Handle Banner Image
-        let bannerImageUrl = textBanner || req.body.bannerImage || '';
-        if (req.files && req.files.bannerImage && req.files.bannerImage[0]) {
-            const uploadResult = await uploadToCloudinary(req.files.bannerImage[0].buffer, 'svasc/blogs/banners', 'image');
-            bannerImageUrl = uploadResult.secure_url;
-        }
-
-        // 2. Handle Cards
-        let cards = [];
-        if (textCards !== undefined) {
-            try {
-                cards = typeof textCards === 'string' ? JSON.parse(textCards) : textCards;
-            } catch (e) {
-                cards = [];
+        // Handle Image
+        let imageUrl = textImage || textBanner || req.body.image || req.body.bannerImage || '';
+        
+        if (req.files) {
+            const fileObj = (req.files.image && req.files.image[0]) || (req.files.bannerImage && req.files.bannerImage[0]);
+            if (fileObj) {
+                const uploadResult = await uploadToCloudinary(fileObj.buffer, 'svasc/blogs', 'image');
+                imageUrl = uploadResult.secure_url;
             }
-        } else if (req.body.cards !== undefined) {
-            cards = Array.isArray(req.body.cards) ? req.body.cards : [];
-        } else if (req.files && req.files.cardImages && req.files.cardImages.length > 0) {
-            let parsedCardTitles = [];
-            let parsedCardDescriptions = [];
-            if (cardTitles) {
-                try { parsedCardTitles = JSON.parse(cardTitles); } catch (e) { parsedCardTitles = []; }
-            }
-            if (cardDescriptions) {
-                try { parsedCardDescriptions = JSON.parse(cardDescriptions); } catch (e) { parsedCardDescriptions = []; }
-            }
-
-            for (let index = 0; index < req.files.cardImages.length; index++) {
-                const file = req.files.cardImages[index];
-                const uploadResult = await uploadToCloudinary(file.buffer, 'svasc/blogs/cards', 'image');
-                cards.push({
-                    title: parsedCardTitles[index] || '',
-                    description: parsedCardDescriptions[index] || '',
-                    image: uploadResult.secure_url
-                });
-            }
+        } else if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/blogs', 'image');
+            imageUrl = uploadResult.secure_url;
         }
 
         const currentCount = await BlogsService.getBlogCount();
 
         const blog = await BlogsService.createBlog({
-            category,
+            category: category || 'SVASC News',
             title: title || category,
             description: description || '',
-            bannerImage: bannerImageUrl || '',
+            image: imageUrl,
+            bannerImage: imageUrl,
             author: author || 'SVASC Editorial',
             date: date || '25 May, 2026',
             readTime: readTime || '4 min read',
-            cards,
             order: order !== undefined ? Number(order) : currentCount
         });
 
         // Automatically sync to Home Page "SVASC Insightful Blogs"
         await syncToHomeBlog(blog);
 
-        res.status(201).json({ success: true, data: blog, message: "Blog created successfully" });
+        res.status(201).json({ success: true, data: blog, message: "Blog card created successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -170,6 +148,11 @@ const createBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
     try {
         const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ success: false, message: "Invalid blog ID format" });
+        }
+
         const {
             category,
             title,
@@ -178,14 +161,12 @@ const updateBlog = async (req, res) => {
             date,
             readTime,
             order,
-            cardTitles,
-            cardDescriptions,
-            bannerImage: textBanner,
-            cards: textCards
+            image: textImage,
+            bannerImage: textBanner
         } = req.body;
 
         let updateData = {};
-        if (category) updateData.category = category;
+        if (category !== undefined) updateData.category = category;
         if (title !== undefined) updateData.title = title;
         if (description !== undefined) updateData.description = description;
         if (author !== undefined) updateData.author = author;
@@ -193,55 +174,39 @@ const updateBlog = async (req, res) => {
         if (readTime !== undefined) updateData.readTime = readTime;
         if (order !== undefined) updateData.order = Number(order);
 
-        if (req.files && req.files.bannerImage && req.files.bannerImage.length > 0) {
-            const uploadResult = await uploadToCloudinary(req.files.bannerImage[0].buffer, 'svasc/blogs/banners', 'image');
+        // Handle uploaded image file
+        if (req.files) {
+            const fileObj = (req.files.image && req.files.image[0]) || (req.files.bannerImage && req.files.bannerImage[0]);
+            if (fileObj) {
+                const uploadResult = await uploadToCloudinary(fileObj.buffer, 'svasc/blogs', 'image');
+                updateData.image = uploadResult.secure_url;
+                updateData.bannerImage = uploadResult.secure_url;
+            }
+        } else if (req.file) {
+            const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/blogs', 'image');
+            updateData.image = uploadResult.secure_url;
             updateData.bannerImage = uploadResult.secure_url;
-        } else if (textBanner !== undefined && textBanner !== '') {
-            updateData.bannerImage = textBanner;
-        } else if (req.body.bannerImage !== undefined) {
-            updateData.bannerImage = req.body.bannerImage;
         }
 
-        if (textCards !== undefined) {
-            try {
-                updateData.cards = typeof textCards === 'string' ? JSON.parse(textCards) : textCards;
-            } catch (e) {
-                // Ignore parse error
-            }
-        } else if (req.body.cards !== undefined) {
-            updateData.cards = Array.isArray(req.body.cards) ? req.body.cards : [];
-        } else if (req.files && req.files.cardImages && req.files.cardImages.length > 0) {
-            let parsedCardTitles = [];
-            let parsedCardDescriptions = [];
-            if (cardTitles) {
-                try { parsedCardTitles = JSON.parse(cardTitles); } catch (e) { parsedCardTitles = []; }
-            }
-            if (cardDescriptions) {
-                try { parsedCardDescriptions = JSON.parse(cardDescriptions); } catch (e) { parsedCardDescriptions = []; }
-            }
-
-            const uploadedCards = [];
-            for (let index = 0; index < req.files.cardImages.length; index++) {
-                const file = req.files.cardImages[index];
-                const uploadResult = await uploadToCloudinary(file.buffer, 'svasc/blogs/cards', 'image');
-                uploadedCards.push({
-                    title: parsedCardTitles[index] || '',
-                    description: parsedCardDescriptions[index] || '',
-                    image: uploadResult.secure_url
-                });
-            }
-            updateData.cards = uploadedCards;
+        // If direct image URL provided via form body
+        if (textImage !== undefined && textImage !== '') {
+            updateData.image = textImage;
+            updateData.bannerImage = textImage;
+        } else if (textBanner !== undefined && textBanner !== '') {
+            updateData.image = textBanner;
+            updateData.bannerImage = textBanner;
         }
 
         const updatedBlog = await BlogsService.updateBlog(id, updateData);
+
         if (!updatedBlog) {
-            return res.status(404).json({ success: false, message: "Blog not found" });
+            return res.status(404).json({ success: false, message: "Blog card not found" });
         }
 
-        // Automatically sync to Home Page "SVASC Insightful Blogs"
+        // Sync update to Home Blog
         await syncToHomeBlog(updatedBlog);
 
-        res.status(200).json({ success: true, data: updatedBlog, message: "Blog updated successfully" });
+        res.status(200).json({ success: true, data: updatedBlog, message: "Blog card updated successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -250,18 +215,14 @@ const updateBlog = async (req, res) => {
 const deleteBlog = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ success: false, message: "Invalid blog ID format" });
+        }
         const deletedBlog = await BlogsService.deleteBlog(id);
         if (!deletedBlog) {
-            return res.status(404).json({ success: false, message: "Blog not found" });
+            return res.status(404).json({ success: false, message: "Blog card not found" });
         }
-
-        // Clean up from Home Blog if present
-        if (deletedBlog.category || deletedBlog.title) {
-            const titleToRemove = deletedBlog.category || deletedBlog.title;
-            await HomeBlog.findOneAndDelete({ title: titleToRemove }).catch(() => {});
-        }
-
-        res.status(200).json({ success: true, message: 'Blog deleted successfully' });
+        res.status(200).json({ success: true, message: "Blog card deleted successfully" });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -270,8 +231,8 @@ const deleteBlog = async (req, res) => {
 module.exports = {
     getAllBlogs,
     getBlogById,
+    seedDefaultBlogs,
     createBlog,
     updateBlog,
-    deleteBlog,
-    seedDefaultBlogs
+    deleteBlog
 };

@@ -10,70 +10,24 @@ import {
   deleteBlog,
   seedDefaultBlogs,
 } from '../../../services/blogService';
+import { defaultBlogs } from '../../../data/blogsData';
 import styles from '../CrudManager.module.css';
-import { Plus, Trash2, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { RefreshCw, CheckCircle2, Filter } from 'lucide-react';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
-const CardBuilder = ({ cards, setCards }) => {
-  const addCard = () => setCards([...cards, { title: '', description: '', image: null }]);
-  const removeCard = (idx) => setCards(cards.filter((_, i) => i !== idx));
-  const updateCard = (idx, field, val) => {
-    const updated = [...cards];
-    updated[idx] = { ...updated[idx], [field]: val };
-    setCards(updated);
-  };
-
-  return (
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-        <label style={{ fontWeight: 600, color: '#333', fontSize: '0.9rem' }}>Cards (Unlimited)</label>
-        <button type="button" className={styles.addButton}
-          style={{ fontSize: '0.82rem', padding: '0.35rem 0.75rem' }}
-          onClick={addCard}>
-          <Plus size={14} /> Add Card
-        </button>
-      </div>
-      {cards.map((card, idx) => (
-        <div key={idx} style={{ border: '1px solid #e0e0e0', borderRadius: '6px', padding: '1rem', marginBottom: '0.75rem', background: '#fafafa' }}>
-          <FormInput
-            label={`Card ${idx + 1} Title`}
-            value={card.title || ''}
-            onChange={(e) => updateCard(idx, 'title', e.target.value)}
-          />
-          <FormInput
-            label={`Card ${idx + 1} Content/Description`}
-            type="textarea"
-            value={card.description || ''}
-            onChange={(e) => updateCard(idx, 'description', e.target.value)}
-          />
-          <div style={{ marginTop: '0.75rem' }}>
-            <FileUploader
-              label={`Card ${idx + 1} Image`}
-              accept="image/*"
-              onChange={(e) => updateCard(idx, 'image', e.target.files[0])}
-              previewUrl={
-                typeof card.image === 'string'
-                  ? (card.image.startsWith('http') ? card.image : `${BASE_URL}/${card.image.replace(/^\/+/, '')}`)
-                  : (card.image ? URL.createObjectURL(card.image) : null)
-              }
-            />
-          </div>
-          <button type="button" onClick={() => removeCard(idx)}
-            style={{ marginTop: '0.75rem', background: '#dc3545', color: 'white', border: 'none', padding: '0.3rem 0.75rem', borderRadius: '4px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85rem' }}>
-            <Trash2 size={13} /> Remove Card
-          </button>
-        </div>
-      ))}
-      {cards.length === 0 && (
-        <p style={{ color: '#999', fontStyle: 'italic', fontSize: '0.88rem' }}>No cards added yet. Click "Add Card" above.</p>
-      )}
-    </div>
-  );
-};
+const CATEGORIES = [
+  'Campus Life & Community',
+  'Academic Events',
+  'Cultural',
+  'Innovations in Education and Technology',
+  'Student Activities and Achievements',
+  'SVASC News'
+];
 
 const BlogsTab = () => {
   const [blogs, setBlogs] = useState([]);
+  const [selectedFilterCategory, setSelectedFilterCategory] = useState('All');
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
@@ -84,8 +38,8 @@ const BlogsTab = () => {
       const res = await getBlogs();
       let bRes = res?.data ?? (Array.isArray(res) ? res : []);
 
-      // If backend has less than 6 blogs, auto-seed standard categories
-      if (bRes.length < 6) {
+      // If backend has 0 blogs, auto-seed all 24 cards
+      if (bRes.length === 0) {
         try {
           await seedDefaultBlogs(false);
           const freshRes = await getBlogs();
@@ -95,26 +49,43 @@ const BlogsTab = () => {
         }
       }
 
+      // If still empty (e.g. backend offline), use defaultBlogs
+      if (bRes.length === 0) {
+        bRes = defaultBlogs;
+      }
+
       const formatted = bRes.map(item => ({
         ...item,
-        cardsCount: `${(item.cards || []).length} cards`
+        image: item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : ''),
+        bannerImage: item.image || item.bannerImage,
+        description: item.description || item.copy || ''
       }));
+
       setBlogs(formatted);
     } catch (err) {
       console.error('Error loading blogs data', err);
+      // Fallback to defaultBlogs on network failure
+      setBlogs(defaultBlogs.map(item => ({
+        ...item,
+        image: item.image || item.bImage,
+        bannerImage: item.image || item.bImage,
+        description: item.description || item.copy || ''
+      })));
     }
   };
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const handleSyncDefaults = async () => {
-    if (!window.confirm('Do you want to sync all 6 standard categories and 24 cards into the backend? This ensures the database holds all website content.')) {
+    if (!window.confirm('Do you want to sync/reset all 24 independent blog cards into MongoDB? This will ensure every card exists in the database.')) {
       return;
     }
     setIsSyncing(true);
     try {
       await seedDefaultBlogs(true);
-      setSyncNotice('All 6 blog categories and 24 cards successfully synced into MongoDB!');
+      setSyncNotice('All 24 blog cards successfully synced into MongoDB database!');
       await loadData();
       setTimeout(() => setSyncNotice(''), 4500);
     } catch (err) {
@@ -129,96 +100,94 @@ const BlogsTab = () => {
     setUploadProgress(0);
 
     try {
-      // 1. Upload Banner Image
-      let bannerUrl = formData.bannerImage;
-      if (formData.bannerImage instanceof File) {
-        bannerUrl = await uploadDirectToCloudinary(
-          formData.bannerImage,
-          'svasc/blogs/banners',
-          (pct) => setUploadProgress(Math.round(pct * 0.4))
+      // 1. Handle Image Upload
+      let imageUrl = formData.image;
+      if (formData.image instanceof File) {
+        imageUrl = await uploadDirectToCloudinary(
+          formData.image,
+          'svasc/blogs',
+          (pct) => setUploadProgress(pct)
         );
-      }
-
-      // 2. Upload Card Images
-      const uploadedCards = [];
-      const totalCards = (formData.cards || []).length;
-
-      for (let i = 0; i < totalCards; i++) {
-        const card = formData.cards[i];
-        let cardImageUrl = card.image;
-        if (card.image instanceof File) {
-          cardImageUrl = await uploadDirectToCloudinary(
-            card.image,
-            'svasc/blogs/cards',
-            (pct) => {
-              const cardStep = 60 / totalCards;
-              const currentCardProgress = 40 + Math.round((i * cardStep) + (pct * cardStep / 100));
-              setUploadProgress(currentCardProgress);
-            }
-          );
-        }
-        uploadedCards.push({
-          title: card.title || '',
-          description: card.description || '',
-          image: cardImageUrl || ''
-        });
+      } else if (!imageUrl && formData.bannerImage) {
+        imageUrl = formData.bannerImage;
       }
 
       setUploadProgress(100);
 
       const payload = {
-        category: formData.category || '',
-        title: formData.title || formData.category || '',
+        title: (formData.title || '').trim(),
+        category: (formData.category || 'SVASC News').trim(),
+        image: imageUrl || '',
+        bannerImage: imageUrl || '',
         description: formData.description || '',
-        author: formData.author || 'SVASC Editorial',
-        date: formData.date || '25 May, 2026',
-        readTime: formData.readTime || '4 min read',
-        bannerImage: bannerUrl || '',
-        cards: uploadedCards
+        author: (formData.author || 'SVASC Editorial').trim(),
+        date: (formData.date || '25 May, 2026').trim(),
+        readTime: (formData.readTime || '4 min read').trim(),
+        order: formData.order !== undefined ? Number(formData.order) : 0
       };
 
-      if (id) {
+      // 2. Check if valid MongoDB ObjectId or fallback ID
+      const isRealMongoId = id && !String(id).startsWith('blog-def-') && id !== 'all';
+
+      if (isRealMongoId) {
         await updateBlog(id, payload);
       } else {
-        await createBlog(payload);
+        // Check if item already exists in local list with a mongo _id
+        const existingInList = blogs.find(b => b.title?.toLowerCase() === payload.title.toLowerCase() && b._id && !String(b._id).startsWith('blog-def-'));
+        if (existingInList) {
+          await updateBlog(existingInList._id, payload);
+        } else {
+          await createBlog(payload);
+        }
       }
 
-      loadData();
+      await loadData();
     } finally {
       setIsUploading(false);
     }
   };
 
   const handleDelete = async (id) => {
+    if (!id || String(id).startsWith('blog-def-')) {
+      alert('Default seed item cannot be deleted directly from database without first syncing.');
+      return;
+    }
     await deleteBlog(id);
-    loadData();
+    await loadData();
   };
 
   const activityColumns = [
+    { key: 'image', label: 'Image', type: 'image' },
+    { key: 'title', label: 'Card Title', type: 'text' },
     { key: 'category', label: 'Category', type: 'text' },
-    { key: 'title', label: 'Title', type: 'text' },
     { key: 'author', label: 'Author', type: 'text' },
     { key: 'date', label: 'Date', type: 'text' },
-    { key: 'cardsCount', label: 'Cards', type: 'text' },
-    { key: 'bannerImage', label: 'Banner', type: 'image' }
+    { key: 'readTime', label: 'Read Time', type: 'text' }
   ];
 
   const initialState = {
-    category: '',
     title: '',
+    category: 'Campus Life & Community',
+    image: null,
+    bannerImage: null,
+    description: '',
     author: 'SVASC Editorial',
     date: '25 May, 2026',
     readTime: '4 min read',
-    description: '',
-    bannerImage: null,
-    cards: []
+    order: 0
   };
+
+  // Filtered blogs for table view
+  const displayedBlogs = blogs.filter(b => {
+    if (selectedFilterCategory === 'All') return true;
+    return (b.category || '').toLowerCase().trim() === selectedFilterCategory.toLowerCase().trim();
+  });
 
   return (
     <div>
       <HeroForm pageKey="blogs" title="Blogs Page Hero Section" />
 
-      {/* Sync All Default Blogs Action Bar */}
+      {/* Sync All 24 Cards Action Bar */}
       <div style={{
         background: '#f0fdf4',
         border: '1px solid #bbf7d0',
@@ -233,10 +202,10 @@ const BlogsTab = () => {
       }}>
         <div>
           <h4 style={{ margin: 0, color: '#166534', fontSize: '0.98rem', fontWeight: '700' }}>
-            Full Database Sync (All 6 Categories & 24 Cards)
+            Full Database Sync (All 24 Independent Blog Cards)
           </h4>
           <p style={{ margin: '0.25rem 0 0', color: '#15803d', fontSize: '0.85rem' }}>
-            Ensure all front-end blog categories, full HTML stories, and card highlights exist in MongoDB.
+            Ensure all 24 individual blog cards across all 6 categories are stored in MongoDB as separate editable cards.
           </p>
         </div>
         <button
@@ -249,120 +218,185 @@ const BlogsTab = () => {
             border: 'none',
             borderRadius: '6px',
             padding: '0.55rem 1.1rem',
-            fontSize: '0.88rem',
-            fontWeight: '600',
+            fontWeight: 600,
+            fontSize: '0.85rem',
             cursor: isSyncing ? 'not-allowed' : 'pointer',
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.45rem',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.08)'
+            boxShadow: '0 2px 4px rgba(0,0,0,0.06)'
           }}
         >
-          <RefreshCw size={14} className={isSyncing ? styles.spin : ''} />
-          {isSyncing ? 'Syncing...' : 'Sync / Seed All 6 Default Blogs'}
+          <RefreshCw size={15} className={isSyncing ? 'animate-spin' : ''} />
+          {isSyncing ? 'Syncing 24 Cards...' : 'Sync / Reset 24 Cards'}
         </button>
       </div>
 
       {syncNotice && (
         <div style={{
-          background: '#ecfdf5',
-          border: '1px solid #6ee7b7',
-          color: '#065f46',
+          background: '#dcfce7',
+          border: '1px solid #86efac',
+          color: '#15803d',
           padding: '0.75rem 1rem',
           borderRadius: '6px',
-          marginBottom: '1.25rem',
-          fontSize: '0.9rem',
+          marginBottom: '1rem',
+          fontSize: '0.88rem',
           display: 'flex',
           alignItems: 'center',
-          gap: '0.5rem'
+          gap: '0.5rem',
+          fontWeight: 600
         }}>
-          <CheckCircle2 size={18} color="#059669" />
-          <span>{syncNotice}</span>
+          <CheckCircle2 size={16} /> {syncNotice}
         </div>
       )}
 
+      {/* Category Filter Pills for Admin Quick Nav */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        flexWrap: 'wrap',
+        marginBottom: '1.25rem',
+        padding: '0.75rem 1rem',
+        background: '#f8fafc',
+        borderRadius: '8px',
+        border: '1px solid #e2e8f0'
+      }}>
+        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <Filter size={14} /> Filter by Category:
+        </span>
+        {['All', ...CATEGORIES].map((cat, idx) => {
+          const isSelected = selectedFilterCategory.toLowerCase() === cat.toLowerCase();
+          const count = cat === 'All' ? blogs.length : blogs.filter(b => (b.category || '').toLowerCase().trim() === cat.toLowerCase().trim()).length;
+          return (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setSelectedFilterCategory(cat)}
+              style={{
+                background: isSelected ? '#15803d' : '#ffffff',
+                color: isSelected ? '#ffffff' : '#334155',
+                border: isSelected ? '1px solid #15803d' : '1px solid #cbd5e1',
+                borderRadius: '20px',
+                padding: '0.3rem 0.75rem',
+                fontSize: '0.8rem',
+                fontWeight: isSelected ? 600 : 500,
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              {cat} ({count})
+            </button>
+          );
+        })}
+      </div>
+
       <CrudManager
-        title="College Blogs Categories & Cards"
-        data={blogs}
+        title={`All Blog Cards (${displayedBlogs.length}${selectedFilterCategory !== 'All' ? ` in ${selectedFilterCategory}` : ''})`}
+        data={displayedBlogs}
         columns={activityColumns}
         onSave={handleSave}
         onDelete={handleDelete}
         initialFormState={initialState}
         renderForm={(formData, setFormData) => (
-          <>
-            <FormInput
-              label="Category Name"
-              value={formData.category || ''}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              required
-            />
-            <FormInput
-              label="Article / Blog Title"
-              value={formData.title || ''}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              placeholder="e.g. Campus Life & Community Overview"
-            />
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-              <FormInput
-                label="Author"
-                value={formData.author || ''}
-                onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-                placeholder="SVASC Editorial"
-              />
-              <FormInput
-                label="Published Date"
-                value={formData.date || ''}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                placeholder="25 May, 2026"
-              />
-              <FormInput
-                label="Read Time"
-                value={formData.readTime || ''}
-                onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
-                placeholder="4 min read"
-              />
-            </div>
-            <FormInput
-              label="Full Story / Description (HTML Allowed)"
-              type="textarea"
-              value={formData.description || ''}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              required
-            />
-            <FileUploader
-              label="Banner Image"
-              accept="image/*"
-              onChange={(e) => setFormData({ ...formData, bannerImage: e.target.files[0] })}
-              previewUrl={
-                typeof formData.bannerImage === 'string'
-                  ? (formData.bannerImage.startsWith('http') ? formData.bannerImage : `${BASE_URL}/${formData.bannerImage.replace(/^\/+/, '')}`)
-                  : (formData.bannerImage ? URL.createObjectURL(formData.bannerImage) : null)
-              }
-            />
-
-            {/* LIVE UPLOAD PROGRESS BAR */}
+          <div>
             {isUploading && (
-              <div style={{ marginTop: '0.75rem', marginBottom: '0.75rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.3rem' }}>
-                  <span>⚡ Direct Cloudinary Media Uploading...</span>
-                  <span>{uploadProgress}%</span>
+              <div style={{ marginBottom: '1rem', background: '#e0f2fe', padding: '0.6rem 0.9rem', borderRadius: '6px' }}>
+                <div style={{ fontSize: '0.85rem', color: '#0369a1', fontWeight: 600, marginBottom: '0.3rem' }}>
+                  Uploading Image to Cloudinary: {uploadProgress}%
                 </div>
-                <div style={{ width: '100%', height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{
-                    width: `${uploadProgress}%`,
-                    height: '100%',
-                    background: 'linear-gradient(90deg, #3b82f6, #10b981)',
-                    transition: 'width 0.2s ease'
-                  }} />
+                <div style={{ width: '100%', height: '6px', background: '#bae6fd', borderRadius: '3px', overflow: 'hidden' }}>
+                  <div style={{ width: `${uploadProgress}%`, height: '100%', background: '#0284c7', transition: 'width 0.2s' }} />
                 </div>
               </div>
             )}
 
-            <CardBuilder
-              cards={formData.cards || []}
-              setCards={(cards) => setFormData({ ...formData, cards })}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+              <FormInput
+                label="Card Title *"
+                placeholder="e.g. Campus Overview, Guest Lectures, etc."
+                value={formData.title || ''}
+                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                required
+              />
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '1rem' }}>
+                <label style={{ fontWeight: 600, color: '#333', fontSize: '0.88rem' }}>
+                  Category *
+                </label>
+                <select
+                  value={formData.category || 'Campus Life & Community'}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  style={{
+                    padding: '0.6rem 0.8rem',
+                    borderRadius: '6px',
+                    border: '1px solid #cbd5e1',
+                    fontSize: '0.9rem',
+                    backgroundColor: '#fff',
+                    outline: 'none'
+                  }}
+                >
+                  {CATEGORIES.map((cat, idx) => (
+                    <option key={idx} value={cat}>{cat}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div style={{ marginBottom: '1.25rem' }}>
+              <FileUploader
+                label="Card Image *"
+                accept="image/*"
+                onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                previewUrl={
+                  typeof formData.image === 'string'
+                    ? (formData.image.startsWith('http') ? formData.image : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`)
+                    : (formData.image ? URL.createObjectURL(formData.image) : (
+                        typeof formData.bannerImage === 'string'
+                          ? (formData.bannerImage.startsWith('http') ? formData.bannerImage : `${BASE_URL}/${formData.bannerImage.replace(/^\/+/, '')}`)
+                          : null
+                      ))
+                }
+              />
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+              <FormInput
+                label="Author"
+                placeholder="SVASC Editorial"
+                value={formData.author || ''}
+                onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+              />
+              <FormInput
+                label="Date"
+                placeholder="25 May, 2026"
+                value={formData.date || ''}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+              />
+              <FormInput
+                label="Read Time"
+                placeholder="4 min read"
+                value={formData.readTime || ''}
+                onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
+              />
+              <FormInput
+                label="Display Order"
+                type="number"
+                value={formData.order ?? 0}
+                onChange={(e) => setFormData({ ...formData, order: e.target.value })}
+              />
+            </div>
+
+            <FormInput
+              label="Article Description / Full Content *"
+              type="textarea"
+              rows={8}
+              placeholder="HTML or plain text content for this blog card..."
+              value={formData.description || ''}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              required
             />
-          </>
+          </div>
         )}
       />
     </div>

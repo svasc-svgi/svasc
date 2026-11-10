@@ -13,64 +13,76 @@ async function seedAllBlogs() {
         await mongoose.connect(MONGO_URI);
         console.log('Connected to MongoDB successfully! 🚀');
 
-        console.log(`Starting to seed ${DEFAULT_BLOGS.length} blog categories and 24 cards...`);
+        console.log(`Starting to seed ${DEFAULT_BLOGS.length} independent blog cards...`);
 
+        let count = 0;
         for (const def of DEFAULT_BLOGS) {
-            const query = { category: new RegExp(`^${def.category.trim()}$`, 'i') };
+            const query = { title: new RegExp(`^${def.title.trim()}$`, 'i') };
             const existing = await Blogs.findOne(query);
 
             let blogDoc;
             if (!existing) {
-                blogDoc = await Blogs.create({ ...def });
-                console.log(`✅ Created: "${def.category}" with ${def.cards.length} cards`);
+                blogDoc = await Blogs.create({
+                    title: def.title,
+                    category: def.category,
+                    image: def.image,
+                    bannerImage: def.image,
+                    description: def.description,
+                    author: def.author,
+                    date: def.date,
+                    readTime: def.readTime,
+                    order: def.order !== undefined ? def.order : count
+                });
+                console.log(`✅ Created: [${def.category}] "${def.title}"`);
             } else {
                 blogDoc = await Blogs.findByIdAndUpdate(
                     existing._id,
                     {
                         title: def.title,
+                        category: def.category,
+                        image: def.image,
+                        bannerImage: def.image,
                         description: def.description,
-                        bannerImage: def.bannerImage,
                         author: def.author,
                         date: def.date,
                         readTime: def.readTime,
-                        cards: def.cards,
-                        order: def.order
+                        order: def.order !== undefined ? def.order : count
                     },
                     { new: true }
                 );
-                console.log(`🔄 Updated/Restored: "${def.category}" with ${def.cards.length} cards`);
+                console.log(`🔄 Updated/Restored: [${def.category}] "${def.title}"`);
             }
 
-            // Also sync to HomeBlog
-            if (blogDoc) {
+            // Sync to HomeBlog
+            if (blogDoc && count < 6) {
                 const plainDesc = (blogDoc.description || '')
                     .replace(/<[^>]+>/g, '')
                     .replace(/\s+/g, ' ')
                     .trim()
                     .slice(0, 180);
-                const img = blogDoc.bannerImage || (blogDoc.cards && blogDoc.cards[0] ? blogDoc.cards[0].image : '');
-                if (img) {
-                    await HomeBlog.findOneAndUpdate(
-                        { title: blogDoc.category },
-                        {
-                            title: blogDoc.category,
-                            description: plainDesc,
-                            image: img,
-                            day: 25,
-                            month: 'May'
-                        },
-                        { upsert: true, new: true }
-                    );
-                }
+
+                const blogTitle = blogDoc.title || blogDoc.category || 'Insightful Blog';
+
+                await HomeBlog.findOneAndUpdate(
+                    { title: blogTitle },
+                    {
+                        title: blogTitle,
+                        description: plainDesc,
+                        image: blogDoc.image || blogDoc.bannerImage,
+                        day: 25,
+                        month: 'May'
+                    },
+                    { upsert: true, new: true }
+                );
             }
+            count++;
         }
 
-        console.log('\n🎉 ALL 6 Blog Categories and 24 Cards successfully seeded into MongoDB!');
+        console.log(`\n🎉 All ${DEFAULT_BLOGS.length} blog cards successfully seeded and synced!`);
+        process.exit(0);
     } catch (err) {
-        console.error('Seed error:', err);
-    } finally {
-        await mongoose.disconnect();
-        console.log('Disconnected from MongoDB.');
+        console.error('❌ Error during seeding:', err);
+        process.exit(1);
     }
 }
 

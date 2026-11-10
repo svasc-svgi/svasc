@@ -8,12 +8,12 @@ router.get('/', blogsController.getAllBlogs);
 router.post('/seed-default', blogsController.seedDefaultBlogs);
 router.get('/:id', blogsController.getBlogById);
 router.post('/', upload.fields([
-    { name: 'bannerImage', maxCount: 1 },
-    { name: 'cardImages', maxCount: 100 }
+    { name: 'image', maxCount: 1 },
+    { name: 'bannerImage', maxCount: 1 }
 ]), blogsController.createBlog);
 router.put('/:id', upload.fields([
-    { name: 'bannerImage', maxCount: 1 },
-    { name: 'cardImages', maxCount: 100 }
+    { name: 'image', maxCount: 1 },
+    { name: 'bannerImage', maxCount: 1 }
 ]), blogsController.updateBlog);
 router.delete('/:id', blogsController.deleteBlog);
 
