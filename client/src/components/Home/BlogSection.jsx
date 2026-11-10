@@ -14,6 +14,13 @@ import './BlogSection.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
+const resolveImageUrl = (img) => {
+    if (!img) return 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800';
+    if (img.startsWith('http') || img.startsWith('/') || img.startsWith('data:')) return img;
+    const cleanImg = img.replace(/^\/+/, '');
+    return `${BASE_URL}/${cleanImg}`;
+};
+
 const fallbackBlogs = [
     {
         day: 24,
@@ -81,19 +88,17 @@ const BlogSection = () => {
                 if (mainRes.status === 'fulfilled') {
                     const list = mainRes.value?.data ?? (Array.isArray(mainRes.value) ? mainRes.value : []);
                     list.forEach(item => {
-                        const title = item.category || item.title || '';
+                        const title = item.title || item.category || '';
                         const norm = title.trim().toLowerCase();
                         if (norm && !seenTitles.has(norm)) {
                             seenTitles.add(norm);
-                            const cleanImg = (item.bannerImage || item.image || (item.cards && item.cards[0] ? item.cards[0].image : '') || '').replace(/^\/+/, '');
-                            const imgUrl = cleanImg
-                                ? (cleanImg.startsWith('http') ? cleanImg : `${BASE_URL}/${cleanImg}`)
-                                : 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800';
+                            const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '') || '';
+                            const imgUrl = resolveImageUrl(rawImg);
                             const plainDesc = (item.description || item.copy || '')
                                 .replace(/<[^>]+>/g, '')
                                 .replace(/\s+/g, ' ')
                                 .trim()
-                                .slice(0, 160);
+                                .slice(0, 140);
                             const date = new Date(item.createdAt || Date.now());
                             merged.push({
                                 _id: item._id || item.ID,
@@ -115,14 +120,18 @@ const BlogSection = () => {
                         const norm = title.trim().toLowerCase();
                         if (norm && !seenTitles.has(norm)) {
                             seenTitles.add(norm);
-                            const cleanImg = (item.image || '').replace(/^\/+/, '');
-                            const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
+                            const imgUrl = resolveImageUrl(item.image);
+                            const plainDesc = (item.description || '')
+                                .replace(/<[^>]+>/g, '')
+                                .replace(/\s+/g, ' ')
+                                .trim()
+                                .slice(0, 140);
                             merged.push({
                                 _id: item._id,
                                 day: item.day || 25,
                                 month: item.month || 'May',
                                 title: title || 'Insightful Blog',
-                                description: item.description || '',
+                                description: plainDesc || 'Discover insightful articles and updates from SVASC.',
                                 image: imgUrl
                             });
                         }
@@ -192,7 +201,7 @@ const BlogSection = () => {
                     >
                         {blogs.map((blog, idx) => (
                             <SwiperSlide key={blog._id || idx} className="news-slider__item">
-                                <Link to="/blogs" className="news__item-link" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                                <Link to="/blogs" className="news__item-link" style={{ textDecoration: 'none', display: 'block' }}>
                                     <div className="news__item">
                                         <div className="news-date">
                                             <span className="news-date__title">{blog.day}</span>
@@ -200,8 +209,8 @@ const BlogSection = () => {
                                         </div>
                                         <div className="news__title">{blog.title}</div>
                                         <p className="news__txt">{blog.description}</p>
-                                        <div className="news-readmore" style={{ color: '#0E2A5A', fontWeight: '600', marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                                            Read More <span style={{ transition: 'transform 0.2s' }} className="readmore-arrow">→</span>
+                                        <div className="news-readmore">
+                                            Read More <span className="readmore-arrow">→</span>
                                         </div>
                                         <div className="news__img">
                                             <img src={blog.image} alt={blog.title} loading="lazy" decoding="async" />
