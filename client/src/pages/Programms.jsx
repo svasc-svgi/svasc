@@ -136,7 +136,6 @@ const Schools = () => {
                 name: "School of Sciences",
                 acronym: "SOHS",
                 programs: [
-                    { title: "B.Sc. Physics", image: why1Img },
                     { title: "B.Sc. Chemistry", image: why3Img },
                     { title: "B.Sc. Mathematics", image: teachingImg },
                     { title: "B.Sc. Microbiology", image: researchImg },
