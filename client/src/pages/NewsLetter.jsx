@@ -32,39 +32,6 @@ const DEFAULT_NEWSLETTERS = [
     fallbackPdf: "/newsletter/newsletter_2026.pdf",
     coverImage: "/newsletter/newsletter_cover.jpg",
     isFeatured: true
-  },
-  {
-    _id: "newsletter-2024-25",
-    title: "SVASC Annual Campus Newsletter (2024–2025)",
-    description: "Official broadsheet release highlighting university rank holders, state-level sports championships, placement drives, and campus-wide events throughout the academic year.",
-    byline: "CAMPUS EDITORIAL DESK",
-    date: "AUGUST 4, 2025",
-    pdf: "/newsletter/newsletter_2024_25.pdf",
-    fallbackPdf: "/newsletter/newsletter_2024_25.pdf",
-    coverImage: "/newsletter/newsletter_cover.jpg",
-    isFeatured: false
-  },
-  {
-    _id: "newsletter-2016-17",
-    title: "SVASC Annual Gazette & Newsletter (2016–2017)",
-    description: "Archival edition commemorating institutional expansion, faculty research contributions, international conferences, and community welfare initiatives.",
-    byline: "CAMPUS EDITORIAL DESK",
-    date: "ACADEMIC ARCHIVE",
-    pdf: "/newsletter/newsletter_2016_17.pdf",
-    fallbackPdf: "/newsletter/newsletter_2016_17.pdf",
-    coverImage: "/newsletter/newsletter_cover.jpg",
-    isFeatured: false
-  },
-  {
-    _id: "newsletter-2015-16",
-    title: "SVASC Campus Chronicle & Newsletter (2015–2016)",
-    description: "Historic milestone release documenting campus infrastructure enhancements, youth festival accolades, and pioneering academic accomplishments.",
-    byline: "CAMPUS EDITORIAL DESK",
-    date: "ACADEMIC ARCHIVE",
-    pdf: "/newsletter/newsletter_2015_16.pdf",
-    fallbackPdf: "/newsletter/newsletter_2015_16.pdf",
-    coverImage: "/newsletter/newsletter_cover.jpg",
-    isFeatured: false
   }
 ];
 
@@ -121,21 +88,15 @@ const NewsLetter = () => {
                 pdf: fileSrc,
                 fallbackPdf: "/newsletter/newsletter_2026.pdf",
                 coverImage: "/newsletter/newsletter_cover.jpg",
-                isFeatured: idx === 0
+                isFeatured: true
               };
             });
 
-            // Combine with archive editions
-            const existingTitles = new Set(mapped.map((n) => n.title.toLowerCase().trim()));
-            const remainingDefaults = DEFAULT_NEWSLETTERS.filter(
-              (d) => !existingTitles.has(d.title.toLowerCase().trim())
-            );
-
-            setNewsletters([...mapped, ...remainingDefaults]);
+            setNewsletters(mapped);
           }
         }
       } catch (error) {
-        console.warn('Could not fetch dynamic newsletters, using default publications:', error.message);
+        console.warn('Could not fetch dynamic newsletters, using default publication:', error.message);
       } finally {
         setLoading(false);
       }
@@ -152,9 +113,6 @@ const NewsLetter = () => {
     const dt = (item.date || '').toLowerCase();
     return t.includes(q) || d.includes(q) || dt.includes(q);
   });
-
-  const featuredNewsletter = filteredNewsletters.find((n) => n.isFeatured) || filteredNewsletters[0];
-  const otherNewsletters = filteredNewsletters.filter((n) => n !== featuredNewsletter);
 
   const handleOpenPdf = (pdfUrl, e) => {
     if (e) e.stopPropagation();
@@ -182,142 +140,42 @@ const NewsLetter = () => {
       />
 
       <div className="newsletter-main-container">
-        {/* Top Header & Search Bar */}
+        {/* Section Header */}
         <div className="newsletter-header-bar">
           <div className="newsletter-header-info">
             <span className="newsletter-section-pill">
               <Sparkles size={14} /> Institutional Publications
             </span>
-            <h2 className="newsletter-section-title">Official Campus Bulletins & Newsletters</h2>
+            <h2 className="newsletter-section-title">Latest Official Release</h2>
             <p className="newsletter-section-desc">
-              Explore official digital editions of our institutional gazette, highlighting academic milestones, student laurels, and departmental achievements.
+              Explore the official digital edition of our institutional gazette, highlighting academic milestones, student laurels, and departmental achievements.
             </p>
           </div>
 
-          <div className="newsletter-search-wrapper">
-            <Search size={18} className="newsletter-search-icon" />
-            <input
-              type="text"
-              placeholder="Search newsletter editions or dates..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="newsletter-search-input"
-            />
-          </div>
+          {newsletters.length > 1 && (
+            <div className="newsletter-search-wrapper">
+              <Search size={18} className="newsletter-search-icon" />
+              <input
+                type="text"
+                placeholder="Search newsletter editions..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="newsletter-search-input"
+              />
+            </div>
+          )}
         </div>
 
-        {/* FEATURED LATEST EDITION CARD */}
-        {featuredNewsletter && (
-          <div className="newsletter-featured-card">
-            <div className="featured-card-badge-row">
-              <span className="featured-tag">
-                <span className="featured-tag-dot" /> Latest Official Release
-              </span>
-              <span className="featured-byline-badge">
-                {featuredNewsletter.byline || 'CAMPUS EDITORIAL DESK'} · {featuredNewsletter.date}
-              </span>
-            </div>
-
-            <div className="featured-card-body">
-              {/* Cover Preview Thumbnail */}
-              <div
-                className="featured-cover-wrapper"
-                onClick={() => handleOpenPdf(featuredNewsletter.pdf)}
-                title="Click arrow or cover to view PDF"
-              >
-                <img
-                  src={featuredNewsletter.coverImage}
-                  alt={featuredNewsletter.title}
-                  className="featured-cover-img"
-                  onError={(e) => {
-                    e.currentTarget.src = '/newsletter/newsletter_cover.jpg';
-                  }}
-                />
-                <div className="featured-cover-overlay">
-                  <div className="featured-arrow-circle" title="Open PDF">
-                    <ArrowUpRight size={26} color="#ffffff" />
-                  </div>
-                  <span className="featured-overlay-text">Click to Open PDF</span>
-                </div>
-              </div>
-
-              {/* Information & Action Content */}
-              <div className="featured-content-wrapper">
-                <div className="featured-meta-row">
-                  <span className="featured-date-chip">
-                    <Calendar size={14} /> {featuredNewsletter.date}
-                  </span>
-                  <span className="featured-desk-chip">
-                    {featuredNewsletter.byline || 'CAMPUS EDITORIAL DESK'}
-                  </span>
-                </div>
-
-                <h3 className="featured-headline">{featuredNewsletter.title}</h3>
-
-                <p className="featured-description">
-                  {featuredNewsletter.description}
-                </p>
-
-                {/* Prominent Action Bar with Arrow Icon */}
-                <div className="featured-actions-row">
-                  <button
-                    type="button"
-                    className="newsletter-primary-btn"
-                    onClick={(e) => handleOpenPdf(featuredNewsletter.pdf, e)}
-                  >
-                    <span>Open Official PDF</span>
-                    <span className="arrow-icon-circle">
-                      <ArrowUpRight size={18} />
-                    </span>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="newsletter-reader-btn"
-                    onClick={() => openLightboxModal(featuredNewsletter)}
-                    title="View inline in website viewer"
-                  >
-                    <BookOpen size={16} />
-                    <span>Quick Preview</span>
-                  </button>
-
-                  <a
-                    href={featuredNewsletter.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="newsletter-download-btn"
-                    download
-                    title="Download PDF document"
-                  >
-                    <Download size={16} />
-                    <span>Download</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ARCHIVE EDITIONS TITLE */}
-        {otherNewsletters.length > 0 && (
-          <div className="archive-section-header">
-            <h3 className="archive-title">Preserved Newsletters & Gazettes</h3>
-            <span className="archive-counter">
-              {otherNewsletters.length} Archived Issue{otherNewsletters.length !== 1 ? 's' : ''}
-            </span>
-          </div>
-        )}
-
-        {/* ARCHIVE NEWSLETTER CARDS GRID */}
+        {/* NEWSLETTER CARD SHOWCASE */}
         {filteredNewsletters.length === 0 ? (
           <div className="newsletter-empty-card">
             <FileText size={48} color="#94a3b8" />
             <h4>No Newsletter Publications Found</h4>
-            <p>Try searching with another keyword or clear the search field to view all releases.</p>
+            <p>Try searching with another keyword or clear the search field to view the official release.</p>
           </div>
         ) : (
-          <div className="newsletter-grid">
-            {otherNewsletters.map((item) => (
+          <div className="newsletter-cards-showcase">
+            {filteredNewsletters.map((item) => (
               <div
                 key={item._id}
                 className="newsletter-card"
@@ -333,20 +191,27 @@ const NewsLetter = () => {
                       e.currentTarget.src = '/newsletter/newsletter_cover.jpg';
                     }}
                   />
+
+                  {/* Corner Status Badge */}
+                  <span className="card-status-badge">
+                    <span className="status-dot" /> Latest Official Release
+                  </span>
+
                   <div className="card-thumb-overlay">
                     <span className="card-open-pill">
-                      <Eye size={14} /> View Publication
+                      <Eye size={14} /> Open Official PDF
                     </span>
                   </div>
 
-                  {/* Corner Arrow Icon Circle */}
+                  {/* Corner Arrow Icon Circle Button */}
                   <button
                     type="button"
                     className="card-corner-arrow-btn"
                     onClick={(e) => handleOpenPdf(item.pdf, e)}
                     title="Open PDF Document"
+                    aria-label="Open PDF Document"
                   >
-                    <ArrowUpRight size={18} />
+                    <ArrowUpRight size={20} />
                   </button>
                 </div>
 
@@ -357,11 +222,12 @@ const NewsLetter = () => {
                       {item.byline || 'CAMPUS EDITORIAL DESK'}
                     </span>
                     <span className="card-date-tag">
+                      <Calendar size={13} style={{ display: 'inline', marginRight: 5, verticalAlign: -1 }} />
                       {item.date}
                     </span>
                   </div>
 
-                  <h4 className="card-headline">{item.title}</h4>
+                  <h3 className="card-headline">{item.title}</h3>
 
                   <p className="card-excerpt">{item.description}</p>
 
@@ -371,21 +237,39 @@ const NewsLetter = () => {
                       className="card-action-open-link"
                       onClick={(e) => handleOpenPdf(item.pdf, e)}
                     >
-                      <span>Read PDF</span>
-                      <ArrowUpRight size={15} />
+                      <span>Read Official PDF</span>
+                      <span className="action-arrow-bubble">
+                        <ArrowUpRight size={15} />
+                      </span>
                     </button>
 
-                    <a
-                      href={item.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="card-action-icon-link"
-                      onClick={(e) => e.stopPropagation()}
-                      download
-                      title="Download PDF"
-                    >
-                      <Download size={15} />
-                    </a>
+                    <div className="card-secondary-actions">
+                      <button
+                        type="button"
+                        className="card-action-icon-link"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openLightboxModal(item);
+                        }}
+                        title="Quick Preview"
+                        aria-label="Quick Preview"
+                      >
+                        <BookOpen size={16} />
+                      </button>
+
+                      <a
+                        href={item.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card-action-icon-link"
+                        onClick={(e) => e.stopPropagation()}
+                        download
+                        title="Download PDF"
+                        aria-label="Download PDF"
+                      >
+                        <Download size={16} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
