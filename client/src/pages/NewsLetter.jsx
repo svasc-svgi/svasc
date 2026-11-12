@@ -146,9 +146,9 @@ const NewsLetter = () => {
             <span className="newsletter-section-pill">
               <Sparkles size={14} /> Institutional Publications
             </span>
-            <h2 className="newsletter-section-title">Latest Official Release</h2>
+            <h2 className="newsletter-section-title">Official Campus Newsletters</h2>
             <p className="newsletter-section-desc">
-              Explore the official digital edition of our institutional gazette, highlighting academic milestones, student laurels, and departmental achievements.
+              Explore official digital editions of our institutional gazette, highlighting academic milestones, student laurels, and departmental achievements.
             </p>
           </div>
 
@@ -166,7 +166,7 @@ const NewsLetter = () => {
           )}
         </div>
 
-        {/* NEWSLETTER CARD SHOWCASE */}
+        {/* NEWSLETTER CARDS GRID (3 Cards Per Row on Desktop, Left-Aligned) */}
         {filteredNewsletters.length === 0 ? (
           <div className="newsletter-empty-card">
             <FileText size={48} color="#94a3b8" />
@@ -174,8 +174,8 @@ const NewsLetter = () => {
             <p>Try searching with another keyword or clear the search field to view the official release.</p>
           </div>
         ) : (
-          <div className="newsletter-cards-showcase">
-            {filteredNewsletters.map((item) => (
+          <div className="newsletter-cards-grid">
+            {filteredNewsletters.map((item, idx) => (
               <div
                 key={item._id}
                 className="newsletter-card"
@@ -192,10 +192,12 @@ const NewsLetter = () => {
                     }}
                   />
 
-                  {/* Corner Status Badge */}
-                  <span className="card-status-badge">
-                    <span className="status-dot" /> Latest Official Release
-                  </span>
+                  {/* Corner Status Badge for Latest/Featured */}
+                  {idx === 0 && (
+                    <span className="card-status-badge">
+                      <span className="status-dot" /> Latest Official Release
+                    </span>
+                  )}
 
                   <div className="card-thumb-overlay">
                     <span className="card-open-pill">
@@ -211,7 +213,7 @@ const NewsLetter = () => {
                     title="Open PDF Document"
                     aria-label="Open PDF Document"
                   >
-                    <ArrowUpRight size={20} />
+                    <ArrowUpRight size={18} />
                   </button>
                 </div>
 
@@ -239,7 +241,7 @@ const NewsLetter = () => {
                     >
                       <span>Read Official PDF</span>
                       <span className="action-arrow-bubble">
-                        <ArrowUpRight size={15} />
+                        <ArrowUpRight size={14} />
                       </span>
                     </button>
 
@@ -254,7 +256,7 @@ const NewsLetter = () => {
                         title="Quick Preview"
                         aria-label="Quick Preview"
                       >
-                        <BookOpen size={16} />
+                        <BookOpen size={15} />
                       </button>
 
                       <a
@@ -267,7 +269,7 @@ const NewsLetter = () => {
                         title="Download PDF"
                         aria-label="Download PDF"
                       >
-                        <Download size={16} />
+                        <Download size={15} />
                       </a>
                     </div>
                   </div>
