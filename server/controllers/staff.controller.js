@@ -1,6 +1,57 @@
 const staffService = require('../services/staff.service');
 const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
 
+// Get all dynamic departments & courses
+exports.getDepartments = async (req, res) => {
+  try {
+    const departments = await staffService.getAllDepartments();
+    res.status(200).json({
+      success: true,
+      data: departments
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Add new department or course
+exports.createDepartment = async (req, res) => {
+  try {
+    const { name } = req.body;
+    const created = await staffService.createDepartment(name);
+    res.status(201).json({
+      success: true,
+      data: created,
+      message: 'Department added successfully'
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Delete a custom department
+exports.deleteDepartment = async (req, res) => {
+  try {
+    const { name } = req.params;
+    await staffService.deleteDepartment(decodeURIComponent(name));
+    res.status(200).json({
+      success: true,
+      message: 'Department removed successfully'
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 // Get all staff members
 exports.getAllStaff = async (req, res) => {
   try {
@@ -107,6 +158,25 @@ exports.updateStaff = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// Clone a staff member to another course or multiple courses
+exports.cloneStaff = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { targetDepartment, targetDepartments } = req.body;
+    const cloned = await staffService.cloneStaff(id, { targetDepartment, targetDepartments });
+    res.status(200).json({
+      success: true,
+      data: cloned,
+      message: `Staff cloned successfully to ${cloned.length} department(s)`
+    });
+  } catch (error) {
+    res.status(400).json({
       success: false,
       message: error.message
     });

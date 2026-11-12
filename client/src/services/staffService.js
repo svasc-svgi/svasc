@@ -14,6 +14,26 @@ export const getStaffPhotoMap = async () => {
   }
 };
 
+export const getDepartments = async () => {
+  try {
+    const res = await axios.get(`${BASE_URL}/api/staff/departments`);
+    return res.data?.data || [];
+  } catch (error) {
+    console.warn('Could not fetch departments from API, using fallback:', error.message);
+    return [];
+  }
+};
+
+export const createDepartment = async (name) => {
+  const res = await axios.post(`${BASE_URL}/api/staff/departments`, { name });
+  return res.data;
+};
+
+export const deleteDepartment = async (name) => {
+  const res = await axios.delete(`${BASE_URL}/api/staff/departments/${encodeURIComponent(name)}`);
+  return res.data;
+};
+
 export const getAllStaff = async (params = {}) => {
   const res = await axios.get(`${BASE_URL}/api/staff`, { params });
   return res.data?.data || [];
@@ -31,6 +51,11 @@ export const updateStaff = async (id, data) => {
 
 export const deleteStaff = async (id) => {
   const res = await axios.delete(`${BASE_URL}/api/staff/${id}`);
+  return res.data;
+};
+
+export const cloneStaff = async (id, data) => {
+  const res = await axios.post(`${BASE_URL}/api/staff/${id}/clone`, data);
   return res.data;
 };
 

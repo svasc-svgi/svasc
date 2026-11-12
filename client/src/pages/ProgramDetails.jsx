@@ -5,6 +5,49 @@ import styles from './ProgramDetails.module.css';
 import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2, Target, Compass } from 'lucide-react';
 import { useStaffPhotos } from '../hooks/useStaffPhotos';
 import { getStaffInitials } from '../utils/staffParser';
+import { getAllStaff } from '../services/staffService';
+
+const PROGRAM_DEPT_MAP = {
+    'bsc-computer-science': 'B.Sc. Computer Science',
+    'bsccomputer-ai-ds': 'B.Sc. Computer Science (AI & DS)',
+    'bachelor-of-computer-applications-bca': 'Bachelor of Computer Applications (BCA)',
+    'bscinformation-technology': 'B.Sc. Information Technology',
+    'bsccyber-security': 'B.Sc. Cyber Security',
+    'b-com-bachelor-of-commerce': 'B. Com – Bachelor of Commerce',
+    'b-combi-bachelor-of-commerce-with-banking-insurance': 'B.Com (Banking & Insurance)',
+    'bcom-it-bachelor-of-information-technology': 'B.Com (Information Technology)',
+    'bcomca-computer-applications': 'B.Com (Computer Applications)',
+    'bcom-pa-professional-accounting': 'B.Com (Professional Accounting)',
+    'management': 'BBA - Management Studies',
+    'managementbba': 'BBA - Management Studies',
+    'bba': 'BBA - Management Studies',
+    'bsc-chemistry': 'B.Sc. Chemistry',
+    'bsc-mathematics': 'B.Sc. Mathematics',
+    'bsc-microbiology': 'B.Sc. Microbiology',
+    'ba-english': 'B.A. English',
+    'bsc-costume-design-fashion': 'B.Sc. Costume Design & Fashion',
+    'msc-computer-science': 'M.Sc. Computer Science',
+    'mcom': 'Master of Commerce (M.Com)',
+    'msc-microbiology': 'M.Sc. Microbiology',
+    'phd-commerce': 'Ph.D. Commerce',
+    'phd-english': 'Ph.D. English',
+    'ma-english': 'M.A. English',
+    'physical-education': 'Department of Physical Education',
+    'department-of-physical-education': 'Department of Physical Education'
+};
+
+const resolveDeptName = (progId, progTitle) => {
+    if (PROGRAM_DEPT_MAP[progId]) return PROGRAM_DEPT_MAP[progId];
+    if (progTitle) {
+        for (const [slug, dept] of Object.entries(PROGRAM_DEPT_MAP)) {
+            if (progTitle.toLowerCase().includes(dept.toLowerCase()) || dept.toLowerCase().includes(progTitle.toLowerCase())) {
+                return dept;
+            }
+        }
+        return progTitle;
+    }
+    return progId;
+};
 
 const ProgramDetails = () => {
     const { id } = useParams();
@@ -19,12 +62,35 @@ const ProgramDetails = () => {
 
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    const [dbStaff, setDbStaff] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         setActiveCategory('All');
         setSelectedImageIndex(null);
     }, [id]);
+
+    useEffect(() => {
+        let isMounted = true;
+        const targetDept = resolveDeptName(cleanId, program?.title);
+
+        getAllStaff({ department: targetDept })
+            .then((staff) => {
+                if (!isMounted) return;
+                if (Array.isArray(staff) && staff.length > 0) {
+                    const sorted = [...staff].sort((a, b) => (a.sNo || 0) - (b.sNo || 0) || (new Date(a.createdAt || 0) - new Date(b.createdAt || 0)));
+                    setDbStaff(sorted);
+                } else {
+                    setDbStaff([]);
+                }
+            })
+            .catch((err) => {
+                console.warn('Could not load dynamic staff for', targetDept, err.message);
+                if (isMounted) setDbStaff([]);
+            });
+
+        return () => { isMounted = false; };
+    }, [id, cleanId, program?.title]);
 
     if (!program) {
         return (
@@ -283,7 +349,7 @@ const ProgramDetails = () => {
                 ) : null}
 
                 {/* STAFF DETAILS */}
-                {program.staffDetails && (
+                {((dbStaff && dbStaff.length > 0) || (program && program.staffDetails && program.staffDetails.length > 0)) && (
                     <section className={styles.staffSection}>
                         <div className={styles.container}>
                             <h2 className={styles.sectionTitle}>Staff Details</h2>
@@ -298,19 +364,21 @@ const ProgramDetails = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {program.staffDetails.map((staff, idx) => {
-                                            const photoUrl = staff.photo || staff.image || getStaffPhoto(staff.name);
-                                            const initials = getStaffInitials(staff.name);
+                                        {((dbStaff && dbStaff.length > 0) ? dbStaff : program.staffDetails).map((staff, idx) => {
+                                            const facultyName = staff.fullName || staff.name || '';
+                                            const photoUrl = staff.photo || staff.image || getStaffPhoto(facultyName);
+                                            const initials = staff.initial || getStaffInitials(facultyName);
+                                            const qualification = staff.qualification || '-';
 
                                             return (
-                                                <tr key={idx}>
+                                                <tr key={staff._id || staff.id || idx}>
                                                     <td className={styles.sNoCell}>{staff.sNo || idx + 1}</td>
                                                     <td className={styles.photoCell}>
                                                         <div className={styles.avatarWrapper}>
                                                             {photoUrl ? (
                                                                 <img
                                                                     src={photoUrl}
-                                                                    alt={staff.name}
+                                                                    alt={facultyName}
                                                                     className={styles.staffAvatar}
                                                                     loading="lazy"
                                                                     onError={(e) => {
@@ -328,8 +396,8 @@ const ProgramDetails = () => {
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td className={styles.facultyName}>{staff.name}</td>
-                                                    <td>{staff.qualification}</td>
+                                                    <td className={styles.facultyName}>{facultyName}</td>
+                                                    <td>{qualification}</td>
                                                 </tr>
                                             );
                                         })}

@@ -1,44 +1,77 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './StaffTab.module.css';
-import { Search, Plus, RefreshCw, Upload, Trash2, Edit3, X, CheckCircle, Info } from 'lucide-react';
-import { getAllStaff, createStaff, updateStaff, deleteStaff, syncDefaultStaff } from '../../../services/staffService';
+import { Search, Plus, RefreshCw, Upload, Trash2, Edit3, X, CheckCircle, Info, Copy, FolderPlus, Layers } from 'lucide-react';
+import {
+  getAllStaff,
+  createStaff,
+  updateStaff,
+  deleteStaff,
+  cloneStaff,
+  syncDefaultStaff,
+  getDepartments,
+  createDepartment,
+  deleteDepartment
+} from '../../../services/staffService';
 import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload';
-import { parseStaffName, getStaffInitials, getStaffKey } from '../../../utils/staffParser';
+import { parseStaffName, getStaffInitials } from '../../../utils/staffParser';
 import { useStaffPhotos } from '../../../hooks/useStaffPhotos';
 import { programDetailsData } from '../../../data/programDetailsData';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
-
-const DEPARTMENT_OPTIONS = [
-  { value: 'All', label: 'All Departments / Courses' },
-  { value: 'B.Sc. Computer Science', label: 'B.Sc. Computer Science' },
-  { value: 'B.Sc. Computer Science (AI & DS)', label: 'B.Sc. Computer Science (AI & DS)' },
-  { value: 'B.Com (Banking & Insurance)', label: 'B.Com (Banking & Insurance)' },
-  { value: 'B.Com (Information Technology)', label: 'B.Com (Information Technology)' },
-  { value: 'B.Com (Computer Applications)', label: 'B.Com (Computer Applications)' },
-  { value: 'B.Com (Professional Accounting)', label: 'B.Com (Professional Accounting)' },
-  { value: 'BBA - Management Studies', label: 'BBA - Management Studies' },
-  { value: 'B.Sc. Microbiology', label: 'B.Sc. Microbiology' },
-  { value: 'B.A. Tamil', label: 'B.A. Tamil' },
-  { value: 'B.A. English', label: 'B.A. English' },
-  { value: 'B.Sc. Costume Design & Fashion', label: 'B.Sc. Costume Design & Fashion' },
-  { value: 'M.Sc. Computer Science', label: 'M.Sc. Computer Science' },
-  { value: 'M.Sc. Microbiology', label: 'M.Sc. Microbiology' },
-  { value: 'Physical Education', label: 'Physical Education' },
-  { value: 'Library', label: 'Library' },
-  { value: 'Alumni Committee', label: 'Alumni Committee' },
+const DEFAULT_FALLBACK_DEPARTMENTS = [
+  'B.Sc. Computer Science',
+  'B.Sc. Computer Science (AI & DS)',
+  'Bachelor of Computer Applications (BCA)',
+  'B.Sc. Information Technology',
+  'B.Sc. Cyber Security',
+  'B.Com – Bachelor of Commerce',
+  'B.Com (Banking & Insurance)',
+  'B.Com (Information Technology)',
+  'B.Com (Computer Applications)',
+  'B.Com (Professional Accounting)',
+  'BBA - Management Studies',
+  'B.Sc. Chemistry',
+  'B.Sc. Mathematics',
+  'B.Sc. Microbiology',
+  'B.A. English',
+  'B.Sc. Costume Design & Fashion',
+  'M.Sc. Computer Science',
+  'Master of Commerce (M.Com)',
+  'M.Sc. Microbiology',
+  'M.A. English',
+  'Ph.D. Commerce',
+  'Ph.D. English',
+  'Department of Physical Education',
+  'Library',
+  'Alumni Committee',
+  'Administrative Staff'
 ];
 
 const StaffTab = () => {
   const [staffList, setStaffList] = useState([]);
+  const [departmentList, setDepartmentList] = useState(
+    DEFAULT_FALLBACK_DEPARTMENTS.map(d => ({ name: d, value: d, label: d, isCustom: false }))
+  );
   const [loading, setLoading] = useState(true);
   const [selectedDept, setSelectedDept] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSyncing, setIsSyncing] = useState(false);
-  const [editingStaff, setEditingStaff] = useState(null);
 
-  // Form State
+  // Modals state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeptModalOpen, setIsDeptModalOpen] = useState(false);
+  const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  // Active items for editing / cloning
+  const [editingStaff, setEditingStaff] = useState(null);
+  const [cloningStaff, setCloningStaff] = useState(null);
+  const [selectedCloneDepts, setSelectedCloneDepts] = useState([]);
+  const [isCloning, setIsCloning] = useState(false);
+
+  // New Department Form
+  const [newDeptInput, setNewDeptInput] = useState('');
+  const [deptActionLoading, setDeptActionLoading] = useState(false);
+
+  // Form State for Add / Edit
   const [formData, setFormData] = useState({
     fullName: '',
     initial: '',
@@ -56,6 +89,19 @@ const StaffTab = () => {
 
   const { reloadStaffPhotos } = useStaffPhotos();
 
+  // Load Departments list from backend
+  const loadDepartments = async () => {
+    try {
+      const depts = await getDepartments();
+      if (Array.isArray(depts) && depts.length > 0) {
+        setDepartmentList(depts);
+      }
+    } catch (err) {
+      console.warn('Could not fetch departments list, using defaults:', err.message);
+    }
+  };
+
+  // Load Staff list from backend
   const loadStaffData = async () => {
     setLoading(true);
     try {
@@ -74,50 +120,83 @@ const StaffTab = () => {
   };
 
   useEffect(() => {
+    loadDepartments();
     loadStaffData();
   }, []);
 
-  // Collect all default faculty from programDetailsData, Library, etc.
+  // Collect all default faculty from programDetailsData, Library, Alumni, and auto-clone to AI & DS and M.Sc. CS
   const handleSyncAllFaculty = async (showNotification = true) => {
     setIsSyncing(true);
     try {
       const allFaculty = [];
 
-      // 1. Programs faculty
       const progDeptMap = {
         'bsc-computer-science': 'B.Sc. Computer Science',
         'bsccomputer-ai-ds': 'B.Sc. Computer Science (AI & DS)',
+        'bachelor-of-computer-applications-bca': 'Bachelor of Computer Applications (BCA)',
+        'bscinformation-technology': 'B.Sc. Information Technology',
+        'bsccyber-security': 'B.Sc. Cyber Security',
+        'b-com-bachelor-of-commerce': 'B. Com – Bachelor of Commerce',
         'b-combi-bachelor-of-commerce-with-banking-insurance': 'B.Com (Banking & Insurance)',
         'bcom-it-bachelor-of-information-technology': 'B.Com (Information Technology)',
         'bcomca-computer-applications': 'B.Com (Computer Applications)',
         'bcom-pa-professional-accounting': 'B.Com (Professional Accounting)',
         'management': 'BBA - Management Studies',
+        'bsc-chemistry': 'B.Sc. Chemistry',
+        'bsc-mathematics': 'B.Sc. Mathematics',
         'bsc-microbiology': 'B.Sc. Microbiology',
-        'ba-tamil': 'B.A. Tamil',
         'ba-english': 'B.A. English',
         'bsc-costume-design-fashion': 'B.Sc. Costume Design & Fashion',
         'msc-computer-science': 'M.Sc. Computer Science',
+        'mcom': 'Master of Commerce (M.Com)',
         'msc-microbiology': 'M.Sc. Microbiology',
-        'department-of-physical-education': 'Physical Education'
+        'phd-commerce': 'Ph.D. Commerce',
+        'phd-english': 'Ph.D. English',
+        'ma-english': 'M.A. English',
+        'department-of-physical-education': 'Department of Physical Education',
+        'physical-education': 'Department of Physical Education'
       };
+
+      const csFacultyList = [];
 
       for (const [key, prog] of Object.entries(programDetailsData)) {
         const deptLabel = progDeptMap[key] || prog.title || key;
         if (Array.isArray(prog.staffDetails)) {
           prog.staffDetails.forEach((staff, idx) => {
-            allFaculty.push({
+            const facultyObj = {
               fullName: staff.name,
               qualification: staff.qualification || '',
-              designation: 'Faculty',
+              designation: staff.designation || 'Faculty',
               department: deptLabel,
               departments: [deptLabel],
+              photo: staff.photo || staff.image || '',
               sNo: staff.sNo || idx + 1
-            });
+            };
+            allFaculty.push(facultyObj);
+
+            if (deptLabel === 'B.Sc. Computer Science') {
+              csFacultyList.push(facultyObj);
+            }
           });
         }
       }
 
-      // 2. Library Staff
+      // Requirement 4: B.Sc. staff details automatically available in B.Sc. AI & DS and M.Sc. CS
+      if (csFacultyList.length > 0) {
+        const aiDsTargets = ['B.Sc. Computer Science (AI & DS)', 'M.Sc. Computer Science'];
+        aiDsTargets.forEach((targetDept) => {
+          csFacultyList.forEach((csStaff, idx) => {
+            allFaculty.push({
+              ...csStaff,
+              department: targetDept,
+              departments: [targetDept],
+              sNo: idx + 1
+            });
+          });
+        });
+      }
+
+      // Library Staff
       allFaculty.push({
         fullName: 'Dr. P. Krishnakumari',
         qualification: 'MLIS., M.Phil., Ph.D.',
@@ -137,7 +216,7 @@ const StaffTab = () => {
         sNo: 2
       });
 
-      // 3. Alumni Committee staff
+      // Alumni Committee staff
       allFaculty.push({
         fullName: 'Mrs. T. Ayeeshasumaiya',
         qualification: 'Assistant Professor & Head',
@@ -147,20 +226,12 @@ const StaffTab = () => {
         sNo: 1
       });
       allFaculty.push({
-        fullName: 'Mr. P. Raman',
-        qualification: 'Assistant Professor',
-        designation: 'Member',
-        department: 'B.A. Tamil',
-        departments: ['B.A. Tamil', 'Alumni Committee'],
-        sNo: 2
-      });
-      allFaculty.push({
         fullName: 'Mrs. P. S. Kavitha',
         qualification: 'Assistant Professor',
         designation: 'Member',
         department: 'BBA - Management Studies',
         departments: ['BBA - Management Studies', 'Alumni Committee'],
-        sNo: 3
+        sNo: 2
       });
       allFaculty.push({
         fullName: 'Mr. M. Sanjai',
@@ -168,23 +239,28 @@ const StaffTab = () => {
         designation: 'Member',
         department: 'B.A. English',
         departments: ['B.A. English', 'Alumni Committee'],
-        sNo: 4
+        sNo: 3
       });
 
       await syncDefaultStaff(allFaculty);
       const updated = await getAllStaff();
       setStaffList(updated);
+      await loadDepartments();
+      await reloadStaffPhotos();
+
       if (showNotification) {
-        setStatusMessage('Successfully synced faculty database from site definitions.');
+        setStatusMessage('Successfully synced faculty database from site definitions with all course mappings.');
         setTimeout(() => setStatusMessage(''), 4000);
       }
     } catch (err) {
       console.error('Error syncing staff:', err);
+      alert('Error syncing faculty: ' + err.message);
     } finally {
       setIsSyncing(false);
     }
   };
 
+  // Open Add / Edit Modal
   const handleOpenModal = (staff = null) => {
     if (staff) {
       setEditingStaff(staff);
@@ -194,7 +270,7 @@ const StaffTab = () => {
         initial: staff.initial || parsed.initial || '',
         qualification: staff.qualification || '',
         designation: staff.designation || 'Assistant Professor',
-        department: staff.department || 'B.Sc. Computer Science',
+        department: staff.department || (departmentList[0]?.value || 'B.Sc. Computer Science'),
         photo: staff.photo || ''
       });
       setFilePreview(staff.photo || '');
@@ -205,7 +281,7 @@ const StaffTab = () => {
         initial: '',
         qualification: '',
         designation: 'Assistant Professor',
-        department: selectedDept !== 'All' ? selectedDept : 'B.Sc. Computer Science',
+        department: selectedDept !== 'All' ? selectedDept : (departmentList[0]?.value || 'B.Sc. Computer Science'),
         photo: ''
       });
       setFilePreview('');
@@ -229,7 +305,6 @@ const StaffTab = () => {
     setFormData((prev) => ({
       ...prev,
       fullName: val,
-      // If user hasn't typed a custom initial yet, auto-extract it
       initial: prev.initial && prev.initial !== parsed.initial ? prev.initial : (parsed.initial || '')
     }));
   };
@@ -242,6 +317,7 @@ const StaffTab = () => {
     }
   };
 
+  // Save Add / Edit Faculty
   const handleSave = async (e) => {
     e.preventDefault();
     if (!formData.fullName.trim()) {
@@ -290,13 +366,18 @@ const StaffTab = () => {
       const refreshed = await getAllStaff();
       setStaffList(refreshed);
       handleCloseModal();
-      setStatusMessage('Staff photo saved and synced across all departments successfully!');
+      setStatusMessage(
+        editingStaff
+          ? 'Staff details updated and photo synced across all courses successfully!'
+          : 'New faculty added at bottom of list successfully!'
+      );
       setTimeout(() => setStatusMessage(''), 4000);
     } catch (err) {
       alert(`Save Failed: ${err.message}`);
     }
   };
 
+  // Delete Staff
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this staff member?')) {
       try {
@@ -310,9 +391,95 @@ const StaffTab = () => {
     }
   };
 
-  // Filtered List
+  // Department / Course Management
+  const handleAddDepartment = async (e) => {
+    e.preventDefault();
+    const trimmed = newDeptInput.trim();
+    if (!trimmed) {
+      alert('Please enter a course or department name.');
+      return;
+    }
+
+    setDeptActionLoading(true);
+    try {
+      await createDepartment(trimmed);
+      setNewDeptInput('');
+      await loadDepartments();
+      setStatusMessage(`Course/Department "${trimmed}" added successfully!`);
+      setTimeout(() => setStatusMessage(''), 4000);
+    } catch (err) {
+      alert('Failed to add department: ' + err.message);
+    } finally {
+      setDeptActionLoading(false);
+    }
+  };
+
+  const handleDeleteDepartment = async (deptName) => {
+    if (window.confirm(`Are you sure you want to remove the custom course/department "${deptName}"?`)) {
+      setDeptActionLoading(true);
+      try {
+        await deleteDepartment(deptName);
+        await loadDepartments();
+        if (selectedDept === deptName) setSelectedDept('All');
+        setStatusMessage(`Course/Department "${deptName}" removed.`);
+        setTimeout(() => setStatusMessage(''), 4000);
+      } catch (err) {
+        alert('Failed to delete department: ' + err.message);
+      } finally {
+        setDeptActionLoading(false);
+      }
+    }
+  };
+
+  // Faculty Cloning Feature
+  const handleOpenCloneModal = (staff) => {
+    setCloningStaff(staff);
+    setSelectedCloneDepts([]);
+    setIsCloneModalOpen(true);
+  };
+
+  const handleCloseCloneModal = () => {
+    setIsCloneModalOpen(false);
+    setCloningStaff(null);
+    setSelectedCloneDepts([]);
+  };
+
+  const handleToggleCloneDept = (deptName) => {
+    setSelectedCloneDepts((prev) =>
+      prev.includes(deptName) ? prev.filter((d) => d !== deptName) : [...prev, deptName]
+    );
+  };
+
+  const handleExecuteClone = async () => {
+    if (!cloningStaff) return;
+    if (selectedCloneDepts.length === 0) {
+      alert('Please select at least one target course or department to clone this faculty member into.');
+      return;
+    }
+
+    setIsCloning(true);
+    try {
+      await cloneStaff(cloningStaff._id || cloningStaff.id, {
+        targetDepartments: selectedCloneDepts
+      });
+      const refreshed = await getAllStaff();
+      setStaffList(refreshed);
+      await reloadStaffPhotos();
+      handleCloseCloneModal();
+      setStatusMessage(`Faculty cloned to ${selectedCloneDepts.join(', ')} successfully!`);
+      setTimeout(() => setStatusMessage(''), 4500);
+    } catch (err) {
+      alert(`Clone failed: ${err.message}`);
+    } finally {
+      setIsCloning(false);
+    }
+  };
+
+  // Filtered and Sorted Staff List
+  // Newly added faculty will appear at the bottom because backend assigns next sNo
+  // and we sort by sNo ascending, then createdAt ascending.
   const filteredStaff = useMemo(() => {
-    return staffList.filter((staff) => {
+    const list = staffList.filter((staff) => {
       const matchesDept =
         selectedDept === 'All' ||
         staff.department === selectedDept ||
@@ -330,6 +497,15 @@ const StaffTab = () => {
 
       return fn.includes(q) || init === q || qual.includes(q) || dept.includes(q);
     });
+
+    return [...list].sort((a, b) => {
+      const sNoA = typeof a.sNo === 'number' && a.sNo > 0 ? a.sNo : 99999;
+      const sNoB = typeof b.sNo === 'number' && b.sNo > 0 ? b.sNo : 99999;
+      if (sNoA !== sNoB) return sNoA - sNoB;
+      const dateA = new Date(a.createdAt || 0).getTime();
+      const dateB = new Date(b.createdAt || 0).getTime();
+      return dateA - dateB;
+    });
   }, [staffList, selectedDept, searchQuery]);
 
   return (
@@ -339,10 +515,18 @@ const StaffTab = () => {
         <div className={styles.headerInfo}>
           <h2>Faculty & Staff Directory</h2>
           <p>
-            Upload staff photos here. When a photo is uploaded for a staff member, it automatically reflects in every course and department they belong to.
+            Manage faculty, departments, courses, and photos. Newly added faculty automatically appear at the bottom of the list.
           </p>
         </div>
         <div className={styles.headerActions}>
+          <button
+            className={styles.deptManageBtn}
+            onClick={() => setIsDeptModalOpen(true)}
+            title="Add or manage courses and departments"
+          >
+            <FolderPlus size={16} />
+            + Add Course / Dept
+          </button>
           <button
             className={styles.secondaryBtn}
             onClick={() => handleSyncAllFaculty(true)}
@@ -385,7 +569,8 @@ const StaffTab = () => {
           onChange={(e) => setSelectedDept(e.target.value)}
           className={styles.deptSelect}
         >
-          {DEPARTMENT_OPTIONS.map((opt) => (
+          <option value="All">All Departments / Courses ({staffList.length})</option>
+          {departmentList.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
             </option>
@@ -398,24 +583,25 @@ const StaffTab = () => {
         <table className={styles.staffTable}>
           <thead>
             <tr>
+              <th style={{ width: '60px', textAlign: 'center' }}>S.No</th>
               <th style={{ width: '80px', textAlign: 'center' }}>Photo</th>
               <th style={{ width: '70px', textAlign: 'center' }}>Initial</th>
               <th>Faculty Name & Title</th>
               <th>Qualification</th>
               <th>Department / Courses</th>
-              <th style={{ width: '130px', textAlign: 'center' }}>Actions</th>
+              <th style={{ width: '190px', textAlign: 'center' }}>Actions</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan="6" style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
+                <td colSpan="7" style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
                   Loading faculty list...
                 </td>
               </tr>
             ) : filteredStaff.length === 0 ? (
               <tr>
-                <td colSpan="6" style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
+                <td colSpan="7" style={{ textAlign: 'center', padding: '3rem', color: '#64748b' }}>
                   No faculty found matching the selected criteria. Click "Add New Faculty" or "Sync Site Faculty" to populate.
                 </td>
               </tr>
@@ -426,6 +612,11 @@ const StaffTab = () => {
 
                 return (
                   <tr key={staff._id || staff.id || idx}>
+                    {/* S.No */}
+                    <td style={{ textAlign: 'center', fontWeight: '600', color: '#64748b' }}>
+                      {staff.sNo || idx + 1}
+                    </td>
+
                     {/* Round Avatar Preview */}
                     <td style={{ textAlign: 'center' }}>
                       <div className={styles.avatarWrap}>
@@ -490,7 +681,15 @@ const StaffTab = () => {
                           title="Upload/change photo or edit details"
                         >
                           <Edit3 size={15} />
-                          Photo
+                          Edit
+                        </button>
+                        <button
+                          className={styles.cloneBtn}
+                          onClick={() => handleOpenCloneModal(staff)}
+                          title="Clone faculty to another course"
+                        >
+                          <Copy size={15} />
+                          Clone
                         </button>
                         <button
                           className={styles.deleteBtn}
@@ -509,23 +708,22 @@ const StaffTab = () => {
         </table>
       </div>
 
-      {/* Edit / Add Modal */}
+      {/* Edit / Add Faculty Modal */}
       {isModalOpen && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
-              <h3>{editingStaff ? 'Edit Faculty & Staff Photo' : 'Add New Faculty & Staff'}</h3>
+              <h3>{editingStaff ? 'Edit Faculty Details & Photo' : 'Add New Faculty & Staff'}</h3>
               <button className={styles.closeModalBtn} onClick={handleCloseModal}>
                 <X size={20} />
               </button>
             </div>
 
             <form onSubmit={handleSave}>
-              {/* Notice Banner */}
               <div className={styles.syncNotice}>
                 <Info size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span>
-                  <strong>Multi-Department Smart Sync:</strong> When you upload a photo for this faculty member, it will automatically sync and display across all departments and courses with matching name & initial.
+                  <strong>Dynamic Realtime Updates:</strong> Any change to name, qualification, designation, or photo will immediately reflect on the frontend course page! New faculty are automatically placed at the bottom.
                 </span>
               </div>
 
@@ -608,7 +806,7 @@ const StaffTab = () => {
                   style={{ width: '120px' }}
                 />
                 <div className={styles.helperText}>
-                  Crucial for differentiating between faculty who share the same name (e.g. Kanjana Devi with initial "M" vs "B").
+                  Differentiates faculty who share similar names.
                 </div>
               </div>
 
@@ -644,7 +842,7 @@ const StaffTab = () => {
                   onChange={(e) => setFormData({ ...formData, department: e.target.value })}
                   className={styles.formInput}
                 >
-                  {DEPARTMENT_OPTIONS.filter((o) => o.value !== 'All').map((opt) => (
+                  {departmentList.map((opt) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
                     </option>
@@ -667,10 +865,185 @@ const StaffTab = () => {
                   className={styles.primaryBtn}
                   disabled={isUploading}
                 >
-                  {isUploading ? 'Uploading & Saving...' : 'Save & Sync Photo'}
+                  {isUploading ? 'Uploading & Saving...' : 'Save Faculty'}
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Course / Department Management Modal */}
+      {isDeptModalOpen && (
+        <div className={styles.modalOverlay} onClick={() => setIsDeptModalOpen(false)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <h3>Manage Departments & Courses</h3>
+              <button className={styles.closeModalBtn} onClick={() => setIsDeptModalOpen(false)}>
+                <X size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={handleAddDepartment}>
+              <div className={styles.syncNotice}>
+                <Info size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span>
+                  Add any new course or department (e.g. <em>B.Sc. Data Science</em>, <em>M.Com</em>, <em>B.Sc. Cyber Security</em>). It will immediately appear in all course dropdowns and filters.
+                </span>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>New Department / Course Name *</label>
+                <div style={{ display: 'flex', gap: '0.8rem' }}>
+                  <input
+                    type="text"
+                    value={newDeptInput}
+                    onChange={(e) => setNewDeptInput(e.target.value)}
+                    placeholder="e.g. B.Sc. Artificial Intelligence & Machine Learning"
+                    className={styles.formInput}
+                    style={{ flex: 1 }}
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className={styles.primaryBtn}
+                    disabled={deptActionLoading}
+                  >
+                    <Plus size={16} />
+                    Add Course
+                  </button>
+                </div>
+              </div>
+
+              <label className={styles.formLabel} style={{ marginTop: '1.5rem' }}>
+                Existing Departments & Courses ({departmentList.length})
+              </label>
+              <div className={styles.deptTagsContainer}>
+                {departmentList.map((d) => (
+                  <div
+                    key={d.value}
+                    className={`${styles.deptTag} ${d.isCustom ? styles.deptTagCustom : ''}`}
+                  >
+                    <span>{d.name}</span>
+                    {d.isCustom && (
+                      <span
+                        className={styles.deleteDeptIcon}
+                        onClick={() => handleDeleteDepartment(d.name)}
+                        title="Delete custom department"
+                      >
+                        <Trash2 size={13} />
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className={styles.modalFooter}>
+                <button
+                  type="button"
+                  className={styles.primaryBtn}
+                  onClick={() => setIsDeptModalOpen(false)}
+                >
+                  Done
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Clone Faculty to Course Modal */}
+      {isCloneModalOpen && cloningStaff && (
+        <div className={styles.modalOverlay} onClick={handleCloseCloneModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px' }}>
+            <div className={styles.modalHeader}>
+              <h3>Clone Faculty to Course(s)</h3>
+              <button className={styles.closeModalBtn} onClick={handleCloseCloneModal}>
+                <X size={20} />
+              </button>
+            </div>
+
+            <div>
+              <div className={styles.syncNotice}>
+                <Layers size={22} color="#16a34a" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span>
+                  Cloning <strong>{cloningStaff.fullName}</strong> ({cloningStaff.qualification}) from <strong>{cloningStaff.department}</strong>.
+                  The cloned faculty will appear at the bottom of the target course list with their photo and qualification intact.
+                </span>
+              </div>
+
+              {/* Quick Select common cross-department destinations */}
+              <label className={styles.formLabel}>Quick Selection for Computer Science & Tech:</label>
+              <div className={styles.quickPillsWrap}>
+                {['B.Sc. Computer Science (AI & DS)', 'M.Sc. Computer Science', 'Bachelor of Computer Applications (BCA)', 'B.Sc. Information Technology', 'B.Sc. Cyber Security']
+                  .filter((dept) => dept !== cloningStaff.department)
+                  .map((dept) => {
+                    const isSelected = selectedCloneDepts.includes(dept);
+                    return (
+                      <button
+                        key={dept}
+                        type="button"
+                        className={styles.quickPill}
+                        style={{
+                          background: isSelected ? '#dcfce7' : '#f1f5f9',
+                          borderColor: isSelected ? '#86efac' : '#cbd5e1',
+                          color: isSelected ? '#166534' : '#334155',
+                          fontWeight: isSelected ? '600' : '500'
+                        }}
+                        onClick={() => handleToggleCloneDept(dept)}
+                      >
+                        {isSelected ? '✓ ' : '+ '}
+                        {dept}
+                      </button>
+                    );
+                  })}
+              </div>
+
+              {/* All courses checklist */}
+              <label className={styles.formLabel} style={{ marginTop: '1rem' }}>
+                Select Target Course(s) / Department(s):
+              </label>
+              <div className={styles.checklistGrid}>
+                {departmentList
+                  .filter((d) => d.value !== cloningStaff.department)
+                  .map((d) => {
+                    const isChecked = selectedCloneDepts.includes(d.value);
+                    return (
+                      <label
+                        key={d.value}
+                        className={`${styles.checkItem} ${isChecked ? styles.checkItemActive : ''}`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={() => handleToggleCloneDept(d.value)}
+                          style={{ cursor: 'pointer' }}
+                        />
+                        <span style={{ flex: 1 }}>{d.name}</span>
+                      </label>
+                    );
+                  })}
+              </div>
+
+              <div className={styles.modalFooter}>
+                <button
+                  type="button"
+                  className={styles.secondaryBtn}
+                  onClick={handleCloseCloneModal}
+                  disabled={isCloning}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className={styles.primaryBtn}
+                  onClick={handleExecuteClone}
+                  disabled={isCloning || selectedCloneDepts.length === 0}
+                >
+                  {isCloning ? 'Cloning Faculty...' : `Clone to ${selectedCloneDepts.length} Course(s)`}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

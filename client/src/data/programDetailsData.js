@@ -157,6 +157,15 @@ export const programDetailsData = {
             { title: "AI Consultant" },
             { title: "Robotics Engineer" }
         ],
+        staffDetails: [
+            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
+            { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
+        ],
         faqs: [
             { question: "Does the B.Sc. AI & DS program include specialization in Artificial Intelligence and Data Science?", answer: "Yes, this is a dedicated B.Sc. program in Artificial Intelligence and Data Science (also listed as B.Sc. Computer Science with Artificial Intelligence), with curriculum covering AI models, machine learning, neural networks, big data analytics, data mining, and intelligent systems development." },
             { question: "What kind of projects and practical work are involved in B.Sc. AI & DS?", answer: "Students work on real-world projects including AI model building, predictive analytics, natural language processing applications, computer vision systems, recommendation engines, sentiment analysis, and data-driven decision tools using frameworks like Python, TensorFlow, PyTorch, Scikit-learn, and big data technologies." },
@@ -1317,6 +1326,15 @@ export const programDetailsData = {
             { title: " Consultant" },
             { title: " Web Developer" },
 
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
+            { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
         ],
         faqs: [
             { question: "What is the focus of M.Sc. CS?", answer: "The focus is on developing advanced technical skills and research capabilities in the field of computer science." }
