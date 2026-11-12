@@ -269,6 +269,18 @@ export const programDetailsData = {
                 image: "/Bca/IMG-20240723-WA0030-1024x576.jpg"
             }
         ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
+            { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
+            { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
+        ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
             { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
@@ -297,7 +309,18 @@ export const programDetailsData = {
             { title: "Networking Engineer", description: "Analyze and interpret complex data." },
             { title: "Multimedia Engineer", description: "Analyze and interpret complex data." }
         ],
-
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
+            { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
+            { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
+        ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
             { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
@@ -327,7 +350,18 @@ export const programDetailsData = {
             { title: "Network Security Engineer" },
             { title: "Government (Defense / Non-defense)" }
         ],
-
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
+            { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
+            { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
+        ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
             { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
@@ -885,8 +919,11 @@ export const programDetailsData = {
             { title: "Management Trainee" },
             { title: "Project Coordinator" }
         ],
-        staffDetails: [
-            { sNo: 1, name: "Mrs. P. S. KAVITHA", qualification: "MBA., M.Phil. (Assistant Professor)" }
+                staffDetails: [
+            { sNo: 1, name: "Dr. P. RAJASEKAR", qualification: "MBA., M.COM., PGDCA., M.PHIL., PH.D." },
+            { sNo: 2, name: "Ms. G. GURULAKSHMI", qualification: "MBA., (PH.D)" },
+            { sNo: 3, name: "Mrs. H.S. PRABHASHANKAR", qualification: "MBA., (PH.D)" },
+            { sNo: 4, name: "Mr. G. BALASUBRAMANIYAN", qualification: "MBA., M.COM(CA)., M.PHIL., (PH.D)." }
         ],
         faqs: [
             { question: "What is the scope and duration of the BBA programme?", answer: "The Bachelor of Business Administration (BBA) is a 3-year undergraduate degree designed to develop managerial acumen, strategic thinking, and leadership across major business domains like HR, Marketing, and Finance." },
@@ -1547,6 +1584,74 @@ export const programDetailsData = {
         eligibility: "M.A. English with minimum required percentage.",
         faqs: [
             { question: "Is research methodology part of the Ph.D. program?", answer: "Yes, candidates undergo rigorous training in research methodology as part of their coursework." }
+        ]
+    },
+    "phd-tamil": {
+        title: "Ph.D. Tamil",
+        heroImage: dji0587Img,
+        aboutImage: dji0589Img,
+        about: "The PG and Research Department of Tamil offers the Ph.D. in Tamil programme affiliated to Bharathiar University to cultivate doctoral scholars, literary critics, and researchers equipped with advanced research methodology, classical textual criticism, and deep scholarship in Tamil language, literature, and culture. The department fosters comprehensive research in Sangam Literature, Classical Grammar & Tholkappiyam, Epigraphy, Linguistics, Comparative Literature, Folklore, and Modern Creative Writing.",
+        vision: "To be a premier center of excellence in Tamil doctoral research, linguistic scholarship, and cultural heritage preservation by fostering original academic inquiry, critical thinking, and global dissemination of classical and modern Tamil literature.",
+        mission: [
+            "To provide rigorous doctoral research guidance in classical Tamil, modern literature, grammar, and linguistics.",
+            "To preserve, digitalize, and critically analyze ancient Tamil manuscripts, inscriptions, and folklore heritage.",
+            "To promote high-impact research publications in reputed peer-reviewed and UGC-CARE listed journals.",
+            "To cultivate scholars equipped with advanced research methodology, interdisciplinary inquiry, and pedagogical excellence.",
+            "To instill strong professional ethics, academic integrity, and cultural social responsibility among research scholars."
+        ],
+        objectives: [
+            "To conduct in-depth doctoral research in ancient, medieval, and contemporary Tamil literature.",
+            "To train research scholars in qualitative research methodologies, textual criticism, and manuscriptology.",
+            "To encourage interdisciplinary studies connecting Tamil literature with history, sociology, archaeology, and computer linguistics.",
+            "To publish scholarly research papers, monographs, and critical commentaries on classical and modern texts.",
+            "To prepare scholars for prestigious careers in university professorships, research institutes, publishing, and civil services."
+        ],
+        rolesAndResponsibilities: [
+            "Provide dedicated research supervision and mentorship through recognized research guides and Doctoral Research Committees (DRC).",
+            "Conduct periodic research colloquiums, doctoral seminars, and progress review presentations in line with Bharathiar University norms.",
+            "Facilitate national and international seminars, conferences, and workshops on Tamil literary studies and research methodology.",
+            "Provide access to rich departmental library resources, manuscript archives, and digital literary repositories.",
+            "Ensure strict adherence to research ethics, academic integrity, and university doctoral guidelines."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "Dedicated Research Scholars Cubicle with High-Speed Internet Connectivity",
+            "Extensive Tamil Research Library with Rare Manuscripts and Classic Literary Collections",
+            "Digital Library with Access to INFLIBNET N-LIST, DELNET & e-Journal Subscriptions",
+            "Language Laboratory and Audio-Visual Seminar Hall for Scholarly Presentations",
+            "Comprehensive Literary Archives, Research Journals, and Classical Commentaries"
+        ],
+        keyHighlights: [
+            "Recognized Research Supervisors affiliated with Bharathiar University",
+            "Both Full-Time and Part-Time Ph.D. Research Programmes",
+            "Regular Research Colloquiums, Seminars, and Guest Lectures by Eminent Tamil Scholars",
+            "Thorough Training in Advanced Research Methodology and Coursework"
+        ],
+        careerOpportunities: [
+            { title: "University Professor / Assistant Professor in Tamil" },
+            { title: "Senior Research Fellow & Literary Academician" },
+            { title: "Tamil Lexicographer & Computational Linguist" },
+            { title: "Editorial Consultant, Author & Literary Critic" },
+            { title: "Civil Services & State Public Service Commissions (TNPSC)" },
+            { title: "Media, Journalism, Publishing & Cultural Content Strategist" }
+        ],
+        eligibility: "Master's degree in Tamil (M.A. Tamil) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university, and qualification in the Common Eligibility Test (CET) conducted by Bharathiar University or valid UGC-NET / SET / M.Phil.",
+        staffDetails: [
+            { sNo: 1, name: "Dr. P. Raman", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" }
+        ],
+        faqs: [
+            { 
+                question: "What is the duration of the Ph.D. in Tamil program?", 
+                answer: "For full-time scholars, the minimum duration is 3 years and maximum 5 years. For part-time scholars, the minimum duration is 4 years and maximum 6 years in accordance with Bharathiar University regulations." 
+            },
+            { 
+                question: "What are the major research specializations offered in Ph.D. Tamil?", 
+                answer: "Specializations include Sangam Literature (சங்க இலக்கியம்), Tholkappiyam & Grammar (தொல்காப்பியம்), Bhakti Literature (பக்தி இலக்கியம்), Modern Fiction & Poetry (தற்கால இலக்கியம்), Folklore (நாட்டுப்புறவியல்), and Epigraphy (கல்வெட்டியல்)." 
+            },
+            { 
+                question: "Are both Full-Time and Part-Time Ph.D. programmes available in Tamil?", 
+                answer: "Yes, the Department offers both Full-Time and Part-Time Ph.D. programmes adhering strictly to Bharathiar University and UGC doctoral guidelines." 
+            }
         ]
     },
     "ma-english": {

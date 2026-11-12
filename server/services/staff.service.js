@@ -26,6 +26,7 @@ const DEFAULT_DEPARTMENTS = [
   'M.A. English',
   'Ph.D. Commerce',
   'Ph.D. English',
+  'Ph.D. Tamil',
   'Department of Physical Education',
   'Library',
   'Alumni Committee',

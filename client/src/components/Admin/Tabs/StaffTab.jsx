@@ -40,6 +40,7 @@ const DEFAULT_FALLBACK_DEPARTMENTS = [
   'M.A. English',
   'Ph.D. Commerce',
   'Ph.D. English',
+  'Ph.D. Tamil',
   'Department of Physical Education',
   'Library',
   'Alumni Committee',
@@ -152,6 +153,7 @@ const StaffTab = () => {
         'msc-microbiology': 'M.Sc. Microbiology',
         'phd-commerce': 'Ph.D. Commerce',
         'phd-english': 'Ph.D. English',
+        'phd-tamil': 'Ph.D. Tamil',
         'ma-english': 'M.A. English',
         'department-of-physical-education': 'Department of Physical Education',
         'physical-education': 'Department of Physical Education'

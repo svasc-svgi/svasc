@@ -31,6 +31,7 @@ const PROGRAM_DEPT_MAP = {
     'msc-microbiology': 'M.Sc. Microbiology',
     'phd-commerce': 'Ph.D. Commerce',
     'phd-english': 'Ph.D. English',
+    'phd-tamil': 'Ph.D. Tamil',
     'ma-english': 'M.A. English',
     'physical-education': 'Department of Physical Education',
     'department-of-physical-education': 'Department of Physical Education'
@@ -253,8 +254,8 @@ const ProgramDetails = () => {
                             <div className={styles.sectionCard}>
                                 <h2>Roles and Responsibilities of the Department</h2>
                                 {Array.isArray(program.rolesAndResponsibilities) &&
-                                program.rolesAndResponsibilities.length > 0 &&
-                                typeof program.rolesAndResponsibilities[0] === 'object' ? (
+                                    program.rolesAndResponsibilities.length > 0 &&
+                                    typeof program.rolesAndResponsibilities[0] === 'object' ? (
                                     <div className={styles.rolesGroupContainer}>
                                         {program.rolesAndResponsibilities.map((group, gIdx) => (
                                             <div key={gIdx} className={styles.roleSubGroup}>
