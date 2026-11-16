@@ -3,7 +3,7 @@ const Testimonial = require('../models/testimonial.model');
 const DEFAULT_TESTIMONIALS = [
     {
         name: "E.Pooja - B.Sc. Computer Science (2023 batch)",
-        text: "I am truly grateful for my time at Shree Venkateshwara Arts and Science College.\n\nBeyond academics, this college taught me how to be professional, disciplined, and confident. I got many opportunities to stand in front of people and organize various functions and events, which greatly improved my leadership, communication, and management skills.\n\nThe experience I gained here been extremely useful to me after completing my college life, especially in my professional journey. I will always be thankful to the faculty and management for their guidance and support.\n\nThank you for shaping me into a better person.",
+        text: "I am truly grateful for my transformative time at Shree Venkateshwara Arts and Science College.\nBeyond classroom academics, the college taught me professionalism, discipline, and strong confidence.\nOrganizing various campus events enhanced my leadership, public communication, and management abilities.\nThe practical exposure and values gained here have proven invaluable in my ongoing professional career.\nI will always remain deeply thankful to the encouraging faculty and visionary management for their support.\nThank you, SVASC, for inspiring my growth and shaping me into a competent and capable person!",
         image: "/testimonials/pooja.jpg",
         department: "B.Sc. Computer Science",
         batch: "2023",
@@ -11,7 +11,7 @@ const DEFAULT_TESTIMONIALS = [
     },
     {
         name: "B.Logitha - B.Sc. Computer Science (2023 batch)",
-        text: "Being a pass-out student of Shree Venkateshwara Arts and Science College, I can proudly say that my college days were one of the most beautiful phases of my life. It was not just a place where I gained knowledge, but also a place where I learned valuable life lessons, built beautiful friendships, and created memories that will always stay close to my heart.\n\nThe teachers were always supportive and encouraged us to do better in our studies and personal growth. Every moment spent on campus, from attending classes to spending time with friends, has become a special memory.\n\nI am truly thankful for all the experiences, guidance, and opportunities I received during my time here. No matter where life takes me, a part of my journey will always belong to this college. ❤️\n\nThank you, Shree Venkateshwara Arts and Science College, for giving me beautiful memories, valuable lessons, and experiences that I will cherish forever!",
+        text: "As a proud alumna of Shree Venkateshwara Arts and Science College, my college days remain unforgettable.\nIt was an enriching environment where I gained deep knowledge, valuable life lessons, and lasting friendships.\nDedicated professors constantly encouraged us to excel in our academic pursuits and personal development.\nEvery moment spent across the vibrant campus provided me with meaningful guidance and bright opportunities.\nNo matter where my career leads, the values, memories, and inspiration gained here stay close to my heart.\nThank you, Shree Venkateshwara Arts and Science College, for memories and lessons I will cherish forever!",
         image: "/testimonials/logitha.jpg",
         department: "B.Sc. Computer Science",
         batch: "2023",
@@ -19,7 +19,7 @@ const DEFAULT_TESTIMONIALS = [
     },
     {
         name: "P. SOBIYA - B.Sc.(CS) (2022 batch)",
-        text: "My experience at your college was very positive. The students were enthusiastic and eager to learn. The faculty and staff were friendly, supportive, and well-coordinated. I truly appreciate their warm hospitality. It was a wonderful opportunity to interact with students and guide them as a mentor.\n\nThank You!",
+        text: "My overall experience at Shree Venkateshwara Arts and Science College was immensely positive.\nThe academic atmosphere is vibrant, with enthusiastic students who are genuinely eager to learn.\nThe faculty members and staff are consistently welcoming, supportive, and exceptionally well-coordinated.\nI truly appreciate the warm institutional hospitality and thoughtful encouragement extended at all times.\nIt was a remarkable opportunity to interact with talented peers, share knowledge, and grow together.\nThank you, SVASC, for creating such an inspiring and empowering environment for all learners!",
         image: "/testimonials/sobiya.jpg",
         department: "B.Sc. Computer Science",
         batch: "2022",
@@ -27,7 +27,7 @@ const DEFAULT_TESTIMONIALS = [
     },
     {
         name: "S.manikandan - B.Sc. CS (2019 batch)",
-        text: "My journey at Shree Venkateshwara Arts and Science College, Othakuthira, Gobichettipalayam (2019–2022) was a meaningful and valuable experience. The college provided a positive learning environment, excellent academic support, and opportunities to enhance both knowledge and personal skills. The faculty members were knowledgeable, approachable, and supportive, offering proper guidance and encouragement throughout the academic journey. Their dedication to teaching and willingness to share their knowledge played an important role in my learning and development. Overall, my B.Sc. Computer Science experience helped me build confidence, improve my skills, and prepare for future opportunities. I am grateful for the knowledge and experiences gained during my time at this institution.",
+        text: "My journey at Shree Venkateshwara Arts and Science College (2019–2022) was a deeply valuable experience.\nThe institution provided a positive learning environment paired with exceptional academic support.\nApproachable faculty members offered dedicated guidance and shared immense knowledge with us.\nThe comprehensive B.Sc. Computer Science curriculum significantly strengthened my technical skills.\nThis rigorous training built my self-confidence and thoroughly prepared me for future industry avenues.\nI remain sincerely grateful to SVASC for the knowledge, opportunities, and foundation gifted to my career.",
         image: "/testimonials/manikandan.jpg",
         department: "B.Sc. Computer Science",
         batch: "2019",

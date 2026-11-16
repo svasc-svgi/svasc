@@ -1790,14 +1790,14 @@ export const programDetailsData = {
         ],
         eligibility: "Master's degree in Tamil (M.A. Tamil) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university, and qualification in the Common Eligibility Test (CET) conducted by Bharathiar University or valid UGC-NET / SET / M.Phil.",
         staffDetails: [
-            { sNo: 1, name: "Dr. R. Senthilrani", qualification: "M.A., M.A. (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (Assistant Professor & Head)" },
-            { sNo: 2, name: "Dr. P. Raman", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
-            { sNo: 3, name: "Mr. S. Selvakumar", qualification: "M.A., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 4, name: "Mr. K. Rajendrakumar", qualification: "M.A., B.Ed., NET, (Ph.D.) (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. K. Yasodha", qualification: "M.A., M.Phil., B.Ed., DCT. (Assistant Professor)" },
-            { sNo: 6, name: "Mr. B. Nandhakumar", qualification: "M.A. (Assistant Professor)" },
-            { sNo: 7, name: "Mr. V. Vimalraj", qualification: "M.A., DIE, (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Ms. S. Maivizhi", qualification: "M.A. (Assistant Professor)" }
+            { sNo: 1, name: "முனைவர். இர. செந்தில்ராணி (Dr. R. Senthilrani)", qualification: "M.A.(Tamil)., M.A., (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (Assistant Professor & Head)" },
+            { sNo: 2, name: "Dr. P. Raman / திரு. ப. இராமன்", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
+            { sNo: 3, name: "திரு. செ. செல்வகுமார் (Mr. S. Selvakumar)", qualification: "M.A., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 4, name: "திரு. கு. ராஜேந்திரகுமார் (Mr. K. Rajendrakumar)", qualification: "M.A., B.Ed., NET, (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "திருமதி. கு. யசோதா (Mrs. K. Yasodha)", qualification: "M.A., M.Phil., B.Ed., DCT. (Assistant Professor)" },
+            { sNo: 6, name: "திரு. பா. நந்தகுமார் (Mr. B. Nandhakumar)", qualification: "M.A. (Assistant Professor)" },
+            { sNo: 7, name: "திரு. வே. விமல்ராஜ் (Mr. V. Vimalraj)", qualification: "M.A., DIE, (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "செல்வி. ச. மைவிழி (Ms. S. Maivizhi)", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
             { 

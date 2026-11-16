@@ -221,33 +221,27 @@ const TestimonialsSection = () => {
     const next = testimonials[(current + 1) % testimonials.length];
 
     return (
-        <section className={`${styles.testimonialsSection} max-w-[120rem] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-1 px-6 lg:px-10`}>
-            {/* Left */}
-            <div className={` w-full lg:w-1/2 ${styles.leftcontent}`}>
+        <section className={`${styles.testimonialsSection} max-w-[120rem] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 px-6 lg:px-16`}>
+            {/* Left Header */}
+            <div className={`w-full lg:w-5/12 ${styles.leftcontent}`}>
                 <h3 className={styles.testimonialsLabel}>Testimonials</h3>
                 <h2 className={styles.testimonialsTitle}>What People Say <br /> About Us.</h2>
 
-                <div className={styles.testimonialsDots}>
-                    {testimonials.map((_, i) => (
-                        <div
-                            key={i}
-                            onClick={() => setCurrent(i)}
-                            className={`${styles.dotButton} ${i === current ? styles.dotButtonActive : styles.dotButtonInactive}`}
-                        ></div>
-                    ))}
-                </div>
+                {testimonials.length > 1 && (
+                    <div className={styles.testimonialsDots}>
+                        {testimonials.map((_, i) => (
+                            <div
+                                key={i}
+                                onClick={() => setCurrent(i)}
+                                className={`${styles.dotButton} ${i === current ? styles.dotButtonActive : styles.dotButtonInactive}`}
+                            ></div>
+                        ))}
+                    </div>
+                )}
             </div>
 
-            {/* Right Cards */}
-            <div className="w-full lg:w-1/2 relative min-h-[20rem]">
-                {/* Back Card */}
-                {/* <div className={`${styles.testimonialCard} ${styles.testimonialBackCard}`}>
-                    <p className={styles.testimonialText}>"{next.text}"</p>
-                    <div className={styles.testimonialName}>{next.name}</div>
-                    <div className={styles.testimonialRole}>{next.location}</div>
-                </div> */}
-
-                {/* Front Card */}
+            {/* Right Card */}
+            <div className="w-full lg:w-7/12 flex justify-center lg:justify-end">
                 <div className={`${styles.testimonialCard} ${styles.testimonialFrontCard}`}>
                     <div className={styles.testimonialImage}>
                         <img src={cur.image} alt={cur.name} />

@@ -10,9 +10,23 @@ const newsletterSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    coverImage: {
+        type: String,
+        trim: true,
+        default: '/newsletter/newsletter_cover.jpg'
+    },
     pdf: {
         type: String,
         required: true
+    },
+    byline: {
+        type: String,
+        trim: true,
+        default: 'CAMPUS EDITORIAL DESK'
+    },
+    date: {
+        type: String,
+        trim: true
     }
 }, {
     timestamps: true

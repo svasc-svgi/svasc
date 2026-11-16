@@ -87,7 +87,9 @@ const NewsLetter = () => {
                 date: dateFormatted,
                 pdf: fileSrc,
                 fallbackPdf: "/newsletter/newsletter_2026.pdf",
-                coverImage: "/newsletter/newsletter_cover.jpg",
+                coverImage: item.coverImage
+                  ? (item.coverImage.startsWith('http') || item.coverImage.startsWith('/') ? item.coverImage : `${BASE_URL}/${item.coverImage.replace(/^\/+/, '')}`)
+                  : (item.image ? (item.image.startsWith('http') || item.image.startsWith('/') ? item.image : `${BASE_URL}/${item.image.replace(/^\/+/, '')}`) : "/newsletter/newsletter_cover.jpg"),
                 isFeatured: true
               };
             });
