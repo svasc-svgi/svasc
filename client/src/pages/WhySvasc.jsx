@@ -21,22 +21,22 @@ import bus2Img from '../assets/bus2.jpg';
 const DEFAULT_TESTIMONIALS = [
     {
         name: "E.Pooja - Bsc computer science 2023 batch",
-        text: "I am truly grateful for my transformative time at Shree Venkateshwara Arts and Science College.\nBeyond classroom academics, the college taught me professionalism, discipline, and strong confidence.\nOrganizing various campus events enhanced my leadership, public communication, and management abilities.\nThe practical exposure and values gained here have proven invaluable in my ongoing professional career.\nI will always remain deeply thankful to the encouraging faculty and visionary management for their support.\nThank you, SVASC, for inspiring my growth and shaping me into a competent and capable person!",
+        text: "SVASC taught me discipline, leadership, and confidence through quality academics and active event opportunities. The practical skills and faculty mentorship I received here have been invaluable in my career. I am truly grateful to SVASC for shaping me into a better person!",
         image: "/testimonials/pooja.jpg"
     },
     {
         name: "B.Logitha - Bsc computer science 2023 batch",
-        text: "As a proud alumna of Shree Venkateshwara Arts and Science College, my college days remain unforgettable.\nIt was an enriching environment where I gained deep knowledge, valuable life lessons, and lasting friendships.\nDedicated professors constantly encouraged us to excel in our academic pursuits and personal development.\nEvery moment spent across the vibrant campus provided me with meaningful guidance and bright opportunities.\nNo matter where my career leads, the values, memories, and inspiration gained here stay close to my heart.\nThank you, Shree Venkateshwara Arts and Science College, for memories and lessons I will cherish forever!",
+        text: "My college days at SVASC were the most memorable phase of my life. The supportive professors encouraged both our academic excellence and personal growth. I will always cherish the valuable life lessons, friendships, and experiences I gained here!",
         image: "/testimonials/logitha.jpg"
     },
     {
         name: "P. SOBIYA - 2022 class:B.Sc(CS)",
-        text: "My overall experience at Shree Venkateshwara Arts and Science College was immensely positive.\nThe academic atmosphere is vibrant, with enthusiastic students who are genuinely eager to learn.\nThe faculty members and staff are consistently welcoming, supportive, and exceptionally well-coordinated.\nI truly appreciate the warm institutional hospitality and thoughtful encouragement extended at all times.\nIt was a remarkable opportunity to interact with talented peers, share knowledge, and grow together.\nThank you, SVASC, for creating such an inspiring and empowering environment for all learners!",
+        text: "My experience at SVASC was immensely positive. The vibrant environment, enthusiastic students, and welcoming, supportive faculty made learning a wonderful experience. Thank you, SVASC, for creating such an empowering atmosphere!",
         image: "/testimonials/sobiya.jpg"
     },
     {
         name: "S.manikandan - B Sc CS 2019 batch",
-        text: "My journey at Shree Venkateshwara Arts and Science College (2019–2022) was a deeply valuable experience.\nThe institution provided a positive learning environment paired with exceptional academic support.\nApproachable faculty members offered dedicated guidance and shared immense knowledge with us.\nThe comprehensive B.Sc. Computer Science curriculum significantly strengthened my technical skills.\nThis rigorous training built my self-confidence and thoroughly prepared me for future industry avenues.\nI remain sincerely grateful to SVASC for the knowledge, opportunities, and foundation gifted to my career.",
+        text: "My journey at SVASC (2019–2022) provided excellent academic support and approachable mentors. The curriculum strengthened my technical skills and built the confidence needed for my career. I am deeply thankful to the institution for this solid foundation!",
         image: "/testimonials/manikandan.jpg"
     }
 ];
