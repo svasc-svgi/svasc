@@ -16,9 +16,11 @@ const AwardsGalleryTab = lazy(() => import('../components/Admin/Tabs/AwardsGalle
 const LibraryActivitiesTab = lazy(() => import('../components/Admin/Tabs/LibraryActivitiesTab'));
 const LibraryAwardsTab = lazy(() => import('../components/Admin/Tabs/LibraryAwardsTab'));
 const StaffTab = lazy(() => import('../components/Admin/Tabs/StaffTab'));
+const WhySvascTab = lazy(() => import('../components/Admin/Tabs/WhySvascTab'));
+const ProgrammesTab = lazy(() => import('../components/Admin/Tabs/ProgrammesTab'));
 
 const TAB_LABELS = [
-  'Home', 'Faculty & Staff', 'Alumni', 'Sports', 'Campus Life', 'Exams',
+  'Home', 'Faculty & Staff', 'Programmes', 'Why SVASC', 'Alumni', 'Sports', 'Campus Life', 'Exams',
   'Activities', 'Blogs', 'Events', 'About SVASC', 'Newsletter',
   'Awards & Achievements', 'Library Activities', 'Library Awards',
 ];
@@ -26,6 +28,8 @@ const TAB_LABELS = [
 const TAB_COMPONENTS = {
   'Home': <HomeTab />,
   'Faculty & Staff': <StaffTab />,
+  'Programmes': <ProgrammesTab />,
+  'Why SVASC': <WhySvascTab />,
   'Alumni': <AlumniTab />,
   'Sports': <SportsTab />,
   'Campus Life': <CampusLifeTab />,

@@ -19,9 +19,12 @@ const libraryActivityRoutes = require('./library-activity.route');
 const libraryAwardRoutes = require('./library-award.route');
 const uploadRoutes = require('./upload.route');
 const staffRoutes = require('./staff.route');
+const testimonialRoutes = require('./testimonial.route');
 
 router.use('/upload', uploadRoutes);
 router.use('/staff', staffRoutes);
+router.use('/why-svasc', testimonialRoutes);
+router.use('/testimonials', testimonialRoutes);
 router.use('/alumni', alumniRoutes);
 router.use('/home', homeRoutes);
 router.use('/activities', activitiesRoutes);

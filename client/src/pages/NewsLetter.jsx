@@ -64,7 +64,7 @@ const NewsLetter = () => {
               title.includes('drug abuse') ||
               title.includes('tamil department');
 
-            return !isEvent && (pdf.endsWith('.pdf') || title.includes('news'));
+            return !isEvent && (Boolean(item.pdf) || Boolean(item.title));
           });
 
           if (validNewsletters.length > 0) {

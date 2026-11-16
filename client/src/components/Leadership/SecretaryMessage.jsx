@@ -11,7 +11,7 @@ const SecretaryMessage = () => {
         <>
             <Hero
                 title="Secretary's Message"
-                description="Our vision and commitment to excellence by Thiru. A. Sengottaiyan, Secretary of SVASC."
+                description="Our vision and commitment to excellence by Thiru. K.C. KARUPANAN, Secretary of SVASC."
                 video={svascVideo}
             />
             <Leadership

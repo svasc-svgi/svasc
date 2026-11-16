@@ -6,6 +6,7 @@ import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, T
 import { useStaffPhotos } from '../hooks/useStaffPhotos';
 import { getStaffInitials } from '../utils/staffParser';
 import { getAllStaff } from '../services/staffService';
+import { getProgramBySlug } from '../services/programService';
 
 const PROGRAM_DEPT_MAP = {
     'bsc-computer-science': 'B.Sc. Computer Science',
@@ -53,7 +54,28 @@ const resolveDeptName = (progId, progTitle) => {
 const ProgramDetails = () => {
     const { id } = useParams();
     const cleanId = (id || '').toLowerCase();
-    let program = programDetailsData[id] || programDetailsData[cleanId];
+    const [dbProgram, setDbProgram] = useState(null);
+
+    useEffect(() => {
+        let isMounted = true;
+        const localProg = programDetailsData[id] || programDetailsData[cleanId] || (
+            (cleanId.includes('bba') || cleanId.includes('management'))
+                ? (programDetailsData['management'] || programDetailsData['managementbba'] || programDetailsData['bba'])
+                : null
+        );
+        if (!localProg) {
+            getProgramBySlug(cleanId)
+                .then(res => {
+                    if (isMounted && res?.data) {
+                        setDbProgram(res.data);
+                    }
+                })
+                .catch(() => {});
+        }
+        return () => { isMounted = false; };
+    }, [id, cleanId]);
+
+    let program = programDetailsData[id] || programDetailsData[cleanId] || dbProgram;
     if (!program) {
         if (cleanId.includes('bba') || cleanId.includes('management')) {
             program = programDetailsData['management'] || programDetailsData['managementbba'] || programDetailsData['bba'];
@@ -80,7 +102,15 @@ const ProgramDetails = () => {
                 if (!isMounted) return;
                 if (Array.isArray(staff) && staff.length > 0) {
                     const sorted = [...staff].sort((a, b) => (a.sNo || 0) - (b.sNo || 0) || (new Date(a.createdAt || 0) - new Date(b.createdAt || 0)));
-                    setDbStaff(sorted);
+                    const seen = new Set();
+                    const unique = [];
+                    for (const s of sorted) {
+                        const rawName = (s.fullName || s.name || '').toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.)\s*/gi, '').replace(/[^a-z0-9]/g, '');
+                        if (rawName && seen.has(rawName)) continue;
+                        if (rawName) seen.add(rawName);
+                        unique.push(s);
+                    }
+                    setDbStaff(unique);
                 } else {
                     setDbStaff([]);
                 }

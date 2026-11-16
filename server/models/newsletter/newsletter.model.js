@@ -6,6 +6,10 @@ const newsletterSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    description: {
+        type: String,
+        trim: true
+    },
     pdf: {
         type: String,
         required: true

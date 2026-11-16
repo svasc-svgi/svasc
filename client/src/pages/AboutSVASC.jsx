@@ -201,22 +201,10 @@ const CampusLifeSection = () => {
 const TestimonialsSection = () => {
     const testimonials = [
         {
-            name: "Mike Taylor",
-            location: "Lahore, Pakistan",
-            text: "On the Windows talking painted pasture yet its express parties use.",
-            image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&q=80"
-        },
-        {
-            name: "Chris Thomas",
-            location: "CEO of Red Button",
-            text: "Fantastic experience and great customer support.",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
-        },
-        {
-            name: "Sarah Jenkins",
-            location: "Travel Blogger",
-            text: "Jadoo made my Europe trip unforgettable.",
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+            name: "Jisha S., MCA, PGDHA.",
+            location: "Resource Person | Founder & Managing Director, Uptech Mentors, Erode",
+            text: "The students were enthusiastic and eager to learn, actively participating throughout the session. The faculty and staff were friendly, supportive, and well-coordinated. I truly appreciate the warm hospitality and the wonderful opportunity to interact with such bright minds.",
+            image: "/testimonials/jisha.jpg"
         }
     ];
 

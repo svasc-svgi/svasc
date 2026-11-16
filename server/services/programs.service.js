@@ -1,6 +1,9 @@
 ﻿const Program = require('../models/programs.model');
 
 const createProgram = async (data) => {
+    if (!data.slug && data.title) {
+        data.slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
     const program = new Program(data);
     return await program.save();
 };
@@ -54,6 +57,9 @@ const getProgramBySlug = async (slug) => {
 };
 
 const updateProgram = async (id, data) => {
+    if (!data.slug && data.title) {
+        data.slug = data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
     return await Program.findByIdAndUpdate(id, data, {
         new: true,
         runValidators: true

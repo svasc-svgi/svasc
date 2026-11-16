@@ -52,6 +52,7 @@ const NewsletterTab = () => {
 
     const payload = {
       title: formData.title || '',
+      description: formData.description || '',
       pdf: fileUrl
     };
 
@@ -75,14 +76,16 @@ const NewsletterTab = () => {
         data={newsletters}
         columns={[
           { key: 'title', label: 'Title', type: 'text' },
+          { key: 'description', label: 'Description', type: 'text' },
           { key: 'pdf', label: 'Image / PDF', type: 'image' }
         ]}
         onSave={handleSave}
         onDelete={handleDelete}
-        initialFormState={{ title: '', file: null }}
+        initialFormState={{ title: '', description: '', file: null }}
         renderForm={(formData, setFormData) => (
           <>
             <FormInput label="Title" value={formData.title || ''} onChange={(e) => setFormData({...formData, title: e.target.value})} required />
+            <FormInput label="Description (Optional)" value={formData.description || ''} onChange={(e) => setFormData({...formData, description: e.target.value})} />
             <FileUploader
               label="Newsletter Image / PDF"
               accept="image/*,.pdf"

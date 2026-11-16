@@ -137,9 +137,31 @@ export const programDetailsData = {
         title: "B.Sc.Artificial Intelligence and Data Science",
         heroImage: commitiesImg,
         aboutImage: home4Img,
-        about: "To equip students with a robust understanding of computer science principles while specializing in artificial intelligence, preparing them to innovate and solve complex problems across various domains.",
-        vision: "To be a leading center of excellence in computer science education and research, fostering innovation and producing highly skilled professionals who will drive technological advancements and contribute to the betterment of society.",
-        mission: "To provide quality education through cutting-edge curriculum, research opportunities, and industry partnerships while supporting students through career guidance and skill development. Provide a comprehensive and rigorous curriculum that balances theoretical knowledge with practical skills.",
+        about: "The Department of Computer Science (Artificial Intelligence and Data Science) equips students with a robust understanding of computer science principles while specializing in artificial intelligence, machine learning, and data analytics, preparing them to innovate and solve complex real-world problems across diverse technological domains.",
+        vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
+        mission: [
+            "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
+            "To instil professional ethics, leadership qualities, teamwork, and social responsibility among students.",
+            "To promote hands-on learning through laboratories, projects, and real-world applications.",
+            "To develop problem-solving, analytical, and programming skills among students.",
+            "To prepare students for higher education, competitive exams, and global career opportunities.",
+            "To promote lifelong learning and continuous skill enhancement."
+        ],
+        objectives: [
+            "To provide a strong foundation in Computer Science principles and programming.",
+            "To develop analytical, problem-solving, and critical thinking skills.",
+            "To prepare students for careers in software development, research, higher education, and entrepreneurship.",
+            "To encourage participation in research, internships, industrial training, and technical events.",
+            "To develop communication, leadership, and professional skills for lifelong success."
+        ],
+        rolesAndResponsibilities: [
+            "Academic Excellence: Deliver high-quality education and ensure effective teaching-learning practices.",
+            "Student Development: Enhance technical, analytical, and problem-solving skills through coding competitions, hackathons, and career counseling.",
+            "Research & Innovation: Promote faculty/student research publications, innovative projects, and patent development.",
+            "Industry Interaction: Organize guest lectures, workshops, seminars, industrial visits, and collaborations for internships and placements.",
+            "Student Mentoring: Assign faculty mentors to guide students academically, monitor performance, and provide counseling.",
+            "Professional Ethics & Alumni: Promote ethical computing practices, responsible technology usage, and foster strong alumni relationships."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -158,7 +180,7 @@ export const programDetailsData = {
             { title: "Robotics Engineer" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc., M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
             { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
             { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
@@ -291,8 +313,30 @@ export const programDetailsData = {
         heroImage: examheroImg,
         aboutImage: intImg,
         about: "This degree is primarily focused on subjects such as software, databases, and networking. The B.Sc degree in IT is awarded for completing a program of study in the field of software development, software testing, software engineering, web design, databases, programming, and computer networking and computer systems.",
-        vision: "To be a leading center of excellence in information technology education, fostering innovation in software development and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
-        mission: "To provide quality education through a cutting-edge IT curriculum focused on application development, practical programming, and emerging technologies, while offering research opportunities, industry partnerships, and strong support for students through career guidance, skill development workshops, and hands-on training. Provide a comprehensive and rigorous curriculum that balances theoretical foundations with extensive practical application skills.",
+        vision: "To be a leading center of excellence in computer applications and information technology education, fostering innovation in software development, cloud systems, and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
+        mission: [
+            "To provide quality education through a comprehensive and cutting-edge IT curriculum that integrates theoretical foundations with practical programming and emerging technologies.",
+            "To foster creativity, critical thinking, problem-solving, and analytical skills among students.",
+            "To promote research and innovation by encouraging faculty and students to undertake cutting-edge technical projects and publish in reputed journals.",
+            "To strengthen industry collaboration through partnerships, internships, workshops, and guest lectures providing real-world exposure.",
+            "To enhance employability through hands-on technical training, industry certifications, and proactive placement assistance.",
+            "To promote ethical, professional, and socially responsible usage of computing technologies."
+        ],
+        objectives: [
+            "To provide students with a strong theoretical and practical foundation in computer applications, programming, and emerging technologies.",
+            "To develop problem-solving, analytical, and logical thinking abilities among students.",
+            "To bridge the gap between academia and industry through internships, projects, and collaborations.",
+            "To promote research culture and innovation among students and faculty.",
+            "To equip students with communication, teamwork, and leadership skills for professional success.",
+            "To ensure ethical and socially responsible use of technology.",
+            "To enhance employability through skill development, certification, and placement training.",
+            "To encourage lifelong learning and adaptability to evolving technological trends."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Provide academic leadership, ensure quality curriculum delivery, oversee resource allocation, faculty development, university/industry liaison, and monitor student outcomes.",
+            "Teaching Faculty: Design and deliver curriculum balancing theory with practical applications, mentor students in research and projects, publish scholarly work, and coordinate industry interactions and internships.",
+            "Student Responsibilities: Maintain regular attendance, actively participate in coding competitions, hackathons, workshops, and technical fests, utilize library and lab resources responsibly, and prepare proactively for placements."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -330,9 +374,31 @@ export const programDetailsData = {
         title: "B.Sc. Cyber Security",
         heroImage: bscai,
         aboutImage: libImg,
-        about: "B.Sc Computer Science (Cyber Security). The three-year degree program Cyber Security courses aim to equip students with the knowledge and skills required to defend computer operating systems, networks, and data from cyber-attacks",
-        vision: "To be a leading center of excellence in information technology education, fostering innovation in software development and IT solutions, and producing highly skilled professionals who will drive technological advancements in the application domain and contribute to the betterment of society.",
-        mission: "To provide quality education through a cutting-edge IT curriculum focused on application development, practical programming, and emerging technologies, while offering research opportunities, industry partnerships, and strong support for students through career guidance, skill development workshops, and hands-on training. Provide a comprehensive and rigorous curriculum that balances theoretical foundations with extensive practical application skills.",
+        about: "B.Sc Computer Science (Cyber Security). The three-year degree program Cyber Security courses aim to equip students with the knowledge and skills required to defend computer operating systems, networks, and data from cyber-attacks, security breaches, and digital vulnerabilities.",
+        vision: "To be a leading center of excellence in computer applications, cybersecurity, and information defense education, fostering innovation in cyber resilience and ethical hacking, and producing highly skilled professionals who will protect digital infrastructure and contribute to societal safety.",
+        mission: [
+            "To provide quality education through a comprehensive curriculum that integrates core computer applications with specialized network defense and information security principles.",
+            "To equip students with hands-on expertise in ethical hacking, digital forensics, cryptography, malware analysis, and cloud defense.",
+            "To promote research and innovation by encouraging faculty and students to undertake cutting-edge security research and vulnerability assessments.",
+            "To strengthen industry collaboration through partnerships, internships, incident-response workshops, and guest lectures with top security agencies.",
+            "To enhance employability through industry-standard certifications, practical lab drills, and targeted placement assistance.",
+            "To instill strong professional ethics, legal adherence, and social responsibility in the practice of cybersecurity."
+        ],
+        objectives: [
+            "To provide students with a strong theoretical and practical foundation in computer applications, programming, and emerging technologies.",
+            "To develop problem-solving, analytical, and logical thinking abilities among students.",
+            "To bridge the gap between academia and industry through internships, projects, and collaborations.",
+            "To promote research culture and innovation among students and faculty.",
+            "To equip students with communication, teamwork, and leadership skills for professional success.",
+            "To ensure ethical and socially responsible use of technology.",
+            "To enhance employability through skill development, certification, and placement training.",
+            "To encourage lifelong learning and adaptability to evolving technological trends."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Provide academic leadership, ensure quality curriculum delivery, oversee resource allocation, faculty development, university/industry liaison, and monitor student outcomes.",
+            "Teaching Faculty: Design and deliver curriculum balancing theory with practical applications, mentor students in research and projects, publish scholarly work, and coordinate industry interactions and internships.",
+            "Student Responsibilities: Maintain regular attendance, actively participate in coding competitions, hackathons, workshops, and technical fests, utilize library and lab resources responsibly, and prepare proactively for placements."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -1339,9 +1405,31 @@ export const programDetailsData = {
         title: "M.Sc. Computer Science",
         heroImage: home5Img,
         aboutImage: home4Img,
-        about: "To gain a deep understanding of advanced topics such as algorithms, data structures, artificial intelligence, machine learning, cyber security, and software engineering..",
-        vision: "To be a center of excellence in advanced computer science education and research.",
-        mission: "To produce highly skilled computer science professionals through rigorous academic and research programs.",
+        about: "The Post Graduate Department of Computer Science offers the M.Sc. Computer Science programme to equip students with advanced theoretical foundations and practical expertise in advanced algorithms, artificial intelligence, machine learning, cloud computing, cybersecurity, and data analytics. The department features state-of-the-art laboratory infrastructure, specialized computing resources, and a vibrant research culture preparing postgraduates for leadership roles in industry, academia, and doctoral research.",
+        vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values, and a dedication to lifelong learning to address the dynamic needs of industry and society.",
+        mission: [
+            "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
+            "To instil professional ethics, leadership qualities, teamwork, and social responsibility among students.",
+            "To promote hands-on learning through laboratories, projects, and real-world applications.",
+            "To develop problem-solving, analytical, and programming skills among students.",
+            "To prepare students for higher education, competitive exams, and global career opportunities.",
+            "To promote lifelong learning and continuous skill enhancement."
+        ],
+        objectives: [
+            "To provide a strong foundation in Computer Science principles and programming.",
+            "To develop analytical, problem-solving, and critical thinking skills.",
+            "To prepare students for careers in software development, research, higher education, and entrepreneurship.",
+            "To encourage participation in research, internships, industrial training, and technical events.",
+            "To develop communication, leadership, and professional skills for lifelong success."
+        ],
+        rolesAndResponsibilities: [
+            "Academic Excellence: Deliver high-quality education and ensure effective teaching-learning practices.",
+            "Student Development: Enhance technical, analytical, and problem-solving skills through coding competitions, hackathons, and career counseling.",
+            "Research & Innovation: Promote faculty/student research publications, innovative projects, and patent development.",
+            "Industry Interaction: Organize guest lectures, workshops, seminars, industrial visits, and collaborations for internships and placements.",
+            "Student Mentoring: Assign faculty mentors to guide students academically, monitor performance, and provide counseling.",
+            "Professional Ethics & Alumni: Promote ethical computing practices, responsible technology usage, and foster strong alumni relationships."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "State-of-the-art computer laboratories",
@@ -1350,22 +1438,18 @@ export const programDetailsData = {
             "ICT Enabled Smart Classrooms",
             "Electronic Library"
         ],
-
         careerOpportunities: [
-            { title: "Software Engineer/Developer" },
-            { title: "Data Scientist/Analyst" },
-            { title: "Machine Learning Engineer" },
-            { title: "Cyber security Analyst" },
-            { title: "Systems Architect" },
-            { title: "Database Administrator" },
-            { title: "IT Project Manager" },
-            { title: "Research Scientist" },
-            { title: " Consultant" },
-            { title: " Web Developer" },
-
+            { title: "Software Engineer / Senior Developer" },
+            { title: "Data Scientist / Machine Learning Engineer" },
+            { title: "Cybersecurity Analyst & Solutions Architect" },
+            { title: "Cloud Solutions Architect & DevOps Specialist" },
+            { title: "Database Administrator & Data Architect" },
+            { title: "IT Project Manager & Technical Consultant" },
+            { title: "College Professor / Academic Researcher" },
+            { title: "Research Scientist & Doctoral Scholar (Ph.D.)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc., M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
             { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
             { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
@@ -1374,7 +1458,7 @@ export const programDetailsData = {
             { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
         ],
         faqs: [
-            { question: "What is the focus of M.Sc. CS?", answer: "The focus is on developing advanced technical skills and research capabilities in the field of computer science." }
+            { question: "What is the focus of M.Sc. CS?", answer: "The focus is on developing advanced technical skills, machine learning capabilities, and research excellence in the field of computer science." }
         ]
     },
     "mcom": {
@@ -1450,29 +1534,57 @@ export const programDetailsData = {
         title: "M.Sc Microbiology",
         heroImage: home1Img,
         aboutImage: aboutusImg,
-        about: "Microbiology, the study of microorganisms is of major importance to our lives. It will prepare you to enter rapidly expanding careers in Microbiology Research with practical application in Business, Industry, and Medicine.",
-        vision: "To be a center of excellence in microbial research and advanced biological sciences.",
-        mission: "To provide quality education and research opportunities in microbiology for the betterment of society and industry.",
+        about: "The Department of Microbiology was established in 2020 with the UG course, upgraded to PG course in 2023, and established its Research program in 2024 to promote an integrated approach to teaching and research in modern microbiology. It aims to provide world-class life science education to empower students to build character, strengthen their minds, and become self-reliant. Equipped with advanced UG & PG laboratories, molecular biology equipment, sterile culture facilities, and common instrument facilities, the department contributes significantly to academic, pharmaceutical, clinical, and industrial communities.",
+        vision: "To emerge as a leading center for microbiological education and research, fostering innovation and scientific inquiry to tackle health, agricultural, and environmental challenges, with a strong foundation in rural needs and a global outlook.",
+        mission: [
+            "To cultivate a strong research culture in the field of Microbiology aimed at achieving global competence.",
+            "By leveraging state-of-the-art knowledge and skill development, students are empowered to learn beyond the curriculum.",
+            "The department also focuses on enhancing employability, practical skills, and fostering an entrepreneurial mindset among learners."
+        ],
+        rolesAndResponsibilities: [
+            "Provide quality education in Microbiology through undergraduate, postgraduate, and research programs.",
+            "Deliver effective theoretical and practical training in Medical, Industrial, Environmental, Food, Agricultural, and Molecular Microbiology.",
+            "Maintain well-equipped laboratories and ensure safe laboratory practices for teaching and research activities.",
+            "Promote scientific temper, critical thinking, and problem-solving skills among students.",
+            "Encourage student participation in internships, field visits, industrial training programs, and research projects.",
+            "Conduct seminars, workshops, conferences, guest lectures, and skill-development programs.",
+            "Guide students in higher education, entrepreneurship, and career development.",
+            "Undertake extension and outreach activities to create awareness on public health, environmental sustainability, and microbial applications.",
+            "Promote ethical values, professional responsibility, and lifelong learning among students and faculty members.",
+            "Maintain continuous quality improvement in teaching, learning, research, and laboratory practices."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
-            "Advanced Microbiology Research Lab",
-            "Molecular Biology Equipment",
-            "Sterile Culture Room",
-            "ICT Enabled Classrooms",
-            "Specialized Bio-Library"
+            "Advanced Microbiology Research Laboratory",
+            "Molecular Biology Equipment & Autoclave Section",
+            "Laminar Air Flow Sterile Culture Room",
+            "ICT Enabled Smart Classrooms",
+            "WiFi Enabled Campus & Specialized Bio-Library"
         ],
         careerOpportunities: [
+            { title: "Food Safety Officer (MRB)" },
+            { title: "Clinical Microbiologist & Lab Technologist" },
+            { title: "Quality Control & Quality Assurance Analyst" },
+            { title: "Medical Coder & Molecular Biologist" },
+            { title: "Technical Officer in Biotech & Pharma Industries" },
             { title: "Health and Safety Analyst" },
             { title: "Forensic Science (TNPSC)" },
-            { title: "Microbiologist / Research Scientist / JRF" },
-            { title: "Airlines / Railway / Water Board" },
-            { title: "Consultant Microbiologist" },
+            { title: "Scientific Officer in Research Laboratories" },
             { title: "Cosmetic Scientist" },
-            { title: "Teacher / Professor (TRB/Private)" },
+            { title: "Entrepreneur in Diagnostic, Food & Biotech Sectors" },
+            { title: "Faculty Member in Colleges & Universities (TRB / NET)" }
         ],
-
+        staffDetails: [
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. C. Andavar", qualification: "B.Com., CLIS (Lab Technician)" }
+        ],
         faqs: [
-            { question: "Can I work in the pharmaceutical industry after this?", answer: "Yes, M.Sc. Microbiology graduates are in high demand for drug development and quality control roles." }
+            { question: "Can I work in the pharmaceutical industry after this?", answer: "Yes, M.Sc. Microbiology graduates are in high demand for drug development, microbiological assay, and quality control roles." },
+            { question: "What is the scope of Microbiology in healthcare?", answer: "Microbiologists play a crucial role in diagnostic labs, pharmaceutical research, epidemiology, and public health departments." }
         ]
     },
     "phd-commerce": {
@@ -1558,16 +1670,39 @@ export const programDetailsData = {
         title: "Ph.D. English",
         heroImage: why2Img,
         aboutImage: ugpgheroImg,
-        about: "The Ph.D. program in English is designed for advanced research in English literature, literary theory, linguistics, and cultural studies.",
-        vision: "To create world-class researchers and scholars in the English language and literature.",
-        mission: "To inspire literary criticism and innovative research that contributes to global academic discourse.",
+        about: "The PG & Research Department of English offers the Ph.D. program in English designed for advanced research in English literature, literary theory, linguistics, and cultural studies. The department provides students with education of the highest quality in English language, literature, critical thinking, and creative writing.",
+        vision: "To be a centre of excellence in English language and literary studies by nurturing critical thinking, effective communication, creativity, ethical values and global perspectives, empowering students to become competent professionals and responsible citizens.",
+        mission: [
+            "To provide quality education in English language, literature, and communication skills through innovative and learner-centred teaching.",
+            "To cultivate critical thinking, analytical ability, creativity and research aptitude among students.",
+            "To enhance students' proficiency in spoken and written English for academic, professional and personal success.",
+            "To organize seminars, workshops, literary activities and extension programs that enrich learning beyond the classroom.",
+            "To prepare students for higher education, competitive examinations (including UGC-NET/SET), employment, and entrepreneurship."
+        ],
+        objectives: [
+            "To develop proficiency in listening, speaking, reading and writing skills.",
+            "To foster appreciation of English literature from different periods and cultures.",
+            "To encourage participation in literary, cultural and co-curricular activities.",
+            "To promote interdisciplinary learning and digital literacy.",
+            "To inspire research and scholarly writing.",
+            "To prepare students for careers in teaching, media, publishing, content writing, civil services, corporate communication and other language-related professions."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Academic leadership, administrative management, faculty/student development, research, curriculum development, quality assurance, placements, resource management, and strategic planning.",
+            "Assistant Professor (Teaching Faculty): Effective teaching, curriculum implementation, student mentoring, assessment, research publication, literary activities, placement skills, and community engagement.",
+            "Core Values: Academic excellence, integrity & ethics, inclusiveness, creativity, critical thinking, effective communication, lifelong learning, and social responsibility."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "Modern Language Laboratory",
             "Digital Library Access",
             "Discussion Rooms",
             "Writing Centers",
-            "Subscription to major Literary Journals"
+            "Subscription to major Literary Journals",
+            "State-of-the-art computer laboratories",
+            "WiFi Enabled Campus",
+            "ICT Enabled Smart Classrooms",
+            "Electronic Library"
         ],
         keyHighlights: [
             "Post-colonial Literature studies",
@@ -1576,12 +1711,30 @@ export const programDetailsData = {
             "Expert supervision for thesis work"
         ],
         careerOpportunities: [
-            { title: "Professor of English" },
-            { title: "Literary Critic" },
-            { title: "Lead Content Writer" },
-            { title: "Journalist / Editor" }
+            { title: "Professor of English / Assistant Professor" },
+            { title: "Literary Critic & Researcher" },
+            { title: "Journalist & Media Professional" },
+            { title: "Lead Content Writer, Copywriter & Editor" },
+            { title: "Corporate Communication Specialist" },
+            { title: "Soft Skill & Spoken English Trainer" },
+            { title: "Translator & Publishing Professional" },
+            { title: "Civil Services & Government Jobs (UPSC, TNPSC)" }
         ],
-        eligibility: "M.A. English with minimum required percentage.",
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
+            { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 5, name: "Mrs. S. Kowsalya", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 6, name: "Mr. A. Arunkumar", qualification: "M.A., B.Ed., M.Phil. (AP)" },
+            { sNo: 7, name: "Mr. V. AshokKumar", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 8, name: "Ms. V. Divya Bharathi", qualification: "M.A., (Ph. D) (AP)" },
+            { sNo: 9, name: "Mr. A. Ramesh", qualification: "M.A., M.Phil., B.Ed. (AP)" },
+            { sNo: 10, name: "Mrs. N. Jayasankavi", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 11, name: "Mr. S. Mohamed Yashin", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 12, name: "Mr. M. Sanjai", qualification: "M.A. (AP)" }
+        ],
+        eligibility: "Master's degree in English (M.A. English) with minimum 55% marks from a recognized university and eligibility under Bharathiar University norms.",
         faqs: [
             { question: "Is research methodology part of the Ph.D. program?", answer: "Yes, candidates undergo rigorous training in research methodology as part of their coursework." }
         ]
@@ -1637,7 +1790,14 @@ export const programDetailsData = {
         ],
         eligibility: "Master's degree in Tamil (M.A. Tamil) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university, and qualification in the Common Eligibility Test (CET) conducted by Bharathiar University or valid UGC-NET / SET / M.Phil.",
         staffDetails: [
-            { sNo: 1, name: "Dr. P. Raman", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" }
+            { sNo: 1, name: "Dr. R. Senthilrani", qualification: "M.A., M.A. (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (Assistant Professor & Head)" },
+            { sNo: 2, name: "Dr. P. Raman", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
+            { sNo: 3, name: "Mr. S. Selvakumar", qualification: "M.A., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 4, name: "Mr. K. Rajendrakumar", qualification: "M.A., B.Ed., NET, (Ph.D.) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. K. Yasodha", qualification: "M.A., M.Phil., B.Ed., DCT. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. B. Nandhakumar", qualification: "M.A. (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Vimalraj", qualification: "M.A., DIE, (Ph.D.) (Assistant Professor)" },
+            { sNo: 8, name: "Ms. S. Maivizhi", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
             { 
@@ -1655,26 +1815,66 @@ export const programDetailsData = {
         ]
     },
     "ma-english": {
-        title: "M.A English",
+        title: "M.A. English",
         heroImage: exam3Img,
         aboutImage: dji0589Img,
-        about: "Master of Arts in English is a two-year post-graduate program that offers an in-depth study of English Literature and Language from around the world. It provides students with the critical skills to analyze texts and understand the evolution of the English language.",
-        vision: "To produce globally competent scholars and professionals in the field of English studies.",
-        mission: "To foster a deep appreciation for literature and to equip students with advanced communication and analytical skills.",
+        about: "Master of Arts in English is a two-year post-graduate program that offers an in-depth study of English Literature and Language from around the world. The department provides students with education of the highest quality in English language, literature, critical thinking, and creative writing. It regularly conducts literary fests, essay, short story, poetry, creative writing competitions, and literary exhibitions to expand students' horizons, vocabulary, and scholarly depth.",
+        vision: "To be a centre of excellence in English language and literary studies by nurturing critical thinking, effective communication, creativity, ethical values and global perspectives, empowering students to become competent professionals and responsible citizens.",
+        mission: [
+            "To provide quality education in English language, literature, and communication skills through innovative and learner-centred teaching.",
+            "To cultivate critical thinking, analytical ability, creativity and research aptitude among students.",
+            "To enhance students' proficiency in spoken and written English for academic, professional and personal success.",
+            "To organize seminars, workshops, literary activities and extension programs that enrich learning beyond the classroom.",
+            "To prepare students for higher education, competitive examinations (including UGC-NET/SET), employment, and entrepreneurship."
+        ],
+        objectives: [
+            "To develop proficiency in listening, speaking, reading and writing skills.",
+            "To foster appreciation of English literature from different periods and cultures.",
+            "To encourage participation in literary, cultural and co-curricular activities.",
+            "To promote interdisciplinary learning and digital literacy.",
+            "To inspire research and scholarly writing.",
+            "To prepare students for careers in teaching, media, publishing, content writing, civil services, corporate communication and other language-related professions."
+        ],
+        rolesAndResponsibilities: [
+            "Head of the Department: Academic leadership, administrative management, faculty/student development, research, curriculum development, quality assurance, placements, resource management, and strategic planning.",
+            "Assistant Professor (Teaching Faculty): Effective teaching, curriculum implementation, student mentoring, assessment, research publication, literary activities, placement skills, and community engagement.",
+            "Core Values: Academic excellence, integrity & ethics, inclusiveness, creativity, critical thinking, effective communication, lifelong learning, and social responsibility."
+        ],
         facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         facilities: [
             "Modern Language Laboratory",
             "Digital Library Access",
             "Discussion Rooms",
             "Writing Centers",
-            "Subscription to major Literary Journals"
+            "Subscription to major Literary Journals",
+            "State-of-the-art computer laboratories",
+            "WiFi Enabled Campus",
+            "ICT Enabled Smart Classrooms",
+            "Electronic Library"
         ],
         careerOpportunities: [
-            { title: "Teacher / Professor" },
-            { title: "Content Writer" },
-            { title: "Editor" },
-            { title: "Journalist" },
-            { title: "Public Relations Officer" }
+            { title: "Teacher / Assistant Professor / Professor" },
+            { title: "Journalist & Media Professional" },
+            { title: "Content Writer, Copywriter & Editor" },
+            { title: "Corporate Communication Specialist" },
+            { title: "Soft Skill & Spoken English Trainer" },
+            { title: "Translator & Publishing Professional" },
+            { title: "Civil Services & Government Jobs (UPSC, TNPSC)" },
+            { title: "Higher Education (Ph.D., UGC-NET/SET)" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
+            { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 5, name: "Mrs. S. Kowsalya", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 6, name: "Mr. A. Arunkumar", qualification: "M.A., B.Ed., M.Phil. (AP)" },
+            { sNo: 7, name: "Mr. V. AshokKumar", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 8, name: "Ms. V. Divya Bharathi", qualification: "M.A., (Ph. D) (AP)" },
+            { sNo: 9, name: "Mr. A. Ramesh", qualification: "M.A., M.Phil., B.Ed. (AP)" },
+            { sNo: 10, name: "Mrs. N. Jayasankavi", qualification: "M.A., B.Ed. (AP)" },
+            { sNo: 11, name: "Mr. S. Mohamed Yashin", qualification: "M.A., M.Phil. (AP)" },
+            { sNo: 12, name: "Mr. M. Sanjai", qualification: "M.A. (AP)" }
         ],
         faqs: [
             { question: "What are the career options after M.A English?", answer: "Graduates can pursue careers in teaching, journalism, content writing, publishing, and public relations." }

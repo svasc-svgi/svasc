@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 import styles from './WhySvasc.module.css';
 import Hero from '../components/Common/Hero';
+import { getWhySvascTestimonials } from '../services/whySvascService';
 
 import whyImg from '../assets/why.jpg';
 import why1Img from '../assets/why1.jpg';
@@ -17,27 +18,49 @@ import why2Img from '../assets/why2.JPG';
 import why3Img from '../assets/why3.jpg';
 import bus2Img from '../assets/bus2.jpg';
 
+const DEFAULT_TESTIMONIALS = [
+    {
+        name: "E.Pooja - Bsc computer science 2023 batch",
+        text: "I am truly grateful for my time at Shree Venkateshwara Arts and Science College.\n\nBeyond academics, this college taught me how to be professional, disciplined, and confident. I got many opportunities to stand in front of people and organize various functions and events, which greatly improved my leadership, communication, and management skills.\n\nThe experience I gained here been extremely useful to me after completing my college life, especially in my professional journey. I will always be thankful to the faculty and management for their guidance and support.\n\nThank you for shaping me into a better person.",
+        image: "/testimonials/pooja.jpg"
+    },
+    {
+        name: "B.Logitha - Bsc computer science 2023 batch",
+        text: "Being a pass-out student of Shree Venkateshwara Arts and Science College, I can proudly say that my college days were one of the most beautiful phases of my life. It was not just a place where I gained knowledge, but also a place where I learned valuable life lessons, built beautiful friendships, and created memories that will always stay close to my heart.\n\nThe teachers were always supportive and encouraged us to do better in our studies and personal growth. Every moment spent on campus, from attending classes to spending time with friends, has become a special memory.\n\nI am truly thankful for all the experiences, guidance, and opportunities I received during my time here. No matter where life takes me, a part of my journey will always belong to this college. ❤️\n\nThank you, Shree Venkateshwara Arts and Science College, for giving me beautiful memories, valuable lessons, and experiences that I will cherish forever!",
+        image: "/testimonials/logitha.jpg"
+    },
+    {
+        name: "P. SOBIYA - 2022 class:B.Sc(CS)",
+        text: "My experience at your college was very positive. The students were enthusiastic and eager to learn. The faculty and staff were friendly, supportive, and well-coordinated. I truly appreciate their warm hospitality. It was a wonderful opportunity to interact with students and guide them as a mentor.\n\n**Thank You!**",
+        image: "/testimonials/sobiya.jpg"
+    },
+    {
+        name: "S.manikandan - B Sc CS 2019 batch",
+        text: "My journey at Shree Venkateshwara Arts and Science College, Othakuthira, Gobichettipalayam (2019–2022) was a meaningful and valuable experience. The college provided a positive learning environment, excellent academic support, and opportunities to enhance both knowledge and personal skills. The faculty members were knowledgeable, approachable, and supportive, offering proper guidance and encouragement throughout the academic journey. Their dedication to teaching and willingness to share their knowledge played an important role in my learning and development. Overall, my B.Sc. Computer Science experience helped me build confidence, improve my skills, and prepare for future opportunities. I am grateful for the knowledge and experiences gained during my time at this institution.",
+        image: "/testimonials/manikandan.jpg"
+    }
+];
+
 const WhySvasc = () => {
     const [prevEl, setPrevEl] = React.useState(null);
     const [nextEl, setNextEl] = React.useState(null);
+    const [testimonials, setTestimonials] = React.useState(DEFAULT_TESTIMONIALS);
 
-    const testimonials = [
-        {
-            text: "SVASC has provided me with the perfect platform to grow both academically and personally. The faculty is incredibly supportive and the infrastructure is top-notch.",
-            name: "Rahul Kumar",
-            image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=128&h=128"
-        },
-        {
-            text: "The industry-aligned curriculum and placement assistance helped me land a job at a top MNC. I'm grateful for the opportunities provided by the college.",
-            name: "Priyanka Sharma",
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=128&h=128"
-        },
-        {
-            text: "Participating in various clubs and fests at SVASC made my college life memorable. It's truly a place where passion meets purpose.",
-            name: "Anish Varma",
-            image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=128&h=128"
-        }
-    ];
+    React.useEffect(() => {
+        let isMounted = true;
+        getWhySvascTestimonials()
+            .then((res) => {
+                if (!isMounted) return;
+                const list = res?.data ?? (Array.isArray(res) ? res : []);
+                if (Array.isArray(list) && list.length > 0) {
+                    setTestimonials(list);
+                }
+            })
+            .catch((err) => {
+                console.warn('Could not load remote testimonials, using defaults:', err.message);
+            });
+        return () => { isMounted = false; };
+    }, []);
 
     const hiringPartners = [
         { name: 'TCS', logo: '/comapanies/tcs.jpg' },
@@ -198,21 +221,22 @@ const WhySvasc = () => {
                         pagination={{
                             clickable: true,
                             renderBullet: (index, className) => {
-                                return `<span class="${className}" style="background-image: url(${testimonials[index].image})"></span>`;
+                                const img = testimonials[index]?.image || '/testimonials/pooja.jpg';
+                                return `<span class="${className}" style="background-image: url(${img})"></span>`;
                             }
                         }}
-                        autoplay={{ delay: 2500 }}
+                        autoplay={{ delay: 3500 }}
                         navigation={{
                             prevEl,
                             nextEl,
                         }}
-                        loop={true}
+                        loop={testimonials.length > 1}
                         className={styles.testimonialSwiper}
                     >
                         {testimonials.map((t, i) => (
-                            <SwiperSlide key={i} className={styles.testimonialItem}>
+                            <SwiperSlide key={t._id || i} className={styles.testimonialItem}>
                                 <blockquote>
-                                    <p>{t.text}</p>
+                                    <p style={{ whiteSpace: 'pre-line' }}>{t.text}</p>
                                     <small>{t.name}</small>
                                 </blockquote>
                             </SwiperSlide>

@@ -3,6 +3,7 @@ import styles from './Programms.module.css';
 import { ArrowRight, ChevronRight, GraduationCap, BookOpen, BadgeCheck } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import { getGroupedPrograms } from '../services/programService';
 import ugpgHeroImg from '../assets/ugpghero.jpg';
 import ugImg from '../assets/ug.jpg';
 import ugpgImg from '../assets/ugpg.jpg';
@@ -100,8 +101,8 @@ const Schools = () => {
         sessionStorage.setItem('activeSchoolIndex', activeSchoolIndex.toString());
     }, [activeSchoolIndex]);
 
-    // Mock Data Structure
-    const programsData = {
+    // Base / Fallback Data Structure
+    const INITIAL_PROGRAMS_DATA = {
         "UG Programmes": [
             {
                 name: "School of Computer Science & IT",
@@ -139,7 +140,6 @@ const Schools = () => {
                     { title: "B.Sc. Chemistry", image: why3Img },
                     { title: "B.Sc. Mathematics", image: teachingImg },
                     { title: "B.Sc. Microbiology", image: researchImg },
-
                 ]
             },
             {
@@ -171,7 +171,6 @@ const Schools = () => {
                 programs: [
                     { title: "M.Sc. Computer Science", image: home5Img },
                     { title: "M.Sc Microbiology", image: home1Img },
-
                 ]
             },
             {
@@ -201,6 +200,50 @@ const Schools = () => {
             }
         ]
     };
+
+    const [programsData, setProgramsData] = useState(INITIAL_PROGRAMS_DATA);
+
+    useEffect(() => {
+        let isMounted = true;
+        getGroupedPrograms()
+            .then((res) => {
+                if (!isMounted) return;
+                const dbGrouped = res?.data;
+                if (dbGrouped && typeof dbGrouped === 'object') {
+                    setProgramsData((prev) => {
+                        const merged = JSON.parse(JSON.stringify(prev));
+                        ['UG Programmes', 'PG Programmes', 'Ph.D'].forEach((level) => {
+                            if (Array.isArray(dbGrouped[level]) && dbGrouped[level].length > 0) {
+                                dbGrouped[level].forEach((dbSchool) => {
+                                    if (!merged[level]) merged[level] = [];
+                                    const existingSchoolIdx = merged[level].findIndex(
+                                        (s) => s.name.trim().toLowerCase() === dbSchool.name.trim().toLowerCase()
+                                    );
+                                    if (existingSchoolIdx === -1) {
+                                        merged[level].push(dbSchool);
+                                    } else {
+                                        (dbSchool.programs || []).forEach((dbp) => {
+                                            const pExists = merged[level][existingSchoolIdx].programs.some(
+                                                (ep) => ep.title.trim().toLowerCase() === dbp.title.trim().toLowerCase()
+                                            );
+                                            if (!pExists) {
+                                                merged[level][existingSchoolIdx].programs.push(dbp);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                        return merged;
+                    });
+                }
+            })
+            .catch((err) => {
+                console.warn('Could not load dynamic programs from server:', err.message);
+            });
+
+        return () => { isMounted = false; };
+    }, []);
 
     const currentSchools = programsData[activeTab] || [];
     const activeSchoolData = currentSchools[activeSchoolIndex] || {};
