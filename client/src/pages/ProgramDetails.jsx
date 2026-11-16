@@ -25,6 +25,8 @@ const PROGRAM_DEPT_MAP = {
     'bsc-chemistry': 'B.Sc. Chemistry',
     'bsc-mathematics': 'B.Sc. Mathematics',
     'bsc-microbiology': 'B.Sc. Microbiology',
+    'phd-microbiology': 'Ph.D Microbiology',
+    'ph-d-microbiology': 'Ph.D Microbiology',
     'ba-english': 'B.A. English',
     'bsc-costume-design-fashion': 'B.Sc. Costume Design & Fashion',
     'msc-computer-science': 'M.Sc. Computer Science',
@@ -151,7 +153,7 @@ const ProgramDetails = () => {
     return (
         <div className={styles.wrapper}>
             {/* HERO SECTION */}
-            <header className={styles.hero} style={{ backgroundImage: `url("${program.heroImage}")` }}>
+            <header className={styles.hero} style={{ backgroundImage: `url("${program.heroImage || program.image || '/assets/research.jpg'}")` }}>
                 <div className={styles.heroOverlay}>
                     <div className={styles.heroContent}>
                         <h1>{program.title}</h1>
@@ -176,20 +178,25 @@ const ProgramDetails = () => {
 
             <div className={styles.mainContent}>
                 {/* ABOUT SECTION (Card Style) */}
-                <section className={styles.aboutWrapper}>
-                    <div className={styles.container}>
-                        <div className={styles.aboutCard}>
-                            <div className={styles.aboutGrid}>
-                                <div className={styles.aboutText}>
-                                    <p>{program.about}</p>
-                                </div>
-                                <div className={styles.aboutImage}>
-                                    <img src={program.aboutImage} alt="Program Intro" />
+                {program.about && (
+                    <section className={styles.aboutWrapper}>
+                        <div className={styles.container}>
+                            <div className={styles.aboutCard}>
+                                <div className={styles.aboutGrid}>
+                                    <div className={styles.aboutText}>
+                                        <p>{program.about}</p>
+                                    </div>
+                                    <div className={styles.aboutImage}>
+                                        <img 
+                                            src={program.aboutImage || program.image || '/assets/about3.jpg'} 
+                                            alt={program.title} 
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* VISION & MISSION */}
                 {(program.vision || program.mission) && (
@@ -367,17 +374,50 @@ const ProgramDetails = () => {
                 ) : program.careerOpportunities ? (
                     <section className={styles.careerSection}>
                         <div className={styles.container}>
-                            <h2 className={styles.sectionTitle}>Career Opportunities</h2>
+                            <h2 className={styles.sectionTitle}>Career & Research Opportunities</h2>
                             <div className={styles.careerGrid}>
                                 {program.careerOpportunities.map((career, idx) => (
                                     <div key={idx} className={styles.careerBox}>
-                                        {career.title}
+                                        {typeof career === 'string' ? career : (career.title || career.description)}
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </section>
                 ) : null}
+
+                {/* KEY HIGHLIGHTS */}
+                {program.keyHighlights && program.keyHighlights.length > 0 && (
+                    <section className={styles.objectivesSection}>
+                        <div className={styles.container}>
+                            <div className={styles.sectionCard}>
+                                <h2>Key Programme Highlights</h2>
+                                <ul className={styles.bulletList}>
+                                    {program.keyHighlights.map((highlight, idx) => (
+                                        <li key={idx}>
+                                            <ChevronsRight className={styles.doubleArrow} size={20} />
+                                            <span>{highlight}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* ELIGIBILITY CRITERIA */}
+                {program.eligibility && (
+                    <section className={styles.objectivesSection}>
+                        <div className={styles.container}>
+                            <div className={styles.sectionCard}>
+                                <h2>Eligibility Criteria</h2>
+                                <p className={styles.sectionLeadText} style={{ margin: '0.8rem 0 0 0', lineHeight: 1.8 }}>
+                                    {program.eligibility}
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                )}
 
                 {/* STAFF DETAILS */}
                 {((dbStaff && dbStaff.length > 0) || (program && program.staffDetails && program.staffDetails.length > 0)) && (

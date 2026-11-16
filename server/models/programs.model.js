@@ -44,8 +44,14 @@ const programSchema = new mongoose.Schema({
         type: String
     },
     mission: {
-        type: String
+        type: mongoose.Schema.Types.Mixed // Can be String or Array of Strings
     },
+    objectives: [{
+        type: String
+    }],
+    rolesAndResponsibilities: [{
+        type: String
+    }],
     facilities: [{
         type: String
     }],

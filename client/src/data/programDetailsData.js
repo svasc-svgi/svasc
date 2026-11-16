@@ -1814,6 +1814,164 @@ export const programDetailsData = {
             }
         ]
     },
+    "ph-d-microbiology": {
+        title: "Ph.D. Microbiology",
+        heroImage: researchImg,
+        aboutImage: "https://res.cloudinary.com/kfaxaxag/image/upload/v1794867636/svasc/programs/fnrsg7miuajktdx939xm.jpg",
+        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D. in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators, and research academicians equipped with advanced research methodology, modern bio-instrumentation, and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation, and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development, and academic leadership.",
+        vision: "To emerge as a premier center of excellence in microbiological doctoral research, biotechnology innovation, and scientific inquiry by fostering original academic research, ethical inquiry, and translational applications to address critical healthcare, agricultural, and environmental challenges.",
+        mission: [
+            "To provide rigorous doctoral training and state-of-the-art laboratory infrastructure for cutting-edge basic and translational microbiological research.",
+            "To cultivate high-impact research publications in reputed SCI, Scopus, and UGC-CARE indexed journals as well as innovative patents.",
+            "To foster interdisciplinary collaborations with pharmaceutical, clinical diagnostic, food, and environmental biotechnology industries.",
+            "To mentor doctoral scholars toward global leadership in academia, international postdoctoral fellowships, and R&D establishments.",
+            "To instill strong bioethics, biosafety protocols, academic integrity, and eco-restoration values for sustainable community health."
+        ],
+        objectives: [
+            "To impart advanced research methodology, experimental design, biostatistics, and scientific communication skills.",
+            "To facilitate in-depth doctoral research in clinical diagnostics, antimicrobial mechanisms, microbial enzymology, and environmental sustainability.",
+            "To encourage research scholars to secure competitive research grants and national fellowships including CSIR-UGC NET, ICMR-JRF, and GATE.",
+            "To promote collaborative translational research with healthcare centers and biotechnology industries.",
+            "To prepare scholars for prestigious careers as university professors, principal investigators, and industrial R&D scientists globally."
+        ],
+        rolesAndResponsibilities: [
+            "Conduct advanced original research adhering to Bharathiar University doctoral regulations and international scientific ethics.",
+            "Regularly present research progress in doctoral committee reviews, national conferences, and international symposia.",
+            "Publish high-quality research manuscripts in SCI/Scopus indexed journals and contribute to patent filings.",
+            "Mentor undergraduate and postgraduate students in specialized laboratory techniques and experimental design.",
+            "Maintain strict adherence to institutional biosafety, hazardous waste management, and laboratory safety protocols."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "Advanced Microbiology Research Laboratory with Class II Biosafety Cabinets & Laminar Air Flow",
+            "High-Speed Refrigerated Centrifuges, UV-Visible Spectrophotometers, and Thermal Cyclers (PCR)",
+            "BOD Incubators, Orbital Shaker Incubators, Autoclaves, and Deep Freezers (-20°C / -80°C)",
+            "Digital Phase Contrast Microscopes with Micro-photography & Image Analysis Systems",
+            "Dedicated Scholar Workstations with High-Speed Internet, INFLIBNET N-LIST & e-Journal Subscriptions"
+        ],
+        keyHighlights: [
+            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D. research.",
+            "Guidance by experienced doctorates with extensive research publications in peer-reviewed journals.",
+            "Active industry-academia linkages and clinical diagnostic research collaborations.",
+            "Support and coaching for national fellowship examinations including CSIR-UGC NET, ICMR-JRF, and GATE.",
+            "Regular research colloquiums, guest lectures by eminent scientists, and national workshops."
+        ],
+        eligibility: "Master’s degree in Microbiology, Biotechnology, Applied Microbiology, or equivalent life science discipline from a recognized University with a minimum of 55% marks (50% for SC/ST/OBC non-creamy layer/differently-abled candidates) and qualification in Bharathiar University Common Eligibility Test (CET) or UGC-NET / CSIR-NET / GATE / SLET / M.Phil.",
+        careerOpportunities: [
+            { title: "University & College Professor / Senior Faculty" },
+            { title: "Principal Scientist / Research Scientist in Biotech & Pharma" },
+            { title: "Postdoctoral Research Fellow (India & Abroad)" },
+            { title: "Head of Quality Control & Assurance (QC/QA)" },
+            { title: "Clinical Microbiologist & Medical Research Officer" },
+            { title: "Scientific Officer in Government Research Institutes (ICMR, CSIR, DBT)" },
+            { title: "Food Safety & Regulatory Affairs Consultant" },
+            { title: "Biotechnology Entrepreneur / Bio-Incubation Founder" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD & Research Supervisor)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" }
+        ],
+        faqs: [
+            { 
+                question: "Is the Ph.D. in Microbiology offered both Full-Time and Part-Time at SVASC?", 
+                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D. in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
+            },
+            { 
+                question: "What are the major research thrust areas in the Department?", 
+                answer: "The department focuses on Medical Microbiology, Antimicrobial Resistance (AMR), Microbial Nanotechnology, Environmental Bioremediation, Probiotics, and Agricultural Microbiology." 
+            },
+            { 
+                question: "Are NET/SET qualified candidates exempted from the CET entrance test?", 
+                answer: "Yes, candidates who have qualified UGC-NET / CSIR-NET / SLET / GATE or hold an M.Phil. degree are exempted from the Common Eligibility Test (CET) as per university norms." 
+            },
+            { 
+                question: "Does the college assist scholars with research publications and symposiums?", 
+                answer: "Yes, the department actively encourages and guides scholars in presenting their findings at national and international conferences and publishing in peer-reviewed, UGC-CARE, and Scopus-indexed journals." 
+            }
+        ]
+    },
+    "phd-microbiology": {
+        title: "Ph.D. Microbiology",
+        heroImage: researchImg,
+        aboutImage: "https://res.cloudinary.com/kfaxaxag/image/upload/v1794867636/svasc/programs/fnrsg7miuajktdx939xm.jpg",
+        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D. in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators, and research academicians equipped with advanced research methodology, modern bio-instrumentation, and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation, and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development, and academic leadership.",
+        vision: "To emerge as a premier center of excellence in microbiological doctoral research, biotechnology innovation, and scientific inquiry by fostering original academic research, ethical inquiry, and translational applications to address critical healthcare, agricultural, and environmental challenges.",
+        mission: [
+            "To provide rigorous doctoral training and state-of-the-art laboratory infrastructure for cutting-edge basic and translational microbiological research.",
+            "To cultivate high-impact research publications in reputed SCI, Scopus, and UGC-CARE indexed journals as well as innovative patents.",
+            "To foster interdisciplinary collaborations with pharmaceutical, clinical diagnostic, food, and environmental biotechnology industries.",
+            "To mentor doctoral scholars toward global leadership in academia, international postdoctoral fellowships, and R&D establishments.",
+            "To instill strong bioethics, biosafety protocols, academic integrity, and eco-restoration values for sustainable community health."
+        ],
+        objectives: [
+            "To impart advanced research methodology, experimental design, biostatistics, and scientific communication skills.",
+            "To facilitate in-depth doctoral research in clinical diagnostics, antimicrobial mechanisms, microbial enzymology, and environmental sustainability.",
+            "To encourage research scholars to secure competitive research grants and national fellowships including CSIR-UGC NET, ICMR-JRF, and GATE.",
+            "To promote collaborative translational research with healthcare centers and biotechnology industries.",
+            "To prepare scholars for prestigious careers as university professors, principal investigators, and industrial R&D scientists globally."
+        ],
+        rolesAndResponsibilities: [
+            "Conduct advanced original research adhering to Bharathiar University doctoral regulations and international scientific ethics.",
+            "Regularly present research progress in doctoral committee reviews, national conferences, and international symposia.",
+            "Publish high-quality research manuscripts in SCI/Scopus indexed journals and contribute to patent filings.",
+            "Mentor undergraduate and postgraduate students in specialized laboratory techniques and experimental design.",
+            "Maintain strict adherence to institutional biosafety, hazardous waste management, and laboratory safety protocols."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "Advanced Microbiology Research Laboratory with Class II Biosafety Cabinets & Laminar Air Flow",
+            "High-Speed Refrigerated Centrifuges, UV-Visible Spectrophotometers, and Thermal Cyclers (PCR)",
+            "BOD Incubators, Orbital Shaker Incubators, Autoclaves, and Deep Freezers (-20°C / -80°C)",
+            "Digital Phase Contrast Microscopes with Micro-photography & Image Analysis Systems",
+            "Dedicated Scholar Workstations with High-Speed Internet, INFLIBNET N-LIST & e-Journal Subscriptions"
+        ],
+        keyHighlights: [
+            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D. research.",
+            "Guidance by experienced doctorates with extensive research publications in peer-reviewed journals.",
+            "Active industry-academia linkages and clinical diagnostic research collaborations.",
+            "Support and coaching for national fellowship examinations including CSIR-UGC NET, ICMR-JRF, and GATE.",
+            "Regular research colloquiums, guest lectures by eminent scientists, and national workshops."
+        ],
+        eligibility: "Master’s degree in Microbiology, Biotechnology, Applied Microbiology, or equivalent life science discipline from a recognized University with a minimum of 55% marks (50% for SC/ST/OBC non-creamy layer/differently-abled candidates) and qualification in Bharathiar University Common Eligibility Test (CET) or UGC-NET / CSIR-NET / GATE / SLET / M.Phil.",
+        careerOpportunities: [
+            { title: "University & College Professor / Senior Faculty" },
+            { title: "Principal Scientist / Research Scientist in Biotech & Pharma" },
+            { title: "Postdoctoral Research Fellow (India & Abroad)" },
+            { title: "Head of Quality Control & Assurance (QC/QA)" },
+            { title: "Clinical Microbiologist & Medical Research Officer" },
+            { title: "Scientific Officer in Government Research Institutes (ICMR, CSIR, DBT)" },
+            { title: "Food Safety & Regulatory Affairs Consultant" },
+            { title: "Biotechnology Entrepreneur / Bio-Incubation Founder" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD & Research Supervisor)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" }
+        ],
+        faqs: [
+            { 
+                question: "Is the Ph.D. in Microbiology offered both Full-Time and Part-Time at SVASC?", 
+                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D. in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
+            },
+            { 
+                question: "What are the major research thrust areas in the Department?", 
+                answer: "The department focuses on Medical Microbiology, Antimicrobial Resistance (AMR), Microbial Nanotechnology, Environmental Bioremediation, Probiotics, and Agricultural Microbiology." 
+            },
+            { 
+                question: "Are NET/SET qualified candidates exempted from the CET entrance test?", 
+                answer: "Yes, candidates who have qualified UGC-NET / CSIR-NET / SLET / GATE or hold an M.Phil. degree are exempted from the Common Eligibility Test (CET) as per university norms." 
+            },
+            { 
+                question: "Does the college assist scholars with research publications and symposiums?", 
+                answer: "Yes, the department actively encourages and guides scholars in presenting their findings at national and international conferences and publishing in peer-reviewed, UGC-CARE, and Scopus-indexed journals." 
+            }
+        ]
+    },
     "ma-english": {
         title: "M.A. English",
         heroImage: exam3Img,

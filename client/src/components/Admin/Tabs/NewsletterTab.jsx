@@ -20,8 +20,12 @@ const NewsletterTab = () => {
   const loadData = async () => {
     try {
       const res = await getNewsletters();
-      const list = res?.data ?? (Array.isArray(res) ? res : []);
-      setNewsletters(list);
+      const rawList = res?.data ?? (Array.isArray(res) ? res : []);
+      const mapped = rawList.map((item) => ({
+        ...item,
+        coverImage: item.coverImage || item.image || '/newsletter/newsletter_cover.jpg'
+      }));
+      setNewsletters(mapped);
     } catch (err) {
       console.error('Error loading newsletter data', err);
     }
@@ -86,6 +90,7 @@ const NewsletterTab = () => {
       title: formData.title || '',
       description: formData.description || '',
       coverImage: coverImageUrl,
+      image: coverImageUrl,
       pdf: pdfUrl,
       byline: formData.byline || 'CAMPUS EDITORIAL DESK',
       date: formData.date || ''
