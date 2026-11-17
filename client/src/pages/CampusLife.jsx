@@ -69,13 +69,67 @@ const fallbackScroll = [
 ];
 
 const CampusLife = () => {
-    const { setIsNavbarVisible } = useOutletContext();
+    const outletContext = useOutletContext();
+    const setIsNavbarVisible = outletContext?.setIsNavbarVisible;
     const [galleryHoverPos, setGalleryHoverPos] = useState({ x: 0, y: 0 });
+
+    const [heroData, setHeroData] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_hero');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackHero;
+    });
+
+    const [galleryItems, setGalleryItems] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_gallery');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackGallery;
+    });
+
+    const [scrollItems, setScrollItems] = useState(() => {
+        try {
+            const cached = localStorage.getItem('svasc_cached_campus_scroll');
+            if (cached) return JSON.parse(cached);
+        } catch (e) {}
+        return fallbackScroll;
+    });
+
     const scrollRef = useRef(null);
     const trackRef = useRef(null);
     const isPausedRef = useRef(false);
     const animationFrameId = useRef(null);
     const resumeTimeoutRef = useRef(null);
+
+    const pauseScroll = () => {
+        isPausedRef.current = true;
+        if (resumeTimeoutRef.current) {
+            clearTimeout(resumeTimeoutRef.current);
+        }
+    };
+
+    const resumeScrollWithDelay = (delay = 1200) => {
+        if (resumeTimeoutRef.current) {
+            clearTimeout(resumeTimeoutRef.current);
+        }
+        resumeTimeoutRef.current = setTimeout(() => {
+            isPausedRef.current = false;
+        }, delay);
+    };
+
+    const handleScroll = (direction) => {
+        pauseScroll();
+        const container = trackRef.current;
+        if (!container) return;
+        const scrollAmount = 390;
+        container.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth'
+        });
+        resumeScrollWithDelay(2500);
+    };
 
     // Continuous smooth horizontal auto-scroll loop (60fps)
     useEffect(() => {
@@ -115,56 +169,6 @@ const CampusLife = () => {
             }
         };
     }, [scrollItems]);
-
-    const pauseScroll = () => {
-        isPausedRef.current = true;
-        if (resumeTimeoutRef.current) {
-            clearTimeout(resumeTimeoutRef.current);
-        }
-    };
-
-    const resumeScrollWithDelay = (delay = 1200) => {
-        if (resumeTimeoutRef.current) {
-            clearTimeout(resumeTimeoutRef.current);
-        }
-        resumeTimeoutRef.current = setTimeout(() => {
-            isPausedRef.current = false;
-        }, delay);
-    };
-
-    const handleScroll = (direction) => {
-        pauseScroll();
-        const container = trackRef.current;
-        if (!container) return;
-        const scrollAmount = 390;
-        container.scrollBy({
-            left: direction === 'left' ? -scrollAmount : scrollAmount,
-            behavior: 'smooth'
-        });
-        resumeScrollWithDelay(2500);
-    };
-
-    const [heroData, setHeroData] = useState(() => {
-        try {
-            const cached = localStorage.getItem('svasc_cached_campus_hero');
-            if (cached) return JSON.parse(cached);
-        } catch (e) {}
-        return fallbackHero;
-    });
-    const [galleryItems, setGalleryItems] = useState(() => {
-        try {
-            const cached = localStorage.getItem('svasc_cached_campus_gallery');
-            if (cached) return JSON.parse(cached);
-        } catch (e) {}
-        return fallbackGallery;
-    });
-    const [scrollItems, setScrollItems] = useState(() => {
-        try {
-            const cached = localStorage.getItem('svasc_cached_campus_scroll');
-            if (cached) return JSON.parse(cached);
-        } catch (e) {}
-        return fallbackScroll;
-    });
 
     useEffect(() => {
         const fetchCampusLifeData = async () => {
