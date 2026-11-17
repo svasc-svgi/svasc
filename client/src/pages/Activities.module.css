@@ -1012,28 +1012,3 @@
   float: none;
   width: 100%;
 }
-
-.cardContentOverlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gameCardCover:hover .cardContentOverlay {
-  opacity: 1;
-}
-
-.readMoreBtn {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background: #ffcc00;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}

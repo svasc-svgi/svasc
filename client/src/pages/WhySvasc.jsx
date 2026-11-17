@@ -132,7 +132,7 @@ const WhySvasc = () => {
                                 <div className={styles.cardIcon}>
                                     <CheckCircle />
                                 </div>
-                                <h3 className={styles.cardTitle}>NAAC Accreditation</h3>
+                                <h3 className={styles.cardTitle}>Academy Excellence</h3>
                             </div>
                             <p className={styles.cardDescription}>Recognized for academic excellence and quality education standards.</p>
                         </div>

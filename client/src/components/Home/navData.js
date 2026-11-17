@@ -5,7 +5,7 @@ export const navData = {
         { label: 'Sports', path: '/sports' },
         { label: 'Campus Life', path: '/campus-life' },
         { label: 'Examinations', path: '/exam' },
-        { label: 'Activities', path: '/activities' },
+        { label: 'Club and Committees', path: '/activities' },
         { label: 'IQAC', path: '/iqac' },
     ],
     bottomNav: [

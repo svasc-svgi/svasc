@@ -134,7 +134,7 @@ const Footer = () => {
                                     <li><Link to="/admission"><FaChevronRight size={14} /> Admission</Link></li>
                                     <li><Link to="/placement"><FaChevronRight size={14} /> Placement</Link></li>
                                     <li><Link to="/facilities"><FaChevronRight size={14} /> Facilities</Link></li>
-                                    <li><Link to="/activities"><FaChevronRight size={14} /> Activities</Link></li>
+                                    <li><Link to="/activities"><FaChevronRight size={14} /> Club and Committees</Link></li>
                                     <li><Link to="/contact"><FaChevronRight size={14} /> Contact Us</Link></li>
                                 </ul>
                             </div>
