@@ -10,15 +10,37 @@ import {
   deleteSportHouse,
   getSportsDay,
   updateSportsDay,
+  getPhysicalEducationAchievements,
+  createPhysicalEducationAchievement,
+  updatePhysicalEducationAchievement,
+  deletePhysicalEducationAchievement,
 } from '../../../services/sportsService';
 import styles from '../CrudManager.module.css';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
+const COMMON_SPORT_ICONS = [
+  { label: 'Cricket', icon: 'fa-baseball-bat-ball' },
+  { label: 'Bodybuilding / Gym', icon: 'fa-dumbbell' },
+  { label: 'Volleyball / Throwball', icon: 'fa-volleyball' },
+  { label: 'Football', icon: 'fa-futbol' },
+  { label: 'Running / Kho-Kho / Athletics', icon: 'fa-person-running' },
+  { label: 'Medal / Silambam', icon: 'fa-medal' },
+  { label: 'Chess', icon: 'fa-chess' },
+  { label: 'Yoga', icon: 'fa-person' },
+  { label: 'Handball', icon: 'fa-hand' },
+  { label: 'Karate / Martial Arts', icon: 'fa-hand-fist' },
+];
+
 const SportsTab = () => {
   const [houses, setHouses] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
+
+  // Department of Physical Education State
+  const [physicalEducation, setPhysicalEducation] = useState([]);
+  const [peUploadProgress, setPeUploadProgress] = useState(0);
+  const [isPeUploading, setIsPeUploading] = useState(false);
 
   // Sports Day State
   const [sportsDay, setSportsDay] = useState({
@@ -36,9 +58,10 @@ const SportsTab = () => {
 
   const loadData = async () => {
     try {
-      const [housesRes, dayRes] = await Promise.allSettled([
+      const [housesRes, dayRes, peRes] = await Promise.allSettled([
         getSportHouses(),
         getSportsDay(),
+        getPhysicalEducationAchievements(),
       ]);
 
       if (housesRes.status === 'fulfilled') {
@@ -58,6 +81,12 @@ const SportsTab = () => {
             pdfUrl: val.pdfUrl || '',
           });
         }
+      }
+
+      if (peRes.status === 'fulfilled') {
+        const val = peRes.value;
+        const data = val?.data ?? (Array.isArray(val) ? val : []);
+        setPhysicalEducation(data);
       }
     } catch (err) {
       console.error('Error loading sports data', err);
@@ -107,6 +136,46 @@ const SportsTab = () => {
 
   const handleDeleteHouse = async (id) => {
     await deleteSportHouse(id);
+    loadData();
+  };
+
+  const handleSavePhysicalEducation = async (formData, id) => {
+    let imageUrl = formData.image;
+
+    if (formData.image instanceof File) {
+      setIsPeUploading(true);
+      setPeUploadProgress(0);
+      try {
+        imageUrl = await uploadDirectToCloudinary(
+          formData.image,
+          'svasc/sports/physical-education',
+          (pct) => setPeUploadProgress(pct)
+        );
+      } finally {
+        setIsPeUploading(false);
+      }
+    }
+
+    const payload = {
+      year: formData.year || '',
+      game: formData.game || '',
+      icon: formData.icon || 'fa-medal',
+      color: formData.color || '#243b53',
+      image: typeof imageUrl === 'string' ? imageUrl : '',
+      report: formData.report || '',
+      order: Number(formData.order) || 0,
+    };
+
+    if (id) {
+      await updatePhysicalEducationAchievement(id, payload);
+    } else {
+      await createPhysicalEducationAchievement(payload);
+    }
+    loadData();
+  };
+
+  const handleDeletePhysicalEducation = async (id) => {
+    await deletePhysicalEducationAchievement(id);
     loadData();
   };
 
@@ -303,6 +372,175 @@ const SportsTab = () => {
             </button>
           </div>
         </form>
+      </div>
+
+      {/* Department of Physical Education (Moving Cards & Reports) */}
+      <div style={{ marginBottom: '2.5rem' }}>
+        <CrudManager
+          title="Department of Physical Education (Moving Cards & Reports)"
+          data={physicalEducation}
+          columns={[
+            { key: 'order', label: 'Order', type: 'text' },
+            { key: 'image', label: 'Photo', type: 'image' },
+            { key: 'year', label: 'Year', type: 'text' },
+            { key: 'game', label: 'Sport / Game', type: 'text' },
+            { key: 'icon', label: 'Icon', type: 'text' },
+            { key: 'color', label: 'Card Color', type: 'text' },
+            { key: 'report', label: 'Achievement Report', type: 'text' },
+          ]}
+          onSave={handleSavePhysicalEducation}
+          onDelete={handleDeletePhysicalEducation}
+          initialFormState={{
+            year: '',
+            game: '',
+            icon: 'fa-medal',
+            color: '#243b53',
+            image: null,
+            report: '',
+            order: 0,
+          }}
+          renderForm={(formData, setFormData) => (
+            <>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <FormInput
+                  label="Academic Year (e.g. 2024-2025)"
+                  value={formData.year || ''}
+                  onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+                  placeholder="2024-2025"
+                  required
+                />
+                <FormInput
+                  label="Sport / Game Title (e.g. CRICKET MEN)"
+                  value={formData.game || ''}
+                  onChange={(e) => setFormData({ ...formData, game: e.target.value })}
+                  placeholder="e.g. CRICKET MEN, BEST PHYSIQUE"
+                  required
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div>
+                  <FormInput
+                    label="FontAwesome Icon Class"
+                    value={formData.icon || 'fa-medal'}
+                    onChange={(e) => setFormData({ ...formData, icon: e.target.value })}
+                    placeholder="fa-medal, fa-baseball-bat-ball, etc."
+                    required
+                  />
+                  <div style={{ marginTop: '0.4rem', display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                    {COMMON_SPORT_ICONS.map((item) => (
+                      <button
+                        key={item.icon}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, icon: item.icon })}
+                        style={{
+                          fontSize: '0.75rem',
+                          padding: '0.2rem 0.5rem',
+                          background: formData.icon === item.icon ? '#e73700' : '#f1f5f9',
+                          color: formData.icon === item.icon ? '#ffffff' : '#334155',
+                          border: '1px solid #cbd5e1',
+                          borderRadius: '4px',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <FormInput
+                    label="Card Background Color (Hex)"
+                    value={formData.color || '#243b53'}
+                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                    placeholder="#243b53"
+                  />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginTop: '0.4rem' }}>
+                    <input
+                      type="color"
+                      value={formData.color && formData.color.startsWith('#') ? formData.color : '#243b53'}
+                      onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                      style={{ width: '38px', height: '32px', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
+                    />
+                    <span style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                      Preview: <span style={{ display: 'inline-block', width: '20px', height: '20px', backgroundColor: formData.color || '#243b53', verticalAlign: 'middle', borderRadius: '3px', marginLeft: '4px' }}></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <FormInput
+                label="Display Order (lower numbers appear first)"
+                type="number"
+                value={formData.order ?? 0}
+                onChange={(e) => setFormData({ ...formData, order: e.target.value })}
+              />
+
+              <FormInput
+                label="Achievement Report / Description"
+                type="textarea"
+                rows={4}
+                value={formData.report || ''}
+                onChange={(e) => setFormData({ ...formData, report: e.target.value })}
+                placeholder="Details of student achievement, tournament, medal, dates, etc."
+                required
+              />
+
+              <FileUploader
+                label="Achievement Photo / Image (Optional)"
+                accept="image/*"
+                onChange={(e) => setFormData({ ...formData, image: e.target.files[0] })}
+                previewUrl={
+                  typeof formData.image === 'string'
+                    ? formData.image.startsWith('http') || formData.image.startsWith('/sports')
+                      ? formData.image
+                      : `${BASE_URL}/${formData.image.replace(/^\/+/, '')}`
+                    : formData.image
+                    ? URL.createObjectURL(formData.image)
+                    : null
+                }
+              />
+
+              {/* LIVE PE IMAGE UPLOAD PROGRESS BAR */}
+              {isPeUploading && (
+                <div style={{ marginTop: '0.75rem' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      fontSize: '0.85rem',
+                      fontWeight: '600',
+                      color: '#2563eb',
+                      marginBottom: '0.3rem',
+                    }}
+                  >
+                    <span>⚡ Direct Cloudinary Image Uploading...</span>
+                    <span>{peUploadProgress}%</span>
+                  </div>
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '8px',
+                      background: '#e5e7eb',
+                      borderRadius: '4px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: `${peUploadProgress}%`,
+                        height: '100%',
+                        background: 'linear-gradient(90deg, #3b82f6, #10b981)',
+                        transition: 'width 0.2s ease',
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        />
       </div>
 
       <CrudManager

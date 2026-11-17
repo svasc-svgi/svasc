@@ -54,3 +54,31 @@ export const updateSportsDay = async (data) => {
     isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
   );
 };
+
+// 8. GET ALL PHYSICAL EDUCATION ACHIEVEMENTS
+export const getPhysicalEducationAchievements = async () => {
+  return await apiClient.get('/sports/physical-education');
+};
+
+// 9. CREATE PHYSICAL EDUCATION ACHIEVEMENT
+export const createPhysicalEducationAchievement = async (data) => {
+  return await apiClient.post(
+    '/sports/physical-education',
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
+};
+
+// 10. UPDATE PHYSICAL EDUCATION ACHIEVEMENT BY ID
+export const updatePhysicalEducationAchievement = async (id, data) => {
+  return await apiClient.put(
+    `/sports/physical-education/${id}`,
+    data,
+    isFormData(data) ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined
+  );
+};
+
+// 11. DELETE PHYSICAL EDUCATION ACHIEVEMENT BY ID
+export const deletePhysicalEducationAchievement = async (id) => {
+  return await apiClient.delete(`/sports/physical-education/${id}`);
+};
