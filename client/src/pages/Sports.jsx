@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Hero from '../components/Common/Hero';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './Sports.module.css';
 import sportsHeroImage from '../assets/sporthero1.jpg';
 import { getSportHouses, getSportsPageHero, getSportsDay } from '../services/sportsService';
+import { SPORTS_DEPARTMENT_DATA } from '../data/sportsDepartmentData';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 
@@ -83,6 +85,10 @@ const SVASCSports = () => {
         return fallbackSportsDay;
     });
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [activeSportIndex, setActiveSportIndex] = useState(0);
+    const [isSportHovered, setIsSportHovered] = useState(false);
+    const sportTrackRef = useRef(null);
+    const sportCardRefs = useRef([]);
 
     useEffect(() => {
         const fetchSportsData = async () => {
@@ -159,6 +165,44 @@ const SVASCSports = () => {
 
         return () => clearInterval(interval);
     }, []);
+
+    // Department of Physical Education - Auto moving carousel (3.5s, pause on hover)
+    useEffect(() => {
+        if (isSportHovered) return;
+        const interval = setInterval(() => {
+            setActiveSportIndex((prev) => (prev + 1) % SPORTS_DEPARTMENT_DATA.length);
+        }, 3500);
+
+        return () => clearInterval(interval);
+    }, [isSportHovered]);
+
+    // Center active sport card smoothly in view
+    useEffect(() => {
+        const cardEl = sportCardRefs.current[activeSportIndex];
+        const trackEl = sportTrackRef.current;
+        if (cardEl && trackEl) {
+            const cardLeft = cardEl.offsetLeft;
+            const cardWidth = cardEl.offsetWidth;
+            const trackWidth = trackEl.clientWidth;
+            const targetLeft = cardLeft - (trackWidth / 2) + (cardWidth / 2);
+            trackEl.scrollTo({
+                left: Math.max(0, targetLeft),
+                behavior: 'smooth'
+            });
+        }
+    }, [activeSportIndex]);
+
+    const handleSportCardClick = (index) => {
+        setActiveSportIndex((prev) => (prev === index ? -1 : index));
+    };
+
+    const handleSportNav = (direction) => {
+        if (direction === 'prev') {
+            setActiveSportIndex((prev) => (prev <= 0 ? SPORTS_DEPARTMENT_DATA.length - 1 : prev - 1));
+        } else {
+            setActiveSportIndex((prev) => (prev + 1) % SPORTS_DEPARTMENT_DATA.length);
+        }
+    };
 
     const outdoorSports = [
         'Athletics',
@@ -278,6 +322,83 @@ const SVASCSports = () => {
                         </div>
 
                     </div>
+                </div>
+            </section>
+
+            {/* DEPARTMENT OF PHYSICAL EDUCATION (ACHIEVEMENTS CAROUSEL) */}
+            <section className={styles['game-section']}>
+                <h2 className={styles['line-title']}>
+                    Department of Physical Education
+                </h2>
+
+                <div
+                    className={styles['sports-carousel-wrapper']}
+                    onMouseEnter={() => setIsSportHovered(true)}
+                    onMouseLeave={() => setIsSportHovered(false)}
+                    onTouchStart={() => setIsSportHovered(true)}
+                    onTouchEnd={() => setIsSportHovered(false)}
+                >
+                    <button
+                        type="button"
+                        className={`${styles['carousel-nav-btn']} ${styles['carousel-prev-btn']}`}
+                        onClick={() => handleSportNav('prev')}
+                        aria-label="Previous sport achievement"
+                    >
+                        <ChevronLeft size={22} />
+                    </button>
+
+                    <div
+                        ref={sportTrackRef}
+                        className={styles['sports-carousel-track']}
+                    >
+                        {SPORTS_DEPARTMENT_DATA.map((sport, index) => {
+                            const isActive = activeSportIndex === index;
+                            const bgStyle = sport.image
+                                ? { backgroundImage: `url(${sport.image})` }
+                                : { backgroundImage: `linear-gradient(135deg, ${sport.color}, #101820)` };
+
+                            return (
+                                <div
+                                    key={sport.id}
+                                    ref={(el) => (sportCardRefs.current[index] = el)}
+                                    className={`${styles['item']} ${isActive ? styles['active'] : ''}`}
+                                    style={bgStyle}
+                                    onClick={() => handleSportCardClick(index)}
+                                >
+                                    <span className={styles['event-year']}>{sport.year}</span>
+                                    <span className={styles['event-number']}>
+                                        {String(sport.id).padStart(2, '0')}
+                                    </span>
+                                    <i className={`fa-solid ${sport.icon} ${styles['sport-icon']}`}></i>
+                                    <div className={styles['item-desc']}>
+                                        <h3>{sport.game}</h3>
+                                        <p>{sport.report}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <button
+                        type="button"
+                        className={`${styles['carousel-nav-btn']} ${styles['carousel-next-btn']}`}
+                        onClick={() => handleSportNav('next')}
+                        aria-label="Next sport achievement"
+                    >
+                        <ChevronRight size={22} />
+                    </button>
+                </div>
+
+                <div className={styles['custom-carousel-dots']}>
+                    {SPORTS_DEPARTMENT_DATA.map((sport, index) => (
+                        <button
+                            key={sport.id}
+                            type="button"
+                            className={`${styles['carousel-dot']} ${activeSportIndex === index ? styles['active-dot'] : ''}`}
+                            onClick={() => setActiveSportIndex(index)}
+                            aria-label={`Go to slide ${index + 1}: ${sport.game}`}
+                        />
+                    ))}
                 </div>
             </section>
 

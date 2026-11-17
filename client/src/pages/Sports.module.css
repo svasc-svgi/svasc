@@ -960,3 +960,333 @@
         justify-content: center;
     }
 }
+
+/* ================= DEPARTMENT OF PHYSICAL EDUCATION (EXPANDABLE CAROUSEL) ================= */
+.game-section {
+    padding: 60px 50px;
+    overflow: hidden;
+    background: #ffffff;
+    position: relative;
+}
+
+.line-title {
+    position: relative;
+    width: 450px;
+    color: #172033;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: "Roboto", sans-serif;
+}
+
+.line-title::before,
+.line-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.line-title::before {
+    width: 100%;
+    background: #eeeeee;
+}
+
+.line-title::after {
+    width: 32px;
+    background: #e73700;
+}
+
+.sports-carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.sports-carousel-track {
+    margin: 15px 0 20px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 0 30px;
+    cursor: grab;
+}
+
+.sports-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.game-section .item {
+    margin: 0 15px 20px;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.game-section .item.active {
+    width: 500px;
+    box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.20);
+}
+
+.game-section .item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.95)
+    );
+    pointer-events: none;
+}
+
+.game-section .item-desc {
+    padding: 0 24px 18px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    transform: translateY(calc(100% - 54px));
+    transition: all 0.4s ease-in-out;
+}
+
+.game-section .item.active .item-desc {
+    transform: none;
+}
+
+.game-section .item-desc h3 {
+    margin: 0 0 10px;
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+}
+
+.game-section .item-desc p {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: all 0.4s ease-in-out 0.2s;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #eeeeee;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+.game-section .item.active .item-desc p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sport-icon {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 125px;
+    color: rgba(255, 255, 255, 0.18);
+    transition: all .5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.game-section .item:hover .sport-icon {
+    transform: translate(-50%, -50%) scale(1.15) rotate(-8deg);
+    color: rgba(255, 255, 255, 0.30);
+}
+
+.event-year {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    z-index: 2;
+    color: #fff;
+    background: rgba(0, 0, 0, .35);
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+.event-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    color: rgba(255, 255, 255, .8);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+.carousel-nav-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    color: #181E4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+}
+
+.carousel-nav-btn:hover {
+    background: #e73700;
+    color: #ffffff;
+    border-color: #e73700;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-prev-btn {
+    left: 0;
+}
+
+.carousel-next-btn {
+    right: 0;
+}
+
+.custom-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d5d5d5;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot.active-dot {
+    background: #e73700;
+    transform: scale(1.3);
+}
+
+/* Responsive */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .line-title {
+        margin-bottom: 32px;
+    }
+
+    .game-section {
+        padding: 50px 30px;
+    }
+
+    .game-section .item {
+        width: 260px;
+        height: 360px;
+    }
+
+    .game-section .item.active {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .line-title {
+        margin-bottom: 32px;
+        width: 380px;
+    }
+
+    .game-section {
+        padding: 50px 30px 40px;
+    }
+
+    .game-section .item {
+        width: 240px;
+        height: 330px;
+    }
+
+    .game-section .item.active {
+        width: 360px;
+    }
+}
+
+@media (max-width: 767px) {
+    .line-title {
+        margin-bottom: 20px;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .game-section {
+        padding: 30px 15px 20px;
+    }
+
+    .game-section .item {
+        width: 200px;
+        height: 280px;
+        margin: 0 10px 30px;
+    }
+
+    .game-section .item.active {
+        width: 270px;
+        box-shadow: 6px 10px 10px rgba(0, 0, 0, .20);
+    }
+
+    .game-section .item-desc {
+        padding: 0 14px 10px;
+        transform: translateY(calc(100% - 42px));
+    }
+
+    .game-section .item-desc h3 {
+        font-size: 19px;
+        line-height: 24px;
+    }
+
+    .game-section .item-desc p {
+        font-size: 12px;
+    }
+
+    .sport-icon {
+        font-size: 90px;
+    }
+
+    .carousel-nav-btn {
+        display: none;
+    }
+}
