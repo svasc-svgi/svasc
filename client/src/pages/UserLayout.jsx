@@ -8,9 +8,9 @@ const UserLayout = () => {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%', maxWidth: '100vw', overflowX: 'clip' }}>
             <Navbar className={!isNavbarVisible ? 'header-hidden' : ''} />
-            <main style={{ flex: 1, width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
+            <main style={{ flex: 1, width: '100%', maxWidth: '100vw', overflowX: 'clip' }}>
                 <Outlet context={{ setIsNavbarVisible }} />
             </main>
             <Footer />

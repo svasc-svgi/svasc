@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
 import {
     getCampusLifePageHero,
     getCampusLifeGallery,
@@ -71,6 +72,11 @@ const CampusLife = () => {
     const { setIsNavbarVisible } = useOutletContext();
     const [galleryHoverPos, setGalleryHoverPos] = useState({ x: 0, y: 0 });
     const scrollRef = useRef(null);
+
+    // Active & Visible slide tracking for scroll animation flow
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [visibleSlides, setVisibleSlides] = useState(new Set([0]));
+    const slideRefs = useRef([]);
 
     const [heroData, setHeroData] = useState(() => {
         try {
@@ -172,6 +178,7 @@ const CampusLife = () => {
         }
     }, [setIsNavbarVisible]);
 
+    // Track mouse move for gallery hover effect
     useEffect(() => {
         const handleMouseMove = (e) => {
             setGalleryHoverPos({ x: e.clientX, y: e.clientY });
@@ -179,6 +186,42 @@ const CampusLife = () => {
         document.addEventListener('mousemove', handleMouseMove);
         return () => document.removeEventListener('mousemove', handleMouseMove);
     }, []);
+
+    // Set up scroll animation observer for each slide in the photo scroll section
+    useEffect(() => {
+        if (!scrollItems || scrollItems.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const idx = Number(entry.target.getAttribute('data-index'));
+                    if (entry.isIntersecting) {
+                        setVisibleSlides((prev) => new Set([...prev, idx]));
+                        if (entry.intersectionRatio >= 0.3) {
+                            setActiveSlide(idx);
+                        }
+                    }
+                });
+            },
+            {
+                root: null,
+                threshold: [0.15, 0.35, 0.6]
+            }
+        );
+
+        slideRefs.current.forEach((el) => {
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, [scrollItems]);
+
+    const scrollToSlide = (index) => {
+        const el = slideRefs.current[index];
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
 
     return (
         <div className={styles.campusLifePage}>
@@ -271,24 +314,110 @@ const CampusLife = () => {
                     </div>
                 </div>
             </section>
+
+            {/* PHOTO SCROLL SECTION (CAMPUS HIGHLIGHTS & INFRASTRUCTURE) */}
             <article className={styles.scrollArticle} ref={scrollRef}>
-                {scrollItems.map((item, index) => (
-                    <React.Fragment key={index}>
-                        <figure className={styles.scrollFigure}>
-                            <img src={item.img} alt={item.title} />
-                        </figure>
-                        <section className={styles.scrollSection}>
-                            <div>
-                                {item.link ? (
-                                    <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
-                                ) : (
-                                    <h1>{item.title}</h1>
-                                )}
-                                <p>{item.text}</p>
+                <div className={styles.scrollHeaderBar}>
+                    <span className={styles.scrollBadge}>
+                        <Sparkles size={14} /> CAMPUS HIGHLIGHTS & INFRASTRUCTURE
+                    </span>
+                    <h2 className={styles.scrollHeading}>A Journey Through SVASC Campus Life</h2>
+                    <p className={styles.scrollSubheading}>
+                        Explore the state-of-the-art facilities, cutting-edge laboratories, cultural hubs, and serene eco-friendly environments that empower our students every day.
+                    </p>
+                </div>
+
+                {/* Floating Slide Navigator Dots (Desktop) */}
+                {scrollItems.length > 1 && (
+                    <div className={styles.floatingNav}>
+                        {scrollItems.map((_, idx) => (
+                            <button
+                                key={idx}
+                                type="button"
+                                className={`${styles.floatingDot} ${activeSlide === idx ? styles.floatingDotActive : ''}`}
+                                onClick={() => scrollToSlide(idx)}
+                                aria-label={`Scroll to ${scrollItems[idx]?.title || `Highlight ${idx + 1}`}`}
+                            >
+                                <span className={styles.dotTooltip}>{scrollItems[idx]?.title}</span>
+                            </button>
+                        ))}
+                    </div>
+                )}
+
+                <div className={styles.slidesContainer}>
+                    {scrollItems.map((item, index) => {
+                        const isEven = index % 2 === 0;
+                        const isVisible = visibleSlides.has(index);
+                        const isActive = activeSlide === index;
+
+                        return (
+                            <div
+                                key={index}
+                                data-index={index}
+                                ref={(el) => (slideRefs.current[index] = el)}
+                                className={`${styles.scrollRow} ${isEven ? styles.rowNormal : styles.rowReverse} ${isVisible ? styles.rowVisible : ''} ${isActive ? styles.rowActive : ''}`}
+                            >
+                                {/* PHOTO CONTAINER */}
+                                <figure className={styles.scrollFigure}>
+                                    <div className={styles.imageWrapper}>
+                                        <img
+                                            src={item.img}
+                                            alt={item.title}
+                                            loading="lazy"
+                                        />
+                                        <div className={styles.imageOverlay} />
+                                        <div className={styles.imageMilestoneBadge}>
+                                            <span className={styles.badgeNum}>0{index + 1}</span>
+                                            <span className={styles.badgeLabel}>FACILITY</span>
+                                        </div>
+                                    </div>
+                                </figure>
+
+                                {/* STORY / CONTENT SECTION */}
+                                <section className={styles.scrollSection}>
+                                    <div className={styles.contentInner}>
+                                        <div className={styles.stepHeader}>
+                                            <span className={styles.stepPill}>
+                                                HIGHLIGHT 0{index + 1} OF 0{scrollItems.length}
+                                            </span>
+                                            <div className={styles.stepTrack}>
+                                                <div
+                                                    className={styles.stepBar}
+                                                    style={{ width: `${((index + 1) / scrollItems.length) * 100}%` }}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {item.link ? (
+                                            <h2 className={styles.itemTitle}>
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                    {item.title}
+                                                    <ArrowUpRight size={22} className={styles.linkIcon} />
+                                                </a>
+                                            </h2>
+                                        ) : (
+                                            <h2 className={styles.itemTitle}>{item.title}</h2>
+                                        )}
+
+                                        <p className={styles.itemText}>{item.text}</p>
+
+                                        {item.link && (
+                                            <a
+                                                href={item.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={styles.cardActionBtn}
+                                            >
+                                                <span>Explore Facility</span>
+                                                <ArrowUpRight size={16} />
+                                            </a>
+                                        )}
+                                    </div>
+                                </section>
                             </div>
-                        </section>
-                    </React.Fragment>
-                ))}
+                        );
+                    })}
+                </div>
             </article>
         </div>
     );
