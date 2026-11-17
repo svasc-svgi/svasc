@@ -213,136 +213,275 @@
     display: none;
 }
 
-/* ================= THIRD CODE STYLES (SCROLL HALF BY HALF - DESKTOP BASE) ================= */
-/* These are now base styles, overridden in mobile breakpoints */
-.scrollArticle {
-    background: #000;
-    font-family: 'Vollkorn', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.scrollArticle figure.scrollFigure {
-    background: #eee;
-    width: calc(50% + 1px);
-    height: 100vh;
-    margin: 0 auto 10vh 0;
-    position: sticky;
-    top: 0;
+/* ================= PHOTO SCROLL SECTION (CONTINUOUS SMOOTH HORIZONTAL FLOW) ================= */
+.photoScrollSection {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+    padding: 5rem 0 6rem;
+    position: relative;
     overflow: hidden;
-    box-shadow: 4px -4px 8px rgba(0, 0, 0, .4);
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
 }
 
-.scrollFigure:nth-of-type(2n) {
-    margin: 0 0 10vh auto !important;
-    box-shadow: -4px -4px 8px rgba(0, 0, 0, .4);
+.photoScrollHeaderContainer {
+    max-width: 1280px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
 }
 
-.scrollSection {
-    background: #e5e5e5;
-    width: 50%;
-    height: 100vh;
-    margin: 0 0 10vh auto;
-    position: sticky;
-    top: 0;
-    padding: 5vmin;
-    box-shadow: -4px -4px 8px rgba(0, 0, 0, .4);
+.scrollHeaderLeft {
+    max-width: 45rem;
 }
 
-.scrollSection:nth-of-type(2n) {
-    margin: 0 auto 10vh 0;
-    box-shadow: 4px -4px 8px rgba(0, 0, 0, .4);
+.scrollHeaderBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    background: #eef2ff;
+    color: #1e3a8a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    margin-bottom: 0.85rem;
+    border: 1px solid #e0e7ff;
 }
 
-.scrollSection::before {
-    background: inherit;
-    z-index: 1;
-    content: '';
+.sparkleIcon {
+    color: #f59e0b;
+}
+
+.scrollMainHeading {
+    font-family: 'Volkhov', serif;
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    color: #181E4B;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+
+.scrollSubHeading {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+.scrollNavActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.scrollNavBtn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #181E4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    transition: all 0.25s ease;
+}
+
+.scrollNavBtn:hover {
+    background: #181E4B;
+    color: #ffffff;
+    border-color: #181E4B;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(24, 30, 75, 0.18);
+}
+
+.scrollNavBtn:active {
+    transform: scale(0.95);
+}
+
+.marqueeOuter {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0 2rem;
+    mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+.marqueeTrackContainer {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    user-select: none;
+    padding: 0 1.5rem;
+}
+
+.marqueeTrackContainer:active {
+    cursor: grabbing;
+}
+
+.marqueeTrackContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.marqueeTrack {
+    display: flex;
+    gap: 1.85rem;
+    width: max-content;
+}
+
+.photoScrollCard {
+    width: 23.5rem;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    flex-shrink: 0;
+}
+
+.photoScrollCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+    border-color: #cbd5e1;
+}
+
+.cardThumbFrame {
+    position: relative;
+    width: 100%;
+    height: 14.5rem;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.cardThumbImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.photoScrollCard:hover .cardThumbImg {
+    transform: scale(1.06);
+}
+
+.cardGradientOverlay {
     position: absolute;
-    top: 50%;
-    left: 0;
-    width: 7vmin;
-    height: 7vmin;
-    transform: translate(calc(-50% + 1px), -50%) rotate(-45deg);
-    clip-path: polygon(-15% -15%, 110% 0%, 0% 110%);
-    box-shadow: -4px -2px 8px rgba(0, 0, 0, .4);
-    border-radius: 1.5vmin 0 0 0;
-}
-
-.scrollSection:nth-of-type(2n)::before {
-    left: auto;
-    right: 0;
-    transform: translate(calc(50% - 1px), -50%) rotate(-45deg) scale(-1);
-}
-
-.scrollSection::after {
-    content: '';
-    position: absolute;
-    top: 5vmin;
-    right: 45%;
-    bottom: 5vmin;
-    left: 5vmin;
-    border: 2px dashed #fff;
-    outline: 1px solid #fff;
-    outline-offset: -5vmin;
-    backdrop-filter: invert(1);
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(15, 23, 42, 0.55) 100%);
     pointer-events: none;
 }
 
-.scrollSection:nth-of-type(2n):after {
-    right: 5vmin;
-    left: 45%;
+.cardIndexBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #f59e0b;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.scrollFigure img {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.scrollSection>div {
+.cardContentBox {
+    padding: 1.6rem 1.6rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding: 1rem;
-    justify-content: center;
+    justify-content: space-between;
+    flex: 1;
 }
 
-.scrollArticle h1,
-.scrollArticle h2 {
-    margin: 0 0 2rem;
-    font-size: calc(3vmin + 3vmax);
-    text-align: center;
+.cardItemTitle {
+    font-family: 'Volkhov', serif;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1.1;
-    word-spacing: .5rem;
-    color: #000;
+    color: #181E4B;
+    line-height: 1.35;
+    margin: 0 0 0.6rem;
 }
 
-.scrollArticle p {
-    text-align: right;
-    width: 100%;
-    font-family: "Cormorant", serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: calc(1.2vmin + 1.25vmax);
-    margin-bottom: 5%;
-    color: #333;
+.cardItemDesc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0 0 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.scrollArticle a {
-    color: transparent;
-    -webkit-text-stroke: 2px #212121;
+.cardExploreLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #0b3b60;
+    font-weight: 700;
+    font-size: 0.88rem;
     text-decoration: none;
-    font-weight: 900;
-    letter-spacing: 2px;
+    transition: all 0.2s ease;
 }
 
-.scrollArticle a:hover,
-.scrollArticle a:focus {
-    -webkit-text-stroke: 1px #999;
+.cardExploreLink:hover {
+    color: #f59e0b;
+    transform: translateX(3px);
+}
+
+.cardAccentBar {
+    width: 2.5rem;
+    height: 3px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.photoScrollCard:hover .cardAccentBar {
+    width: 4rem;
+    background: #f59e0b;
+}
+
+@media screen and (max-width: 768px) {
+    .photoScrollHeaderContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 0 1.25rem;
+    }
+
+    .scrollNavActions {
+        align-self: flex-start;
+    }
+
+    .photoScrollCard {
+        width: 19rem;
+    }
+
+    .cardThumbFrame {
+        height: 12.5rem;
+    }
+
+    .cardContentBox {
+        padding: 1.25rem 1.25rem 1.2rem;
+    }
 }
 
 
@@ -363,11 +502,6 @@
 @media screen and (max-width: 1200px) {
     .container {
         max-width: 960px;
-    }
-
-    .scrollArticle h1,
-    .scrollArticle h2 {
-        font-size: calc(3vmin + 2.5vmax);
     }
 }
 
@@ -424,79 +558,6 @@
     .imgContent {
         display: block;
         padding: 1rem 0;
-    }
-
-    /* SCROLL SECTION RESET - STACKED LAYOUT (Restored Sticky Effect) */
-    .scrollArticle {
-        display: block;
-        /* Reset flex */
-    }
-
-    .scrollArticle figure.scrollFigure,
-    .scrollFigure:nth-of-type(2n) {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        box-shadow: none;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        overflow: hidden;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .scrollSection,
-    .scrollSection:nth-of-type(2n) {
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        padding: 10vmin;
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
-        background: #000;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .scrollSection::before,
-    .scrollSection:nth-of-type(2n)::before {
-        display: none;
-        /* Remove arrows */
-    }
-
-    .scrollSection::after,
-    .scrollSection:nth-of-type(2n):after {
-        right: 2rem;
-        left: 2rem;
-        top: 2rem;
-        bottom: 2rem;
-        border-color: #fff;
-        outline-color: #fff;
-        backdrop-filter: none;
-    }
-
-    .scrollArticle h1,
-    .scrollArticle h2 {
-        color: #fff;
-        font-size: 2.5rem;
-    }
-
-    .scrollArticle p {
-        color: #ddd;
-        text-align: center;
-        width: 100%;
-    }
-
-    .scrollSection a {
-        -webkit-text-stroke: 1px #fff;
-        color: transparent;
     }
 }
 

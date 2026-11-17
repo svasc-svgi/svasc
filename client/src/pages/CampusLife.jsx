@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CampusLife.module.css';
 import { useOutletContext } from 'react-router-dom';
 import Hero from '../components/Common/Hero';
+import { Sparkles, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import {
     getCampusLifePageHero,
     getCampusLifeGallery,
@@ -71,6 +72,77 @@ const CampusLife = () => {
     const { setIsNavbarVisible } = useOutletContext();
     const [galleryHoverPos, setGalleryHoverPos] = useState({ x: 0, y: 0 });
     const scrollRef = useRef(null);
+    const trackRef = useRef(null);
+    const isPausedRef = useRef(false);
+    const animationFrameId = useRef(null);
+    const resumeTimeoutRef = useRef(null);
+
+    // Continuous smooth horizontal auto-scroll loop (60fps)
+    useEffect(() => {
+        const container = trackRef.current;
+        if (!container || !scrollItems || scrollItems.length === 0) return;
+
+        let lastTime = performance.now();
+        const speed = 0.65; // pixels per 16.6ms frame for calm, readable flow
+
+        const step = (time) => {
+            const delta = Math.min(time - lastTime, 50); // cap delta at 50ms to prevent jumping on tab switch
+            lastTime = time;
+
+            if (!isPausedRef.current && container) {
+                container.scrollLeft += speed * (delta / 16.67);
+
+                // Seamless loop reset: 3 cloned copies, wrap after 1/3 of total scroll width
+                const oneThirdWidth = container.scrollWidth / 3;
+                if (oneThirdWidth > 0 && container.scrollLeft >= oneThirdWidth * 2) {
+                    container.scrollLeft -= oneThirdWidth;
+                } else if (oneThirdWidth > 0 && container.scrollLeft <= 5) {
+                    container.scrollLeft += oneThirdWidth;
+                }
+            }
+
+            animationFrameId.current = requestAnimationFrame(step);
+        };
+
+        animationFrameId.current = requestAnimationFrame(step);
+
+        return () => {
+            if (animationFrameId.current) {
+                cancelAnimationFrame(animationFrameId.current);
+            }
+            if (resumeTimeoutRef.current) {
+                clearTimeout(resumeTimeoutRef.current);
+            }
+        };
+    }, [scrollItems]);
+
+    const pauseScroll = () => {
+        isPausedRef.current = true;
+        if (resumeTimeoutRef.current) {
+            clearTimeout(resumeTimeoutRef.current);
+        }
+    };
+
+    const resumeScrollWithDelay = (delay = 1200) => {
+        if (resumeTimeoutRef.current) {
+            clearTimeout(resumeTimeoutRef.current);
+        }
+        resumeTimeoutRef.current = setTimeout(() => {
+            isPausedRef.current = false;
+        }, delay);
+    };
+
+    const handleScroll = (direction) => {
+        pauseScroll();
+        const container = trackRef.current;
+        if (!container) return;
+        const scrollAmount = 390;
+        container.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth'
+        });
+        resumeScrollWithDelay(2500);
+    };
 
     const [heroData, setHeroData] = useState(() => {
         try {
@@ -271,25 +343,103 @@ const CampusLife = () => {
                     </div>
                 </div>
             </section>
-            <article className={styles.scrollArticle} ref={scrollRef}>
-                {scrollItems.map((item, index) => (
-                    <React.Fragment key={index}>
-                        <figure className={styles.scrollFigure}>
-                            <img src={item.img} alt={item.title} />
-                        </figure>
-                        <section className={styles.scrollSection}>
-                            <div>
-                                {item.link ? (
-                                    <h2><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h2>
-                                ) : (
-                                    <h1>{item.title}</h1>
-                                )}
-                                <p>{item.text}</p>
-                            </div>
-                        </section>
-                    </React.Fragment>
-                ))}
-            </article>
+            {/* PHOTO SCROLL SECTION (CONTINUOUS SMOOTH HORIZONTAL FLOW) */}
+            <section
+                className={styles.photoScrollSection}
+                ref={scrollRef}
+                onMouseEnter={pauseScroll}
+                onMouseLeave={() => resumeScrollWithDelay(1000)}
+                onTouchStart={pauseScroll}
+                onTouchEnd={() => resumeScrollWithDelay(1500)}
+            >
+                <div className={styles.photoScrollHeaderContainer}>
+                    <div className={styles.scrollHeaderLeft}>
+                        <div className={styles.scrollHeaderBadge}>
+                            <Sparkles size={14} className={styles.sparkleIcon} />
+                            <span>CAMPUS HIGHLIGHTS & INFRASTRUCTURE</span>
+                        </div>
+                        <h2 className={styles.scrollMainHeading}>Life, Learning & Excellence in Motion</h2>
+                        <p className={styles.scrollSubHeading}>
+                            Explore the state-of-the-art facilities, cutting-edge laboratories, sports arenas, and vibrant collegiate forums across SVASC.
+                        </p>
+                    </div>
+
+                    {/* Manual Navigation Controls */}
+                    <div className={styles.scrollNavActions}>
+                        <button
+                            type="button"
+                            className={styles.scrollNavBtn}
+                            onClick={() => handleScroll('left')}
+                            aria-label="Scroll highlights left"
+                            title="Previous Highlight"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            type="button"
+                            className={styles.scrollNavBtn}
+                            onClick={() => handleScroll('right')}
+                            aria-label="Scroll highlights right"
+                            title="Next Highlight"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                </div>
+
+                <div className={styles.marqueeOuter}>
+                    <div
+                        className={styles.marqueeTrackContainer}
+                        ref={trackRef}
+                    >
+                        <div className={styles.marqueeTrack}>
+                            {[...scrollItems, ...scrollItems, ...scrollItems].map((item, idx) => {
+                                const originalIndex = idx % (scrollItems.length || 1);
+                                return (
+                                    <article
+                                        key={`photo-scroll-${idx}`}
+                                        className={styles.photoScrollCard}
+                                    >
+                                        <div className={styles.cardThumbFrame}>
+                                            <img
+                                                src={item.img}
+                                                alt={item.title}
+                                                loading="lazy"
+                                                className={styles.cardThumbImg}
+                                            />
+                                            <div className={styles.cardGradientOverlay} />
+                                            <span className={styles.cardIndexBadge}>
+                                                0{originalIndex + 1}
+                                            </span>
+                                        </div>
+
+                                        <div className={styles.cardContentBox}>
+                                            <div className={styles.cardTextContent}>
+                                                <h3 className={styles.cardItemTitle}>{item.title}</h3>
+                                                <p className={styles.cardItemDesc}>{item.text}</p>
+                                            </div>
+
+                                            {item.link ? (
+                                                <a
+                                                    href={item.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.cardExploreLink}
+                                                >
+                                                    <span>Explore Facility</span>
+                                                    <ArrowUpRight size={15} />
+                                                </a>
+                                            ) : (
+                                                <div className={styles.cardAccentBar} />
+                                            )}
+                                        </div>
+                                    </article>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
