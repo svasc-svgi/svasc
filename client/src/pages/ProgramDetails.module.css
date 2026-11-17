@@ -422,6 +422,46 @@
     vertical-align: middle;
 }
 
+.actionCol, .actionCell {
+    width: 120px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.viewProfileBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    background: linear-gradient(135deg, #0a1f44 0%, #181e4b 100%);
+    color: #ffffff;
+    border: 1.5px solid #c8860a;
+    padding: 0.5rem 1.15rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 6px rgba(10, 31, 68, 0.2);
+}
+
+.viewProfileBtn:hover {
+    background: linear-gradient(135deg, #f4b706 0%, #c8860a 100%);
+    color: #0a1f44;
+    border-color: #f4b706;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(200, 134, 10, 0.38);
+}
+
+.viewProfileBtn svg {
+    color: #f4b706;
+    transition: color 0.2s ease;
+}
+
+.viewProfileBtn:hover svg {
+    color: #0a1f44;
+}
+
 .avatarWrapper {
     width: 56px;
     height: 56px;

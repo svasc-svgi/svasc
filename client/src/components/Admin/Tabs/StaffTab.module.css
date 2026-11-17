@@ -241,6 +241,27 @@
   gap: 0.6rem;
 }
 
+.viewBtn {
+  background: #fdf8e6;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+}
+
+.viewBtn:hover {
+  background: #c8860a;
+  color: #ffffff;
+  border-color: #c8860a;
+}
+
 .editBtn {
   background: #eff6ff;
   color: #2563eb;
@@ -337,12 +358,68 @@
   background: #ffffff;
   border-radius: 12px;
   width: 100%;
-  max-width: 600px;
+  max-width: 780px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem;
+  padding: 2.2rem;
   position: relative;
+}
+
+.formTabNav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.formTabBtn {
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.formTabBtn:hover {
+  color: #0a1f44;
+}
+
+.activeFormTab {
+  color: #0a1f44;
+  border-bottom-color: #c8860a;
+  background: rgba(200, 134, 10, 0.06);
+  border-radius: 6px 6px 0 0;
+}
+
+.formRowGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.formFullWidth {
+  grid-column: 1 / -1;
+}
+
+.subSectionTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0a1f44;
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .modalHeader {

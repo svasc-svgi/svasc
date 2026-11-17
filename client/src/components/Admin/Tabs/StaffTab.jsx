@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import styles from './StaffTab.module.css';
-import { Search, Plus, RefreshCw, Upload, Trash2, Edit3, X, CheckCircle, Info, Copy, FolderPlus, Layers } from 'lucide-react';
+import { Search, Plus, RefreshCw, Upload, Trash2, Edit3, X, CheckCircle, Info, Copy, FolderPlus, Layers, Eye, GraduationCap, Briefcase, FileText, Award, Sparkles } from 'lucide-react';
 import {
   getAllStaff,
   createStaff,
@@ -16,6 +16,8 @@ import { uploadDirectToCloudinary } from '../../../utils/cloudinaryDirectUpload'
 import { parseStaffName, getStaffInitials } from '../../../utils/staffParser';
 import { useStaffPhotos } from '../../../hooks/useStaffPhotos';
 import { programDetailsData } from '../../../data/programDetailsData';
+import { facultyProfiles } from '../../../data/facultyProfiles';
+import StaffProfileModal from '../../Staff/StaffProfileModal';
 
 const DEFAULT_FALLBACK_DEPARTMENTS = [
   'B.Sc. Computer Science',
@@ -47,6 +49,33 @@ const DEFAULT_FALLBACK_DEPARTMENTS = [
   'Administrative Staff'
 ];
 
+const emptyStaffForm = {
+  fullName: '',
+  initial: '',
+  qualification: '',
+  designation: 'Assistant Professor',
+  department: 'B.Sc. Computer Science',
+  photo: '',
+  contactNo: '',
+  email: '',
+  education: { ug: '', pg: '', doctorate: '', other: '' },
+  experience: { teaching: '', industry: '', research: '', total: '' },
+  specialization: '',
+  publications: {
+    scopus: { international: '', national: '' },
+    peerReviewed: { international: '', national: '' },
+    webOfScience: { international: '', national: '' },
+    others: { international: '', national: '' }
+  },
+  conferences: { international: '', national: '' },
+  books: '',
+  workshops: '',
+  fdp: '',
+  researchGuidance: { awarded: '', undergoing: '' },
+  researchProjects: { completed: '', undergoing: '' },
+  awards: ''
+};
+
 const StaffTab = () => {
   const [staffList, setStaffList] = useState([]);
   const [departmentList, setDepartmentList] = useState(
@@ -61,6 +90,11 @@ const StaffTab = () => {
   const [isDeptModalOpen, setIsDeptModalOpen] = useState(false);
   const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [activeFormTab, setActiveFormTab] = useState('basic');
+
+  // View modal state
+  const [selectedStaffForView, setSelectedStaffForView] = useState(null);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
 
   // Active items for editing / cloning
   const [editingStaff, setEditingStaff] = useState(null);
@@ -73,14 +107,7 @@ const StaffTab = () => {
   const [deptActionLoading, setDeptActionLoading] = useState(false);
 
   // Form State for Add / Edit
-  const [formData, setFormData] = useState({
-    fullName: '',
-    initial: '',
-    qualification: '',
-    designation: 'Assistant Professor',
-    department: 'B.Sc. Computer Science',
-    photo: '',
-  });
+  const [formData, setFormData] = useState(emptyStaffForm);
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [filePreview, setFilePreview] = useState('');
@@ -110,7 +137,7 @@ const StaffTab = () => {
       if (Array.isArray(data) && data.length > 0) {
         setStaffList(data);
       } else {
-        // If DB has no staff yet, auto-populate from existing website data!
+        // If DB has no staff yet, auto-populate from facultyProfiles
         await handleSyncAllFaculty(false);
       }
     } catch (err) {
@@ -125,80 +152,44 @@ const StaffTab = () => {
     loadStaffData();
   }, []);
 
-  // Collect all default faculty from programDetailsData, Library, Alumni, and auto-clone to AI & DS and M.Sc. CS
+  // Open full detailed view profile popup
+  const handleViewProfile = (staff) => {
+    let enriched = { ...staff };
+    const cleanStr = (s) => (s || '').toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.)\s*/gi, '').replace(/[^a-z0-9]/g, '');
+    const targetKey = cleanStr(staff.fullName || staff.name || '');
+    const found = facultyProfiles.find(fp => cleanStr(fp.fullName) === targetKey || (fp.coreName && cleanStr(fp.coreName) === targetKey));
+
+    if (found) {
+      enriched = {
+        ...found,
+        ...enriched,
+        photo: enriched.photo || found.photo,
+        education: (enriched.education && (enriched.education.ug || enriched.education.pg)) ? enriched.education : found.education,
+        experience: (enriched.experience && (enriched.experience.teaching || enriched.experience.total)) ? enriched.experience : found.experience,
+        specialization: enriched.specialization || found.specialization,
+        publications: (enriched.publications && enriched.publications.scopus) ? enriched.publications : found.publications,
+        conferences: (enriched.conferences && (enriched.conferences.international || enriched.conferences.national)) ? enriched.conferences : found.conferences,
+        books: enriched.books || found.books,
+        workshops: enriched.workshops || found.workshops,
+        fdp: enriched.fdp || found.fdp,
+        researchGuidance: enriched.researchGuidance || found.researchGuidance,
+        researchProjects: enriched.researchProjects || found.researchProjects,
+        awards: enriched.awards || found.awards,
+        contactNo: enriched.contactNo || enriched.mobile || found.contactNo,
+        email: enriched.email || found.email
+      };
+    }
+    setSelectedStaffForView(enriched);
+    setIsViewModalOpen(true);
+  };
+
+  // Sync faculty database using the rich facultyProfiles dataset
   const handleSyncAllFaculty = async (showNotification = true) => {
     setIsSyncing(true);
     try {
-      const allFaculty = [];
+      const allFaculty = [...facultyProfiles];
 
-      const progDeptMap = {
-        'bsc-computer-science': 'B.Sc. Computer Science',
-        'bsccomputer-ai-ds': 'B.Sc. Computer Science (AI & DS)',
-        'bachelor-of-computer-applications-bca': 'Bachelor of Computer Applications (BCA)',
-        'bscinformation-technology': 'B.Sc. Information Technology',
-        'bsccyber-security': 'B.Sc. Cyber Security',
-        'b-com-bachelor-of-commerce': 'B. Com – Bachelor of Commerce',
-        'b-combi-bachelor-of-commerce-with-banking-insurance': 'B.Com (Banking & Insurance)',
-        'bcom-it-bachelor-of-information-technology': 'B.Com (Information Technology)',
-        'bcomca-computer-applications': 'B.Com (Computer Applications)',
-        'bcom-pa-professional-accounting': 'B.Com (Professional Accounting)',
-        'management': 'BBA - Management Studies',
-        'bsc-chemistry': 'B.Sc. Chemistry',
-        'bsc-mathematics': 'B.Sc. Mathematics',
-        'bsc-microbiology': 'B.Sc. Microbiology',
-        'ba-english': 'B.A. English',
-        'bsc-costume-design-fashion': 'B.Sc. Costume Design & Fashion',
-        'msc-computer-science': 'M.Sc. Computer Science',
-        'mcom': 'Master of Commerce (M.Com)',
-        'msc-microbiology': 'M.Sc. Microbiology',
-        'phd-commerce': 'Ph.D. Commerce',
-        'phd-english': 'Ph.D. English',
-        'phd-tamil': 'Ph.D. Tamil',
-        'ma-english': 'M.A. English',
-        'department-of-physical-education': 'Department of Physical Education',
-        'physical-education': 'Department of Physical Education'
-      };
-
-      const csFacultyList = [];
-
-      for (const [key, prog] of Object.entries(programDetailsData)) {
-        const deptLabel = progDeptMap[key] || prog.title || key;
-        if (Array.isArray(prog.staffDetails)) {
-          prog.staffDetails.forEach((staff, idx) => {
-            const facultyObj = {
-              fullName: staff.name,
-              qualification: staff.qualification || '',
-              designation: staff.designation || 'Faculty',
-              department: deptLabel,
-              departments: [deptLabel],
-              photo: staff.photo || staff.image || '',
-              sNo: staff.sNo || idx + 1
-            };
-            allFaculty.push(facultyObj);
-
-            if (deptLabel === 'B.Sc. Computer Science') {
-              csFacultyList.push(facultyObj);
-            }
-          });
-        }
-      }
-
-      // Requirement 4: B.Sc. staff details automatically available in B.Sc. AI & DS and M.Sc. CS
-      if (csFacultyList.length > 0) {
-        const aiDsTargets = ['B.Sc. Computer Science (AI & DS)', 'M.Sc. Computer Science'];
-        aiDsTargets.forEach((targetDept) => {
-          csFacultyList.forEach((csStaff, idx) => {
-            allFaculty.push({
-              ...csStaff,
-              department: targetDept,
-              departments: [targetDept],
-              sNo: idx + 1
-            });
-          });
-        });
-      }
-
-      // Library Staff
+      // Add library staff
       allFaculty.push({
         fullName: 'Dr. P. Krishnakumari',
         qualification: 'MLIS., M.Phil., Ph.D.',
@@ -206,7 +197,10 @@ const StaffTab = () => {
         department: 'Library',
         departments: ['Library'],
         photo: '/library_images/image45.jpeg',
-        sNo: 1
+        sNo: 1,
+        education: { ug: 'BLIS', pg: 'MLIS', doctorate: 'Ph.D in Library Science', other: 'M.Phil' },
+        experience: { teaching: '15 Years', industry: '-', research: '5 Years', total: '15 Years' },
+        specialization: 'Library & Information Science, Digital Archiving'
       });
       allFaculty.push({
         fullName: 'Karthi P',
@@ -215,10 +209,12 @@ const StaffTab = () => {
         department: 'Library',
         departments: ['Library'],
         photo: '/library_images/image46.png',
-        sNo: 2
+        sNo: 2,
+        education: { ug: 'B.Com, BLIS', pg: '', doctorate: '', other: '' },
+        experience: { teaching: '', industry: '5 Years', research: '', total: '5 Years' }
       });
 
-      // Alumni Committee staff
+      // Add Alumni committee coordinators
       allFaculty.push({
         fullName: 'Mrs. T. Ayeeshasumaiya',
         qualification: 'Assistant Professor & Head',
@@ -226,22 +222,6 @@ const StaffTab = () => {
         department: 'B.Sc. Costume Design & Fashion',
         departments: ['B.Sc. Costume Design & Fashion', 'Alumni Committee'],
         sNo: 1
-      });
-      allFaculty.push({
-        fullName: 'Mrs. P. S. Kavitha',
-        qualification: 'Assistant Professor',
-        designation: 'Member',
-        department: 'BBA - Management Studies',
-        departments: ['BBA - Management Studies', 'Alumni Committee'],
-        sNo: 2
-      });
-      allFaculty.push({
-        fullName: 'Mr. M. Sanjai',
-        qualification: 'Assistant Professor',
-        designation: 'Member',
-        department: 'B.A. English',
-        departments: ['B.A. English', 'Alumni Committee'],
-        sNo: 3
       });
 
       await syncDefaultStaff(allFaculty);
@@ -251,12 +231,12 @@ const StaffTab = () => {
       await reloadStaffPhotos();
 
       if (showNotification) {
-        setStatusMessage('Successfully synced faculty database from site definitions with all course mappings.');
-        setTimeout(() => setStatusMessage(''), 4000);
+        setStatusMessage('Successfully synced all detailed faculty profiles with research, qualifications and photo maps!');
+        setTimeout(() => setStatusMessage(''), 4500);
       }
     } catch (err) {
       console.error('Error syncing staff:', err);
-      alert('Error syncing faculty: ' + err.message);
+      if (showNotification) alert('Error syncing faculty: ' + err.message);
     } finally {
       setIsSyncing(false);
     }
@@ -264,27 +244,47 @@ const StaffTab = () => {
 
   // Open Add / Edit Modal
   const handleOpenModal = (staff = null) => {
+    setActiveFormTab('basic');
     if (staff) {
       setEditingStaff(staff);
       const parsed = parseStaffName(staff.fullName || '');
+
+      const cleanStr = (s) => (s || '').toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.)\s*/gi, '').replace(/[^a-z0-9]/g, '');
+      const targetKey = cleanStr(staff.fullName || '');
+      const found = facultyProfiles.find(fp => cleanStr(fp.fullName) === targetKey || (fp.coreName && cleanStr(fp.coreName) === targetKey)) || {};
+
       setFormData({
         fullName: staff.fullName || '',
         initial: staff.initial || parsed.initial || '',
         qualification: staff.qualification || '',
         designation: staff.designation || 'Assistant Professor',
         department: staff.department || (departmentList[0]?.value || 'B.Sc. Computer Science'),
-        photo: staff.photo || ''
+        photo: staff.photo || found.photo || '',
+        contactNo: staff.contactNo || staff.mobile || found.contactNo || '',
+        email: staff.email || found.email || '',
+        education: staff.education?.ug ? staff.education : (found.education || { ug: '', pg: '', doctorate: '', other: '' }),
+        experience: staff.experience?.total ? staff.experience : (found.experience || { teaching: '', industry: '', research: '', total: '' }),
+        specialization: staff.specialization || found.specialization || '',
+        publications: staff.publications?.scopus ? staff.publications : (found.publications || {
+          scopus: { international: '', national: '' },
+          peerReviewed: { international: '', national: '' },
+          webOfScience: { international: '', national: '' },
+          others: { international: '', national: '' }
+        }),
+        conferences: staff.conferences || found.conferences || { international: '', national: '' },
+        books: staff.books || found.books || '',
+        workshops: staff.workshops || found.workshops || '',
+        fdp: staff.fdp || found.fdp || '',
+        researchGuidance: staff.researchGuidance || found.researchGuidance || { awarded: '', undergoing: '' },
+        researchProjects: staff.researchProjects || found.researchProjects || { completed: '', undergoing: '' },
+        awards: staff.awards || found.awards || ''
       });
-      setFilePreview(staff.photo || '');
+      setFilePreview(staff.photo || found.photo || '');
     } else {
       setEditingStaff(null);
       setFormData({
-        fullName: '',
-        initial: '',
-        qualification: '',
-        designation: 'Assistant Professor',
-        department: selectedDept !== 'All' ? selectedDept : (departmentList[0]?.value || 'B.Sc. Computer Science'),
-        photo: ''
+        ...emptyStaffForm,
+        department: selectedDept !== 'All' ? selectedDept : (departmentList[0]?.value || 'B.Sc. Computer Science')
       });
       setFilePreview('');
     }
@@ -354,7 +354,20 @@ const StaffTab = () => {
       qualification: (formData.qualification || '').trim(),
       designation: (formData.designation || '').trim(),
       department: formData.department,
-      photo: finalPhotoUrl
+      photo: finalPhotoUrl,
+      contactNo: (formData.contactNo || '').trim(),
+      email: (formData.email || '').trim(),
+      education: formData.education,
+      experience: formData.experience,
+      specialization: (formData.specialization || '').trim(),
+      publications: formData.publications,
+      conferences: formData.conferences,
+      books: (formData.books || '').trim(),
+      workshops: (formData.workshops || '').trim(),
+      fdp: (formData.fdp || '').trim(),
+      researchGuidance: formData.researchGuidance,
+      researchProjects: formData.researchProjects,
+      awards: (formData.awards || '').trim()
     };
 
     try {
@@ -591,7 +604,7 @@ const StaffTab = () => {
               <th>Faculty Name & Title</th>
               <th>Qualification</th>
               <th>Department / Courses</th>
-              <th style={{ width: '190px', textAlign: 'center' }}>Actions</th>
+              <th style={{ width: '250px', textAlign: 'center' }}>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -678,6 +691,14 @@ const StaffTab = () => {
                     <td>
                       <div className={styles.actionBtns}>
                         <button
+                          className={styles.viewBtn}
+                          onClick={() => handleViewProfile(staff)}
+                          title="View full detailed staff profile popup"
+                        >
+                          <Eye size={15} />
+                          View
+                        </button>
+                        <button
                           className={styles.editBtn}
                           onClick={() => handleOpenModal(staff)}
                           title="Upload/change photo or edit details"
@@ -710,149 +731,580 @@ const StaffTab = () => {
         </table>
       </div>
 
-      {/* Edit / Add Faculty Modal */}
+      {/* Edit / Add Faculty Modal with Comprehensive Profile Details */}
       {isModalOpen && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
-              <h3>{editingStaff ? 'Edit Faculty Details & Photo' : 'Add New Faculty & Staff'}</h3>
+              <h3>{editingStaff ? 'Edit Faculty Detailed Profile & Photo' : 'Add New Faculty & Staff Profile'}</h3>
               <button className={styles.closeModalBtn} onClick={handleCloseModal}>
                 <X size={20} />
               </button>
             </div>
 
-            <form onSubmit={handleSave}>
-              <div className={styles.syncNotice}>
-                <Info size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span>
-                  <strong>Dynamic Realtime Updates:</strong> Any change to name, qualification, designation, or photo will immediately reflect on the frontend course page! New faculty are automatically placed at the bottom.
-                </span>
-              </div>
+            {/* FORM TAB NAVIGATION */}
+            <div className={styles.formTabNav}>
+              <button
+                type="button"
+                className={`${styles.formTabBtn} ${activeFormTab === 'basic' ? styles.activeFormTab : ''}`}
+                onClick={() => setActiveFormTab('basic')}
+              >
+                Basic & Contact Info
+              </button>
+              <button
+                type="button"
+                className={`${styles.formTabBtn} ${activeFormTab === 'education' ? styles.activeFormTab : ''}`}
+                onClick={() => setActiveFormTab('education')}
+              >
+                Education
+              </button>
+              <button
+                type="button"
+                className={`${styles.formTabBtn} ${activeFormTab === 'experience' ? styles.activeFormTab : ''}`}
+                onClick={() => setActiveFormTab('experience')}
+              >
+                Experience & Specialization
+              </button>
+              <button
+                type="button"
+                className={`${styles.formTabBtn} ${activeFormTab === 'research' ? styles.activeFormTab : ''}`}
+                onClick={() => setActiveFormTab('research')}
+              >
+                Research & Publications
+              </button>
+              <button
+                type="button"
+                className={`${styles.formTabBtn} ${activeFormTab === 'activities' ? styles.activeFormTab : ''}`}
+                onClick={() => setActiveFormTab('activities')}
+              >
+                Activities & Awards
+              </button>
+            </div>
 
-              {/* Photo Preview & Upload */}
-              <div className={styles.photoPreviewSection}>
-                <div style={{ position: 'relative' }}>
-                  {filePreview ? (
-                    <img
-                      src={filePreview}
-                      alt="Preview"
-                      className={styles.previewAvatarRound}
-                    />
-                  ) : (
-                    <div
-                      className={styles.previewAvatarRound}
-                      style={{
-                        background: 'linear-gradient(135deg, #021f4b 0%, #1e3a8a 100%)',
-                        color: '#fff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '2rem',
-                        fontWeight: '700'
-                      }}
-                    >
-                      {formData.initial || getStaffInitials(formData.fullName) || 'ST'}
+            <form onSubmit={handleSave}>
+              {/* TAB 1: BASIC & CONTACT INFO */}
+              {activeFormTab === 'basic' && (
+                <div>
+                  <div className={styles.syncNotice}>
+                    <Info size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span>
+                      <strong>Realtime Updates:</strong> Any change to profile information or photo will instantly reflect on the frontend course page!
+                    </span>
+                  </div>
+
+                  {/* Photo Preview & Upload */}
+                  <div className={styles.photoPreviewSection}>
+                    <div style={{ position: 'relative' }}>
+                      {filePreview ? (
+                        <img
+                          src={filePreview}
+                          alt="Preview"
+                          className={styles.previewAvatarRound}
+                        />
+                      ) : (
+                        <div
+                          className={styles.previewAvatarRound}
+                          style={{
+                            background: 'linear-gradient(135deg, #021f4b 0%, #1e3a8a 100%)',
+                            color: '#fff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '2rem',
+                            fontWeight: '700'
+                          }}
+                        >
+                          {formData.initial || getStaffInitials(formData.fullName) || 'ST'}
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ flex: 1 }}>
+                      <label className={styles.formLabel}>Staff Photo (Round Shape)</label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        style={{ fontSize: '1.25rem', color: '#475569' }}
+                      />
+                      <div className={styles.helperText}>
+                        Select image to directly upload to Cloudinary. Circular avatar formatting is applied automatically with centered face alignment.
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Progress Bar */}
+                  {isUploading && (
+                    <div className={styles.progressBarContainer}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.4rem' }}>
+                        <span>⚡ Uploading directly to Cloudinary...</span>
+                        <span>{uploadProgress}%</span>
+                      </div>
+                      <div className={styles.progressBar}>
+                        <div className={styles.progressBarFill} style={{ width: `${uploadProgress}%` }} />
+                      </div>
                     </div>
                   )}
-                </div>
 
-                <div style={{ flex: 1 }}>
-                  <label className={styles.formLabel}>Staff Photo (Round Shape)</label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    style={{ fontSize: '1.25rem', color: '#475569' }}
-                  />
-                  <div className={styles.helperText}>
-                    Select image to directly upload to Cloudinary. Circular avatar formatting is applied automatically with centered face alignment.
-                  </div>
-                </div>
-              </div>
+                  <div className={styles.formRowGrid}>
+                    {/* Full Name Input */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Full Name *</label>
+                      <input
+                        type="text"
+                        value={formData.fullName}
+                        onChange={handleFullNameChange}
+                        placeholder="e.g. Dr. V. Suresh Kumar"
+                        className={styles.formInput}
+                        required
+                      />
+                    </div>
 
-              {/* Progress Bar */}
-              {isUploading && (
-                <div className={styles.progressBarContainer}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: '600', color: '#2563eb', marginBottom: '0.4rem' }}>
-                    <span>⚡ Uploading directly to Cloudinary...</span>
-                    <span>{uploadProgress}%</span>
+                    {/* Initial Input */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Initial (for Name Differentiation)</label>
+                      <input
+                        type="text"
+                        value={formData.initial}
+                        onChange={(e) => setFormData({ ...formData, initial: e.target.value.toUpperCase() })}
+                        placeholder="e.g. B or M or KR"
+                        className={styles.formInput}
+                      />
+                    </div>
                   </div>
-                  <div className={styles.progressBar}>
-                    <div className={styles.progressBarFill} style={{ width: `${uploadProgress}%` }} />
+
+                  <div className={styles.formRowGrid}>
+                    {/* Qualification */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Qualification</label>
+                      <input
+                        type="text"
+                        value={formData.qualification}
+                        onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
+                        placeholder="e.g. MCA., M.Phil., Ph.D."
+                        className={styles.formInput}
+                      />
+                    </div>
+
+                    {/* Designation */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Designation / Role</label>
+                      <input
+                        type="text"
+                        value={formData.designation}
+                        onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
+                        placeholder="e.g. Assistant Professor & Head"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Department */}
+                  <div className={styles.formGroup}>
+                    <label className={styles.formLabel}>Department / Main Course</label>
+                    <select
+                      value={formData.department}
+                      onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                      className={styles.formInput}
+                    >
+                      {departmentList.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className={styles.formRowGrid}>
+                    {/* Contact Number */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Contact / Mobile Number</label>
+                      <input
+                        type="text"
+                        value={formData.contactNo}
+                        onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}
+                        placeholder="e.g. 9677621706"
+                        className={styles.formInput}
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Official Email Address</label>
+                      <input
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="e.g. staff@svasc.org"
+                        className={styles.formInput}
+                      />
+                    </div>
                   </div>
                 </div>
               )}
 
-              {/* Full Name Input */}
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Full Name *</label>
-                <input
-                  type="text"
-                  value={formData.fullName}
-                  onChange={handleFullNameChange}
-                  placeholder="e.g. Ms. B. Kanchanadevi or Kanjana Devi"
-                  className={styles.formInput}
-                  required
-                />
-              </div>
+              {/* TAB 2: EDUCATIONAL QUALIFICATIONS */}
+              {activeFormTab === 'education' && (
+                <div>
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Undergraduate (UG)</label>
+                      <input
+                        type="text"
+                        value={formData.education?.ug || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          education: { ...formData.education, ug: e.target.value }
+                        })}
+                        placeholder="e.g. B.Sc Computer Science"
+                        className={styles.formInput}
+                      />
+                    </div>
 
-              {/* Initial Input */}
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Initial (for Name Differentiation)</label>
-                <input
-                  type="text"
-                  value={formData.initial}
-                  onChange={(e) => setFormData({ ...formData, initial: e.target.value.toUpperCase() })}
-                  placeholder="e.g. B or M or KR"
-                  className={styles.formInput}
-                  style={{ width: '120px' }}
-                />
-                <div className={styles.helperText}>
-                  Differentiates faculty who share similar names.
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Postgraduate (PG)</label>
+                      <input
+                        type="text"
+                        value={formData.education?.pg || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          education: { ...formData.education, pg: e.target.value }
+                        })}
+                        placeholder="e.g. MCA"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Doctorate (Ph.D)</label>
+                      <input
+                        type="text"
+                        value={formData.education?.doctorate || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          education: { ...formData.education, doctorate: e.target.value }
+                        })}
+                        placeholder="e.g. Computer Science (Awarded / Undergoing)"
+                        className={styles.formInput}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Other Qualifications / Certifications</label>
+                      <input
+                        type="text"
+                        value={formData.education?.other || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          education: { ...formData.education, other: e.target.value }
+                        })}
+                        placeholder="e.g. M.Phil, NET, SET, PG Diploma"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
 
-              {/* Qualification */}
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Qualification</label>
-                <input
-                  type="text"
-                  value={formData.qualification}
-                  onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                  placeholder="e.g. M.Sc., M.Phil., (Ph.D)"
-                  className={styles.formInput}
-                />
-              </div>
+              {/* TAB 3: EXPERIENCE & SPECIALIZATION */}
+              {activeFormTab === 'experience' && (
+                <div>
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Teaching Experience</label>
+                      <input
+                        type="text"
+                        value={formData.experience?.teaching || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          experience: { ...formData.experience, teaching: e.target.value }
+                        })}
+                        placeholder="e.g. 12 Years"
+                        className={styles.formInput}
+                      />
+                    </div>
 
-              {/* Designation */}
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Designation / Role</label>
-                <input
-                  type="text"
-                  value={formData.designation}
-                  onChange={(e) => setFormData({ ...formData, designation: e.target.value })}
-                  placeholder="e.g. Assistant Professor & Head"
-                  className={styles.formInput}
-                />
-              </div>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Industry Experience</label>
+                      <input
+                        type="text"
+                        value={formData.experience?.industry || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          experience: { ...formData.experience, industry: e.target.value }
+                        })}
+                        placeholder="e.g. 6 Months"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
 
-              {/* Department */}
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Department / Main Course</label>
-                <select
-                  value={formData.department}
-                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                  className={styles.formInput}
-                >
-                  {departmentList.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Research Experience</label>
+                      <input
+                        type="text"
+                        value={formData.experience?.research || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          experience: { ...formData.experience, research: e.target.value }
+                        })}
+                        placeholder="e.g. 2 Years / Nil"
+                        className={styles.formInput}
+                      />
+                    </div>
 
-              {/* Modal Buttons */}
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Total Experience</label>
+                      <input
+                        type="text"
+                        value={formData.experience?.total || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          experience: { ...formData.experience, total: e.target.value }
+                        })}
+                        placeholder="e.g. 12 Years"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.formLabel}>Area of Interest / Specialization</label>
+                    <textarea
+                      rows="3"
+                      value={formData.specialization || ''}
+                      onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
+                      placeholder="e.g. Computer Networks, Machine Learning, Cloud Computing, Sports Achievements..."
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: RESEARCH & PUBLICATIONS */}
+              {activeFormTab === 'research' && (
+                <div>
+                  <h4 className={styles.subSectionTitle}>Journal Publications</h4>
+                  
+                  {/* Scopus */}
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Scopus Indexed (International)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.scopus?.international || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            scopus: { ...formData.publications?.scopus, international: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 2"
+                        className={styles.formInput}
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Scopus Indexed (National)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.scopus?.national || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            scopus: { ...formData.publications?.scopus, national: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 1"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Peer Reviewed */}
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Peer-Reviewed (International)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.peerReviewed?.international || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            peerReviewed: { ...formData.publications?.peerReviewed, international: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 4"
+                        className={styles.formInput}
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Peer-Reviewed (National)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.peerReviewed?.national || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            peerReviewed: { ...formData.publications?.peerReviewed, national: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 2"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Web of Science */}
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Web of Science (International)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.webOfScience?.international || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            webOfScience: { ...formData.publications?.webOfScience, international: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 1"
+                        className={styles.formInput}
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Web of Science (National)</label>
+                      <input
+                        type="text"
+                        value={formData.publications?.webOfScience?.national || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          publications: {
+                            ...formData.publications,
+                            webOfScience: { ...formData.publications?.webOfScience, national: e.target.value }
+                          }
+                        })}
+                        placeholder="e.g. 0"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Conferences */}
+                  <h4 className={styles.subSectionTitle}>Conference Proceedings</h4>
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Conferences (International)</label>
+                      <input
+                        type="text"
+                        value={formData.conferences?.international || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          conferences: { ...formData.conferences, international: e.target.value }
+                        })}
+                        placeholder="e.g. 2"
+                        className={styles.formInput}
+                      />
+                    </div>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Conferences (National)</label>
+                      <input
+                        type="text"
+                        value={formData.conferences?.national || ''}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          conferences: { ...formData.conferences, national: e.target.value }
+                        })}
+                        placeholder="e.g. 3"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 5: ACTIVITIES & AWARDS */}
+              {activeFormTab === 'activities' && (
+                <div>
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Book Publications (Count or Title)</label>
+                      <input
+                        type="text"
+                        value={formData.books || ''}
+                        onChange={(e) => setFormData({ ...formData, books: e.target.value })}
+                        placeholder="e.g. 2"
+                        className={styles.formInput}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>FDP Attended</label>
+                      <input
+                        type="text"
+                        value={formData.fdp || ''}
+                        onChange={(e) => setFormData({ ...formData, fdp: e.target.value })}
+                        placeholder="e.g. 7"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formRowGrid}>
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Workshops Attended</label>
+                      <input
+                        type="text"
+                        value={formData.workshops || ''}
+                        onChange={(e) => setFormData({ ...formData, workshops: e.target.value })}
+                        placeholder="e.g. 10"
+                        className={styles.formInput}
+                      />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                      <label className={styles.formLabel}>Research Guidance (Awarded / Undergoing)</label>
+                      <input
+                        type="text"
+                        value={
+                          formData.researchGuidance?.awarded || formData.researchGuidance?.undergoing
+                            ? `Awarded: ${formData.researchGuidance?.awarded || 0}, Ongoing: ${formData.researchGuidance?.undergoing || 0}`
+                            : ''
+                        }
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setFormData({
+                            ...formData,
+                            researchGuidance: { awarded: val, undergoing: '' }
+                          });
+                        }}
+                        placeholder="e.g. Awarded: 1, Ongoing: 2"
+                        className={styles.formInput}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label className={styles.formLabel}>Honours & Awards Received</label>
+                    <textarea
+                      rows="2"
+                      value={formData.awards || ''}
+                      onChange={(e) => setFormData({ ...formData, awards: e.target.value })}
+                      placeholder="e.g. Gold Medal in Athletics, Best Faculty Award..."
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Modal Footer Buttons */}
               <div className={styles.modalFooter}>
                 <button
                   type="button"
@@ -867,13 +1319,20 @@ const StaffTab = () => {
                   className={styles.primaryBtn}
                   disabled={isUploading}
                 >
-                  {isUploading ? 'Uploading & Saving...' : 'Save Faculty'}
+                  {isUploading ? 'Uploading & Saving...' : 'Save Faculty Profile'}
                 </button>
               </div>
             </form>
           </div>
         </div>
       )}
+
+      {/* DETAILED STAFF PROFILE POPUP MODAL (ADMIN PREVIEW) */}
+      <StaffProfileModal
+        staff={selectedStaffForView}
+        isOpen={isViewModalOpen}
+        onClose={() => setIsViewModalOpen(false)}
+      />
 
       {/* Course / Department Management Modal */}
       {isDeptModalOpen && (

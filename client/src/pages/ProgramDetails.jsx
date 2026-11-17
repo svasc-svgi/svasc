@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { programDetailsData } from '../data/programDetailsData';
 import styles from './ProgramDetails.module.css';
-import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2, Target, Compass } from 'lucide-react';
+import { ChevronRight, MessageSquare, ChevronsRight, X, ChevronLeft, Calendar, Tag, Maximize2, Target, Compass, Eye } from 'lucide-react';
 import { useStaffPhotos } from '../hooks/useStaffPhotos';
 import { getStaffInitials } from '../utils/staffParser';
 import { getAllStaff } from '../services/staffService';
 import { getProgramBySlug } from '../services/programService';
+import StaffProfileModal from '../components/Staff/StaffProfileModal';
+import { facultyProfiles } from '../data/facultyProfiles';
 
 const PROGRAM_DEPT_MAP = {
     'bsc-computer-science': 'B.Sc. Computer Science',
@@ -88,6 +90,46 @@ const ProgramDetails = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [dbStaff, setDbStaff] = useState([]);
+    const [selectedStaffProfile, setSelectedStaffProfile] = useState(null);
+    const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+
+    const handleViewProfile = (staffMember) => {
+        const staffName = staffMember.fullName || staffMember.name || '';
+        let enriched = { ...staffMember, fullName: staffName };
+
+        // Match with rich local facultyProfiles dataset if detailed fields missing
+        const cleanStr = (s) => (s || '').toLowerCase().replace(/^(dr\.|mr\.|mrs\.|ms\.)\s*/gi, '').replace(/[^a-z0-9]/g, '');
+        const targetKey = cleanStr(staffName);
+        const found = facultyProfiles.find(fp => cleanStr(fp.fullName) === targetKey || (fp.coreName && cleanStr(fp.coreName) === targetKey));
+
+        if (found) {
+            enriched = {
+                ...found,
+                ...enriched,
+                photo: enriched.photo || enriched.image || found.photo || getStaffPhoto(staffName),
+                education: (enriched.education && (enriched.education.ug || enriched.education.pg)) ? enriched.education : found.education,
+                experience: (enriched.experience && (enriched.experience.teaching || enriched.experience.total)) ? enriched.experience : found.experience,
+                specialization: enriched.specialization || found.specialization,
+                publications: (enriched.publications && enriched.publications.scopus) ? enriched.publications : found.publications,
+                conferences: (enriched.conferences && (enriched.conferences.international || enriched.conferences.national)) ? enriched.conferences : found.conferences,
+                books: enriched.books || found.books,
+                workshops: enriched.workshops || found.workshops,
+                fdp: enriched.fdp || found.fdp,
+                researchGuidance: enriched.researchGuidance || found.researchGuidance,
+                researchProjects: enriched.researchProjects || found.researchProjects,
+                awards: enriched.awards || found.awards,
+                contactNo: enriched.contactNo || enriched.mobile || found.contactNo,
+                email: enriched.email || found.email
+            };
+        }
+
+        if (!enriched.photo) {
+            enriched.photo = getStaffPhoto(staffName);
+        }
+
+        setSelectedStaffProfile(enriched);
+        setIsProfileModalOpen(true);
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -114,12 +156,25 @@ const ProgramDetails = () => {
                     }
                     setDbStaff(unique);
                 } else {
-                    setDbStaff([]);
+                    // Check fallback from facultyProfiles matching this department
+                    const localMatches = facultyProfiles.filter(fp =>
+                        fp.department === targetDept || (Array.isArray(fp.departments) && fp.departments.includes(targetDept))
+                    );
+                    if (localMatches.length > 0) {
+                        setDbStaff(localMatches);
+                    } else {
+                        setDbStaff([]);
+                    }
                 }
             })
             .catch((err) => {
                 console.warn('Could not load dynamic staff for', targetDept, err.message);
-                if (isMounted) setDbStaff([]);
+                if (isMounted) {
+                    const localMatches = facultyProfiles.filter(fp =>
+                        fp.department === targetDept || (Array.isArray(fp.departments) && fp.departments.includes(targetDept))
+                    );
+                    setDbStaff(localMatches);
+                }
             });
 
         return () => { isMounted = false; };
@@ -432,6 +487,7 @@ const ProgramDetails = () => {
                                             <th className={styles.photoCol}>Staff Photo</th>
                                             <th>Name of the Faculty</th>
                                             <th>Qualification</th>
+                                            <th className={styles.actionCol}>Profile</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -469,6 +525,17 @@ const ProgramDetails = () => {
                                                     </td>
                                                     <td className={styles.facultyName}>{facultyName}</td>
                                                     <td>{qualification}</td>
+                                                    <td className={styles.actionCell}>
+                                                        <button
+                                                            type="button"
+                                                            className={styles.viewProfileBtn}
+                                                            onClick={() => handleViewProfile(staff)}
+                                                            title={`View full profile of ${facultyName}`}
+                                                        >
+                                                            <Eye size={15} />
+                                                            <span>View</span>
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
@@ -601,6 +668,13 @@ const ProgramDetails = () => {
             <Link to="https://docs.google.com/forms/d/1D8p8FqQc3wgbY7PkNJxsJAl87X0yQ3tUiAKosXWVUCY/viewform?ts=5e7b2d33&edit_requested=true" className={styles.admissionSticky}>
                 Admission Enquiry <span></span>
             </Link>
+
+            {/* DETAILED STAFF PROFILE POPUP MODAL */}
+            <StaffProfileModal
+                staff={selectedStaffProfile}
+                isOpen={isProfileModalOpen}
+                onClose={() => setIsProfileModalOpen(false)}
+            />
         </div>
     );
 };

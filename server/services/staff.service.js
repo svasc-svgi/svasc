@@ -313,11 +313,16 @@ const cloneStaff = async (staffId, { targetDepartment, targetDepartments }) => {
  * Bulk seed initial faculty from website definitions if database has no staff
  */
 const seedInitialStaff = async (facultyList) => {
-  if (!Array.isArray(facultyList) || facultyList.length === 0) return { inserted: 0 };
+  if (!Array.isArray(facultyList) || facultyList.length === 0) return { inserted: 0, updated: 0 };
 
-  let count = 0;
+  let insertedCount = 0;
+  let updatedCount = 0;
+
   for (const item of facultyList) {
-    const parsed = parseStaffName(item.fullName || item.name || '');
+    const rawName = item.fullName || item.name || '';
+    if (!rawName) continue;
+
+    const parsed = parseStaffName(rawName);
     const initial = item.initial || parsed.initial;
     const coreName = parsed.coreName;
 
@@ -326,28 +331,53 @@ const seedInitialStaff = async (facultyList) => {
     const normalizedKey = cleanInit ? `${cleanCore}_${cleanInit}` : cleanCore;
 
     const existing = await Staff.findOne({
-      fullName: item.fullName || item.name,
+      fullName: rawName,
       department: item.department || ''
     });
 
+    const staffData = {
+      fullName: rawName,
+      coreName,
+      initial,
+      normalizedKey,
+      qualification: item.qualification || '',
+      designation: item.designation || 'Assistant Professor',
+      department: item.department || '',
+      departments: item.departments || (item.department ? [item.department] : []),
+      photo: item.photo || '',
+      sNo: item.sNo || 0,
+      contactNo: item.contactNo || item.mobile || '',
+      email: item.email || '',
+      education: item.education || { ug: '', pg: '', doctorate: '', other: '' },
+      experience: item.experience || { teaching: '', industry: '', research: '', total: '' },
+      specialization: item.specialization || '',
+      publications: item.publications || {
+        scopus: { international: '', national: '' },
+        peerReviewed: { international: '', national: '' },
+        webOfScience: { international: '', national: '' },
+        others: { international: '', national: '' }
+      },
+      conferences: item.conferences || { international: '', national: '' },
+      books: item.books || '',
+      workshops: item.workshops || '',
+      fdp: item.fdp || '',
+      researchGuidance: item.researchGuidance || { awarded: '', undergoing: '' },
+      researchProjects: item.researchProjects || { completed: '', undergoing: '' },
+      awards: item.awards || ''
+    };
+
     if (!existing) {
-      await Staff.create({
-        fullName: item.fullName || item.name,
-        coreName,
-        initial,
-        normalizedKey,
-        qualification: item.qualification || '',
-        designation: item.designation || 'Faculty',
-        department: item.department || '',
-        departments: item.departments || (item.department ? [item.department] : []),
-        photo: item.photo || '',
-        sNo: item.sNo || 0
-      });
-      count++;
+      await Staff.create(staffData);
+      insertedCount++;
+    } else {
+      // Update with rich details if existing lacks them
+      Object.assign(existing, staffData);
+      await existing.save();
+      updatedCount++;
     }
   }
 
-  return { inserted: count };
+  return { inserted: insertedCount, updated: updatedCount };
 };
 
 module.exports = {

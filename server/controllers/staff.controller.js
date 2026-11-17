@@ -1,6 +1,24 @@
 const staffService = require('../services/staff.service');
 const { uploadToCloudinary } = require('../middlewares/uploadMiddleware');
 
+// Helper to safely parse stringified JSON fields from FormData
+const parseNestedPayload = (payload) => {
+  const jsonKeys = ['departments', 'education', 'experience', 'publications', 'conferences', 'researchGuidance', 'researchProjects'];
+  jsonKeys.forEach(key => {
+    if (payload[key] && typeof payload[key] === 'string') {
+      try {
+        payload[key] = JSON.parse(payload[key]);
+      } catch (e) {
+        // Leave as string if not JSON
+      }
+    }
+  });
+  if (payload.contactNo && !payload.mobile) {
+    payload.mobile = payload.contactNo;
+  }
+  return payload;
+};
+
 // Get all dynamic departments & courses
 exports.getDepartments = async (req, res) => {
   try {
@@ -88,7 +106,7 @@ exports.getStaffPhotoMap = async (req, res) => {
 // Create new staff
 exports.createStaff = async (req, res) => {
   try {
-    const payload = { ...req.body };
+    const payload = parseNestedPayload({ ...req.body });
 
     // Support file upload directly via multer or already uploaded Cloudinary URL
     if (req.file) {
@@ -125,7 +143,7 @@ exports.createStaff = async (req, res) => {
 exports.updateStaff = async (req, res) => {
   try {
     const { id } = req.params;
-    const payload = { ...req.body };
+    const payload = parseNestedPayload({ ...req.body });
 
     if (req.file) {
       const uploadResult = await uploadToCloudinary(req.file.buffer, 'svasc/staff', 'image');

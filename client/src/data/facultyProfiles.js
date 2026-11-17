@@ -1,0 +1,5331 @@
+// Automatically generated detailed faculty profiles from college records
+export const facultyProfiles = [
+  {
+    "id": "staff_1",
+    "sNo": 1,
+    "fullName": "BHAVANI S",
+    "designation": "ASSIST PHYSICAL DIRECTOR",
+    "qualification": "B.Com, B.P.Ed.",
+    "department": "Department of Physical Education",
+    "departments": [
+      "Department of Physical Education"
+    ],
+    "contactNo": "9498043572 8438453050",
+    "email": "bhavanissvasc@gmail.com",
+    "education": {
+      "ug": "B.Com, B.P.Ed.",
+      "pg": "",
+      "doctorate": "",
+      "other": "PG Diplomo in yoga"
+    },
+    "experience": {
+      "teaching": "8 years",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "Republic day Athletices 1500 M winner,Inter collegiate Tournament volleyball winners, Kho-Kho state level participated.",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image1.jpeg"
+  },
+  {
+    "id": "staff_2",
+    "sNo": 2,
+    "fullName": "Dr. V. Suresh Kumar",
+    "designation": "HOD",
+    "qualification": "MCA.,M.Phil.,Ph.D",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9677621706",
+    "email": "sureshkumar@svasc.org",
+    "education": {
+      "ug": "B. Sc Computer Science",
+      "pg": "MCA",
+      "doctorate": "Computer Science",
+      "other": "M.Phil"
+    },
+    "experience": {
+      "teaching": "12",
+      "industry": "6 Months",
+      "research": "Nil",
+      "total": "12"
+    },
+    "specialization": "Computer Networks",
+    "publications": {
+      "scopus": {
+        "international": "2",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "4",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "2",
+    "workshops": "10",
+    "fdp": "7",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image2.jpeg"
+  },
+  {
+    "id": "staff_3",
+    "sNo": 3,
+    "fullName": "Mr. S. Kumaravel",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc.,M.Phil.,B.Ed., (Ph.D)",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9442253872",
+    "email": "sk umaravel @svasc.org",
+    "education": {
+      "ug": "B. Sc Computer Science",
+      "pg": "M.Sc",
+      "doctorate": "Pursuing",
+      "other": "M.Phil"
+    },
+    "experience": {
+      "teaching": "15",
+      "industry": "NIL",
+      "research": "Nil",
+      "total": "15"
+    },
+    "specialization": "Data Mining",
+    "publications": {
+      "scopus": {
+        "international": "2",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "2",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": "2"
+    },
+    "books": "1",
+    "workshops": "9",
+    "fdp": "7",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image3.png"
+  },
+  {
+    "id": "staff_4",
+    "sNo": 4,
+    "fullName": "D. Shyam Sundar",
+    "designation": "Assistant Professor",
+    "qualification": "MCA., M.Phil.,",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9597767373",
+    "email": "shyamsundar@svasc.org",
+    "education": {
+      "ug": "B.Sc. CSMN",
+      "pg": "MCA",
+      "doctorate": "Nil",
+      "other": "M.Phil"
+    },
+    "experience": {
+      "teaching": "15",
+      "industry": "Nil",
+      "research": "0",
+      "total": "15"
+    },
+    "specialization": "Computer Networks",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "Nil Nil",
+    "workshops": "Nil 6",
+    "fdp": "Nil 3",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image4.jpeg"
+  },
+  {
+    "id": "staff_5",
+    "sNo": 5,
+    "fullName": "Mrs. G.Gowrinithya",
+    "designation": "Assistant Professor",
+    "qualification": "MCA.,",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "8072057084",
+    "email": "gowrinithya28@svasc.org",
+    "education": {
+      "ug": "B.Sc(CS)",
+      "pg": "MCA",
+      "doctorate": "NIL",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "Two Years",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "Two Years"
+    },
+    "specialization": "Web Application Development and Database Systems",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "NIL",
+        "national": "NIL"
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL NIL",
+    "workshops": "NIL 3",
+    "fdp": "2 3",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image5.png"
+  },
+  {
+    "id": "staff_6",
+    "sNo": 6,
+    "fullName": "Mrs. K. Sangeetha",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc., M.Tech., M.Phil.,",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9500241640",
+    "email": "sangeethak@svasc.org",
+    "education": {
+      "ug": "B.Sc CS",
+      "pg": "M.Sc., M.Tech., M.Phil.,",
+      "doctorate": "NIL",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "10 Years",
+      "industry": "1.5 Years",
+      "research": "NIL",
+      "total": "11.5 Years"
+    },
+    "specialization": "Cloud Computing / Database Management System",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "1",
+        "national": "NIL"
+      }
+    },
+    "conferences": {
+      "international": "3",
+      "national": "3"
+    },
+    "books": "NIL NIL",
+    "workshops": "2 4",
+    "fdp": "5 12",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image6.jpeg"
+  },
+  {
+    "id": "staff_7",
+    "sNo": 7,
+    "fullName": "Ms. D. Sathyarubha",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc.,",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "7395881163",
+    "email": "sathyarubhad@svasc.org",
+    "education": {
+      "ug": "BCA",
+      "pg": "M.Sc.,",
+      "doctorate": "NIL",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "One Year",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "NIL"
+    },
+    "specialization": "Database Management Systems and Web Designing",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "NIL NIL",
+    "workshops": "NIL 2",
+    "fdp": "2 2",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image7.png"
+  },
+  {
+    "id": "staff_8",
+    "sNo": 8,
+    "fullName": "Mrs. T.Mohanapriya",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc.,(Ph.D.,)",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9944853079",
+    "email": "mohanapriyat@svasc.org",
+    "education": {
+      "ug": "B.Sc(IT)",
+      "pg": "M.Sc(CS)",
+      "doctorate": "Pursuing",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "One Year",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "One Year"
+    },
+    "specialization": "Image Processing and Database Management Systems",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "NIL",
+        "national": "NIL"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "NIL NIL",
+    "workshops": "NIL 2",
+    "fdp": "2 3",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image8.png"
+  },
+  {
+    "id": "staff_9",
+    "sNo": 9,
+    "fullName": "Mrs. C.Neevetha",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc.,M.Phil.,",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9944853079",
+    "email": "nevethec@svasc.org",
+    "education": {
+      "ug": "B.Sc(CS)",
+      "pg": "M.Sc(CS)",
+      "doctorate": "NIL",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "Eight Years",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "NIL"
+    },
+    "specialization": "Data Mining",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "NIL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL NIL",
+    "workshops": "NIL 2",
+    "fdp": "NIL 3",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image9.png"
+  },
+  {
+    "id": "staff_10",
+    "sNo": 10,
+    "fullName": "Mrs. B. Karthikeyani",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc., M. Phil., (Ph.D)",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "9600475569",
+    "email": "keyani.b@gmail.com",
+    "education": {
+      "ug": "B.Sc IT",
+      "pg": "M.Sc CS",
+      "doctorate": "Pursuing",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "Six Years",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "NIL"
+    },
+    "specialization": "Data mining",
+    "publications": {
+      "scopus": {
+        "international": "2",
+        "national": "1"
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "1",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL 1",
+    "workshops": "NIL 2",
+    "fdp": "NIL 3",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image10.jpeg"
+  },
+  {
+    "id": "staff_11",
+    "sNo": 11,
+    "fullName": "MS. D. Usha Nandhini",
+    "designation": "Assistant Professor",
+    "qualification": "MCA",
+    "department": "Bachelor of Computer Applications (BCA)",
+    "departments": [
+      "Bachelor of Computer Applications (BCA)",
+      "B.Sc. Information Technology",
+      "B.Sc. Cyber Security"
+    ],
+    "contactNo": "",
+    "email": "ushanandhini@svasc.org",
+    "education": {
+      "ug": "B.Sc",
+      "pg": "MCA",
+      "doctorate": "NIL",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "NIL",
+      "industry": "NIL",
+      "research": "NIL",
+      "total": "NIL"
+    },
+    "specialization": "Data mining",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": "NIL"
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL NIL",
+    "workshops": "NIL NIL",
+    "fdp": "NIL NIL",
+    "researchGuidance": {
+      "awarded": "NIL",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "NIL",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image11.jpeg"
+  },
+  {
+    "id": "staff_12",
+    "sNo": 12,
+    "fullName": "Dr. P. RAJASEKAR",
+    "designation": "Associate Professor &amp; Head",
+    "qualification": "MBA.,M.COM., PGDCA., Ph.D",
+    "department": "BBA - Management Studies",
+    "departments": [
+      "BBA - Management Studies"
+    ],
+    "contactNo": "7871111105",
+    "email": "rajasekar@gmail.com",
+    "education": {
+      "ug": "BBM",
+      "pg": "MBA., M.COM.",
+      "doctorate": "Ph.D( Management)",
+      "other": "PGDCA"
+    },
+    "experience": {
+      "teaching": "18",
+      "industry": "0",
+      "research": "0",
+      "total": "18"
+    },
+    "specialization": "Marketing And Finance",
+    "publications": {
+      "scopus": {
+        "international": "3",
+        "national": "0"
+      },
+      "peerReviewed": {
+        "international": "15",
+        "national": "3"
+      },
+      "webOfScience": {
+        "international": "0",
+        "national": "0"
+      },
+      "others": {
+        "international": "0",
+        "national": "0"
+      }
+    },
+    "conferences": {
+      "international": "5",
+      "national": "5"
+    },
+    "books": "3 0",
+    "workshops": "10 11",
+    "fdp": "10 12",
+    "researchGuidance": {
+      "awarded": "1",
+      "undergoing": "1"
+    },
+    "researchProjects": {
+      "completed": "0",
+      "undergoing": "0"
+    },
+    "awards": "1",
+    "photo": "/assets/staff/image12.jpeg"
+  },
+  {
+    "id": "staff_13",
+    "sNo": 13,
+    "fullName": "Mrs. H.S PRABHA SHANKAR",
+    "designation": "Assistant Professor",
+    "qualification": "MBA, (Ph.D)",
+    "department": "BBA - Management Studies",
+    "departments": [
+      "BBA - Management Studies"
+    ],
+    "contactNo": "6381825238",
+    "email": "Prabhahs2242@gmail.com",
+    "education": {
+      "ug": "BBM",
+      "pg": "MBA",
+      "doctorate": "pursuing( Management)",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "6",
+      "industry": "4",
+      "research": "0",
+      "total": "10"
+    },
+    "specialization": "Marketing And Finance",
+    "publications": {
+      "scopus": {
+        "international": "0",
+        "national": "0"
+      },
+      "peerReviewed": {
+        "international": "0",
+        "national": "0"
+      },
+      "webOfScience": {
+        "international": "0",
+        "national": "0"
+      },
+      "others": {
+        "international": "0",
+        "national": "0"
+      }
+    },
+    "conferences": {
+      "international": "0",
+      "national": "0"
+    },
+    "books": "0 0",
+    "workshops": "0 0",
+    "fdp": "0 0",
+    "researchGuidance": {
+      "awarded": "0",
+      "undergoing": "0"
+    },
+    "researchProjects": {
+      "completed": "0",
+      "undergoing": "0"
+    },
+    "awards": "0",
+    "photo": "/assets/staff/image13.jpeg"
+  },
+  {
+    "id": "staff_14",
+    "sNo": 14,
+    "fullName": "Ms. G. Gurulakshmi",
+    "designation": "Assistant Professor",
+    "qualification": "MBA.,",
+    "department": "BBA - Management Studies",
+    "departments": [
+      "BBA - Management Studies"
+    ],
+    "contactNo": "8220757699",
+    "email": "gurulakshmi@svasc.org",
+    "education": {
+      "ug": "B.Com (CA)",
+      "pg": "MBA.,",
+      "doctorate": "Ph.D (Management) Pursuing",
+      "other": "Nil"
+    },
+    "experience": {
+      "teaching": "6",
+      "industry": "0",
+      "research": "0",
+      "total": "6"
+    },
+    "specialization": "HR And Marketing",
+    "publications": {
+      "scopus": {
+        "international": "0",
+        "national": "0"
+      },
+      "peerReviewed": {
+        "international": "0",
+        "national": "0"
+      },
+      "webOfScience": {
+        "international": "0",
+        "national": "0"
+      },
+      "others": {
+        "international": "0",
+        "national": "0"
+      }
+    },
+    "conferences": {
+      "international": "0",
+      "national": "0"
+    },
+    "books": "0 0",
+    "workshops": "0 0",
+    "fdp": "0 0",
+    "researchGuidance": {
+      "awarded": "0",
+      "undergoing": "0"
+    },
+    "researchProjects": {
+      "completed": "0",
+      "undergoing": "0"
+    },
+    "awards": "0",
+    "photo": "/assets/staff/image14.jpeg"
+  },
+  {
+    "id": "staff_15",
+    "sNo": 15,
+    "fullName": "Mr. G. Balasubramaniyan",
+    "designation": "Assistant Professor",
+    "qualification": "M.COM (CA).,MBA.,M.Phil.,(Ph.D)",
+    "department": "BBA - Management Studies",
+    "departments": [
+      "BBA - Management Studies"
+    ],
+    "contactNo": "7904779557",
+    "email": "balasubramaniyang@svasc.org",
+    "education": {
+      "ug": "B.Com (CA)",
+      "pg": "M.Com (CA)., MBA., M.Phil",
+      "doctorate": "Ph.D(Management) Pursuing",
+      "other": "Nil"
+    },
+    "experience": {
+      "teaching": "6 Years 6 Months",
+      "industry": "0",
+      "research": "0",
+      "total": "6 Years 6 Months"
+    },
+    "specialization": "HR And Finance",
+    "publications": {
+      "scopus": {
+        "international": "0",
+        "national": "0"
+      },
+      "peerReviewed": {
+        "international": "0",
+        "national": "0"
+      },
+      "webOfScience": {
+        "international": "0",
+        "national": "0"
+      },
+      "others": {
+        "international": "0",
+        "national": "0"
+      }
+    },
+    "conferences": {
+      "international": "0",
+      "national": "0"
+    },
+    "books": "0 0",
+    "workshops": "0 0",
+    "fdp": "0 0",
+    "researchGuidance": {
+      "awarded": "0",
+      "undergoing": "0"
+    },
+    "researchProjects": {
+      "completed": "0",
+      "undergoing": "0"
+    },
+    "awards": "0",
+    "photo": "/assets/staff/image15.jpeg"
+  },
+  {
+    "id": "staff_16",
+    "sNo": 16,
+    "fullName": "Dr. S. MANJU",
+    "designation": "Assistant Professor and Head",
+    "qualification": "M.Sc., PhD.,",
+    "department": "B.Sc. Microbiology",
+    "departments": [
+      "B.Sc. Microbiology",
+      "M.Sc. Microbiology",
+      "Ph.D Microbiology"
+    ],
+    "contactNo": "9842032586",
+    "email": "manjus@svasc.org",
+    "education": {
+      "ug": "Microbiology",
+      "pg": "Applied Microbiology",
+      "doctorate": "Microbiology",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "15years &amp; 7 months",
+      "industry": "2",
+      "research": "-",
+      "total": "17 years &amp;7months"
+    },
+    "specialization": "Medical Microbiology &amp; Environmental Microbiology",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "2",
+        "national": "5"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "- -",
+    "workshops": "- 1",
+    "fdp": "- 6",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image16.png"
+  },
+  {
+    "id": "staff_17",
+    "sNo": 17,
+    "fullName": "Mrs. R. AMRUTHA",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc., M.Phil., B.Ed.,",
+    "department": "B.Sc. Microbiology",
+    "departments": [
+      "B.Sc. Microbiology",
+      "M.Sc. Microbiology",
+      "Ph.D Microbiology"
+    ],
+    "contactNo": "9940797880",
+    "email": "amrutha@svasc.org",
+    "education": {
+      "ug": "Microbiology",
+      "pg": "Microbiology",
+      "doctorate": "",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "9 years &amp; 5 months",
+      "industry": "-",
+      "research": "-",
+      "total": "9 years &amp; 5 months"
+    },
+    "specialization": "Environmental Microbiology",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- 2",
+    "fdp": "- 7",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "2",
+    "photo": "/assets/staff/image17.jpeg"
+  },
+  {
+    "id": "staff_18",
+    "sNo": 18,
+    "fullName": "Ms. PRIYA B",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.Sc., DMLT, DMT",
+    "department": "B.Sc. Microbiology",
+    "departments": [
+      "B.Sc. Microbiology",
+      "M.Sc. Microbiology",
+      "Ph.D Microbiology"
+    ],
+    "contactNo": "9080010034",
+    "email": "Priyamicro@svasc.org",
+    "education": {
+      "ug": "Microbiology",
+      "pg": "Microbiology",
+      "doctorate": "-",
+      "other": "DMLT,DMT,CVT,DTP,WC"
+    },
+    "experience": {
+      "teaching": "2 Year 11 Month",
+      "industry": "1 Year 5 Months",
+      "research": "-",
+      "total": "4 Year 4 Month"
+    },
+    "specialization": "Environmental and Agricultural microbiology, Biochemistry, Food microbiology.",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "01",
+      "national": "01"
+    },
+    "books": "- 01",
+    "workshops": "0 2 02",
+    "fdp": "03 06",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image18.jpeg"
+  },
+  {
+    "id": "staff_19",
+    "sNo": 19,
+    "fullName": "Ms. N. SANGEERTHANA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.Sc",
+    "department": "B.Sc. Microbiology",
+    "departments": [
+      "B.Sc. Microbiology",
+      "M.Sc. Microbiology",
+      "Ph.D Microbiology"
+    ],
+    "contactNo": "9344502120",
+    "email": "sangeerthanan@svasc.org",
+    "education": {
+      "ug": "Microbiology",
+      "pg": "Microbiology",
+      "doctorate": "-",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "1 Year 6 Month",
+      "industry": "-",
+      "research": "",
+      "total": "1 Year 6 Month"
+    },
+    "specialization": "Environmental and Agricultural microbiology, Biochemistry, Food microbiology",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image19.jpeg"
+  },
+  {
+    "id": "staff_20",
+    "sNo": 20,
+    "fullName": "Mrs. S. Gayathri",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.Sc., NET",
+    "department": "B.Sc. Microbiology",
+    "departments": [
+      "B.Sc. Microbiology",
+      "M.Sc. Microbiology",
+      "Ph.D Microbiology"
+    ],
+    "contactNo": "9380806660",
+    "email": "gayathrimb@svasc.org",
+    "education": {
+      "ug": "Microbiology",
+      "pg": "Microbiology",
+      "doctorate": "-",
+      "other": "net"
+    },
+    "experience": {
+      "teaching": "2 Year 6 Month",
+      "industry": "-",
+      "research": "",
+      "total": "2 Year 6 Month"
+    },
+    "specialization": "Immunology, Genetics",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "02"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "01",
+      "national": "01"
+    },
+    "books": "- 02",
+    "workshops": "- 01",
+    "fdp": "01 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image20.jpeg"
+  },
+  {
+    "id": "staff_21",
+    "sNo": 21,
+    "fullName": "Dr. M. S. Gomathi",
+    "designation": "Head &amp; Assistant Professor",
+    "qualification": "M.COM., M.PHIL., MBA., PGDCA., Ph.D.",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "9790627469",
+    "email": "gomathims@svasc.org",
+    "education": {
+      "ug": "BBM",
+      "pg": "M.Com., MBA",
+      "doctorate": "Ph.D",
+      "other": "PGDCA., M.PHIL."
+    },
+    "experience": {
+      "teaching": "14 years",
+      "industry": "Nil",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "8",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "4",
+      "national": "4"
+    },
+    "books": "",
+    "workshops": "2",
+    "fdp": "3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image21.jpeg"
+  },
+  {
+    "id": "staff_22",
+    "sNo": 22,
+    "fullName": "T.BHUVANESWARI",
+    "designation": "Assistant Professor",
+    "qualification": "M.COM., M.PHIL., PGDCA., B.Ed.,(Ph.D).",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "9344015773",
+    "email": "bhuvaneswarit@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com.,",
+      "doctorate": "(Ph.D)",
+      "other": "PGDCA., M.PHIL.,B.Ed."
+    },
+    "experience": {
+      "teaching": "11 years",
+      "industry": "-",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "marketing",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": "1"
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "2",
+    "fdp": "5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image22.png"
+  },
+  {
+    "id": "staff_23",
+    "sNo": 23,
+    "fullName": "Dr. K.Suresh Kumar",
+    "designation": "Assistant Professor",
+    "qualification": "M.COM., M.PHIL.,PGDCA., Ph.D.",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "9688840458",
+    "email": "ksureshkumar@svasc.org",
+    "education": {
+      "ug": "BBM",
+      "pg": "M.Com.,",
+      "doctorate": "Ph.D",
+      "other": "M.PHIL. PGDCA.,"
+    },
+    "experience": {
+      "teaching": "11years &amp; 2 month",
+      "industry": "Nil",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "FINANCE",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "2 3",
+    "fdp": "2 2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image23.jpeg"
+  },
+  {
+    "id": "staff_24",
+    "sNo": 24,
+    "fullName": "Ms. K. S. Kanya",
+    "designation": "Assistant Professor",
+    "qualification": "M.C.A., (Ph.D).",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "9715012282",
+    "email": "kanya@svasc.org",
+    "education": {
+      "ug": "B.Sc(CS)",
+      "pg": "M.C.A",
+      "doctorate": "(Ph.D)",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "10 years",
+      "industry": "Nil",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "DATA MINING AND WARE HOUSING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image24.jpeg"
+  },
+  {
+    "id": "staff_25",
+    "sNo": 25,
+    "fullName": "Mrs. K. V. Ranjani",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com (CA).,B.Ed.,",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "9677706154",
+    "email": "ranjanikv@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com(CA)",
+      "doctorate": "",
+      "other": "B.Ed"
+    },
+    "experience": {
+      "teaching": "3 years",
+      "industry": "Nil",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "3",
+    "fdp": "3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image25.jpeg"
+  },
+  {
+    "id": "staff_26",
+    "sNo": 26,
+    "fullName": "Mrs. U. Gowthami",
+    "designation": "Assistant Professor",
+    "qualification": "M.C.A M.PHIL (Ph.D).",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "8754649159",
+    "email": "gowthamiu@svasc.org",
+    "education": {
+      "ug": "BCA",
+      "pg": "M.C.A",
+      "doctorate": "(Ph.D)",
+      "other": "M.Phil.DIP(T&amp;T)"
+    },
+    "experience": {
+      "teaching": "4 years",
+      "industry": "5 YEARS",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "1",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image26.jpeg"
+  },
+  {
+    "id": "staff_27",
+    "sNo": 27,
+    "fullName": "Mr. M. Elango",
+    "designation": "Assistant Professor",
+    "qualification": "M.COM(CA)., (Ph.D).",
+    "department": "B.Com (Computer Applications)",
+    "departments": [
+      "B.Com (Computer Applications)",
+      "B.Com (Information Technology)"
+    ],
+    "contactNo": "8610207246",
+    "email": "elangom@svasc.org",
+    "education": {
+      "ug": "B.Com(PA)",
+      "pg": "M.Com(CA)",
+      "doctorate": "(Ph.D)",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "3 years",
+      "industry": "1.5 Years",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image27.jpeg"
+  },
+  {
+    "id": "staff_28",
+    "sNo": 28,
+    "fullName": "Mrs. M.MIRUTHULA",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com., (Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9344388413",
+    "email": "miruthulam@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com",
+      "doctorate": "Pursuing",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "2 years",
+      "industry": "",
+      "research": "",
+      "total": "2 years"
+    },
+    "specialization": "Marketing",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- 4",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image28.jpeg"
+  },
+  {
+    "id": "staff_29",
+    "sNo": 29,
+    "fullName": "Mrs. K.RAMYA",
+    "designation": "Assistant Professor",
+    "qualification": "MCA.,(Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "6380858183",
+    "email": "veedhunramya@gmail.com",
+    "education": {
+      "ug": "B.Sc (Computer Science)",
+      "pg": "MCA",
+      "doctorate": "Pursuing",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "9 years",
+      "industry": "-",
+      "research": "-",
+      "total": "9 years"
+    },
+    "specialization": "COMPUTER NETWORK",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- 3",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image29.png"
+  },
+  {
+    "id": "staff_30",
+    "sNo": 30,
+    "fullName": "Mr. V. RUTHRAKUMAR",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com(IB)., (Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9486316074",
+    "email": "ruthrakumarv@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com(IB)",
+      "doctorate": "Pursuing",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "2 years 11months",
+      "industry": "",
+      "research": "-",
+      "total": ""
+    },
+    "specialization": "Marketing, Accounting.",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": "1"
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "13",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image30.jpeg"
+  },
+  {
+    "id": "staff_31",
+    "sNo": 31,
+    "fullName": "K.G.UMAYAMBIGAI",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com.,M.Phil.,Ph.D.,PGDCA",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "8012397770",
+    "email": "k.g.umayambigai @gmail.com",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com",
+      "doctorate": "Commerce",
+      "other": "M.Phil., PGDCA"
+    },
+    "experience": {
+      "teaching": "16",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "2",
+        "national": "3"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- 3",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image31.jpeg"
+  },
+  {
+    "id": "staff_32",
+    "sNo": 32,
+    "fullName": "Mrs. S.PONMOZHI",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com(CA).,M.Phil.,(Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9843773001",
+    "email": "devipriyason@gmail.com",
+    "education": {
+      "ug": "B.Com.,",
+      "pg": "M.Com(CA).,",
+      "doctorate": "PURSUING",
+      "other": "M.Phil.,"
+    },
+    "experience": {
+      "teaching": "8 years",
+      "industry": "-",
+      "research": "-",
+      "total": "8 years"
+    },
+    "specialization": "Finance",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "1 1",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": ""
+  },
+  {
+    "id": "staff_33",
+    "sNo": 33,
+    "fullName": "Mrs. J.LAVANYA",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com., M.Phil., (Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "861007230",
+    "email": "lavanyachinnapparaj@gmail.com",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com",
+      "doctorate": "pursuing",
+      "other": "M.Phil."
+    },
+    "experience": {
+      "teaching": "9years",
+      "industry": "-",
+      "research": "-",
+      "total": "9 year"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "4",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": ""
+      },
+      "others": {
+        "international": "-",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "- -",
+    "workshops": "1 2",
+    "fdp": "1 3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image32.jpeg"
+  },
+  {
+    "id": "staff_34",
+    "sNo": 34,
+    "fullName": "Dr. CHI. NANJAPPA",
+    "designation": "Vice-Principal &amp; Head",
+    "qualification": "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET,",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9842761545",
+    "email": "drcn@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com",
+      "doctorate": "Commerce",
+      "other": "PGDCA., M.C.A., M.B.A., M.Phil., NET,"
+    },
+    "experience": {
+      "teaching": "22 years and 4 months",
+      "industry": "6 years (Part Time)",
+      "research": ", Finance, Marketing and HR",
+      "total": "24 years and 4 months"
+    },
+    "specialization": "Accounting, Research, Finance, Marketing and HR",
+    "publications": {
+      "scopus": {
+        "international": "1",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "21",
+        "national": "12"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "5"
+      }
+    },
+    "conferences": {
+      "international": "3",
+      "national": "3"
+    },
+    "books": "- 3",
+    "workshops": "- 10",
+    "fdp": "6 16",
+    "researchGuidance": {
+      "awarded": "3",
+      "undergoing": "3"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "Dr.Radhakrishnan Award, Best Teacher Award",
+    "photo": "/assets/staff/image33.jpeg"
+  },
+  {
+    "id": "staff_35",
+    "sNo": 35,
+    "fullName": "Mrs. A.KOWSHIKA",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., (B.Ed)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9025464343",
+    "email": "akowshika2003@gmail.com",
+    "education": {
+      "ug": "B.A.,(ECONOMICS)",
+      "pg": "M.A.,(ECONOMICS)",
+      "doctorate": "-",
+      "other": "-"
+    },
+    "experience": {
+      "teaching": "-",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "Micro Economics",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- -",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "Best Paper Presentation Award",
+    "photo": "/assets/staff/image34.jpeg"
+  },
+  {
+    "id": "staff_36",
+    "sNo": 36,
+    "fullName": "Mrs. K.GAYATHRI",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com.,M.Phil.,(Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9171934382",
+    "email": "gayucvp@gmail.com",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com",
+      "doctorate": "Pursuing",
+      "other": "M.Phil"
+    },
+    "experience": {
+      "teaching": "-",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "- -",
+    "fdp": "- 2",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image35.jpeg"
+  },
+  {
+    "id": "staff_37",
+    "sNo": 37,
+    "fullName": "Mrs. A.REVATHI",
+    "designation": "Assistant professor",
+    "qualification": "M.Com(CA).,M.Phil.,(Ph.D)",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "6374092066",
+    "email": "revathiar.revathi@gmail.com",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com (CA)",
+      "doctorate": "Pursuing",
+      "other": "M,Phil.,"
+    },
+    "experience": {
+      "teaching": "6 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "6 Years"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "1 2",
+    "fdp": "1 3",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image36.png"
+  },
+  {
+    "id": "staff_38",
+    "sNo": 38,
+    "fullName": "Dr. N.MALATHI",
+    "designation": "Assistant Professor",
+    "qualification": "M.com(CA).,M.Phil.,Ph.D.,",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9597622719",
+    "email": "Thimalathi1112@gmail.com",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com (CA)",
+      "doctorate": "Commerce",
+      "other": "M.Phil."
+    },
+    "experience": {
+      "teaching": "10 years",
+      "industry": "-",
+      "research": "-",
+      "total": ""
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "2",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "- -",
+    "workshops": "2 -",
+    "fdp": "5 8",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "Excellence in Education Award 2025 (Masters Professional)",
+    "photo": "/assets/staff/image37.png"
+  },
+  {
+    "id": "staff_39",
+    "sNo": 39,
+    "fullName": "S.SATHISH",
+    "designation": "Assistant Professor",
+    "qualification": "M.Com(CA).,M.Phil.,MBA.,(Ph.D).,",
+    "department": "Master of Commerce (M.Com)",
+    "departments": [
+      "Master of Commerce (M.Com)",
+      "Ph.D. Commerce",
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9791967171",
+    "email": "sathishs@svasc.org",
+    "education": {
+      "ug": "B.Com",
+      "pg": "M.Com(CA)",
+      "doctorate": "Doing",
+      "other": "M.Phil.,MBA.,"
+    },
+    "experience": {
+      "teaching": "14",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "MARKETING / ACCOUNTING",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": "7"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "-",
+      "national": "-"
+    },
+    "books": "2 (Book-Chapter) -",
+    "workshops": "",
+    "fdp": "1 5",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image38.jpeg"
+  },
+  {
+    "id": "staff_40",
+    "sNo": 40,
+    "fullName": "Mr. P. AROKYARAJ",
+    "designation": "HoD &amp; Assistant Professor",
+    "qualification": "M.Sc., M.Ed, M.Phil, (P.hD)",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "9597999898",
+    "email": "arokyaraj@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "Pursuing",
+      "other": "M. Ed., M.Phil.,"
+    },
+    "experience": {
+      "teaching": "14 years",
+      "industry": "",
+      "research": "",
+      "total": "14 years"
+    },
+    "specialization": "Algebra, Differential Equation, Graph Theory, Operations Research",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image39.jpeg"
+  },
+  {
+    "id": "staff_41",
+    "sNo": 41,
+    "fullName": "Mrs. P. S. KAVITHA",
+    "designation": "Assistant Professor",
+    "qualification": "M. Sc, B.Ed.,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "9952102370",
+    "email": "kavithaps@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics CA",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": "B.Ed"
+    },
+    "experience": {
+      "teaching": "7 years",
+      "industry": "",
+      "research": "",
+      "total": "7 years"
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image40.jpeg"
+  },
+  {
+    "id": "staff_42",
+    "sNo": 42,
+    "fullName": "Mr. C. SURESH",
+    "designation": "Assistant Professor",
+    "qualification": "M. Sc.,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "7904617100",
+    "email": "sureshc@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics CA",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "9 years",
+      "industry": "",
+      "research": "",
+      "total": "9 years"
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image41.jpeg"
+  },
+  {
+    "id": "staff_43",
+    "sNo": 43,
+    "fullName": "Mrs. M. KAVITHA",
+    "designation": "Assistant Professor",
+    "qualification": "M. Sc, M.Phil.,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "",
+    "email": "kavitha@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics CA",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": "B.Ed"
+    },
+    "experience": {
+      "teaching": "8 years",
+      "industry": "",
+      "research": "",
+      "total": "8 years"
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image42.jpeg"
+  },
+  {
+    "id": "staff_44",
+    "sNo": 44,
+    "fullName": "Ms. K. NAGARATHINAM",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc, M.Phil,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "8098418737",
+    "email": "nagarathinamk@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "8 years",
+      "industry": "",
+      "research": "",
+      "total": "8 years"
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image43.jpeg"
+  },
+  {
+    "id": "staff_45",
+    "sNo": 45,
+    "fullName": "Mr. L. SRIDHAR",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc, B.Ed.,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "6369870746",
+    "email": "sridhar@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": "B.Ed"
+    },
+    "experience": {
+      "teaching": "4 years",
+      "industry": "",
+      "research": "",
+      "total": "4 years"
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image44.jpeg"
+  },
+  {
+    "id": "staff_46",
+    "sNo": 46,
+    "fullName": "Mr. S. PRAVEEN",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc,",
+    "department": "B.Sc. Mathematics",
+    "departments": [
+      "B.Sc. Mathematics"
+    ],
+    "contactNo": "9791509452",
+    "email": "praveen@svasc.org",
+    "education": {
+      "ug": "B.Sc Mathematics",
+      "pg": "M.Sc Mathematics",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "Nil",
+    "publications": {
+      "scopus": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "peerReviewed": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "webOfScience": {
+        "international": "Nil",
+        "national": "Nil"
+      },
+      "others": {
+        "international": "Nil",
+        "national": "Nil"
+      }
+    },
+    "conferences": {
+      "international": "Nil",
+      "national": "Nil"
+    },
+    "books": "Nil Nil",
+    "workshops": "2 2",
+    "fdp": "3 4",
+    "researchGuidance": {
+      "awarded": "Nil",
+      "undergoing": "Nil"
+    },
+    "researchProjects": {
+      "completed": "Nil",
+      "undergoing": "Nil"
+    },
+    "awards": "Nil",
+    "photo": "/assets/staff/image45.jpeg"
+  },
+  {
+    "id": "staff_47",
+    "sNo": 47,
+    "fullName": "DR. V. SIVA GURU VIGNESH",
+    "designation": "ASSISTANT PROFESSOR AND HEAD",
+    "qualification": "M. A., M. PHIL., (P.hD).,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "8072983381",
+    "email": "sivaguruvignesh40@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "ENGLISH LANGUAGE AND LITERATURE",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "17 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "17 Years"
+    },
+    "specialization": "FICTION, ELT, DRAMA",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "1"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "20",
+      "national": "20"
+    },
+    "books": "3 4",
+    "workshops": "10 20",
+    "fdp": "9 15",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image46.jpeg"
+  },
+  {
+    "id": "staff_48",
+    "sNo": 48,
+    "fullName": "Mr. P. RAMESH",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., M. PHIL., (Ph.D.).,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9865930954",
+    "email": "ramesh.ma27@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "ENGLISH LITERATURE",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "13 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "13 Years"
+    },
+    "specialization": "POETRY, PHONETICS",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "4",
+    "workshops": "3 5",
+    "fdp": "1 5",
+    "researchGuidance": {
+      "awarded": "5",
+      "undergoing": "5"
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image47.jpeg"
+  },
+  {
+    "id": "staff_49",
+    "sNo": 49,
+    "fullName": "Mr. K.S. SOWMIYAN",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., M. PHIL., (P. hD.).,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9944902202",
+    "email": "kssowmiyan7@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "ENGLISH LITERATURE",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "4.5 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "4.5 Years"
+    },
+    "specialization": "FICTION",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "1"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 6",
+    "workshops": "3 15",
+    "fdp": "1 5",
+    "researchGuidance": {
+      "awarded": "6",
+      "undergoing": "6"
+    },
+    "researchProjects": {
+      "completed": "2",
+      "undergoing": "2"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image48.jpeg"
+  },
+  {
+    "id": "staff_50",
+    "sNo": 50,
+    "fullName": "Mr. VIGNESH",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., B.Ed.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9360236987",
+    "email": "vigneshvignesh.vh@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "4 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "4 Years"
+    },
+    "specialization": "FICTION, DRAMA, POEM",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 5",
+    "workshops": "1 4",
+    "fdp": "- 3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image49.jpeg"
+  },
+  {
+    "id": "staff_51",
+    "sNo": 51,
+    "fullName": "Mrs. S. KOWSALYA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., B.Ed.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "8973413904",
+    "email": "kowsalyaseng@svasc.org",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "3Years",
+      "industry": "-",
+      "research": "-",
+      "total": "3 Years"
+    },
+    "specialization": "FICTION",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 3",
+    "workshops": "- 1",
+    "fdp": "-",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image50.jpeg"
+  },
+  {
+    "id": "staff_52",
+    "sNo": 52,
+    "fullName": "Mr. A. ARUNKUMAR",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., B. Ed., M. PHIL.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9524914269",
+    "email": "arunkumar9142@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "5 Years",
+      "industry": "-",
+      "research": "1.5 Years",
+      "total": "6.5 Years"
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "1 3",
+    "workshops": "1 -",
+    "fdp": "- -",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image51.png"
+  },
+  {
+    "id": "staff_53",
+    "sNo": 53,
+    "fullName": "Mr. V. ASHOK KUMAR",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., B.ED.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "8220609649",
+    "email": "Achuashok4599@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "4.5 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "4.5 Years"
+    },
+    "specialization": "LANGUAGE AND LITERATURE",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 5",
+    "workshops": "2 16",
+    "fdp": "- 1",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image52.jpeg"
+  },
+  {
+    "id": "staff_54",
+    "sNo": 54,
+    "fullName": "Ms. V. DIVYABHARATHI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., M. PHIL., (P. hD).,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9942788441",
+    "email": "divyasanjay2019@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "ENGLISH LITERATURE",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "2.5 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "2.5 Years"
+    },
+    "specialization": "FICTION",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 3",
+    "workshops": "- 2",
+    "fdp": "- 2",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image53.jpeg"
+  },
+  {
+    "id": "staff_55",
+    "sNo": 55,
+    "fullName": "Mr. A. RAMESH",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., M. PHIL., B.Ed.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9942751925",
+    "email": "ramsarvi4@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "9 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "9 Years"
+    },
+    "specialization": "DRAMA, FICTION, LITERARY FORMS",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "1"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "3",
+      "national": "3"
+    },
+    "books": "- 1",
+    "workshops": "2 5",
+    "fdp": "5",
+    "researchGuidance": {
+      "awarded": "6",
+      "undergoing": "6"
+    },
+    "researchProjects": {
+      "completed": "1",
+      "undergoing": "1"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image54.jpeg"
+  },
+  {
+    "id": "staff_56",
+    "sNo": 56,
+    "fullName": "Mrs. N. JAYASANKAVI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., B.Ed.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9500937336",
+    "email": "jayasankavi@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "-",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "3.5 Years",
+      "industry": "-",
+      "research": "-",
+      "total": "3.5 Years"
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 2",
+    "workshops": "- 3",
+    "fdp": "1 1",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image55.png"
+  },
+  {
+    "id": "staff_57",
+    "sNo": 57,
+    "fullName": "Mr. S. MOHAMED YASHIN",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A., M. PHIL.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9629392692",
+    "email": "mohamedyashin2@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "-",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "AMERICAN LITERATURE, LITERARY THEORY, LITERARY TERMS",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 1",
+    "workshops": "- -",
+    "fdp": "- 1",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "2",
+      "undergoing": "2"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image56.jpeg"
+  },
+  {
+    "id": "staff_58",
+    "sNo": 58,
+    "fullName": "Mr. M. SANJAI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9659410190",
+    "email": "809sanjai@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "-",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "FICTION",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 2",
+    "workshops": "- -",
+    "fdp": "1 5",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image57.jpeg"
+  },
+  {
+    "id": "staff_59",
+    "sNo": 59,
+    "fullName": "Ms. V.MONASHREE",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M. A.,",
+    "department": "B.A. English",
+    "departments": [
+      "B.A. English",
+      "M.A. English",
+      "Ph.D. English"
+    ],
+    "contactNo": "9597860166",
+    "email": "monaashreev@gmail.com",
+    "education": {
+      "ug": "ENGLISH LITERATURE",
+      "pg": "ENGLISH LITERATURE",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "-",
+      "industry": "-",
+      "research": "-",
+      "total": "-"
+    },
+    "specialization": "FICTION",
+    "publications": {
+      "scopus": {
+        "international": "-",
+        "national": "-"
+      },
+      "peerReviewed": {
+        "international": "-",
+        "national": "-"
+      },
+      "webOfScience": {
+        "international": "-",
+        "national": "-"
+      },
+      "others": {
+        "international": "-",
+        "national": "-"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "- 1",
+    "workshops": "1 -",
+    "fdp": "1 -",
+    "researchGuidance": {
+      "awarded": "-",
+      "undergoing": "-"
+    },
+    "researchProjects": {
+      "completed": "-",
+      "undergoing": "-"
+    },
+    "awards": "-",
+    "photo": "/assets/staff/image58.jpeg"
+  },
+  {
+    "id": "staff_60",
+    "sNo": 60,
+    "fullName": "D.PRIYA",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc., B.Ed.,",
+    "department": "B.Sc. Chemistry",
+    "departments": [
+      "B.Sc. Chemistry"
+    ],
+    "contactNo": "9042421405",
+    "email": "priya@svasc.org",
+    "education": {
+      "ug": "B.Sc., in Chemistry",
+      "pg": "M.Sc., in Chemistry",
+      "doctorate": "",
+      "other": "B.Ed., Physical Science"
+    },
+    "experience": {
+      "teaching": "7",
+      "industry": "3",
+      "research": "",
+      "total": "10"
+    },
+    "specialization": "Inorganic Chemistry",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": "1"
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image59.png"
+  },
+  {
+    "id": "staff_61",
+    "sNo": 61,
+    "fullName": "S.SHANMUGAPRIYA",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc., M.Phil., DBMI., (Ph.D).,",
+    "department": "B.Sc. Chemistry",
+    "departments": [
+      "B.Sc. Chemistry"
+    ],
+    "contactNo": "9342465615",
+    "email": "shanmugapriyachem@svasc.org",
+    "education": {
+      "ug": "Chemistry",
+      "pg": "Chemistry",
+      "doctorate": "(Pursuing)",
+      "other": "M.Phil. in Chemistry, Diploma in Biomedical Instrumentation"
+    },
+    "experience": {
+      "teaching": "8",
+      "industry": "Nil",
+      "research": "",
+      "total": "8"
+    },
+    "specialization": "Nano Chemistry",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "3",
+    "fdp": "7",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image60.png"
+  },
+  {
+    "id": "staff_62",
+    "sNo": 62,
+    "fullName": "K.S.MALATHI",
+    "designation": "Assistant Professor &amp; Head",
+    "qualification": "M.Sc., M.Phil., B.Ed.,",
+    "department": "B.Sc. Chemistry",
+    "departments": [
+      "B.Sc. Chemistry"
+    ],
+    "contactNo": "6383021694",
+    "email": "malathiks@svasc.org",
+    "education": {
+      "ug": "B.Sc., in Chemistry",
+      "pg": "M.Sc., in Chemistry",
+      "doctorate": "",
+      "other": "B.Ed., in Physical Science&amp; M.Phil., in Chemistry"
+    },
+    "experience": {
+      "teaching": "10",
+      "industry": "5",
+      "research": "",
+      "total": "15"
+    },
+    "specialization": "Physical Chemistry",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "1 ( Rajya Puraskar Award )",
+    "photo": "/assets/staff/image61.jpeg"
+  },
+  {
+    "id": "staff_63",
+    "sNo": 63,
+    "fullName": "Dr .A. SAVITHA",
+    "designation": "ASSISTANT PROFESSOR AND HEAD",
+    "qualification": "M.com.,M.Phil., MBA.,PGDCA., Ph.D., SET.",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9788654463",
+    "email": "savithaa@svasc.org",
+    "education": {
+      "ug": "BBM",
+      "pg": "M.COM",
+      "doctorate": "Ph.D",
+      "other": "MBA., PGDCA., SET.,"
+    },
+    "experience": {
+      "teaching": "12 Years",
+      "industry": "",
+      "research": "",
+      "total": "12 Years"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "3",
+        "national": "4"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": "1"
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "4"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image62.jpeg"
+  },
+  {
+    "id": "staff_64",
+    "sNo": 64,
+    "fullName": "Mrs. S.SWATHI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.COM (CA)., M.PHIL., MBA., (Ph.D)",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9677780315",
+    "email": "swathis@svasc.org",
+    "education": {
+      "ug": "B.COM",
+      "pg": "M.COM (CA)",
+      "doctorate": "(Ph.D)",
+      "other": "M.PHIL., MBA."
+    },
+    "experience": {
+      "teaching": "9 YEARS",
+      "industry": "",
+      "research": "",
+      "total": "9 YEARS"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "1",
+        "national": "1"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "2 4",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image63.jpeg"
+  },
+  {
+    "id": "staff_65",
+    "sNo": 65,
+    "fullName": "Dr. M.KALAIVANI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.COM., M.PHIL., PGDCA., Ph.D.",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9524063157",
+    "email": "kalaivani@svasc.org",
+    "education": {
+      "ug": "B.COM",
+      "pg": "M.COM",
+      "doctorate": "Ph.D",
+      "other": "M.PHIL., PGDCA"
+    },
+    "experience": {
+      "teaching": "3 YEARS",
+      "industry": "1 YEAR",
+      "research": "2 YEARS",
+      "total": "6 YEARS"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": "4"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1 3",
+    "fdp": "2 2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "2"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image64.jpeg"
+  },
+  {
+    "id": "staff_66",
+    "sNo": 66,
+    "fullName": "Mr. V.NAVEENKUMAR",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.COM (CA)., M.PHIL.,",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9578035138",
+    "email": "naveenkumar@svasc.org",
+    "education": {
+      "ug": "B.COM",
+      "pg": "M.COM (CA)",
+      "doctorate": "(Ph.D)",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "4 YEARS",
+      "industry": "",
+      "research": "",
+      "total": "4 YEARS"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image65.jpeg"
+  },
+  {
+    "id": "staff_67",
+    "sNo": 67,
+    "fullName": "Mrs. S.RAMYADEVI",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.COM., M.PHIL., MBA.,",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "9095971291",
+    "email": "ramyasobi@gmail.com",
+    "education": {
+      "ug": "B.COM",
+      "pg": "M.COM",
+      "doctorate": "",
+      "other": "M.PHIL., MBA."
+    },
+    "experience": {
+      "teaching": "11 YEARS",
+      "industry": "",
+      "research": "",
+      "total": "11 YEARS"
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": "2"
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image66.jpeg"
+  },
+  {
+    "id": "staff_68",
+    "sNo": 68,
+    "fullName": "Ms. K.SUSITHRA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "MBA",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "8056591755",
+    "email": "susithrak@svasc.org",
+    "education": {
+      "ug": "B.COM",
+      "pg": "MBA",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "1 YEAR",
+      "industry": "",
+      "research": "",
+      "total": "1 YEAR"
+    },
+    "specialization": "BUSINESS ANALYTICS &amp; HR",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "1",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "1",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image67.jpeg"
+  },
+  {
+    "id": "staff_69",
+    "sNo": 69,
+    "fullName": "Ms. D.PRADEEPA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.COM",
+    "department": "B. Com – Bachelor of Commerce",
+    "departments": [
+      "B. Com – Bachelor of Commerce",
+      "B.Com (Banking & Insurance)",
+      "B.Com (Professional Accounting)"
+    ],
+    "contactNo": "6369976763",
+    "email": "pradeepa6331000@gmail.com",
+    "education": {
+      "ug": "B.COM",
+      "pg": "M.COM",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "MARKETING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "2",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image68.jpeg"
+  },
+  {
+    "id": "staff_70",
+    "sNo": 70,
+    "fullName": "Mrs. P. SANGEETHA",
+    "designation": "Assistant Professor",
+    "qualification": "MCA., M.PHIL.,(Ph.D)",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "8344539266",
+    "email": "sangeettapmca@gmail.com",
+    "education": {
+      "ug": "B.Sc. Mathematics, Gobi Arts and Science College, Bharathiar University, 2003–2006; 93%",
+      "pg": "MCA, Vivekanandha College of Engineering, Anna University, 2006–2009; 82%",
+      "doctorate": "PURSUING",
+      "other": "M.Phil. (Computer Science) Sri Vasavi College, Erode (2017-2020)"
+    },
+    "experience": {
+      "teaching": "8 years 8 months",
+      "industry": "NIL",
+      "research": "",
+      "total": "8 years 8 months"
+    },
+    "specialization": "NETWORKING",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "1",
+        "national": "Not mentioned"
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "4 5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image69.png"
+  },
+  {
+    "id": "staff_71",
+    "sNo": 71,
+    "fullName": "Ms. S DEVI",
+    "designation": "Assistant Professor",
+    "qualification": "MCA., NET.,",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9994694149",
+    "email": "sdevisenthilkumar42@gmail.com",
+    "education": {
+      "ug": "BCA, Gobi Arts and Science College, Gobi, 2006",
+      "pg": "MCA, Jayaram college of Engineering and Technology, Trichy. 2009",
+      "doctorate": "NIL",
+      "other": "QualifiedNET-Dec2023"
+    },
+    "experience": {
+      "teaching": "6 years 6 months",
+      "industry": "",
+      "research": "",
+      "total": "6 years 6 months"
+    },
+    "specialization": "Data structures and DBMS",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "1",
+    "workshops": "",
+    "fdp": "1 5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image70.jpeg"
+  },
+  {
+    "id": "staff_72",
+    "sNo": 72,
+    "fullName": "Mrs. V. SARANYA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.Sc., M.Phil.,",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9688985363",
+    "email": "charubsccs@gmail.com",
+    "education": {
+      "ug": "B.Sc. Computer Science – 2013 (71%)",
+      "pg": "M.Sc. Computer Science – 2015 (83%)",
+      "doctorate": "NIL",
+      "other": "M.Phil. Computer Science – 2019 (85%)"
+    },
+    "experience": {
+      "teaching": "3 years 6 months (Assistant Professor, 2016–2020)",
+      "industry": "1 year (TVS Sundaram Honda, March 2015–March 2016)",
+      "research": "NIL",
+      "total": "Approximately 4 years"
+    },
+    "specialization": "Object Oriented Programming, Networking",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": ""
+      },
+      "others": {
+        "international": "NIL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL",
+    "workshops": "NIL",
+    "fdp": "NIL",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image71.jpeg"
+  },
+  {
+    "id": "staff_73",
+    "sNo": 73,
+    "fullName": "Mrs. K ISWARYA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "MCA.,(Ph.D).,",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9597137819",
+    "email": "iswaryak3ct@gmail.com",
+    "education": {
+      "ug": "B.Sc. Computer Technology – 2017 (72%)",
+      "pg": "MCA – 2019 (75%)",
+      "doctorate": "Pursuing",
+      "other": "NIL"
+    },
+    "experience": {
+      "teaching": "3 years (Assistant Professor, 2017–At Present; based on dates in resume)",
+      "industry": "Nil",
+      "research": "NIL",
+      "total": "Approximately 3.5 years"
+    },
+    "specialization": "Data Mining and Warehousing",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": ""
+      },
+      "others": {
+        "international": "NIL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL",
+    "workshops": "NIL",
+    "fdp": "NIL",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image72.png"
+  },
+  {
+    "id": "staff_74",
+    "sNo": 74,
+    "fullName": "Mrs. B.JEEVITHAPRIYA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "M.Sc., M.Phil.,(Ph.D).,",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9524828689",
+    "email": "jeevithapriyact@gmail.com",
+    "education": {
+      "ug": "B.Sc. Computer Technology – 2010 (89.3%)",
+      "pg": "M.Sc. Computer Science – 2012 (87.55%)",
+      "doctorate": "Pursuing",
+      "other": "M.Phil. Computer Science – 2016 (63.1%)"
+    },
+    "experience": {
+      "teaching": "9 years (Assistant Professor, 2017–At Present; based on dates in resume)",
+      "industry": "Nil",
+      "research": "NIL",
+      "total": "Approximately 9 years"
+    },
+    "specialization": ",Artificial Intelligence, RPA, Internet of Things, Data Structures ,Python Programming ,C",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "1",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": ""
+      },
+      "others": {
+        "international": "NiL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "1",
+      "national": "1"
+    },
+    "books": "NIL",
+    "workshops": "NIL",
+    "fdp": "NIL",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image73.jpeg"
+  },
+  {
+    "id": "staff_75",
+    "sNo": 75,
+    "fullName": "Mr. K. Ramani",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc.,(IT), M.Phil., NET",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9095022779",
+    "email": "ramani.k79@gmail.com",
+    "education": {
+      "ug": "B.Sc. Computer Science – 1999 (47%)",
+      "pg": "M.Sc. Computer Science – 2003 (58%)",
+      "doctorate": "Pursuing",
+      "other": "M.Phil. Computer Science – 2012 (60%) Clearing NTA-NET in 2023"
+    },
+    "experience": {
+      "teaching": "24 years (Computer Instructor at GBHSS, Bhavani and Assistant Professor in various colleges, from 2004–2007; 2008 - 2026 based on dates in resume)",
+      "industry": "-",
+      "research": "-",
+      "total": "Approximately 21 Years"
+    },
+    "specialization": "All Programming languages, Networking and Operating systems",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": ""
+      },
+      "others": {
+        "international": "NIL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL",
+    "workshops": "NIL",
+    "fdp": "NIL",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image74.jpeg"
+  },
+  {
+    "id": "staff_76",
+    "sNo": 76,
+    "fullName": "Mrs. K.R.KAVITHA",
+    "designation": "ASSISTANT PROFESSOR",
+    "qualification": "MCA., M.Phil.,",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9942197020",
+    "email": "kavithar548@gmail.com",
+    "education": {
+      "ug": "B.Sc. Computer Science – 2013 (70.52%)",
+      "pg": "MCA– 2015 (64.52%)",
+      "doctorate": "",
+      "other": "M.Phil. Computer Science – 2017 (58.02%)"
+    },
+    "experience": {
+      "teaching": "2.5 years (Assistant Professor, 2024–At Present; based on dates in resume)",
+      "industry": "Nil",
+      "research": "NIL",
+      "total": "Approximately 2.5 years"
+    },
+    "specialization": "Data Science, Ethics of Artificial Intelligence, RPA, Internet of Things, Python Programming ,C",
+    "publications": {
+      "scopus": {
+        "international": "NIL",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "NIL",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "NIL",
+        "national": ""
+      },
+      "others": {
+        "international": "NIL",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "NIL",
+      "national": "NIL"
+    },
+    "books": "NIL",
+    "workshops": "NIL",
+    "fdp": "NIL",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "NIL"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "NIL"
+    },
+    "awards": "NIL",
+    "photo": "/assets/staff/image75.jpeg"
+  },
+  {
+    "id": "staff_77",
+    "sNo": 77,
+    "fullName": "Dr. B. Kanchanadevi",
+    "designation": "Assistant Professor and Head",
+    "qualification": "M. Sc., M.Phil., Ph.D",
+    "department": "B.Sc. Computer Science",
+    "departments": [
+      "B.Sc. Computer Science",
+      "B.Sc. Computer Science (AI & DS)",
+      "M.Sc. Computer Science"
+    ],
+    "contactNo": "9965435666",
+    "email": "Kanchanadevibcs08@svasc.org",
+    "education": {
+      "ug": "B. Sc (Computer Science)",
+      "pg": "M. Sc (Computer Science)",
+      "doctorate": "Ph.D Computer Science",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "16",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "Image Processing, RDBMS",
+    "publications": {
+      "scopus": {
+        "international": "2",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "2",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "2",
+      "national": "2"
+    },
+    "books": "2",
+    "workshops": "",
+    "fdp": "4",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image76.jpeg"
+  },
+  {
+    "id": "staff_78",
+    "sNo": 78,
+    "fullName": "Dr. R.SENTHILRANI",
+    "designation": "ASSISTANT PROFESSOR &amp; HEAD",
+    "qualification": "M.A(TAM).,M.A(Edn),M.PHIL.,Ph.D.,SET.,NET.,B.Ed.,",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9952137812",
+    "email": "senthilranir@svasc.org",
+    "education": {
+      "ug": "B.LIT",
+      "pg": "MA(TAM) MA (Edn)",
+      "doctorate": "TAMIL",
+      "other": "B.Ed"
+    },
+    "experience": {
+      "teaching": "18yrs",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "சிற்றிலக்கியம்",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "4",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "4",
+      "national": "4"
+    },
+    "books": "1",
+    "workshops": "1",
+    "fdp": "7",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": "2"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "2",
+    "photo": "/assets/staff/image77.jpeg"
+  },
+  {
+    "id": "staff_79",
+    "sNo": 79,
+    "fullName": "P. RAMAN",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A.,B.Ed.,(Ph.D)",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9524164752",
+    "email": "Ramancnc95@gmail.com",
+    "education": {
+      "ug": "7",
+      "pg": "M.A.Tamil",
+      "doctorate": "DOING",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "FOLKLORE",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "2",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "NALLASIRIYAR AWARD",
+    "photo": "/assets/staff/image78.jpeg"
+  },
+  {
+    "id": "staff_80",
+    "sNo": 80,
+    "fullName": "S.SELVAKUMAR",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A., M.Phil, B.Ed., (Ph.D)",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9715741153",
+    "email": "selvamohona@gmail.com",
+    "education": {
+      "ug": "14",
+      "pg": "04",
+      "doctorate": "DOING",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "FOLKLORE",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "1",
+      "undergoing": "1"
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image79.jpeg"
+  },
+  {
+    "id": "staff_81",
+    "sNo": 81,
+    "fullName": "RAJENDERAKUMAR.G",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A.,B.Ed.,(Ph.D).,NET",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "98940-94979",
+    "email": "rajendarguru@gmail.com",
+    "education": {
+      "ug": "BA TAMIL",
+      "pg": "MA TAMIL",
+      "doctorate": "TAMIL",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "FOLKLORE",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "1",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image80.jpeg"
+  },
+  {
+    "id": "staff_82",
+    "sNo": 82,
+    "fullName": "Mrs. K.YASOTHA",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A,B.Ed,M.Phil,DCT",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9578815399",
+    "email": "athish132@gmail.com",
+    "education": {
+      "ug": "B.Lit",
+      "pg": "04",
+      "doctorate": "",
+      "other": "DCT"
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "IKKALA ILAKKIYAM",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "03 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image81.jpeg"
+  },
+  {
+    "id": "staff_83",
+    "sNo": 83,
+    "fullName": "P.NANDHAKUMAR",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9600607759",
+    "email": "nandhannandhu073@gmail.com",
+    "education": {
+      "ug": "BA TAMIL",
+      "pg": "MA TAMIL",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": "Nil"
+    },
+    "specialization": "SANGAILAKKIYAM, ILAKKANAM",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "03 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image82.png"
+  },
+  {
+    "id": "staff_84",
+    "sNo": 84,
+    "fullName": "VIMALRAJ. V",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A.,DIE.,(Ph.D)",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "8248295688",
+    "email": "Vr5080118@gmail.com",
+    "education": {
+      "ug": "BA TAMIL",
+      "pg": "MA TAMIL",
+      "doctorate": "DOING",
+      "other": "DIE"
+    },
+    "experience": {
+      "teaching": "2",
+      "industry": "",
+      "research": "",
+      "total": "2"
+    },
+    "specialization": "FOLKLORE",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "03 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image83.jpeg"
+  },
+  {
+    "id": "staff_85",
+    "sNo": 85,
+    "fullName": "S.MYVIZHI",
+    "designation": "ASSISTANT PROFOSSER",
+    "qualification": "M.A",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil"
+    ],
+    "contactNo": "9597188105",
+    "email": "myvizhis2003@gmail.com",
+    "education": {
+      "ug": "BA TAMIL",
+      "pg": "MA TAMIL",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": "NIL"
+    },
+    "specialization": "",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "03 03",
+    "workshops": "01",
+    "fdp": "03 02",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/image84.jpeg"
+  }
+];
+
+export default facultyProfiles;
