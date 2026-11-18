@@ -91,10 +91,145 @@ const deleteDepartment = async (name) => {
 };
 
 /**
+ * Helper to compute a reliable canonical person key for cross-course deduplication.
+ * Ensures the same faculty member is recognized whether their title is "Mrs. A. Kowshika",
+ * "A. Kowshika", "Kowshika A", etc.
+ */
+const getPersonKey = (staff) => {
+  if (!staff) return '';
+  const fullName = staff.fullName || staff.name || '';
+  const parsed = parseStaffName(fullName);
+  if (parsed.normalizedKey) return parsed.normalizedKey;
+
+  const initial = (staff.initial || parsed.initial || '').trim().toUpperCase();
+  const core = (parsed.coreName || fullName).toLowerCase()
+    .replace(/^(dr|mr|mrs|ms|prof|rev|திரு|திருமதி)\.?\s+/gi, '')
+    .replace(/[^a-z0-9\u0B80-\u0BFF]/g, '')
+    .replace(/j/g, 'ch');
+  const init = initial.toLowerCase().replace(/[^a-z0-9\u0B80-\u0BFF]/g, '');
+  return init ? `${core}_${init}` : core;
+};
+
+/**
+ * Scans the database, finds all duplicate records for the same faculty member,
+ * consolidates all assigned departments/courses into a single master document,
+ * merges rich profile data, and deletes redundant duplicate documents.
+ */
+const deduplicateStaffInDatabase = async () => {
+  try {
+    const allStaff = await Staff.find().sort({ createdAt: 1 });
+    if (!allStaff || allStaff.length === 0) return { removedCount: 0, uniqueStaffCount: 0 };
+
+    const groups = new Map();
+
+    for (const doc of allStaff) {
+      const key = getPersonKey(doc) || String(doc._id);
+      if (!groups.has(key)) {
+        groups.set(key, []);
+      }
+      groups.get(key).push(doc);
+    }
+
+    let removedCount = 0;
+
+    for (const [key, records] of groups.entries()) {
+      if (records.length === 1) {
+        const single = records[0];
+        const depts = new Set([
+          ...(Array.isArray(single.departments) ? single.departments : []),
+          single.department
+        ].filter(Boolean));
+        single.departments = Array.from(depts);
+        if (!single.normalizedKey) single.normalizedKey = key;
+        await single.save();
+        continue;
+      }
+
+      // Multiple documents found for the same person - Pick best primary
+      records.sort((a, b) => {
+        const aScore = (a.photo ? 10 : 0) + (a.education?.ug ? 5 : 0) + (a.experience?.total ? 5 : 0);
+        const bScore = (b.photo ? 10 : 0) + (b.education?.ug ? 5 : 0) + (b.experience?.total ? 5 : 0);
+        return bScore - aScore;
+      });
+
+      const primary = records[0];
+      const duplicates = records.slice(1);
+
+      // Consolidate all departments across all records
+      const allDepts = new Set([
+        ...(Array.isArray(primary.departments) ? primary.departments : []),
+        primary.department
+      ].filter(Boolean));
+
+      for (const dup of duplicates) {
+        if (dup.department) allDepts.add(dup.department);
+        if (Array.isArray(dup.departments)) {
+          dup.departments.forEach(d => d && allDepts.add(d));
+        }
+
+        // Merge any non-empty fields into primary
+        if (!primary.photo && dup.photo) {
+          primary.photo = dup.photo;
+          primary.photoPublicId = dup.photoPublicId;
+        }
+        if (!primary.email && dup.email) primary.email = dup.email;
+        if (!primary.mobile && dup.mobile) primary.mobile = dup.mobile;
+        if (!primary.contactNo && dup.contactNo) primary.contactNo = dup.contactNo;
+        if (!primary.qualification && dup.qualification) primary.qualification = dup.qualification;
+        if ((!primary.designation || primary.designation === 'Faculty') && dup.designation && dup.designation !== 'Faculty') {
+          primary.designation = dup.designation;
+        }
+        if ((!primary.education || !primary.education.ug) && dup.education?.ug) {
+          primary.education = dup.education;
+        }
+        if ((!primary.experience || !primary.experience.total) && dup.experience?.total) {
+          primary.experience = dup.experience;
+        }
+        if (!primary.specialization && dup.specialization) primary.specialization = dup.specialization;
+        if ((!primary.publications || !primary.publications.scopus?.international) && dup.publications?.scopus?.international) {
+          primary.publications = dup.publications;
+        }
+        if (!primary.conferences?.international && dup.conferences?.international) {
+          primary.conferences = dup.conferences;
+        }
+        if (!primary.books && dup.books) primary.books = dup.books;
+        if (!primary.workshops && dup.workshops) primary.workshops = dup.workshops;
+        if (!primary.fdp && dup.fdp) primary.fdp = dup.fdp;
+        if (!primary.awards && dup.awards) primary.awards = dup.awards;
+      }
+
+      primary.departments = Array.from(allDepts);
+      if (!primary.department && primary.departments.length > 0) {
+        primary.department = primary.departments[0];
+      }
+      primary.normalizedKey = key;
+      await primary.save();
+
+      // Delete the redundant duplicate documents from MongoDB
+      const duplicateIds = duplicates.map(d => d._id);
+      await Staff.deleteMany({ _id: { $in: duplicateIds } });
+      removedCount += duplicateIds.length;
+    }
+
+    return { removedCount, uniqueStaffCount: groups.size };
+  } catch (err) {
+    console.error('Error during deduplicateStaffInDatabase:', err);
+    return { removedCount: 0, uniqueStaffCount: 0, error: err.message };
+  }
+};
+
+/**
  * Get all staff members with optional filtering by department or search term.
- * Sorted by department, then sNo ascending, then createdAt ascending.
+ * Guarantees that each faculty member appears ONLY ONCE in the result.
  */
 const getAllStaff = async (filter = {}) => {
+  // 1. Auto-deduplicate database to clean up legacy redundant rows
+  try {
+    await deduplicateStaffInDatabase();
+  } catch (err) {
+    console.warn('Auto deduplication notice:', err.message);
+  }
+
   const query = {};
 
   if (filter.department && filter.department !== 'All') {
@@ -114,7 +249,37 @@ const getAllStaff = async (filter = {}) => {
     ]);
   }
 
-  return await Staff.find(query).sort({ department: 1, sNo: 1, createdAt: 1 }).lean();
+  const staffDocs = await Staff.find(query).sort({ sNo: 1, createdAt: 1 }).lean();
+
+  // 2. Safeguard in-memory deduplication: guarantee each unique person is returned once
+  const seenKeys = new Set();
+  const uniqueStaff = [];
+
+  for (const s of staffDocs) {
+    const key = getPersonKey(s);
+    if (key && seenKeys.has(key)) {
+      // Merge departments into existing item
+      const existing = uniqueStaff.find(item => getPersonKey(item) === key);
+      if (existing) {
+        const mergedDepts = Array.from(new Set([
+          ...(Array.isArray(existing.departments) ? existing.departments : [existing.department]),
+          ...(Array.isArray(s.departments) ? s.departments : [s.department])
+        ].filter(Boolean)));
+        existing.departments = mergedDepts;
+      }
+      continue;
+    }
+    if (key) seenKeys.add(key);
+
+    const depts = Array.from(new Set([
+      ...(Array.isArray(s.departments) ? s.departments : []),
+      s.department
+    ].filter(Boolean)));
+    s.departments = depts;
+    uniqueStaff.push(s);
+  }
+
+  return uniqueStaff;
 };
 
 /**
@@ -137,34 +302,72 @@ const getStaffPhotoMap = async () => {
 
 /**
  * Create or save staff member.
- * When a new staff member is added, automatically assigns the next sequential sNo
- * in that department (placed at the bottom of the list).
- * When a photo is uploaded or changed, syncs the photo across ALL departments
- * where faculty with the same normalizedKey is present.
+ * Checks for existing faculty by normalizedKey/name.
+ * If already exists: merges departments and updates fields (DOES NOT duplicate).
+ * If new: auto-assigns next sequential sNo and creates a single record.
  */
 const createStaff = async (data) => {
   const parsed = parseStaffName(data.fullName || data.name || '');
   const initial = data.initial ? data.initial.trim().toUpperCase() : parsed.initial;
   const coreName = parsed.coreName || data.coreName || data.name || '';
 
-  // Canonical key with initial differentiation
   let cleanCore = coreName.toLowerCase().replace(/[^a-z0-9\u0B80-\u0BFF]/g, '').replace(/j/g, 'ch');
   const cleanInit = initial.toLowerCase().replace(/[^a-z0-9\u0B80-\u0BFF]/g, '');
   const normalizedKey = cleanInit ? `${cleanCore}_${cleanInit}` : cleanCore;
 
-  // Auto assign next sNo if not explicitly set (or <= 0) to ensure placement at bottom of the list
   const targetDept = data.department || (Array.isArray(data.departments) && data.departments[0]) || '';
+  const newDepts = Array.isArray(data.departments) && data.departments.length > 0
+    ? data.departments
+    : (targetDept ? [targetDept] : []);
+
+  // Check if person already exists in DB by normalizedKey or name
+  const existing = await Staff.findOne({
+    $or: [
+      { normalizedKey },
+      { fullName: data.fullName || data.name }
+    ]
+  });
+
+  if (existing) {
+    const existingDepts = Array.isArray(existing.departments) ? existing.departments : (existing.department ? [existing.department] : []);
+    existing.departments = Array.from(new Set([...existingDepts, ...newDepts].filter(Boolean)));
+    if (!existing.department && targetDept) existing.department = targetDept;
+
+    if (data.qualification) existing.qualification = data.qualification;
+    if (data.designation) existing.designation = data.designation;
+    if (data.photo) existing.photo = data.photo;
+    if (data.photoPublicId) existing.photoPublicId = data.photoPublicId;
+    if (data.email) existing.email = data.email;
+    if (data.contactNo) existing.contactNo = data.contactNo;
+    if (data.mobile) existing.mobile = data.mobile;
+    if (data.specialization) existing.specialization = data.specialization;
+    if (data.education) existing.education = { ...existing.education, ...data.education };
+    if (data.experience) existing.experience = { ...existing.experience, ...data.experience };
+    if (data.publications) existing.publications = { ...existing.publications, ...data.publications };
+    if (data.conferences) existing.conferences = { ...existing.conferences, ...data.conferences };
+    if (data.books) existing.books = data.books;
+    if (data.workshops) existing.workshops = data.workshops;
+    if (data.fdp) existing.fdp = data.fdp;
+    if (data.awards) existing.awards = data.awards;
+
+    const saved = await existing.save();
+
+    // Clean up any remaining duplicates
+    await Staff.deleteMany({
+      _id: { $ne: existing._id },
+      $or: [{ normalizedKey }, { fullName: existing.fullName }]
+    });
+
+    return saved;
+  }
+
+  // Auto assign next sNo if not explicitly set (or <= 0)
   let assignedSNo = Number(data.sNo) || 0;
-  if (assignedSNo <= 0 && targetDept) {
-    const maxStaff = await Staff.findOne({ department: targetDept })
-      .sort({ sNo: -1 })
-      .select('sNo')
-      .lean();
+  if (assignedSNo <= 0) {
+    const maxStaff = await Staff.findOne().sort({ sNo: -1 }).select('sNo').lean();
     assignedSNo = (maxStaff && typeof maxStaff.sNo === 'number' && maxStaff.sNo > 0)
       ? maxStaff.sNo + 1
       : 1;
-  } else if (assignedSNo <= 0) {
-    assignedSNo = 1;
   }
 
   const staff = new Staff({
@@ -174,25 +377,17 @@ const createStaff = async (data) => {
     initial,
     normalizedKey,
     sNo: assignedSNo,
-    departments: Array.isArray(data.departments) ? data.departments : (data.department ? [data.department] : [])
+    department: targetDept,
+    departments: newDepts
   });
 
   const saved = await staff.save();
-
-  // If photo is present, propagate photo to all other records with the same normalizedKey
-  if (saved.photo) {
-    await Staff.updateMany(
-      { normalizedKey: saved.normalizedKey, _id: { $ne: saved._id } },
-      { $set: { photo: saved.photo, photoPublicId: saved.photoPublicId || '' } }
-    );
-  }
-
   return saved;
 };
 
 /**
  * Update staff details by ID.
- * Propagates photo to all departments sharing this staff's normalizedKey.
+ * Ensures departments list is deduplicated and syncs photo.
  */
 const updateStaff = async (id, data) => {
   const existing = await Staff.findById(id);
@@ -215,14 +410,16 @@ const updateStaff = async (id, data) => {
     normalizedKey
   };
 
-  if (data.department && (!updateData.departments || updateData.departments.length === 0)) {
-    updateData.departments = [data.department];
+  const incomingDepts = Array.isArray(data.departments) ? data.departments : (data.department ? [data.department] : []);
+  const currentDepts = Array.isArray(existing.departments) ? existing.departments : (existing.department ? [existing.department] : []);
+  updateData.departments = Array.from(new Set([...currentDepts, ...incomingDepts].filter(Boolean)));
+  if (!updateData.department && updateData.departments.length > 0) {
+    updateData.department = updateData.departments[0];
   }
 
   const updated = await Staff.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
 
-  // Cross-department photo synchronization:
-  // If photo was updated, update all matching staff members across all departments
+  // Sync photo across all records if any
   if (updated && updated.photo) {
     await Staff.updateMany(
       { normalizedKey: updated.normalizedKey, _id: { $ne: updated._id } },
@@ -230,22 +427,49 @@ const updateStaff = async (id, data) => {
     );
   }
 
+  // Delete any other duplicate documents for this person in the database
+  await Staff.deleteMany({
+    _id: { $ne: updated._id },
+    $or: [
+      { normalizedKey: updated.normalizedKey },
+      { fullName: updated.fullName }
+    ]
+  });
+
   return updated;
 };
 
 /**
- * Delete a staff member by ID
+ * Delete a staff member by ID and any legacy duplicate records with same person key
  */
 const deleteStaff = async (id) => {
-  return await Staff.findByIdAndDelete(id);
+  const target = await Staff.findById(id);
+  if (!target) return null;
+
+  const key = target.normalizedKey;
+  const name = target.fullName;
+
+  const deleted = await Staff.findByIdAndDelete(id);
+
+  if (key || name) {
+    await Staff.deleteMany({
+      $or: [
+        ...(key ? [{ normalizedKey: key }] : []),
+        ...(name ? [{ fullName: name }] : [])
+      ]
+    });
+  }
+
+  return deleted;
 };
 
 /**
- * Clone a faculty member to one or more courses/departments.
- * Places cloned staff at the bottom of the target department list.
+ * Assign / Clone a faculty member to one or more courses/departments.
+ * Merges target departments into the existing staff member's departments list.
+ * DOES NOT CREATE DUPLICATE DOCUMENTS.
  */
 const cloneStaff = async (staffId, { targetDepartment, targetDepartments }) => {
-  const source = await Staff.findById(staffId).lean();
+  const source = await Staff.findById(staffId);
   if (!source) throw new Error('Source staff member not found');
 
   const targets = (Array.isArray(targetDepartments) && targetDepartments.length > 0)
@@ -254,63 +478,32 @@ const cloneStaff = async (staffId, { targetDepartment, targetDepartments }) => {
 
   if (!targets.length) throw new Error('At least one target department must be selected');
 
-  const clonedList = [];
-  for (const dept of targets) {
-    if (!dept || dept === source.department) continue;
+  const currentDepts = Array.isArray(source.departments)
+    ? source.departments
+    : (source.department ? [source.department] : []);
 
-    // Check if staff already exists in target department with matching normalizedKey or fullName
-    const existing = await Staff.findOne({
-      department: dept,
-      $or: [
-        { normalizedKey: source.normalizedKey },
-        { fullName: source.fullName }
-      ]
-    });
-
-    if (existing) {
-      existing.qualification = source.qualification || existing.qualification;
-      existing.designation = source.designation || existing.designation;
-      existing.photo = source.photo || existing.photo;
-      existing.photoPublicId = source.photoPublicId || existing.photoPublicId;
-      await existing.save();
-      clonedList.push(existing);
-      continue;
-    }
-
-    // Determine next sNo in target department (placed at the bottom)
-    const maxStaff = await Staff.findOne({ department: dept })
-      .sort({ sNo: -1 })
-      .select('sNo')
-      .lean();
-    const nextSNo = (maxStaff && typeof maxStaff.sNo === 'number' && maxStaff.sNo > 0)
-      ? maxStaff.sNo + 1
-      : 1;
-
-    const newStaff = new Staff({
-      fullName: source.fullName,
-      coreName: source.coreName,
-      initial: source.initial,
-      normalizedKey: source.normalizedKey,
-      qualification: source.qualification || '',
-      designation: source.designation || 'Faculty',
-      department: dept,
-      departments: [dept],
-      photo: source.photo || '',
-      photoPublicId: source.photoPublicId || '',
-      email: source.email || '',
-      mobile: source.mobile || '',
-      sNo: nextSNo
-    });
-
-    const saved = await newStaff.save();
-    clonedList.push(saved);
+  source.departments = Array.from(new Set([...currentDepts, ...targets].filter(Boolean)));
+  if (!source.department && source.departments.length > 0) {
+    source.department = source.departments[0];
   }
+  await source.save();
 
-  return clonedList;
+  // Remove any duplicate records for this person that may have existed in those departments
+  await Staff.deleteMany({
+    _id: { $ne: source._id },
+    $or: [
+      { normalizedKey: source.normalizedKey },
+      { fullName: source.fullName }
+    ]
+  });
+
+  return [source];
 };
 
 /**
- * Bulk seed initial faculty from website definitions if database has no staff
+ * Bulk seed initial faculty from website definitions.
+ * Updates existing single faculty document or inserts new.
+ * Guarantees zero duplicate documents.
  */
 const seedInitialStaff = async (facultyList) => {
   if (!Array.isArray(facultyList) || facultyList.length === 0) return { inserted: 0, updated: 0 };
@@ -330,52 +523,78 @@ const seedInitialStaff = async (facultyList) => {
     const cleanInit = initial.toLowerCase().replace(/[^a-z0-9\u0B80-\u0BFF]/g, '');
     const normalizedKey = cleanInit ? `${cleanCore}_${cleanInit}` : cleanCore;
 
+    // Look up by person identity ONLY
     const existing = await Staff.findOne({
-      fullName: rawName,
-      department: item.department || ''
+      $or: [
+        { normalizedKey },
+        { fullName: rawName }
+      ]
     });
 
-    const staffData = {
-      fullName: rawName,
-      coreName,
-      initial,
-      normalizedKey,
-      qualification: item.qualification || '',
-      designation: item.designation || 'Assistant Professor',
-      department: item.department || '',
-      departments: item.departments || (item.department ? [item.department] : []),
-      photo: item.photo || '',
-      sNo: item.sNo || 0,
-      contactNo: item.contactNo || item.mobile || '',
-      email: item.email || '',
-      education: item.education || { ug: '', pg: '', doctorate: '', other: '' },
-      experience: item.experience || { teaching: '', industry: '', research: '', total: '' },
-      specialization: item.specialization || '',
-      publications: item.publications || {
-        scopus: { international: '', national: '' },
-        peerReviewed: { international: '', national: '' },
-        webOfScience: { international: '', national: '' },
-        others: { international: '', national: '' }
-      },
-      conferences: item.conferences || { international: '', national: '' },
-      books: item.books || '',
-      workshops: item.workshops || '',
-      fdp: item.fdp || '',
-      researchGuidance: item.researchGuidance || { awarded: '', undergoing: '' },
-      researchProjects: item.researchProjects || { completed: '', undergoing: '' },
-      awards: item.awards || ''
-    };
+    const itemDepts = Array.isArray(item.departments)
+      ? item.departments
+      : (item.department ? [item.department] : []);
 
-    if (!existing) {
-      await Staff.create(staffData);
-      insertedCount++;
-    } else {
-      // Update with rich details if existing lacks them
-      Object.assign(existing, staffData);
+    if (existing) {
+      const currentDepts = Array.isArray(existing.departments) ? existing.departments : (existing.department ? [existing.department] : []);
+      existing.departments = Array.from(new Set([...currentDepts, ...itemDepts].filter(Boolean)));
+      if (!existing.department && item.department) existing.department = item.department;
+
+      if (item.photo && !existing.photo) existing.photo = item.photo;
+      if (item.qualification) existing.qualification = item.qualification;
+      if (item.designation && item.designation !== 'Faculty') existing.designation = item.designation;
+      if (item.contactNo) existing.contactNo = item.contactNo;
+      if (item.email) existing.email = item.email;
+      if (item.education) existing.education = { ...existing.education, ...item.education };
+      if (item.experience) existing.experience = { ...existing.experience, ...item.experience };
+      if (item.specialization) existing.specialization = item.specialization;
+      if (item.publications) existing.publications = { ...existing.publications, ...item.publications };
+      if (item.conferences) existing.conferences = { ...existing.conferences, ...item.conferences };
+      if (item.books) existing.books = item.books;
+      if (item.workshops) existing.workshops = item.workshops;
+      if (item.fdp) existing.fdp = item.fdp;
+      if (item.awards) existing.awards = item.awards;
+
       await existing.save();
       updatedCount++;
+    } else {
+      const staffData = {
+        fullName: rawName,
+        coreName,
+        initial,
+        normalizedKey,
+        qualification: item.qualification || '',
+        designation: item.designation || 'Assistant Professor',
+        department: item.department || itemDepts[0] || '',
+        departments: itemDepts,
+        photo: item.photo || '',
+        sNo: item.sNo || (insertedCount + 1),
+        contactNo: item.contactNo || item.mobile || '',
+        email: item.email || '',
+        education: item.education || { ug: '', pg: '', doctorate: '', other: '' },
+        experience: item.experience || { teaching: '', industry: '', research: '', total: '' },
+        specialization: item.specialization || '',
+        publications: item.publications || {
+          scopus: { international: '', national: '' },
+          peerReviewed: { international: '', national: '' },
+          webOfScience: { international: '', national: '' },
+          others: { international: '', national: '' }
+        },
+        conferences: item.conferences || { international: '', national: '' },
+        books: item.books || '',
+        workshops: item.workshops || '',
+        fdp: item.fdp || '',
+        researchGuidance: item.researchGuidance || { awarded: '', undergoing: '' },
+        researchProjects: item.researchProjects || { completed: '', undergoing: '' },
+        awards: item.awards || ''
+      };
+      await Staff.create(staffData);
+      insertedCount++;
     }
   }
+
+  // Run cleanup to delete any lingering duplicates
+  await deduplicateStaffInDatabase();
 
   return { inserted: insertedCount, updated: updatedCount };
 };
@@ -390,5 +609,6 @@ module.exports = {
   updateStaff,
   deleteStaff,
   cloneStaff,
-  seedInitialStaff
+  seedInitialStaff,
+  deduplicateStaffInDatabase
 };

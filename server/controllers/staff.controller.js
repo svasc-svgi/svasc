@@ -242,3 +242,20 @@ exports.syncDefaultStaff = async (req, res) => {
     });
   }
 };
+
+// Deduplicate all staff in database (merging departments and cleaning up redundant docs)
+exports.deduplicateStaff = async (req, res) => {
+  try {
+    const result = await staffService.deduplicateStaffInDatabase();
+    res.status(200).json({
+      success: true,
+      data: result,
+      message: `Database cleaned up. Merged and removed ${result.removedCount} duplicate documents.`
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+};

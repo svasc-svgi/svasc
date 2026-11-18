@@ -8,6 +8,7 @@ import {
   deleteStaff,
   cloneStaff,
   syncDefaultStaff,
+  deduplicateStaff,
   getDepartments,
   createDepartment,
   deleteDepartment
@@ -55,6 +56,7 @@ const emptyStaffForm = {
   qualification: '',
   designation: 'Assistant Professor',
   department: 'B.Sc. Computer Science',
+  departments: ['B.Sc. Computer Science'],
   photo: '',
   contactNo: '',
   email: '',
@@ -90,6 +92,7 @@ const StaffTab = () => {
   const [isDeptModalOpen, setIsDeptModalOpen] = useState(false);
   const [isCloneModalOpen, setIsCloneModalOpen] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [isDeduping, setIsDeduping] = useState(false);
   const [activeFormTab, setActiveFormTab] = useState('basic');
 
   // View modal state
@@ -133,6 +136,12 @@ const StaffTab = () => {
   const loadStaffData = async () => {
     setLoading(true);
     try {
+      try {
+        await deduplicateStaff();
+      } catch (dedupErr) {
+        // Safe to ignore in development / offline
+      }
+
       const data = await getAllStaff();
       if (Array.isArray(data) && data.length > 0) {
         setStaffList(data);
@@ -144,6 +153,23 @@ const StaffTab = () => {
       console.error('Failed to load staff list:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Manual trigger to clean duplicates in database and merge course assignments
+  const handleManualDedup = async () => {
+    setIsDeduping(true);
+    try {
+      await deduplicateStaff();
+      const refreshed = await getAllStaff();
+      setStaffList(refreshed);
+      await reloadStaffPhotos();
+      setStatusMessage('Duplicate staff records successfully merged! Each faculty member now appears once.');
+      setTimeout(() => setStatusMessage(''), 4500);
+    } catch (err) {
+      alert('Deduplication notice: ' + err.message);
+    } finally {
+      setIsDeduping(false);
     }
   };
 
@@ -253,12 +279,17 @@ const StaffTab = () => {
       const targetKey = cleanStr(staff.fullName || '');
       const found = facultyProfiles.find(fp => cleanStr(fp.fullName) === targetKey || (fp.coreName && cleanStr(fp.coreName) === targetKey)) || {};
 
+      const rawDepts = Array.isArray(staff.departments) && staff.departments.length > 0
+        ? staff.departments
+        : (staff.department ? [staff.department] : [(departmentList[0]?.value || 'B.Sc. Computer Science')]);
+
       setFormData({
         fullName: staff.fullName || '',
         initial: staff.initial || parsed.initial || '',
         qualification: staff.qualification || '',
         designation: staff.designation || 'Assistant Professor',
-        department: staff.department || (departmentList[0]?.value || 'B.Sc. Computer Science'),
+        department: staff.department || rawDepts[0] || (departmentList[0]?.value || 'B.Sc. Computer Science'),
+        departments: rawDepts,
         photo: staff.photo || found.photo || '',
         contactNo: staff.contactNo || staff.mobile || found.contactNo || '',
         email: staff.email || found.email || '',
@@ -354,6 +385,9 @@ const StaffTab = () => {
       qualification: (formData.qualification || '').trim(),
       designation: (formData.designation || '').trim(),
       department: formData.department,
+      departments: Array.isArray(formData.departments) && formData.departments.length > 0
+        ? formData.departments
+        : (formData.department ? [formData.department] : []),
       photo: finalPhotoUrl,
       contactNo: (formData.contactNo || '').trim(),
       email: (formData.email || '').trim(),
@@ -481,7 +515,7 @@ const StaffTab = () => {
       setStaffList(refreshed);
       await reloadStaffPhotos();
       handleCloseCloneModal();
-      setStatusMessage(`Faculty cloned to ${selectedCloneDepts.join(', ')} successfully!`);
+      setStatusMessage(`Assigned ${cloningStaff.fullName} to ${selectedCloneDepts.join(', ')} successfully!`);
       setTimeout(() => setStatusMessage(''), 4500);
     } catch (err) {
       alert(`Clone failed: ${err.message}`);
@@ -494,7 +528,48 @@ const StaffTab = () => {
   // Newly added faculty will appear at the bottom because backend assigns next sNo
   // and we sort by sNo ascending, then createdAt ascending.
   const filteredStaff = useMemo(() => {
-    const list = staffList.filter((staff) => {
+    // 1. Deduplicate staff by canonical faculty person identity
+    const cleanStr = (s) =>
+      (s || '')
+        .toLowerCase()
+        .replace(/^(dr|mr|mrs|ms|prof|rev|முனைவர்|திரு|திருமதி|செல்வி)\.?\s+/gi, '')
+        .replace(/[^a-z0-9\u0B80-\u0BFF]/g, '')
+        .replace(/j/g, 'ch');
+
+    const personMap = new Map();
+
+    for (const s of staffList) {
+      const parsed = parseStaffName(s.fullName || s.name || '');
+      const initial = (s.initial || parsed.initial || '').trim().toLowerCase();
+      const core = cleanStr(parsed.coreName || s.coreName || s.fullName || s.name || '');
+      const key = s.normalizedKey || (initial ? `${core}_${initial}` : core) || String(s._id || s.id);
+
+      if (!personMap.has(key)) {
+        const itemDepts = Array.isArray(s.departments) && s.departments.length > 0
+          ? s.departments
+          : (s.department ? [s.department] : []);
+        personMap.set(key, { ...s, departments: [...itemDepts] });
+      } else {
+        const existing = personMap.get(key);
+        // Merge departments
+        const combined = new Set([
+          ...(Array.isArray(existing.departments) ? existing.departments : [existing.department]),
+          ...(Array.isArray(s.departments) ? s.departments : [s.department])
+        ].filter(Boolean));
+        existing.departments = Array.from(combined);
+
+        // Keep best available details
+        if (!existing.photo && s.photo) existing.photo = s.photo;
+        if (!existing.qualification && s.qualification) existing.qualification = s.qualification;
+        if (!existing.contactNo && (s.contactNo || s.mobile)) existing.contactNo = s.contactNo || s.mobile;
+        if (!existing.email && s.email) existing.email = s.email;
+      }
+    }
+
+    const uniqueList = Array.from(personMap.values());
+
+    // 2. Filter by selected department & search query
+    const list = uniqueList.filter((staff) => {
       const matchesDept =
         selectedDept === 'All' ||
         staff.department === selectedDept ||
@@ -509,17 +584,18 @@ const StaffTab = () => {
       const init = (staff.initial || '').toLowerCase();
       const qual = (staff.qualification || '').toLowerCase();
       const dept = (staff.department || '').toLowerCase();
+      const allDeptsStr = (staff.departments || []).join(' ').toLowerCase();
 
-      return fn.includes(q) || init === q || qual.includes(q) || dept.includes(q);
+      return fn.includes(q) || init === q || qual.includes(q) || dept.includes(q) || allDeptsStr.includes(q);
     });
 
     return [...list].sort((a, b) => {
       const sNoA = typeof a.sNo === 'number' && a.sNo > 0 ? a.sNo : 99999;
       const sNoB = typeof b.sNo === 'number' && b.sNo > 0 ? b.sNo : 99999;
       if (sNoA !== sNoB) return sNoA - sNoB;
-      const dateA = new Date(a.createdAt || 0).getTime();
-      const dateB = new Date(b.createdAt || 0).getTime();
-      return dateA - dateB;
+      const nameA = (a.fullName || '').toLowerCase();
+      const nameB = (b.fullName || '').toLowerCase();
+      return nameA.localeCompare(nameB);
     });
   }, [staffList, selectedDept, searchQuery]);
 
@@ -541,6 +617,15 @@ const StaffTab = () => {
           >
             <FolderPlus size={16} />
             + Add Course / Dept
+          </button>
+          <button
+            className={styles.secondaryBtn}
+            onClick={handleManualDedup}
+            disabled={isDeduping}
+            title="Clean duplicate entries and merge course assignments across database"
+          >
+            <Sparkles size={16} className={isDeduping ? 'animate-spin' : ''} />
+            {isDeduping ? 'Cleaning...' : 'Deduplicate Staff'}
           </button>
           <button
             className={styles.secondaryBtn}
@@ -584,7 +669,7 @@ const StaffTab = () => {
           onChange={(e) => setSelectedDept(e.target.value)}
           className={styles.deptSelect}
         >
-          <option value="All">All Departments / Courses ({staffList.length})</option>
+          <option value="All">All Departments / Courses ({filteredStaff.length})</option>
           {departmentList.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
@@ -629,7 +714,7 @@ const StaffTab = () => {
                   <tr key={staff._id || staff.id || idx}>
                     {/* S.No */}
                     <td style={{ textAlign: 'center', fontWeight: '600', color: '#64748b' }}>
-                      {staff.sNo || idx + 1}
+                      {idx + 1}
                     </td>
 
                     {/* Round Avatar Preview */}

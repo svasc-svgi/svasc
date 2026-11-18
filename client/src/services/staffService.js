@@ -63,3 +63,13 @@ export const syncDefaultStaff = async (facultyList) => {
   const res = await axios.post(`${BASE_URL}/api/staff/sync-defaults`, { facultyList });
   return res.data;
 };
+
+export const deduplicateStaff = async () => {
+  try {
+    const res = await axios.post(`${BASE_URL}/api/staff/dedup`);
+    return res.data;
+  } catch (error) {
+    console.warn('Could not run server dedup:', error.message);
+    return null;
+  }
+};

@@ -14,6 +14,9 @@ router.delete('/departments/:name', staffController.deleteDepartment);
 // Sync initial faculty members
 router.post('/sync-defaults', staffController.syncDefaultStaff);
 
+// Deduplicate database
+router.post('/dedup', staffController.deduplicateStaff);
+
 // Clone staff to course(s)
 router.post('/:id/clone', staffController.cloneStaff);
 
