@@ -14,8 +14,8 @@ const AboutHero = () => {
                 </h1>
                 <div className="hero-text-box">
                     <p className="hero-description" style={{ textAlign: 'justify' }}>
-                        Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is an institution for achievers, located in the serene surroundings of Othakuthirai, near Gobichettipalayam. Founded in 2019 by the Shree Venkateshwara Educational and Charitable Trust, the institution is committed to providing quality education and fostering academic excellence, holistic development, and the empowerment of young minds.
-                        We strive to create an inspiring, inclusive, and supportive learning environment where students can discover their potential, develop essential skills, nurture their talents, and prepare confidently for a successful future.
+                        Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is an institution for achievers located in the serene surroundings of Othakuthirai near Gobichettipalayam. Founded in 2019 by the Shree Venkateshwara Educational and Charitable Trust, the institution is committed to providing quality education and fostering academic excellence, holistic development and the empowerment of young minds.
+                        We strive to create an inspiring, inclusive and supportive learning environment where students can discover their potential, develop essential skills, nurture their talents and prepare confidently for a successful future.
                     </p>
                     <a href="#" className="btn btn--outline">Learn more ↓</a>
                 </div>

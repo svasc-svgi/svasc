@@ -21,7 +21,7 @@ const HeroSection = () => (
     <>
         <Hero
             title="About SVASC"
-            description="Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values."
+            description="Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum and a strong focus on practical learning, research, innovation and ethical values."
             image={aboutHeroImg}
         />
         <section className={`${styles.heroContainer} max-w-[170rem] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative`}>
@@ -43,7 +43,7 @@ const HeroSection = () => (
                 </h1>
 
                 <p className={styles.heroDescription}>
-                    Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum, and a strong focus on practical learning, research, innovation, and ethical values. We empower students with career-oriented training, placements, certifications, internships, workshops, and co-curricular activities to meet global challenges with confidence and leadership.
+                    Skill-based education and holistic student development through high-quality programs supported by experienced faculty, modern infrastructure, industry-aligned curriculum and a strong focus on practical learning, research, innovation and ethical values. We empower students with career-oriented training, internships, workshops and placement opportunities to meet global challenges with confidence and leadership.
                 </p>
 
                 <button className={styles.heroButton}>Find out more</button>
@@ -97,7 +97,7 @@ const EmpoweringLeadersSection = () => (
             {/* Right Column */}
             <div className="lg:col-span-3 mb-12 lg:mb-24 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <p className={styles.empoweringDescription}>
-                    SVASC is dedicated to academic excellence, innovation, and holistic student development, empowering students through quality education, practical learning, and industry-oriented training.
+                    SVASC is dedicated to academic excellence, innovation and holistic student development, empowering students through quality education, practical learning and industry-oriented training.
                 </p>
                 <button className={styles.empoweringCtaButton}>
                     <span className={styles.empoweringCtaButtonText}>Explore Programs</span>
@@ -125,7 +125,7 @@ const AboutSection = () => (
 
             <div className="space-y-10 lg:space-y-16 px-0 lg:px-10">
                 <p className={styles.empoweringDescription}>
-                    SVASC provides a dynamic academic environment with experienced faculty, modern infrastructure, research-driven programs, and career-focused learning to prepare students for global opportunities.
+                    SVASC provides a dynamic academic environment with experienced faculty, modern infrastructure, research-driven programs and career-focused learning to prepare students for global opportunities.
                 </p>
 
                 <div className="grid grid-cols-2 gap-12">
@@ -168,7 +168,7 @@ const CampusLifeSection = () => {
 
             <div className="max-w-[130rem] mx-auto px-6 lg:px-10 text-center mb-12 lg:mb-24 relative z-10">
                 <h2 className={styles.campusLifeTitle}>Discover SVASC <br /> Campus Life</h2>
-                <p className={styles.campusLifeDescription}>Explore our programs, infrastructure, and student activities that nurture growth and talent.</p>
+                <p className={styles.campusLifeDescription}>Explore our programs, infrastructure and student activities that nurture growth and talent.</p>
 
                 <button className={styles.campusLifeButton}>
                     <span className={styles.campusLifeButtonIcon}>

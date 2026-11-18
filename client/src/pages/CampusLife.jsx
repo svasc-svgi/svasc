@@ -28,7 +28,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 const fallbackHero = {
     image: heroImage,
     title: "CAMPUS LIFE",
-    description: "Experience the vibrant student life, culture, sports, and activities on campus."
+    description: "Experience the vibrant student life, culture, sports and activities on campus."
 };
 
 const fallbackGallery = [
@@ -44,27 +44,27 @@ const fallbackScroll = [
     {
         img: computerLabImg,
         title: 'Modern High-Tech Laboratories',
-        text: 'Equipped with cutting-edge computing systems, advanced network infrastructure, and modern lab facilities providing hands-on technical skill development and practical exposure.',
+        text: 'Equipped with cutting-edge computing systems, advanced network infrastructure and modern lab facilities providing hands-on technical skill development and practical exposure.',
     },
     {
         img: libraryImg,
         title: 'Central Library & Knowledge Hub',
-        text: 'A comprehensive repository featuring thousands of academic texts, national and international journals, periodicals, and e-learning resources fostering research and intellectual curiosity.',
+        text: 'A comprehensive repository featuring thousands of academic texts, national and international journals, periodicals and e-learning resources fostering research and intellectual curiosity.',
     },
     {
         img: clubImg,
         title: 'Vibrant Clubs & Cultural Fests',
-        text: 'From SVASC Diwas and Star Night to Freshers Day and festival celebrations, providing dynamic platforms for students to showcase artistic talents, creativity, and leadership.',
+        text: 'From SVASC Diwas and Star Night to Freshers Day and festival celebrations, providing dynamic platforms for students to showcase artistic talents, creativity and leadership.',
     },
     {
         img: sportsImg,
         title: 'Sports, Fitness & Athletics',
-        text: 'Sprawling grounds for cricket, football, volleyball, track and field, and indoor facilities nurturing athletic spirit, discipline, teamwork, and healthy lifestyle habits.',
+        text: 'Sprawling grounds for cricket, football, volleyball, track and field and indoor facilities nurturing athletic spirit, discipline, teamwork and healthy lifestyle habits.',
     },
     {
         img: campusDroneImg,
         title: 'Eco-Friendly Green Campus',
-        text: 'Nestled amidst lush coconut groves and scenic greenery at Othakuthirai, Gobichettipalayam, offering a serene, inspiring, and eco-conscious atmosphere for holistic education.',
+        text: 'Nestled amidst lush coconut groves and scenic greenery at Othakuthirai, Gobichettipalayam, offering a serene, inspiring and eco-conscious atmosphere for holistic education.',
     }
 ];
 
@@ -364,7 +364,7 @@ const CampusLife = () => {
                         </div>
                         <h2 className={styles.scrollMainHeading}>Life, Learning & Excellence in Motion</h2>
                         <p className={styles.scrollSubHeading}>
-                            Explore the state-of-the-art facilities, cutting-edge laboratories, sports arenas, and vibrant collegiate forums across SVASC.
+                            Explore the state-of-the-art facilities, cutting-edge laboratories, sports arenas and vibrant collegiate forums across SVASC.
                         </p>
                     </div>
 

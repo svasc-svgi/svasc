@@ -117,7 +117,7 @@ const LibraryPortal = () => {
                                 Curate your mental library
                             </h1>
                             <p className={styles.heroSubDescription}>
-                                Access thousands of books, journals, and digital resources designed to empower your academic journey.
+                                Access thousands of books, journals and digital resources designed to empower your academic journey.
                             </p>
                         </div>
 
@@ -200,10 +200,10 @@ const LibraryPortal = () => {
                                 </h2>
                                 <div className={styles.sectionCms}>
                                     <p>
-                                        The knowledge centre of <span className={styles.textHighlight}>Shree Venkateshwara Arts and Science (co-edu.) College (SVCAS)</span>, established in 2019, serves as the academic information hub of the institution. Spread across <span className={styles.textHighlight}>4,000 sq. ft.</span> with a seating capacity of <span className={styles.textHighlight}>80 students</span>, it provides a learner-friendly environment that supports teaching, learning, research, and self-study.
+                                        The knowledge centre of <span className={styles.textHighlight}>Shree Venkateshwara Arts and Science (co-edu.) College (SVCAS)</span>, established in 2019, serves as the academic information hub of the institution. Spread across <span className={styles.textHighlight}>4,000 sq. ft.</span> with a seating capacity of <span className={styles.textHighlight}>80 students</span>, it provides a learner-friendly environment that supports teaching, learning, research and self-study.
                                     </p>
                                     <p>
-                                        The centre maintains a collection of <span className={styles.textHighlight}>6,644 volumes with 2,272 titles</span>, covering science, arts, commerce, management, and allied disciplines. The collection is regularly updated to meet curriculum requirements and support academic excellence.
+                                        The centre maintains a collection of <span className={styles.textHighlight}>6,644 volumes with 2,272 titles</span>, covering science, arts, commerce, management and allied disciplines. The collection is regularly updated to meet curriculum requirements and support academic excellence.
                                     </p>
                                     <p>
                                         The centre is automated using <span className={styles.textHighlight}>Campusilib library management software</span>, offering barcode-based circulation and OPAC (online public access catalogue) facilities for efficient access to library resources.
@@ -244,7 +244,7 @@ const LibraryPortal = () => {
                                 <p className={styles.facilityText}><strong>OPAC (Online Public Access Catalogue):</strong> One dedicated computer system is available for users to search the library catalogue.</p>
                             </div>
                             <div className={styles.facilityCard}>
-                                <p className={styles.facilityText}><strong>Digital Library:</strong> Fifteen computer systems with internet connectivity provide access to DELNET, e-books, e-journals, and other online academic resources.</p>
+                                <p className={styles.facilityText}><strong>Digital Library:</strong> Fifteen computer systems with internet connectivity provide access to DELNET, e-books, e-journals and other online academic resources.</p>
                             </div>
                             <div className={styles.facilityCard}>
                                 <p className={styles.facilityText}><strong>Server Terminal:</strong> One server system supports library automation and digital services.</p>
@@ -253,7 +253,7 @@ const LibraryPortal = () => {
                                 <p className={styles.facilityText}><strong>Scanning Facilities:</strong> Barcode scanners are available for library operations.</p>
                             </div>
                             <div className={styles.facilityCard}>
-                                <p className={styles.facilityText}><strong>DELNET Resources:</strong> Access to e-books, e-journals, theses, dissertations, and online databases.</p>
+                                <p className={styles.facilityText}><strong>DELNET Resources:</strong> Access to e-books, e-journals, theses, dissertations and online databases.</p>
                             </div>
                         </div>
                     </div>

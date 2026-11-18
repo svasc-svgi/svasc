@@ -4611,7 +4611,7 @@
       "research": "NIL",
       "total": "Approximately 9 years"
     },
-    "specialization": ",Artificial Intelligence, RPA, Internet of Things, Data Structures ,Python Programming ,C",
+    "specialization": "Artificial Intelligence, RPA, Internet of Things, Data Structures, Python Programming, C",
     "publications": {
       "scopus": {
         "international": "NIL",
@@ -4737,7 +4737,7 @@
       "research": "NIL",
       "total": "Approximately 2.5 years"
     },
-    "specialization": "Data Science, Ethics of Artificial Intelligence, RPA, Internet of Things, Python Programming ,C",
+    "specialization": "Data Science, Ethics of Artificial Intelligence, RPA, Internet of Things, Python Programming, C",
     "publications": {
       "scopus": {
         "international": "NIL",
@@ -4838,30 +4838,33 @@
     "photo": "/assets/staff/image76.jpeg"
   },
   {
-    "id": "staff_78",
-    "sNo": 78,
-    "fullName": "Dr. R.SENTHILRANI",
-    "designation": "ASSISTANT PROFESSOR &amp; HEAD",
-    "qualification": "M.A(TAM).,M.A(Edn),M.PHIL.,Ph.D.,SET.,NET.,B.Ed.,",
+    "fullName": "Dr. R. Senthilrani",
+    "coreName": "Senthilrani",
+    "initial": "R",
+    "designation": "Assistant Professor & Head",
+    "qualification": "M.A.(TAM)., M.A.(Edn), M.Phil., Ph.D., SET., NET., B.Ed.",
     "department": "Ph.D. Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D. Tamil",
+      "Tamil"
     ],
+    "photo": "/assets/staff/tamil_senthilrani.jpeg",
+    "sNo": 1,
     "contactNo": "9952137812",
     "email": "senthilranir@svasc.org",
     "education": {
-      "ug": "B.LIT",
-      "pg": "MA(TAM) MA (Edn)",
-      "doctorate": "TAMIL",
-      "other": "B.Ed"
+      "ug": "B.Lit. (Tamil)",
+      "pg": "M.A. (Tamil), M.A. (Edn)",
+      "doctorate": "Ph.D. (Tamil)",
+      "other": "M.Phil., B.Ed., SET, NET"
     },
     "experience": {
-      "teaching": "18yrs",
+      "teaching": "18 Years",
       "industry": "",
-      "research": "",
-      "total": ""
+      "research": "Ph.D. Research Guide",
+      "total": "18 Years"
     },
-    "specialization": "சிற்றிலக்கியம்",
+    "specialization": "சிற்றிலக்கியம் (Minor Literature)",
     "publications": {
       "scopus": {
         "international": "",
@@ -4882,7 +4885,7 @@
     },
     "conferences": {
       "international": "4",
-      "national": "4"
+      "national": ""
     },
     "books": "1",
     "workshops": "1",
@@ -4895,34 +4898,36 @@
       "completed": "",
       "undergoing": ""
     },
-    "awards": "2",
-    "photo": "/assets/staff/image77.jpeg"
+    "awards": "2 State / Institutional Awards"
   },
   {
-    "id": "staff_79",
-    "sNo": 79,
-    "fullName": "P. RAMAN",
-    "designation": "ASSISTANT PROFOSSER",
-    "qualification": "M.A.,B.Ed.,(Ph.D)",
+    "fullName": "Mr. P. Raman",
+    "coreName": "Raman",
+    "initial": "P",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., B.Ed., (Ph.D)",
     "department": "Ph.D. Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D. Tamil",
+      "Tamil"
     ],
+    "photo": "/assets/staff/tamil_raman.jpeg",
+    "sNo": 2,
     "contactNo": "9524164752",
     "email": "Ramancnc95@gmail.com",
     "education": {
-      "ug": "7",
-      "pg": "M.A.Tamil",
-      "doctorate": "DOING",
-      "other": ""
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
+      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "other": "B.Ed. Tamil"
     },
     "experience": {
-      "teaching": "",
+      "teaching": "7 Years (UG)",
       "industry": "",
       "research": "",
-      "total": ""
+      "total": "7 Years"
     },
-    "specialization": "FOLKLORE",
+    "specialization": "Folklore (நாட்டுப்புறவியல்)",
     "publications": {
       "scopus": {
         "international": "",
@@ -4956,34 +4961,36 @@
       "completed": "",
       "undergoing": ""
     },
-    "awards": "NALLASIRIYAR AWARD",
-    "photo": "/assets/staff/image78.jpeg"
+    "awards": "Nallasiriyar Award (நல்லாசிரியர் விருது)"
   },
   {
-    "id": "staff_80",
-    "sNo": 80,
-    "fullName": "S.SELVAKUMAR",
-    "designation": "ASSISTANT PROFOSSER",
-    "qualification": "M.A., M.Phil, B.Ed., (Ph.D)",
+    "fullName": "Mr. S. Selvakumar",
+    "coreName": "Selvakumar",
+    "initial": "S",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., M.Phil., B.Ed., (Ph.D)",
     "department": "Ph.D. Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D. Tamil",
+      "Tamil"
     ],
+    "photo": "/assets/staff/tamil_selvakumar.jpeg",
+    "sNo": 3,
     "contactNo": "9715741153",
     "email": "selvamohona@gmail.com",
     "education": {
-      "ug": "14",
-      "pg": "04",
-      "doctorate": "DOING",
-      "other": ""
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
+      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "other": "M.Phil., B.Ed. Tamil"
     },
     "experience": {
-      "teaching": "",
+      "teaching": "18 Years (UG 14 Yrs + PG 4 Yrs)",
       "industry": "",
       "research": "",
-      "total": ""
+      "total": "18 Years"
     },
-    "specialization": "FOLKLORE",
+    "specialization": "Folklore (நாட்டுப்புறவியல்)",
     "publications": {
       "scopus": {
         "international": "",
@@ -5017,8 +5024,7 @@
       "completed": "",
       "undergoing": ""
     },
-    "awards": "",
-    "photo": "/assets/staff/image79.jpeg"
+    "awards": ""
   },
   {
     "id": "staff_81",
@@ -5082,30 +5088,33 @@
     "photo": "/assets/staff/image80.jpeg"
   },
   {
-    "id": "staff_82",
-    "sNo": 82,
-    "fullName": "Mrs. K.YASOTHA",
-    "designation": "ASSISTANT PROFOSSER",
-    "qualification": "M.A,B.Ed,M.Phil,DCT",
+    "fullName": "Mrs. K. Yasotha",
+    "coreName": "Yasotha",
+    "initial": "K",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., B.Ed., M.Phil., DCT",
     "department": "Ph.D. Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D. Tamil",
+      "Tamil"
     ],
+    "photo": "/assets/staff/tamil_yasotha.jpeg",
+    "sNo": 5,
     "contactNo": "9578815399",
     "email": "athish132@gmail.com",
     "education": {
-      "ug": "B.Lit",
-      "pg": "04",
+      "ug": "B.Lit. (Tamil)",
+      "pg": "M.A. Tamil",
       "doctorate": "",
-      "other": "DCT"
+      "other": "B.Ed., M.Phil., DCT"
     },
     "experience": {
-      "teaching": "",
+      "teaching": "4 Years (PG)",
       "industry": "",
       "research": "",
-      "total": ""
+      "total": "4 Years"
     },
-    "specialization": "IKKALA ILAKKIYAM",
+    "specialization": "இக்கால இலக்கியம் (Modern Literature)",
     "publications": {
       "scopus": {
         "international": "",
@@ -5130,7 +5139,7 @@
     },
     "books": "",
     "workshops": "",
-    "fdp": "03 02",
+    "fdp": "5 (3 Int / 2 Nat)",
     "researchGuidance": {
       "awarded": "",
       "undergoing": ""
@@ -5139,24 +5148,26 @@
       "completed": "",
       "undergoing": ""
     },
-    "awards": "",
-    "photo": "/assets/staff/image81.jpeg"
+    "awards": ""
   },
   {
-    "id": "staff_83",
-    "sNo": 83,
-    "fullName": "P.NANDHAKUMAR",
-    "designation": "ASSISTANT PROFOSSER",
-    "qualification": "M.A",
+    "fullName": "Mr. P. Nandhakumar",
+    "coreName": "Nandhakumar",
+    "initial": "P",
+    "designation": "Assistant Professor",
+    "qualification": "M.A.",
     "department": "Ph.D. Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D. Tamil",
+      "Tamil"
     ],
+    "photo": "/assets/staff/tamil_nandhakumar.png",
+    "sNo": 6,
     "contactNo": "9600607759",
     "email": "nandhannandhu073@gmail.com",
     "education": {
-      "ug": "BA TAMIL",
-      "pg": "MA TAMIL",
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
       "doctorate": "",
       "other": ""
     },
@@ -5164,9 +5175,9 @@
       "teaching": "",
       "industry": "",
       "research": "",
-      "total": "Nil"
+      "total": ""
     },
-    "specialization": "SANGAILAKKIYAM, ILAKKANAM",
+    "specialization": "சங்க இலக்கியம், இலக்கணம் (Sangam Literature & Grammar)",
     "publications": {
       "scopus": {
         "international": "",
@@ -5191,7 +5202,7 @@
     },
     "books": "",
     "workshops": "",
-    "fdp": "03 02",
+    "fdp": "5 (3 Int / 2 Nat)",
     "researchGuidance": {
       "awarded": "",
       "undergoing": ""
@@ -5200,8 +5211,7 @@
       "completed": "",
       "undergoing": ""
     },
-    "awards": "",
-    "photo": "/assets/staff/image82.png"
+    "awards": ""
   },
   {
     "id": "staff_84",
@@ -5324,5 +5334,381 @@
     },
     "awards": "",
     "photo": "/assets/staff/image84.jpeg"
+  },
+  {
+    "fullName": "Mrs. K. Dhenmozhi",
+    "coreName": "Dhenmozhi",
+    "initial": "K",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc. (FD & GC)",
+    "department": "B.Sc. Costume Design & Fashion",
+    "departments": [
+      "B.Sc. Costume Design & Fashion"
+    ],
+    "photo": "/assets/staff/cdf_dhenmozhi.jpeg",
+    "sNo": 1,
+    "contactNo": "8608174533",
+    "email": "dhenmozhi@svasc.org",
+    "education": {
+      "ug": "B.Sc. (CDF)",
+      "pg": "M.Sc. (FD&GC)",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "8 Years",
+      "industry": "",
+      "research": "",
+      "total": "8 Years"
+    },
+    "specialization": "CAD, Dyeing, Processing, Stitching, Surface Embellishments",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "1 (IJIRT Journal)",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "4 (Seminars)",
+        "national": "6 (Seminars)"
+      }
+    },
+    "conferences": {
+      "international": "4",
+      "national": "6"
+    },
+    "books": "5 entries: one book chapter",
+    "workshops": "3",
+    "fdp": "8",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": ""
+  },
+  {
+    "fullName": "Mrs. T. Ayeeshasumaiya",
+    "coreName": "Ayeeshasumaiya",
+    "initial": "T",
+    "designation": "Head & Assistant Professor",
+    "qualification": "M.Sc., (Ph.D)",
+    "department": "B.Sc. Costume Design & Fashion",
+    "departments": [
+      "B.Sc. Costume Design & Fashion",
+      "Alumni Committee"
+    ],
+    "photo": "/assets/staff/cdf_ayeeshasumaiya.jpeg",
+    "sNo": 2,
+    "contactNo": "9087405678",
+    "email": "ayeeshasumaiya117@gmail.com",
+    "education": {
+      "ug": "B.Sc. Costume Design and Fashion – 2011, PSG College of Arts and Science, Coimbatore (91%)",
+      "pg": "M.Sc. Costume Design and Fashion – 2014, Bharathiar University (93%)",
+      "doctorate": "Ph.D. – Pursuing (Since 2024), PSG College of Arts and Science, Coimbatore",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "12 Years",
+      "industry": "1 Year 6 Months",
+      "research": "Ph.D. Research Scholar",
+      "total": "13 Years 6 Months"
+    },
+    "specialization": "Fashion Design; Textile Wet Processing; Natural Colours/Dyes; Textile and Garment Design",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "1 (IJIRT Journal)",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "4 (Seminars)",
+        "national": "6 (Seminars)"
+      }
+    },
+    "conferences": {
+      "international": "4",
+      "national": "7"
+    },
+    "books": "6 entries: one book chapter and one book",
+    "workshops": "3 Workshops",
+    "fdp": "10",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": "Ph.D. research – ongoing"
+    },
+    "awards": "Best Faculty Award"
+  },
+  {
+    "fullName": "Mrs. P. Anitha",
+    "coreName": "Anitha",
+    "initial": "P",
+    "designation": "Assistant Professor",
+    "qualification": "M.Sc. (CDF)",
+    "department": "B.Sc. Costume Design & Fashion",
+    "departments": [
+      "B.Sc. Costume Design & Fashion"
+    ],
+    "photo": "/assets/staff/cdf_anitha.jpeg",
+    "sNo": 3,
+    "contactNo": "9789911666",
+    "email": "anitha@svasc.org",
+    "education": {
+      "ug": "B.Sc. (CDF)",
+      "pg": "M.Sc. (CDF)",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "7 Years 5 Months",
+      "industry": "",
+      "research": "",
+      "total": "7 Years 5 Months"
+    },
+    "specialization": "CAD-Designing, Garment Making, Drawing",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "1 (IJIRT Journal)",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "4 (Seminars)",
+        "national": "6 (Seminars)"
+      }
+    },
+    "conferences": {
+      "international": "4",
+      "national": "5"
+    },
+    "books": "5 entries: one book chapter",
+    "workshops": "3",
+    "fdp": "5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": ""
+  },
+  {
+    "fullName": "Mr. G. Rajenderakumar",
+    "coreName": "Rajenderakumar",
+    "initial": "G",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., B.Ed., (Ph.D)., NET",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil",
+      "Tamil"
+    ],
+    "photo": "/assets/staff/tamil_rajenderakumar.jpeg",
+    "sNo": 4,
+    "contactNo": "98940-94979",
+    "email": "rajendarguru@gmail.com",
+    "education": {
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
+      "doctorate": "Ph.D. Tamil",
+      "other": "B.Ed. Biology, UGC-NET"
+    },
+    "experience": {
+      "teaching": "Assistant Professor",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "Folklore (நாட்டுப்புறவியல்)",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "1",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": ""
+  },
+  {
+    "fullName": "Mr. V. Vimalraj",
+    "coreName": "Vimalraj",
+    "initial": "V",
+    "designation": "Assistant Professor",
+    "qualification": "M.A., DIE., (Ph.D)",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil",
+      "Tamil"
+    ],
+    "photo": "/assets/staff/tamil_vimalraj.jpeg",
+    "sNo": 7,
+    "contactNo": "8248295688",
+    "email": "Vr5080118@gmail.com",
+    "education": {
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
+      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "other": "DIE"
+    },
+    "experience": {
+      "teaching": "2 Years",
+      "industry": "",
+      "research": "",
+      "total": "2 Years"
+    },
+    "specialization": "Folklore (நாட்டுப்புறவியல்)",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "5 (3 Int / 2 Nat)",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": ""
+  },
+  {
+    "fullName": "Mrs. S. Myvizhi",
+    "coreName": "Myvizhi",
+    "initial": "S",
+    "designation": "Assistant Professor",
+    "qualification": "M.A.",
+    "department": "Ph.D. Tamil",
+    "departments": [
+      "Ph.D. Tamil",
+      "Tamil"
+    ],
+    "photo": "/assets/staff/tamil_myvizhi.jpeg",
+    "sNo": 8,
+    "contactNo": "9597188105",
+    "email": "myvizhis2003@gmail.com",
+    "education": {
+      "ug": "B.A. Tamil",
+      "pg": "M.A. Tamil",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "",
+      "industry": "",
+      "research": "",
+      "total": ""
+    },
+    "specialization": "தமிழ் இலக்கியம் (Tamil Literature)",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "6 (3 Int / 3 Nat)",
+    "workshops": "1",
+    "fdp": "5 (3 Int / 2 Nat)",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": ""
   }
 ]

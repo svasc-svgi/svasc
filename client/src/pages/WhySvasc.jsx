@@ -110,9 +110,9 @@ const WhySvasc = () => {
                                 More than a college, a launchpad for your dreams.
                             </h2>
                             <p>
-                                SVASC - Located in ERODE, SVASC College of Arts and Science is a NAAC-accredited institution
-                                known for its industry-aligned programs, modern infrastructure, and outcome-based education.
-                                With a strong focus on placements, innovation, and global exposure, SVASC empowers students to
+                                Located in Erode, SVASC College of Arts and Science is a recognized institution
+                                known for its industry-aligned programs, modern infrastructure and outcome-based education.
+                                With a strong focus on placements, innovation and global exposure, SVASC empowers students to
                                 lead with confidence in their careers and beyond.
                             </p>
                             <button className={styles.ctaButton}>Call for Admissions</button>

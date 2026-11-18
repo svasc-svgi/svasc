@@ -27,12 +27,12 @@ const Transport = () => {
 
                     <p className={styles.description}>
                         SVASC offers free bus transport facilities to ensure students travel safely and comfortably to and from the campus.
-                        The transport system is designed to cover major routes, nearby towns, and surrounding rural areas, making daily commuting easy and reliable.
+                        The transport system is designed to cover major routes, nearby towns and surrounding rural areas, making daily commuting easy and reliable.
 
                         The bus service operates on a fixed schedule to support punctuality and regular attendance.
-                        This initiative reduces travel expenses for students, promotes safety, and provides a stress-free commuting experience throughout the academic year.
+                        This initiative reduces travel expenses for students, promotes safety and provides a stress-free commuting experience throughout the academic year.
 
-                        Well-maintained buses, experienced drivers, and organized routes make the transport facility a dependable service for all students.
+                        Well-maintained buses, experienced drivers and organized routes make the transport facility a dependable service for all students.
                     </p>
 
                     {/* Gallery */}

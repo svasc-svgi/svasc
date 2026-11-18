@@ -10,7 +10,7 @@ const Accreditation = () => {
             <span className='accreditation-span'>Quality You Can Trust</span>
             <h2>Accreditation and academic Recognitions</h2>
             <p>
-                SVASC College of Arts & Science is accredited by top educational bodies as a trusted and certified arts and science college , ensuring high academic standards and quality education. Our certifications reflect our commitment to excellence, innovation, and student success.,
+                SVASC College of Arts & Science is accredited by top educational bodies as a trusted and certified arts and science college, ensuring high academic standards and quality education. Our certifications reflect our commitment to excellence, innovation and student success.
             </p>
             <span className="bg-watermark">SVASC</span>
             <div className="cards">

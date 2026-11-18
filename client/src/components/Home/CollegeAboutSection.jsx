@@ -18,7 +18,7 @@ const CollegeAboutSection = () => {
                         </h2>
 
                         <p className="svasc-about-description" style={{ textAlign: 'justify' }}>
-                            Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is dedicated to shaping future-ready graduates through quality education, practical learning, skill development, and holistic growth. College provides a dynamic and supportive learning environment that encourages academic excellence, innovation, critical thinking, and personal development.
+                            Shree Venkateshwara Arts and Science (Co-Education) College (SVASC) is dedicated to shaping future-ready graduates through quality education, practical learning, skill development and holistic growth. The college provides a dynamic and supportive learning environment that encourages academic excellence, innovation, critical thinking and personal development.
                         </p>
 
                         {/* FEATURE 1 */}

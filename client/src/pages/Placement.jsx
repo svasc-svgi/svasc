@@ -48,7 +48,7 @@ const PlacementCell = () => {
                             with Professional Opportunities
                         </h1>
                         <p className={styles.heroDescription}>
-                            The Training & Placement Cell of Shree Venkateshwara Arts and Science (Co-Education) College, Gobichettipalayam, is committed to enhancing students' employability by providing comprehensive career guidance, industry-oriented training, and placement opportunities.
+                            The Training & Placement Cell of Shree Venkateshwara Arts and Science (Co-Education) College, Gobichettipalayam, is committed to enhancing students' employability by providing comprehensive career guidance, industry-oriented training and placement opportunities.
                         </p>
                         <div className={styles.heroButtons}>
                             <Link to="/statistics" className={`${styles.btn} ${styles.btnPrimary}`}>
@@ -102,11 +102,11 @@ const PlacementCell = () => {
                 <div className={styles.aboutContainer}>
                     <h2 className={styles.sectionTitle}>About The Placement Cell</h2>
                     <p className={styles.aboutMainText}>
-                        The Training & Placement Cell serves as a vital link between academia and industry by equipping students with technical knowledge, communication skills, aptitude, and professional competencies required to meet evolving industry expectations.
+                        The Training & Placement Cell serves as a vital link between academia and industry by equipping students with technical knowledge, communication skills, aptitude and professional competencies required to meet evolving industry expectations.
                     </p>
                     <div className={styles.divider}></div>
                     <p className={styles.aboutSecondaryText}>
-                        Through structured training programmes, industry interactions, internships, and campus recruitment drives, the Cell prepares students for successful careers across diverse sectors. During the academic year 2025–2026, the Cell conducted continuous employability enhancement programmes and facilitated campus recruitment drives with leading multinational companies and reputed organizations, resulting in significant placement opportunities for students.
+                        Through structured training programmes, industry interactions, internships and campus recruitment drives, the Cell prepares students for successful careers across diverse sectors. During the academic year 2025–2026, the Cell conducted continuous employability enhancement programmes and facilitated campus recruitment drives with leading multinational companies and reputed organizations, resulting in significant placement opportunities for students.
                     </p>
                 </div>
             </section>
@@ -145,28 +145,28 @@ const PlacementCell = () => {
                                 <Award size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Employability Skills</h3>
-                            <p className={styles.cardDescription}>To provide comprehensive training in aptitude, technical, communication, and soft skills to improve students' employability.</p>
+                            <p className={styles.cardDescription}>To provide comprehensive training in aptitude, technical, communication and soft skills to improve students' employability.</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Users size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Recruitment Prep</h3>
-                            <p className={styles.cardDescription}>To prepare students for campus recruitment through mock interviews, group discussions, coding assessments, and resume-building sessions.</p>
+                            <p className={styles.cardDescription}>To prepare students for campus recruitment through mock interviews, group discussions, coding assessments and resume-building sessions.</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Network size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Industry Partnerships</h3>
-                            <p className={styles.cardDescription}>To establish and strengthen partnerships with leading industries, corporate organizations, and recruiters for internships and placement opportunities.</p>
+                            <p className={styles.cardDescription}>To establish and strengthen partnerships with leading industries, corporate organizations and recruiters for internships and placement opportunities.</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Mic2 size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Expert Seminars</h3>
-                            <p className={styles.cardDescription}>To organize career guidance programs, industry interactions, seminars, workshops, and guest lectures by experts.</p>
+                            <p className={styles.cardDescription}>To organize career guidance programs, industry interactions, seminars, workshops and guest lectures by experts.</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
@@ -180,7 +180,7 @@ const PlacementCell = () => {
                                 <MessageSquare size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Ethics & Leadership</h3>
-                            <p className={styles.cardDescription}>To encourage students to develop professional ethics, leadership qualities, teamwork, and problem-solving abilities.</p>
+                            <p className={styles.cardDescription}>To encourage students to develop professional ethics, leadership qualities, teamwork and problem-solving abilities.</p>
                         </div>
                     </div>
                 </div>
@@ -206,28 +206,28 @@ const PlacementCell = () => {
                                 <Mic2 size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Communication Skills</h3>
-                            <p className={styles.cardDescription}>Spoken English, listening capabilities, and written communication</p>
+                            <p className={styles.cardDescription}>Spoken English, listening capabilities and written communication</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Users size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Soft Skills</h3>
-                            <p className={styles.cardDescription}>Personality development, positive attitude, and behavioral dynamics</p>
+                            <p className={styles.cardDescription}>Personality development, positive attitude and behavioral dynamics</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <MessageSquare size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Group Discussions</h3>
-                            <p className={styles.cardDescription}>Formulating structured arguments, presentation skills, and public speaking</p>
+                            <p className={styles.cardDescription}>Formulating structured arguments, presentation skills and public speaking</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <FileText size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Resume & Profile Writing</h3>
-                            <p className={styles.cardDescription}>Resume engineering, cover letters, and corporate profile building</p>
+                            <p className={styles.cardDescription}>Resume engineering, cover letters and corporate profile building</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
@@ -248,14 +248,14 @@ const PlacementCell = () => {
                                 <Award size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Professional Etiquette</h3>
-                            <p className={styles.cardDescription}>Corporate protocols, leadership mindset, and workplace communication</p>
+                            <p className={styles.cardDescription}>Corporate protocols, leadership mindset and workplace communication</p>
                         </div>
                         <div className={styles.serviceCard}>
                             <div className={styles.cardIcon}>
                                 <Clock size={24} />
                             </div>
                             <h3 className={styles.cardTitle}>Workplace Readiness</h3>
-                            <p className={styles.cardDescription}>Time management, stress handling, and team collaboration</p>
+                            <p className={styles.cardDescription}>Time management, stress handling and team collaboration</p>
                         </div>
                     </div>
                 </div>

@@ -240,16 +240,6 @@ const StaffTab = () => {
         experience: { teaching: '', industry: '5 Years', research: '', total: '5 Years' }
       });
 
-      // Add Alumni committee coordinators
-      allFaculty.push({
-        fullName: 'Mrs. T. Ayeeshasumaiya',
-        qualification: 'Assistant Professor & Head',
-        designation: 'Coordinator',
-        department: 'B.Sc. Costume Design & Fashion',
-        departments: ['B.Sc. Costume Design & Fashion', 'Alumni Committee'],
-        sNo: 1
-      });
-
       await syncDefaultStaff(allFaculty);
       const updated = await getAllStaff();
       setStaffList(updated);
@@ -542,7 +532,7 @@ const StaffTab = () => {
       const parsed = parseStaffName(s.fullName || s.name || '');
       const initial = (s.initial || parsed.initial || '').trim().toLowerCase();
       const core = cleanStr(parsed.coreName || s.coreName || s.fullName || s.name || '');
-      const key = s.normalizedKey || (initial ? `${core}_${initial}` : core) || String(s._id || s.id);
+      const key = parsed.normalizedKey || s.normalizedKey || (initial ? `${core}_${initial}` : core) || String(s._id || s.id);
 
       if (!personMap.has(key)) {
         const itemDepts = Array.isArray(s.departments) && s.departments.length > 0

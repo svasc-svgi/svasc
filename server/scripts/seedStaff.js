@@ -37,8 +37,10 @@ const seedStaff = async () => {
       const normalizedKey = cleanInit ? `${cleanCore}_${cleanInit}` : cleanCore;
 
       const existing = await Staff.findOne({
-        fullName: rawName,
-        department: item.department
+        $or: [
+          { normalizedKey },
+          { fullName: rawName }
+        ]
       });
 
       const staffPayload = {

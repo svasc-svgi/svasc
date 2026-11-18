@@ -59,8 +59,21 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
   const awards = staff.awards || '';
 
   const cleanVal = (val) => {
-    if (!val || val === 'Nil' || val === '-' || val === 'null' || val === 'undefined') return '';
-    return String(val).trim();
+    if (val === undefined || val === null) return '';
+    const s = String(val).trim();
+    if (
+      !s ||
+      s === '0' ||
+      /^(0+|nil|-|null|undefined|none|not specified|n\/a)(\s*(years?|months?|yrs?|mos?|days?))?$/i.test(s)
+    ) {
+      return '';
+    }
+    return s;
+  };
+
+  const displayVal = (val, fallback = '-') => {
+    const cleaned = cleanVal(val);
+    return cleaned ? cleaned : fallback;
   };
 
   return (
@@ -187,28 +200,28 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                   <div className={styles.eduCard}>
                     <div className={styles.eduLabel}>Undergraduate (UG)</div>
                     <div className={styles.eduValue}>
-                      {cleanVal(education.ug) || cleanVal(qualification) || 'Degree Completed'}
+                      {cleanVal(education.ug) || cleanVal(qualification) || '-'}
                     </div>
                   </div>
 
                   <div className={styles.eduCard}>
                     <div className={styles.eduLabel}>Postgraduate (PG)</div>
                     <div className={styles.eduValue}>
-                      {cleanVal(education.pg) || 'Master Degree'}
+                      {cleanVal(education.pg) || '-'}
                     </div>
                   </div>
 
                   <div className={styles.eduCard}>
                     <div className={styles.eduLabel}>Doctorate (Ph.D)</div>
                     <div className={styles.eduValue}>
-                      {cleanVal(education.doctorate) || (qualification.toLowerCase().includes('ph.d') ? 'Ph.D Awarded' : 'None')}
+                      {cleanVal(education.doctorate) || (qualification.toLowerCase().includes('ph.d') ? 'Ph.D Awarded' : '-')}
                     </div>
                   </div>
 
                   {cleanVal(education.other) && (
                     <div className={styles.eduCard}>
                       <div className={styles.eduLabel}>Other Qualifications</div>
-                      <div className={styles.eduValue}>{education.other}</div>
+                      <div className={styles.eduValue}>{cleanVal(education.other)}</div>
                     </div>
                   )}
                 </div>
@@ -246,28 +259,28 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                 <div className={styles.experienceGrid}>
                   <div className={styles.expCard}>
                     <div className={styles.expNumber}>
-                      {cleanVal(experience.teaching) || cleanVal(experience.total) || '0'}
+                      {displayVal(experience.teaching)}
                     </div>
                     <div className={styles.expLabel}>Teaching Experience</div>
                   </div>
 
                   <div className={styles.expCard}>
                     <div className={styles.expNumber}>
-                      {cleanVal(experience.industry) || '0'}
+                      {displayVal(experience.industry)}
                     </div>
                     <div className={styles.expLabel}>Industry Experience</div>
                   </div>
 
                   <div className={styles.expCard}>
                     <div className={styles.expNumber}>
-                      {cleanVal(experience.research) || '0'}
+                      {displayVal(experience.research)}
                     </div>
                     <div className={styles.expLabel}>Research Experience</div>
                   </div>
 
                   <div className={styles.expCard}>
                     <div className={styles.expNumber}>
-                      {cleanVal(experience.total) || cleanVal(experience.teaching) || '0'}
+                      {displayVal(experience.total) !== '-' ? displayVal(experience.total) : displayVal(experience.teaching)}
                     </div>
                     <div className={styles.expLabel}>Total Experience</div>
                   </div>
@@ -320,12 +333,12 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                         <td className={styles.pubCategory}>Scopus Indexed Journals</td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.scopus?.international) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.scopus?.international) || '0'}
+                            {cleanVal(publications.scopus?.international) || '-'}
                           </span>
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.scopus?.national) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.scopus?.national) || '0'}
+                            {cleanVal(publications.scopus?.national) || '-'}
                           </span>
                         </td>
                       </tr>
@@ -333,12 +346,12 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                         <td className={styles.pubCategory}>Peer-Reviewed Journals</td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.peerReviewed?.international) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.peerReviewed?.international) || '0'}
+                            {cleanVal(publications.peerReviewed?.international) || '-'}
                           </span>
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.peerReviewed?.national) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.peerReviewed?.national) || '0'}
+                            {cleanVal(publications.peerReviewed?.national) || '-'}
                           </span>
                         </td>
                       </tr>
@@ -346,12 +359,12 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                         <td className={styles.pubCategory}>Web of Science</td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.webOfScience?.international) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.webOfScience?.international) || '0'}
+                            {cleanVal(publications.webOfScience?.international) || '-'}
                           </span>
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.webOfScience?.national) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.webOfScience?.national) || '0'}
+                            {cleanVal(publications.webOfScience?.national) || '-'}
                           </span>
                         </td>
                       </tr>
@@ -359,12 +372,12 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                         <td className={styles.pubCategory}>Other Publications</td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.others?.international) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.others?.international) || '0'}
+                            {cleanVal(publications.others?.international) || '-'}
                           </span>
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(publications.others?.national) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(publications.others?.national) || '0'}
+                            {cleanVal(publications.others?.national) || '-'}
                           </span>
                         </td>
                       </tr>
@@ -372,12 +385,12 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                         <td className={styles.pubCategory}>Conference Proceedings</td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(conferences.international) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(conferences.international) || '0'}
+                            {cleanVal(conferences.international) || '-'}
                           </span>
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <span className={`${styles.pubCountBadge} ${cleanVal(conferences.national) ? styles.hasCount : styles.zeroCount}`}>
-                            {cleanVal(conferences.national) || '0'}
+                            {cleanVal(conferences.national) || '-'}
                           </span>
                         </td>
                       </tr>
@@ -403,7 +416,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                       <div className={styles.contribInfo}>
                         <div className={styles.contribLabel}>Research Guidance</div>
                         <div className={styles.contribValue}>
-                          Awarded: {cleanVal(researchGuidance.awarded) || '0'} • Undergoing: {cleanVal(researchGuidance.undergoing) || '0'}
+                          Awarded: {displayVal(researchGuidance.awarded)} • Undergoing: {displayVal(researchGuidance.undergoing)}
                         </div>
                         <div className={styles.contribDetail}>Supervision of Ph.D / M.Phil research scholars</div>
                       </div>
@@ -416,7 +429,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                       <div className={styles.contribInfo}>
                         <div className={styles.contribLabel}>Research Projects</div>
                         <div className={styles.contribValue}>
-                          Completed: {cleanVal(researchProjects.completed) || '0'} • Ongoing: {cleanVal(researchProjects.undergoing) || '0'}
+                          Completed: {displayVal(researchProjects.completed)} • Ongoing: {displayVal(researchProjects.undergoing)}
                         </div>
                         <div className={styles.contribDetail}>Institutional & funded research initiatives</div>
                       </div>
@@ -445,7 +458,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                     </div>
                     <div className={styles.contribInfo}>
                       <div className={styles.contribLabel}>Book Publications</div>
-                      <div className={styles.contribValue}>{cleanVal(books) || '0'}</div>
+                      <div className={styles.contribValue}>{displayVal(books)}</div>
                       <div className={styles.contribDetail}>Books / Chapters published in recognized media</div>
                     </div>
                   </div>
@@ -456,7 +469,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                     </div>
                     <div className={styles.contribInfo}>
                       <div className={styles.contribLabel}>FDP Attended</div>
-                      <div className={styles.contribValue}>{cleanVal(fdp) || '0'}</div>
+                      <div className={styles.contribValue}>{displayVal(fdp)}</div>
                       <div className={styles.contribDetail}>Faculty Development Programs & pedagogical training</div>
                     </div>
                   </div>
@@ -467,7 +480,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
                     </div>
                     <div className={styles.contribInfo}>
                       <div className={styles.contribLabel}>Workshops Attended</div>
-                      <div className={styles.contribValue}>{cleanVal(workshops) || '0'}</div>
+                      <div className={styles.contribValue}>{displayVal(workshops)}</div>
                       <div className={styles.contribDetail}>Hands-on workshops, webinars & technical symposiums</div>
                     </div>
                   </div>
@@ -499,7 +512,7 @@ const StaffProfileModal = ({ staff, isOpen, onClose }) => {
         <div className={styles.modalFooter}>
           <div className={styles.footerCollegeTag}>
             <Sparkles size={15} style={{ color: '#c8860a' }} />
-            <span>Sri Vasavi College (Self-Finance Wing), Erode</span>
+            <span>Shree Venkateshwara arts and Science college</span>
           </div>
           <button className={styles.footerCloseBtn} onClick={onClose}>
             Close Profile
