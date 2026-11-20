@@ -196,34 +196,34 @@ export default function DynamicClubDetail() {
               'voter-literacy-club': 'Transforming every eligible citizen into an informed, ethical and empowered voter — because democracy is only as strong as its most engaged participant.',
               'nss': 'Forging youth into agents of change — guided by the timeless motto ‘Not Me But You’ — to serve society with dedication, empathy and purpose.',
               'national-service-scheme': 'Forging youth into agents of change — guided by the timeless motto ‘Not Me But You’ — to serve society with dedication, empathy and purpose.',
-              'rotaract-club': 'Service Above Self — where student leaders transform compassion into action, and local service into global impact.',
+              'rotaract-club': 'Service Above Self — where student leaders transform compassion into action and local service into global impact.',
               'junior-jci-wing': 'Developing tomorrow’s ethical, visionary leaders through the proven JCI philosophy of active citizenship, community service and lifelong personal growth.',
-              'fine-arts-club': 'Nurturing student creativity, artistic expression, cultural traditions, and stage confidence through diverse cultural events.',
-              'consumer-protection-club': 'Educating consumers on statutory rights, fair-trade standards, ethical purchasing, and legal redressal pathways.',
-              'red-ribbon-club': 'Harnessing the potential of youth in health promotion, HIV/AIDS awareness, voluntary blood donation, and compassionate community care.',
-              'literary-club': 'Fostering linguistic flair, public speaking, debating excellence, and creative literary pursuits among students.',
-              'eco-club': 'Instilling environmental stewardship, campus sustainability, bio-diversity conservation, and climate responsibility.',
-              'anti-drug-club': 'Building an informed, healthy, and substance-free campus through proactive youth awareness, peer education, and wellness counseling.',
+              'fine-arts-club': 'Nurturing student creativity, artistic expression, cultural traditions and stage confidence through diverse cultural events.',
+              'consumer-protection-club': 'Educating consumers on statutory rights, fair-trade standards, ethical purchasing and legal redressal pathways.',
+              'red-ribbon-club': 'Harnessing the potential of youth in health promotion, HIV/AIDS awareness, voluntary blood donation and compassionate community care.',
+              'literary-club': 'Fostering linguistic flair, public speaking, debating excellence and creative literary pursuits among students.',
+              'eco-club': 'Instilling environmental stewardship, campus sustainability, bio-diversity conservation and climate responsibility.',
+              'anti-drug-club': 'Building an informed, healthy and substance-free campus through proactive youth awareness, peer education and wellness counseling.',
               'research-development-cell': 'Cultivating a thriving ecosystem of innovation, interdisciplinary inquiry and transformative research that connects academic knowledge to national development.',
-              'innovation-entrepreneurship': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
-              'iiedc': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
-              'institution-innovation-entrepreneurial-development-cell': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support, and startup funding guidance.',
-              'placement-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming, and premier placement opportunities.',
-              'placement-and-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming, and premier placement opportunities.',
-              'exam-cell': 'Administering transparent, rigorous, and seamless continuous assessments, university examinations, and academic evaluation.',
-              'women-empowerment-cell': 'Championing gender equity, self-reliance, leadership, campus safety, and holistic empowerment for women students and faculty.',
-              'media-cell': 'Amplifying campus milestones, academic achievements, student life, and institutional storytelling across modern media platforms.',
-              'social-media-media-cell': 'Amplifying campus milestones, academic achievements, student life, and institutional storytelling across modern media platforms.',
-              'iqac': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence, and holistic institutional governance.',
-              'internal-quality-assurance-cell': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence, and holistic institutional governance.',
-              'internal-grievances-committee': 'Providing prompt, transparent, and fair dispute redressal mechanisms to ensure harmonious campus relations.',
-              'grievance-redressal-committee': 'Providing prompt, transparent, and fair dispute redressal mechanisms to ensure harmonious campus relations.',
-              'anti-ragging-cell': 'Upholding strict zero-tolerance protocols, respectful student fellowship, and a secure, supportive campus atmosphere.',
-              'anti-ragging-cell-committee': 'Upholding strict zero-tolerance protocols, respectful student fellowship, and a secure, supportive campus atmosphere.',
+              'innovation-entrepreneurship': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support and startup funding guidance.',
+              'iiedc': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support and startup funding guidance.',
+              'institution-innovation-entrepreneurial-development-cell': 'Transforming student ideas into sustainable ventures through incubation mentorship, intellectual property support and startup funding guidance.',
+              'placement-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming and premier placement opportunities.',
+              'placement-and-training-cell': 'Empowering students with industry-aligned competencies, corporate mentorship, professional grooming and premier placement opportunities.',
+              'exam-cell': 'Administering transparent, rigorous and seamless continuous assessments, university examinations and academic evaluation.',
+              'women-empowerment-cell': 'Championing gender equity, self-reliance, leadership, campus safety and holistic empowerment for women students and faculty.',
+              'media-cell': 'Amplifying campus milestones, academic achievements, student life and institutional storytelling across modern media platforms.',
+              'social-media-media-cell': 'Amplifying campus milestones, academic achievements, student life and institutional storytelling across modern media platforms.',
+              'iqac': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence and holistic institutional governance.',
+              'internal-quality-assurance-cell': 'Spearheading continuous quality benchmarks, academic innovations, NAAC excellence and holistic institutional governance.',
+              'internal-grievances-committee': 'Providing prompt, transparent and fair dispute redressal mechanisms to ensure harmonious campus relations.',
+              'grievance-redressal-committee': 'Providing prompt, transparent and fair dispute redressal mechanisms to ensure harmonious campus relations.',
+              'anti-ragging-cell': 'Upholding strict zero-tolerance protocols, respectful student fellowship and a secure, supportive campus atmosphere.',
+              'anti-ragging-cell-committee': 'Upholding strict zero-tolerance protocols, respectful student fellowship and a secure, supportive campus atmosphere.',
               'swayam-nptel': 'Bridging the digital education frontier — empowering SVASC students and faculty with world-class online certifications that redefine career trajectories.',
-              'youth-red-cross': 'Instilling emergency preparedness, humanitarian relief, voluntary blood donation, and health awareness in youth.',
-              'physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence, and competitive university championship honors.',
-              'department-of-physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence, and competitive university championship honors.'
+              'youth-red-cross': 'Instilling emergency preparedness, humanitarian relief, voluntary blood donation and health awareness in youth.',
+              'physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence and competitive university championship honors.',
+              'department-of-physical-education': 'Championing fitness, disciplined sportsmanship, athletic excellence and competitive university championship honors.'
             };
 
             const cleanIntro = (card) => {
@@ -252,7 +252,7 @@ export default function DynamicClubDetail() {
                 }
               }
 
-              return `Explore the initiatives, objectives, and activities of the ${card.title} at SVASC.`;
+              return `Explore the initiatives, objectives and activities of the ${card.title} at SVASC.`;
             };
 
             const formatted = {
@@ -315,7 +315,7 @@ export default function DynamicClubDetail() {
                   if (stripped && stripped.length < 350) return stripped;
                 }
               }
-              return `Discover all activities, cells, and clubs under ${cat.category} at SVASC.`;
+              return `Discover all activities, cells and clubs under ${cat.category} at SVASC.`;
             };
 
             const formatted = {

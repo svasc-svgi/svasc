@@ -9,7 +9,7 @@ const Cafeteria = () => {
         <>
             <Hero
                 title="SVASC Cafeteria"
-                description="Quality, Hygiene, and Affordability"
+                description="Quality, Hygiene and Affordability"
                 image={campus1Img}
             />
             <main className={styles.container}>
@@ -22,7 +22,7 @@ const Cafeteria = () => {
                         and affordability to meet student needs.
                     </p>
                     <p className={styles.description}>
-                        Nutritious meals, snacks, and beverages are prepared in a clean and student-friendly
+                        Nutritious meals, snacks and beverages are prepared in a clean and student-friendly
                         environment. The canteen also promotes experiential learning by supporting
                         student-run food stalls under faculty supervision, making it both a dining and
                         learning space.
@@ -46,7 +46,7 @@ const Cafeteria = () => {
                             <h3 className={styles.cardTitle}>Lunch</h3>
                             <p className={styles.cardText}>
                                 Both vegetarian and non-vegetarian meals are prepared fresh and served to
-                                students, ensuring balanced nutrition, taste, and quality.
+                                students, ensuring balanced nutrition, taste and quality.
                             </p>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const Cafeteria = () => {
 
                             <div className={styles.eveningContent}>
                                 <p className={styles.eveningText}>
-                                    Evening snacks, hot &amp; cold drinks, and packed eatables are available.
+                                    Evening snacks, hot &amp; cold drinks and packed eatables are available.
                                     CSHM students run a "Kappa Chakka" stall under faculty supervision, offering
                                     international cuisines. Vending machines are installed for quick access.
                                 </p>

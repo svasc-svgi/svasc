@@ -23,7 +23,7 @@ const ProjectsPortfolio = () => {
   const [projectHeights, setProjectHeights] = useState({});
   const [heroData, setHeroData] = useState({
     title: 'Campus Activities',
-    description: 'Explore the comprehensive range of student support services, clubs, and developmental programs at SVASC.',
+    description: 'Explore the comprehensive range of student support services, clubs and developmental programs at SVASC.',
     image: campusHeroImg
   });
   const scrollBackTo = useRef(0);

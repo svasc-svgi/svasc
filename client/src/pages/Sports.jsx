@@ -62,7 +62,7 @@ const fallbackImages = [
 const fallbackSportsDay = {
     title: "Sports Day",
     subtitle: "Annual Athletic Meet",
-    description: "The Annual Sports Day at Shree Venkateshwara Arts and Science College is a grand celebration of athletic prowess, endurance, and team spirit. Students across all houses compete passionately in an inspiring array of track and field events, relay races, and championship tournaments. Fostering camaraderie, discipline, and healthy sportsmanship, the meet serves as a testament to our ongoing pursuit of physical well-being and collegiate excellence.",
+    description: "The Annual Sports Day at Shree Venkateshwara Arts and Science College is a grand celebration of athletic prowess, endurance and team spirit. Students across all houses compete passionately in an inspiring array of track and field events, relay races and championship tournaments. Fostering camaraderie, discipline and healthy sportsmanship, the meet serves as a testament to our ongoing pursuit of physical well-being and collegiate excellence.",
     pdfTitle: "Sports Day Event Schedule & Guidelines",
     pdfUrl: ""
 };
@@ -300,8 +300,8 @@ const SVASCSports = () => {
                             </p>
 
                             <p className={styles['svasc-sports-about-description']}>
-                                With modern infrastructure, professional coaching, and continuous support
-                                for university, state, and national competitions — SVASC empowers students
+                                With modern infrastructure, professional coaching and continuous support
+                                for university, state and national competitions — SVASC empowers students
                                 to become champions in sports and life.
                             </p>
                         </div>
@@ -599,7 +599,7 @@ const SVASCSports = () => {
                                         {sportsDayData.pdfTitle || 'Sports Day Schedule & Circular'}
                                     </h3>
                                     <p className={styles['svasc-sports-day-pdf-empty-desc']}>
-                                        The official schedule, rules, and event circular will be published here upon official announcement.
+                                        The official schedule, rules and event circular will be published here upon official announcement.
                                     </p>
                                 </div>
                             )}

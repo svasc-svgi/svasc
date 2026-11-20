@@ -23,21 +23,21 @@ const Laboratory = () => {
         {
             id: 'computer-lab',
             header: 'Computer Lab',
-            desc: 'Our state-of-the-art computer lab features fully air-conditioned facilities with Intel Core i3 systems, 8GB RAM, and 24/7 high-speed internet connectivity. Students benefit from LAN-connected workstations and digital learning platforms for both theoretical and practical sessions.',
+            desc: 'Our state-of-the-art computer lab features fully air-conditioned facilities with Intel Core i3 systems, 8GB RAM and 24/7 high-speed internet connectivity. Students benefit from LAN-connected workstations and digital learning platforms for both theoretical and practical sessions.',
             image: computerlab,
             index: 7
         },
         {
             id: 'sewing-lab',
             header: 'Sewing Laboratory',
-            desc: 'A comprehensive facility equipped with modern sewing machines including single-needle, overlock, and flatlock systems. Students master garment construction, precision stitching, and innovative design under expert faculty supervision.',
+            desc: 'A comprehensive facility equipped with modern sewing machines including single-needle, overlock and flatlock systems. Students master garment construction, precision stitching and innovative design under expert faculty supervision.',
             image: cdf2,
             index: 6
         },
         {
             id: 'microbiology-lab',
             header: 'Microbiology Lab',
-            desc: 'Features advanced equipment including laminar airflow chambers, microscopes, incubators, and spectrophotometers. Electronic classrooms with LCD projectors support computer-aided teaching for comprehensive microbiology studies.',
+            desc: 'Features advanced equipment including laminar airflow chambers, microscopes, incubators and spectrophotometers. Electronic classrooms with LCD projectors support computer-aided teaching for comprehensive microbiology studies.',
             image: lab,
             index: 3
         },    ];

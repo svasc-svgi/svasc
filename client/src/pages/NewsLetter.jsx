@@ -25,7 +25,7 @@ const DEFAULT_NEWSLETTERS = [
   {
     _id: "newsletter-2026-nov",
     title: "SVASC Campus Newsletter – Official Release",
-    description: "Discover the comprehensive highlights, academic dispatches, student milestones, department symposiums, and key institutional achievements published in this official SVASC bulletin.",
+    description: "Discover the comprehensive highlights, academic dispatches, student milestones, department symposiums and key institutional achievements published in this official SVASC bulletin.",
     byline: "CAMPUS EDITORIAL DESK",
     date: "NOVEMBER 7, 2026",
     pdf: "https://res.cloudinary.com/kfaxaxag/image/upload/v1794059795/svasc/newsletters/qq3papptgwl8lgbk68ha.pdf",
@@ -82,7 +82,7 @@ const NewsLetter = () => {
               return {
                 _id: item._id || `db-news-${idx}`,
                 title: item.title === 'NEWS LETTER' ? 'SVASC Campus Newsletter – Official Release' : item.title,
-                description: item.description || "Discover the comprehensive highlights, academic dispatches, student milestones, department symposiums, and key institutional achievements published in this official SVASC bulletin.",
+                description: item.description || "Discover the comprehensive highlights, academic dispatches, student milestones, department symposiums and key institutional achievements published in this official SVASC bulletin.",
                 byline: "CAMPUS EDITORIAL DESK",
                 date: dateFormatted,
                 pdf: fileSrc,
@@ -150,7 +150,7 @@ const NewsLetter = () => {
             </span>
             <h2 className="newsletter-section-title">Official Campus Newsletters</h2>
             <p className="newsletter-section-desc">
-              Explore official digital editions of our institutional gazette, highlighting academic milestones, student laurels, and departmental achievements.
+              Explore official digital editions of our institutional gazette, highlighting academic milestones, student laurels and departmental achievements.
             </p>
           </div>
 

@@ -22,7 +22,7 @@ const Blogs = () => {
 
     const [heroData, setHeroData] = useState({
         title: 'SVASC College Blogs',
-        description: 'Discover vibrant student life, academic excellence, innovation, and campus celebrations at Shree Venkateshwara Arts and Science College.',
+        description: 'Discover vibrant student life, academic excellence, innovation and campus celebrations at Shree Venkateshwara Arts and Science College.',
         image: 'https://images.unsplash.com/photo-1438109491414-7198515b166b?q=80&fm=jpg&s=cbdabf7a79c087a0b060670a6d79726c'
     });
 
@@ -114,7 +114,7 @@ const Blogs = () => {
                     <span className={styles.blogsMainLabel}>SVASC Articles & News</span>
                     <h1 className={styles.blogsMainTitle}>SVASC Insightful Blogs</h1>
                     <p className={styles.blogsMainSubtitle}>
-                        Explore in-depth articles on academics, cultural festivals, student innovations, campus achievements, and college news.
+                        Explore in-depth articles on academics, cultural festivals, student innovations, campus achievements and college news.
                     </p>
                 </div>
 

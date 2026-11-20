@@ -134,7 +134,7 @@ const Vision = () => {
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Innovation & Research</h2>
                                 <p className={styles.captionText}>
-                                    • Fostering a culture of critical thinking, problem-solving, and continuous learning.<br /><br />
+                                    • Fostering a culture of critical thinking, problem-solving and continuous learning.<br /><br />
                                     • Encouraging creative approaches and pioneering research to address real-world challenges.
                                 </p>
                             </figcaption>

@@ -22,7 +22,7 @@ const Hostel = () => {
     },
     {
       question: "What facilities are available?",
-      answer: "The hostel provides secure accommodation, vending machines with digital payment, 24/7 security surveillance, and experienced warden supervision."
+      answer: "The hostel provides secure accommodation, vending machines with digital payment, 24/7 security surveillance and experienced warden supervision."
     },
     {
       question: "Is cooking allowed in rooms?",
@@ -35,7 +35,7 @@ const Hostel = () => {
       {/* Hero Section */}
       <Hero
         title="SVASC Hostel"
-        description="A Safe, Respectful, and Comfortable Living Environment"
+        description="A Safe, Respectful and Comfortable Living Environment"
         image={hostelImg}
       />
 
@@ -54,7 +54,7 @@ const Hostel = () => {
           </h1>
 
           <p className={styles.heroDescription}>
-            Our hostel is committed to providing a safe, respectful, and enjoyable living environment for all residents. To achieve this, we have established certain rules and regulations that govern our hostel. Please ensure adherence to these guidelines for a harmonious and comfortable stay.
+            Our hostel is committed to providing a safe, respectful and enjoyable living environment for all residents. To achieve this, we have established certain rules and regulations that govern our hostel. Please ensure adherence to these guidelines for a harmonious and comfortable stay.
           </p>
 
           <div className={styles.heroButtons}>
@@ -143,7 +143,7 @@ const Hostel = () => {
               </h2>
 
               <div className={styles.aboutText}>
-                <p>The SVASC Girls Hostel provides a fully secure, disciplined, and student-friendly living environment designed to ensure the safety, comfort, and well-being of every resident. The hostel follows a well-structured and transparent administrative system, with continuous supervision by experienced wardens and staff. Entry and exit are closely monitored, and strict adherence to hostel rules is maintained to promote discipline and responsibility among students.</p>
+                <p>The SVASC Girls Hostel provides a fully secure, disciplined and student-friendly living environment designed to ensure the safety, comfort and well-being of every resident. The hostel follows a well-structured and transparent administrative system, with continuous supervision by experienced wardens and staff. Entry and exit are closely monitored and strict adherence to hostel rules is maintained to promote discipline and responsibility among students.</p>
               </div>
               <div className={styles.aboutSignature}>
                 <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Unterschrift" />
@@ -176,7 +176,7 @@ const Hostel = () => {
             <Star className={styles.serviceIcon} />
             <h3 className={styles.serviceTitle}>Valuables</h3>
             <p className={styles.serviceText}>
-              Residents are responsible for securing their valuables, such as laptops, mobile phones, and cash. The hostel management will not be held accountable for any loss or theft.
+              Residents are responsible for securing their valuables, such as laptops, mobile phones and cash. The hostel management will not be held accountable for any loss or theft.
             </p>
           </div>
 
@@ -184,7 +184,7 @@ const Hostel = () => {
             <Star className={styles.serviceIcon} />
             <h3 className={styles.serviceTitle}>Visitor Policy</h3>
             <p className={styles.serviceText}>
-              Parents, guardians, and guests are not permitted to stay in the hostel under any circumstances. While we welcome visitors during designated hours, overnight stays are not permitted to ensure the safety and comfort of all residents.
+              Parents, guardians and guests are not permitted to stay in the hostel under any circumstances. While we welcome visitors during designated hours, overnight stays are not permitted to ensure the safety and comfort of all residents.
             </p>
           </div>
         </div>
@@ -228,7 +228,7 @@ const Hostel = () => {
           <span className={styles.quoteTextItalic}>supported by 24/7 security surveillance"</span>
         </h2>
         <p className={styles.quoteSubtext}>
-          controlled access, and regular monitoring of hostel premises. A clear permission and attendance system ensures accountability at all times. The hostel also encourages a respectful and peaceful atmosphere that supports academic focus, personal growth, and healthy living.
+          controlled access and regular monitoring of hostel premises. A clear permission and attendance system ensures accountability at all times. The hostel also encourages a respectful and peaceful atmosphere that supports academic focus, personal growth and healthy living.
         </p>
       </section>
 

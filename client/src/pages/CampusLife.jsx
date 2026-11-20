@@ -283,7 +283,7 @@ const CampusLife = () => {
                         <p>
                             At SVASC, celebrations go hand in hand with academics. The various clubs, committees,
                             and cells play a crucial role in shaping students' learning curves, offering them
-                            a platform to showcase their talents, leadership, and organizational skills.
+                            a platform to showcase their talents, leadership and organizational skills.
                             The Rising Star Cultural Club is particularly active, organizing inter-departmental
                             and intercollegiate events that bring together a diverse mix of talent and creativity.
                         </p>

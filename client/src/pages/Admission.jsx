@@ -81,9 +81,9 @@ const Admission = () => {
     };
 
     const services = [
-        { id: 1, title: "Placement Support", icon: <Briefcase />, desc: "Comprehensive placement assistance with tie-ups with top companies like TCS, Zoho, Infosys, and more to ensure excellent career opportunities for our students." },
-        { id: 2, title: "World-Class Facilities", icon: <Building2 />, desc: "Modern infrastructure with 25+ well-equipped labs, spacious classrooms, digital libraries, and state-of-the-art learning resources to enhance the educational experience." },
-        { id: 3, title: "Training & Skill Development", icon: <Award />, desc: "Industry-focused training programs, workshops, and certifications to develop practical skills and make students industry-ready from day one." },
+        { id: 1, title: "Placement Support", icon: <Briefcase />, desc: "Comprehensive placement assistance with tie-ups with top companies like TCS, Zoho, Infosys and more to ensure excellent career opportunities for our students." },
+        { id: 2, title: "World-Class Facilities", icon: <Building2 />, desc: "Modern infrastructure with 25+ well-equipped labs, spacious classrooms, digital libraries and state-of-the-art learning resources to enhance the educational experience." },
+        { id: 3, title: "Training & Skill Development", icon: <Award />, desc: "Industry-focused training programs, workshops and certifications to develop practical skills and make students industry-ready from day one." },
         { id: 4, title: "Research & Innovation", icon: <FlaskConical />, desc: "Encouraging research culture with dedicated research centers and opportunities for students to engage in innovative projects and publications." },
         { id: 5, title: "Global Internships", icon: <Globe />, desc: "International exposure through global internship programs with partner institutions worldwide, providing students with invaluable cross-cultural experience." },
         { id: 6, title: "Expert Faculty", icon: <Users />, desc: "Highly qualified and experienced faculty members dedicated to providing personalized attention and mentorship to every student for their academic success." }
@@ -101,12 +101,12 @@ const Admission = () => {
         { icon: BadgeDollarSign, label: "Scholarship Available" },
     ];
     const faqs = [
-        { q: "What programs does SVASC Group of Institutions offer?", a: "We offer 25+ programs across Arts, Science, and Nursing streams at UG, PG, and Ph.D levels. Our programs include BCA, BBA, B.Com, BSc, BA, B.Tech, B.Sc Nursing, MCA, MBA, M.Com, MSc, and doctoral programs with NAAC A+ accreditation." },
-        { q: "What is the placement record of SVASC Group of Institutions?", a: "We maintain an excellent 98% placement record with partnerships with top companies like TCS, Zoho, Infosys, Wipro, and HCL Technologies. Our dedicated placement cell provides comprehensive support to ensure students secure rewarding career opportunities." },
-        { q: "What facilities are available on campus?", a: "Our campus features 25+ modern laboratories, digital libraries, spacious classrooms with smart boards, sports facilities, hostel accommodation, cafeteria, medical facilities, and high-speed internet connectivity across campus." },
-        { q: "How can I apply for admission?", a: "You can apply online through our admission portal. Fill out the application form with your details, select your program and specialization, and submit the required documents. The application fee is non-refundable." },
+        { q: "What programs does SVASC Group of Institutions offer?", a: "We offer 25+ programs across Arts, Science and Nursing streams at UG, PG and Ph.D levels. Our programs include BCA, BBA, B.Com, BSc, BA, B.Tech, B.Sc Nursing, MCA, MBA, M.Com, MSc and doctoral programs with NAAC A+ accreditation." },
+        { q: "What is the placement record of SVASC Group of Institutions?", a: "We maintain an excellent 98% placement record with partnerships with top companies like TCS, Zoho, Infosys, Wipro and HCL Technologies. Our dedicated placement cell provides comprehensive support to ensure students secure rewarding career opportunities." },
+        { q: "What facilities are available on campus?", a: "Our campus features 25+ modern laboratories, digital libraries, spacious classrooms with smart boards, sports facilities, hostel accommodation, cafeteria, medical facilities and high-speed internet connectivity across campus." },
+        { q: "How can I apply for admission?", a: "You can apply online through our admission portal. Fill out the application form with your details, select your program and specialization and submit the required documents. The application fee is non-refundable." },
         { q: "Does SVASC offer international opportunities?", a: "Yes! We offer global internship programs with partner institutions worldwide, providing students with international exposure and cross-cultural learning experiences." },
-        { q: "What makes SVASC different from other institutions?", a: "SVASC stands out with its NAAC A+ accreditation, 98% placement record, expert faculty, modern infrastructure, industry-focused training, and research opportunities." }
+        { q: "What makes SVASC different from other institutions?", a: "SVASC stands out with its NAAC A+ accreditation, 98% placement record, expert faculty, modern infrastructure, industry-focused training and research opportunities." }
     ];
 
     return (
@@ -590,7 +590,7 @@ const Admission = () => {
                     <div className={styles.faqHeader}>
                         <span className={`${styles.badge} ${styles.badgeYellow}`}>FAQ</span>
                         <h2 className={styles.sectionHeading}>Frequently asked questions</h2>
-                        <p>Find clear answers to common questions about our programs, admissions, and facilities.</p>
+                        <p>Find clear answers to common questions about our programs, admissions and facilities.</p>
                     </div>
                     <div className={styles.faqList}>
                         {faqs.map((f, i) => (

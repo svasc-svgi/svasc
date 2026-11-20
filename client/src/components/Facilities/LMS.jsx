@@ -65,7 +65,7 @@ const LMS = () => {
                                 <span className={styles.bullet}>»</span>
                                 <span>
                                     The app provides updates on assignments, homework, events,
-                                    holidays, and department activities.
+                                    holidays and department activities.
                                 </span>
                             </li>
 

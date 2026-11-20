@@ -203,7 +203,7 @@ const TestimonialsSection = () => {
         {
             name: "Jisha S., MCA, PGDHA.",
             location: "Resource Person | Founder & Managing Director, Uptech Mentors, Erode",
-            text: "The students were enthusiastic and eager to learn, actively participating throughout the session. The faculty and staff were friendly, supportive, and well-coordinated. I truly appreciate the warm hospitality and the wonderful opportunity to interact with such bright minds.",
+            text: "The students were enthusiastic and eager to learn, actively participating throughout the session. The faculty and staff were friendly, supportive and well-coordinated. I truly appreciate the warm hospitality and the wonderful opportunity to interact with such bright minds.",
             image: "/testimonials/jisha.jpg"
         }
     ];

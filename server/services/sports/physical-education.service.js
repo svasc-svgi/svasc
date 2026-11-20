@@ -143,7 +143,7 @@ const INITIAL_SPORTS_DATA = [
     game: "FOOTBALL MEN",
     icon: "fa-futbol",
     color: "#245448",
-    image: "",
+    image: "/sports/sport16.jpg",
     report: "This is to Inform You That Our College Men Football Team Has Participated in The Bharathiar University Inter Collegiate D-Zone (Men) Football Tournament Held at Gobi Arts and Science College Gobi on 15.09.2025 to 16.09.2025.",
     order: 16
   },
@@ -152,7 +152,7 @@ const INITIAL_SPORTS_DATA = [
     game: "CRICKET MEN",
     icon: "fa-baseball-bat-ball",
     color: "#385132",
-    image: "",
+    image: "/sports/sport17.jpg",
     report: "This Is Inform You That Our College Men Cricket Team Has Participated in The Bharathiar University Inter Collegiate D-Zone (Men) Cricket Tournament Held at Gobi Arts and Science College Gobi on 25.10.2025 to 30.10.2025.Our College secured II Position.",
     order: 17
   },
@@ -161,7 +161,7 @@ const INITIAL_SPORTS_DATA = [
     game: "ATHLETIC",
     icon: "fa-person-running",
     color: "#4d4266",
-    image: "",
+    image: "/sports/sport18.jpg",
     report: "Our College Student ESWARI Participated in Bharathiar University Inter College Athletics 400 M and won the IV-Place.",
     order: 18
   },
@@ -170,7 +170,7 @@ const INITIAL_SPORTS_DATA = [
     game: "SILAMBAM WOMEN",
     icon: "fa-medal",
     color: "#72422c",
-    image: "",
+    image: "/sports/sport19.jpg",
     report: "Our College Student M.SUBHASHREE Participated in ERODE District Level Silambam won the II-Place.",
     order: 19
   },
@@ -179,7 +179,7 @@ const INITIAL_SPORTS_DATA = [
     game: "CRICKET MEN",
     icon: "fa-baseball-bat-ball",
     color: "#34513c",
-    image: "",
+    image: "/sports/sport20.jpg",
     report: "Our College Student Gokul.C Bharathiar University Intercollegiate Cricket Tournament Best Bowler Award.",
     order: 20
   },
@@ -188,7 +188,7 @@ const INITIAL_SPORTS_DATA = [
     game: "WRESTLING WOMEN",
     icon: "fa-medal",
     color: "#633a48",
-    image: "",
+    image: "/sports/sport21.jpg",
     report: "Our College Student M.Sankavi Wrestling All India Inter University Form-III.",
     order: 21
   },
@@ -197,7 +197,7 @@ const INITIAL_SPORTS_DATA = [
     game: "SILAMBAM",
     icon: "fa-medal",
     color: "#694a2b",
-    image: "",
+    image: "/sports/sport22.png",
     report: "Our College students A. Mathiyoli and M. Subashree have secured First Place in the District-Level Silambam Competition held at Tiruppur.ge Students A.Mathiyoli and M.Subashree.",
     order: 22
   },
@@ -206,7 +206,7 @@ const INITIAL_SPORTS_DATA = [
     game: "SILAMBAM",
     icon: "fa-medal",
     color: "#714a2a",
-    image: "",
+    image: "/sports/sport23.jpg",
     report: "Our College Student A. Mathiyoli Secured First place and Won a Gold Medal in the CM Trophy Silambam competition.2026-27.",
     order: 23
   },
@@ -215,7 +215,7 @@ const INITIAL_SPORTS_DATA = [
     game: "KHO-KHO",
     icon: "fa-person-running",
     color: "#62412e",
-    image: "",
+    image: "/sports/sport24.png",
     report: "Our college students secured THIRD PLACE in the Bharathiar university inter collegiate D-Zone Kho Kho tournament held at Karuppannan Mariappan College Tirupur on 11.11.2026.",
     order: 24
   },
@@ -224,7 +224,7 @@ const INITIAL_SPORTS_DATA = [
     game: "FOOTBALL",
     icon: "fa-futbol",
     color: "#254f45",
-    image: "",
+    image: "/sports/sport25.jpg",
     report: "Our college students secured FOURTH PLACE in the Bharathiar university inter collegiate D-Zone Football tournament held at Gobi Arts and Science College, Gobi on 12.11.2026.",
     order: 25
   }

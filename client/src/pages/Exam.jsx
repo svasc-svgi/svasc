@@ -14,7 +14,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 const fallbackHero = {
     image: examHeroImage,
     title: "SVASC Examination",
-    description: "Stay updated with examination schedules, notifications, and important announcements."
+    description: "Stay updated with examination schedules, notifications and important announcements."
 };
 
 const fallbackConfig = {
@@ -214,7 +214,7 @@ const SVASCExamination = () => {
 
                         {/* Description */}
                         <p className="svasc-hero-description">
-                            Access your examination schedules, results, and academic resources all in one place.
+                            Access your examination schedules, results and academic resources all in one place.
                             Streamlined examination management for students and faculty.
                         </p>
                     </div>

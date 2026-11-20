@@ -47,6 +47,7 @@ const DEFAULT_FALLBACK_DEPARTMENTS = [
   'Department of Physical Education',
   'Library',
   'Alumni Committee',
+  'Training and Placement',
   'Administrative Staff'
 ];
 

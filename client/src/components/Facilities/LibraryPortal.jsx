@@ -276,7 +276,7 @@ const LibraryPortal = () => {
                                         <p><strong>Saturday:</strong> Library is open (College Working Day Only)</p>
                                         <p><strong>Sundays & Holidays:</strong> Closed</p>
                                         <p style={{ marginTop: '20px', fontSize: '1.4rem', color: '#666', fontStyle: 'italic' }}>
-                                            Membership is extended to all students, faculty members, and non-teaching staff of the institution for academic and professional development.
+                                            Membership is extended to all students, faculty members and non-teaching staff of the institution for academic and professional development.
                                         </p>
                                     </div>
                                 </div>
@@ -316,14 +316,14 @@ const LibraryPortal = () => {
                     <h2 className={styles.rulesTitle}>Library Usage Guidelines</h2>
                     <div className={styles.rulesGrid}>
                         {[
-                            "Library membership is available to all students, faculty members, research scholars, and staff.",
+                            "Library membership is available to all students, faculty members, research scholars and staff.",
                             "A valid college identity card is mandatory for library entry and borrowing privileges.",
-                            "Users shall maintain silence, discipline, and a study-friendly environment within the library.",
+                            "Users shall maintain silence, discipline and a study-friendly environment within the library.",
                             "Mobile phones must be kept in silent mode while inside the library.",
                             "Food and beverages are not permitted in the library premises.",
                             "Library resources shall be handled with care. Users are responsible for any loss or damage to borrowed materials.",
                             "Books must be returned or renewed on or before the due date to ensure equitable access.",
-                            "Reference Books, journals, newspapers, and other non-circulating resources are for in-library use only."
+                            "Reference Books, journals, newspapers and other non-circulating resources are for in-library use only."
                         ].map((rule, i) => (
                             <div key={i} className={styles.ruleCard} style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                                 <ShieldAlert size={20} color="#fb923c" style={{ flexShrink: 0, marginTop: '4px' }} />
@@ -437,7 +437,7 @@ const LibraryPortal = () => {
                             <ImageIcon size={40} color="#2b3990" style={{ margin: '0 auto 15px' }} />
                             <h2 className={styles.resourcesTitle}>Newspaper Clippings & Gallery</h2>
                             <p style={{ fontSize: '1.6rem', color: '#666', maxWidth: '600px', margin: '0 auto' }}>
-                                Media publications, event celebrations, and snapshots highlighting college achievements.
+                                Media publications, event celebrations and snapshots highlighting college achievements.
                             </p>
                         </div>
 

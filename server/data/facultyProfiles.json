@@ -5710,5 +5710,310 @@
       "undergoing": ""
     },
     "awards": ""
+  },
+  {
+    "id": "staff_92",
+    "sNo": 1,
+    "fullName": "Mr. G. Kamalakannan",
+    "designation": "Assistant Professor & Placement Coordinator",
+    "qualification": "MCA., MBA., M.Phil.",
+    "department": "Training and Placement",
+    "departments": [
+      "Training and Placement"
+    ],
+    "contactNo": "9626361387",
+    "email": "kamalakannang@svasc.org",
+    "education": {
+      "ug": "BCA",
+      "pg": "MCA., MBA., M.Phil.",
+      "doctorate": "Pursuing",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "5 Years",
+      "industry": "8 Years",
+      "research": "",
+      "total": "13 Years"
+    },
+    "specialization": "Data Analytics",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "1",
+    "fdp": "3",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "Appreciation certificate from Naan Mudhalvan Scheme",
+    "photo": "/assets/staff/placement_kamalakannan.jpeg"
+  },
+  {
+    "id": "staff_93",
+    "sNo": 2,
+    "fullName": "Mrs. G. Subbulakshmi",
+    "designation": "Placement Trainer",
+    "qualification": "B.Sc., M.Sc., M.Phil.",
+    "department": "Training and Placement",
+    "departments": [
+      "Training and Placement"
+    ],
+    "contactNo": "9444311488",
+    "email": "subbulakshmi@svasc.org",
+    "education": {
+      "ug": "B.Sc.",
+      "pg": "M.Sc., M.Phil.",
+      "doctorate": "Pursuing",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "10.5 Years",
+      "industry": "",
+      "research": "",
+      "total": "10.5 Years"
+    },
+    "specialization": "Aptitude and Logical Reasoning",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "4",
+    "fdp": "4",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/placement_subbulakshmi.png"
+  },
+  {
+    "id": "staff_94",
+    "sNo": 3,
+    "fullName": "Ms. S. Rashma",
+    "designation": "Placement Trainer",
+    "qualification": "B.A., M.A., M.Phil.",
+    "department": "Training and Placement",
+    "departments": [
+      "Training and Placement"
+    ],
+    "contactNo": "8637690040",
+    "email": "rashmacarmina7@gmail.com",
+    "education": {
+      "ug": "B.A.",
+      "pg": "M.A., M.Phil.",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "9 Years",
+      "industry": "",
+      "research": "",
+      "total": "9 Years"
+    },
+    "specialization": "Communication and Verbal Ability",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "Book Chapter Publications",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "Communicative English",
+    "workshops": "2",
+    "fdp": "5",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/placement_rashma.jpeg"
+  },
+  {
+    "id": "staff_95",
+    "sNo": 4,
+    "fullName": "Ms. SM. Swetha Sri",
+    "designation": "Placement Trainer",
+    "qualification": "B.Sc., MSW.",
+    "department": "Training and Placement",
+    "departments": [
+      "Training and Placement"
+    ],
+    "contactNo": "9345175483",
+    "email": "shris8924@gmail.com",
+    "education": {
+      "ug": "B.Sc.",
+      "pg": "MSW.",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "1 Year",
+      "industry": "",
+      "research": "",
+      "total": "1.6 Years"
+    },
+    "specialization": "Communication and Verbal Ability",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/placement_swethasri.png"
+  },
+  {
+    "id": "staff_96",
+    "sNo": 5,
+    "fullName": "Mrs. K. Nathiya",
+    "designation": "Placement Trainer",
+    "qualification": "M.Sc., M.Phil.",
+    "department": "Training and Placement",
+    "departments": [
+      "Training and Placement"
+    ],
+    "contactNo": "9894347890",
+    "email": "nathiya@svasc.org",
+    "education": {
+      "ug": "B.Sc.",
+      "pg": "M.Sc., M.Phil.",
+      "doctorate": "",
+      "other": ""
+    },
+    "experience": {
+      "teaching": "1.6 Years",
+      "industry": "",
+      "research": "",
+      "total": "1.6 Years"
+    },
+    "specialization": "Aptitude and Logical Reasoning",
+    "publications": {
+      "scopus": {
+        "international": "",
+        "national": ""
+      },
+      "peerReviewed": {
+        "international": "",
+        "national": ""
+      },
+      "webOfScience": {
+        "international": "",
+        "national": ""
+      },
+      "others": {
+        "international": "",
+        "national": ""
+      }
+    },
+    "conferences": {
+      "international": "",
+      "national": ""
+    },
+    "books": "",
+    "workshops": "",
+    "fdp": "",
+    "researchGuidance": {
+      "awarded": "",
+      "undergoing": ""
+    },
+    "researchProjects": {
+      "completed": "",
+      "undergoing": ""
+    },
+    "awards": "",
+    "photo": "/assets/staff/placement_nathiya.png"
   }
 ]

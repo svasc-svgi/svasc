@@ -32,7 +32,7 @@ const SmartClass = () => {
                 <div className={styles.container}>
                     <h1 className={styles.mainHeading}>Smart Wall Class Rooms</h1>
                     <p className={styles.subText}>
-                        Technology-enabled learning spaces designed to enhance understanding, engagement, and academic excellence.
+                        Technology-enabled learning spaces designed to enhance understanding, engagement and academic excellence.
                     </p>
 
                     <div className={styles.contentGrid}>
@@ -44,9 +44,9 @@ const SmartClass = () => {
 
                             <p className={styles.description}>
                                 Our Smart Wall Classrooms are equipped with interactive digital boards,
-                                advanced audio-visual systems, and multimedia learning tools that make
+                                advanced audio-visual systems and multimedia learning tools that make
                                 teaching more effective and student-centric. These classrooms promote
-                                better concept visualization, collaborative learning, and an immersive
+                                better concept visualization, collaborative learning and an immersive
                                 academic experience across the campus.
                             </p>
 

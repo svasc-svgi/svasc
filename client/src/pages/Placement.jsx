@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Placement.module.css';
-import { ArrowRight, Users, TrendingUp, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Quote, Mic2, MessageSquare, LineChart, Network, FileText, CheckSquare, Award, Clock } from 'lucide-react';
+import { ArrowRight, Users, TrendingUp, Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Quote, Mic2, MessageSquare, LineChart, Network, FileText, CheckSquare, Award, Clock, Eye } from 'lucide-react';
 import Hero from '../components/Common/Hero';
 import LogoSpinning from './LogoSpinning';
 import LogoMarquee from '../components/Common/LogoMarquee';
+import StaffProfileModal from '../components/Staff/StaffProfileModal';
+import { facultyProfiles } from '../data/facultyProfiles';
+import { getAllStaff } from '../services/staffService';
+import { getStaffInitials } from '../utils/staffParser';
 
 const RECRUITERS = [
     { name: "TCS", fullName: "Tata Consultancy Services", color: "#2563eb", src: "/comapanies/tcs.jpg" },
@@ -26,12 +30,39 @@ const RECRUITERS = [
 ];
 
 const PlacementCell = () => {
+    const [selectedStaff, setSelectedStaff] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [staffList, setStaffList] = useState(() => {
+        return facultyProfiles.filter(
+            fp => fp.department === 'Training and Placement' || (Array.isArray(fp.departments) && fp.departments.includes('Training and Placement'))
+        );
+    });
+
+    useEffect(() => {
+        const fetchStaff = async () => {
+            try {
+                const apiData = await getAllStaff({ department: 'Training and Placement' });
+                if (Array.isArray(apiData) && apiData.length > 0) {
+                    setStaffList(apiData);
+                }
+            } catch (err) {
+                // Keep fallback static profiles
+            }
+        };
+        fetchStaff();
+    }, []);
+
+    const handleViewStaff = (staff) => {
+        setSelectedStaff(staff);
+        setIsModalOpen(true);
+    };
+
     return (
         <div className={styles.placementApp}>
             {/* Hero Section */}
             <Hero
                 title="Placement and Training Cell"
-                description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training, and placement opportunities at Shree Venkateshwara Arts and Science College."
+                description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training and placement opportunities at Shree Venkateshwara Arts and Science College."
                 image="/placement/placementhero.jpg"
             />
             <header className={styles.heroSection}>
@@ -116,17 +147,17 @@ const PlacementCell = () => {
                 <div className={styles.aboutContainer} style={{ textAlign: 'left', maxWidth: '100rem' }}>
                     <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Vision</h2>
                     <p className={styles.aboutMainText} style={{ textAlign: 'center', fontSize: '1.8rem', fontStyle: 'italic', marginBottom: '40px' }}>
-                        "To empower students with the knowledge, skills, values, and confidence required to become globally competent professionals by providing quality training, career guidance, and excellent placement opportunities."
+                        "To empower students with the knowledge, skills, values and confidence required to become globally competent professionals by providing quality training, career guidance and excellent placement opportunities."
                     </p>
                     
                     <div className={styles.divider} style={{ margin: '30px auto' }}></div>
                     
                     <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginTop: '40px' }}>Mission</h2>
                     <ul style={{ paddingLeft: '20px', fontSize: '1.6rem', lineHeight: '1.8', color: '#4b5563', listStyleType: 'disc' }}>
-                        <li style={{ marginBottom: '12px' }}>To enhance students' employability through continuous training in aptitude, technical, communication, and soft skills.</li>
-                        <li style={{ marginBottom: '12px' }}>To establish strong partnerships with leading industries and organizations for internships, training, and campus recruitment.</li>
-                        <li style={{ marginBottom: '12px' }}>To prepare students for competitive recruitment processes through mock interviews, group discussions, resume-building, and career counseling.</li>
-                        <li style={{ marginBottom: '12px' }}>To promote industry-oriented learning, innovation, and lifelong professional development.</li>
+                        <li style={{ marginBottom: '12px' }}>To enhance students' employability through continuous training in aptitude, technical, communication and soft skills.</li>
+                        <li style={{ marginBottom: '12px' }}>To establish strong partnerships with leading industries and organizations for internships, training and campus recruitment.</li>
+                        <li style={{ marginBottom: '12px' }}>To prepare students for competitive recruitment processes through mock interviews, group discussions, resume-building and career counseling.</li>
+                        <li style={{ marginBottom: '12px' }}>To promote industry-oriented learning, innovation and lifelong professional development.</li>
                         <li style={{ marginBottom: 0 }}>To achieve maximum placement opportunities while supporting students in building successful and ethical careers.</li>
                     </ul>
                 </div>
@@ -269,7 +300,7 @@ const PlacementCell = () => {
                     <div className={styles.impactContent}>
                         <h2 className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Placement Highlights 2025–2026</h2>
                         <p className={styles.impactDescription}>
-                            SVASC takes pride in its strong placement ecosystem that connects talented students with the world's leading companies. Through industry-driven training, continuous skill development, and career-focused mentoring, our students are prepared to meet global professional standards.
+                            SVASC takes pride in its strong placement ecosystem that connects talented students with the world's leading companies. Through industry-driven training, continuous skill development and career-focused mentoring, our students are prepared to meet global professional standards.
                         </p>
                         <div className={styles.impactDivider}></div>
                         <div className={styles.impactHighlight}>
@@ -299,7 +330,87 @@ const PlacementCell = () => {
                 </div>
             </section>
 
+            {/* Placement Faculty & Staff Details */}
+            <section className={styles.staffSection}>
+                <div className={styles.staffContainer}>
+                    <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                        <h2 className={styles.sectionTitle}>Training & Placement Officers & Faculty</h2>
+                        <p className={styles.sectionSubtitle} style={{ marginTop: '0.8rem', color: '#64748b' }}>
+                            Dedicated coordinators and specialized trainers empowering students for career success
+                        </p>
+                    </div>
 
+                    <div className={styles.tableWrapper}>
+                        <table className={styles.staffTable}>
+                            <thead>
+                                <tr>
+                                    <th className={styles.sNoCol}>S.No</th>
+                                    <th className={styles.photoCol}>Staff Photo</th>
+                                    <th>Name of the Faculty</th>
+                                    <th>Qualification</th>
+                                    <th className={styles.actionCol}>Profile</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {staffList.map((staff, idx) => {
+                                    const facultyName = staff.fullName || staff.name || '';
+                                    const photoUrl = staff.photo || staff.image;
+                                    const initials = staff.initial || getStaffInitials(facultyName);
+                                    const qualification = staff.qualification || '-';
+                                    const designation = staff.designation || '';
+
+                                    return (
+                                        <tr key={staff._id || staff.id || idx}>
+                                            <td className={styles.sNoCell}>{idx + 1}</td>
+                                            <td className={styles.photoCell}>
+                                                <div className={styles.avatarWrapper}>
+                                                    {photoUrl ? (
+                                                        <img
+                                                            src={photoUrl}
+                                                            alt={facultyName}
+                                                            className={styles.staffAvatar}
+                                                            loading="lazy"
+                                                            onError={(e) => {
+                                                                e.currentTarget.style.display = 'none';
+                                                                const fallback = e.currentTarget.parentElement?.querySelector(`.${styles.staffPlaceholder}`);
+                                                                if (fallback) fallback.style.display = 'flex';
+                                                            }}
+                                                        />
+                                                    ) : null}
+                                                    <div
+                                                        className={styles.staffPlaceholder}
+                                                        style={{ display: photoUrl ? 'none' : 'flex' }}
+                                                    >
+                                                        {initials}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.facultyName}>{facultyName}</div>
+                                                {designation && (
+                                                    <div className={styles.designationText}>{designation}</div>
+                                                )}
+                                            </td>
+                                            <td className={styles.qualificationCell}>{qualification}</td>
+                                            <td className={styles.actionCell}>
+                                                <button
+                                                    type="button"
+                                                    className={styles.viewBtn}
+                                                    onClick={() => handleViewStaff(staff)}
+                                                    title={`View full profile of ${facultyName}`}
+                                                >
+                                                    <Eye size={15} />
+                                                    <span>View</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
 
             {/* Partners Section */}
             <section id="recruiters" className={styles.partnersSection}>
@@ -314,7 +425,7 @@ const PlacementCell = () => {
                 <div className={styles.testimonialContainer}>
                     <Quote size={48} className={styles.quoteIcon} />
                     <blockquote className={styles.testimonialText}>
-                        "Industry-Ready Students with certifications in AR/VR, Cybersecurity, and Naan Mudhalvan Skill training programs. Excellent placement support with mock interviews, aptitude coaching, and international recruitment access."
+                        "Industry-Ready Students with certifications in AR/VR, Cybersecurity and Naan Mudhalvan Skill training programs. Excellent placement support with mock interviews, aptitude coaching and international recruitment access."
                     </blockquote>
                     <div className={styles.testimonialAuthor}>Why Recruiters Choose SVASC</div>
                 </div>
@@ -365,6 +476,16 @@ const PlacementCell = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Staff Profile Modal */}
+            <StaffProfileModal
+                staff={selectedStaff}
+                isOpen={isModalOpen}
+                onClose={() => {
+                    setIsModalOpen(false);
+                    setSelectedStaff(null);
+                }}
+            />
         </div>
     );
 };

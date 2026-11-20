@@ -292,10 +292,10 @@ const Schools = () => {
                                 SVASC Academic Programs & Learning Opportunities
                             </h2>
                             <p className={styles.sectionDescription}>
-                                SVASC offers a wide range of career-focused academic programs designed to prepare students for higher education, research, and professional success through quality teaching and modern infrastructure.
+                                SVASC offers a wide range of career-focused academic programs designed to prepare students for higher education, research and professional success through quality teaching and modern infrastructure.
                             </p>
                             <p className={styles.sectionSubDescription}>
-                                Undergraduate, Postgraduate, and Doctoral programs are delivered by experienced faculty with a strong emphasis on skill development, research, and industry relevance.
+                                Undergraduate, Postgraduate and Doctoral programs are delivered by experienced faculty with a strong emphasis on skill development, research and industry relevance.
                             </p>
                             {/* Highlights */}
                             <div className={styles.highlights}>

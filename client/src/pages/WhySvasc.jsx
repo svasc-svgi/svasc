@@ -21,17 +21,17 @@ import bus2Img from '../assets/bus2.jpg';
 const DEFAULT_TESTIMONIALS = [
     {
         name: "E.Pooja - Bsc computer science 2023 batch",
-        text: "SVASC taught me discipline, leadership, and confidence through quality academics and active event opportunities. The practical skills and faculty mentorship I received here have been invaluable in my career. I am truly grateful to SVASC for shaping me into a better person!",
+        text: "SVASC taught me discipline, leadership and confidence through quality academics and active event opportunities. The practical skills and faculty mentorship I received here have been invaluable in my career. I am truly grateful to SVASC for shaping me into a better person!",
         image: "/testimonials/pooja.jpg"
     },
     {
         name: "B.Logitha - Bsc computer science 2023 batch",
-        text: "My college days at SVASC were the most memorable phase of my life. The supportive professors encouraged both our academic excellence and personal growth. I will always cherish the valuable life lessons, friendships, and experiences I gained here!",
+        text: "My college days at SVASC were the most memorable phase of my life. The supportive professors encouraged both our academic excellence and personal growth. I will always cherish the valuable life lessons, friendships and experiences I gained here!",
         image: "/testimonials/logitha.jpg"
     },
     {
         name: "P. SOBIYA - 2022 class:B.Sc(CS)",
-        text: "My experience at SVASC was immensely positive. The vibrant environment, enthusiastic students, and welcoming, supportive faculty made learning a wonderful experience. Thank you, SVASC, for creating such an empowering atmosphere!",
+        text: "My experience at SVASC was immensely positive. The vibrant environment, enthusiastic students and welcoming, supportive faculty made learning a wonderful experience. Thank you, SVASC, for creating such an empowering atmosphere!",
         image: "/testimonials/sobiya.jpg"
     },
     {
@@ -190,7 +190,7 @@ const WhySvasc = () => {
                                 </div>
                                 <h3 className={styles.cardTitle}>Student-Centric</h3>
                             </div>
-                            <p className={styles.cardDescription}>Personalized mentoring, clubs, fests, and hands-on projects.</p>
+                            <p className={styles.cardDescription}>Personalized mentoring, clubs, fests and hands-on projects.</p>
                         </div>
 
                         <div className={`${styles.infoCard} ${styles.fadeInUp}`} style={{ animationDelay: '0.8s' }}>
