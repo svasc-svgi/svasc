@@ -259,36 +259,6 @@ const SVASCExamination = () => {
                             </div>
                         </div>
 
-                        {/* Floating Exam Info Card */}
-                        <div className="svasc-floating-card" onClick={() => setIsModalOpen(true)} style={{ cursor: 'pointer' }}>
-                            <div className="svasc-floating-card-header">
-                                <span className="svasc-floating-card-label">Exam Schedule</span>
-                                <MoreHorizontal size={16} />
-                            </div>
-
-                            <div className="svasc-floating-card-content">
-                                <div className="svasc-floating-card-item">
-                                    <div className="svasc-floating-card-icon">
-                                        <Calendar size={20} color="white" />
-                                    </div>
-                                    <div>
-                                        <h4 className="svasc-floating-card-title">{portalConfig.floatingTitle}</h4>
-                                        <span className="svasc-floating-card-date">{portalConfig.floatingDateRange}</span>
-                                    </div>
-                                </div>
-
-                                <div className="svasc-floating-card-box ">
-                                    <span className="svasc-floating-card-label-text">Total Subjects</span>
-                                    <span className="svasc-floating-card-value">{portalConfig.floatingSubjects}</span>
-                                </div>
-
-                                <div className="svasc-floating-card-status">
-                                    <CheckCircle2 size={14} />
-                                    <span>{portalConfig.floatingStatus}</span>
-                                </div>
-                            </div>
-                        </div>
-
                         {/* Decorative Circle */}
                         <div className="svasc-decorative-circle">
                             <svg viewBox="0 0 100 100" className="svasc-circle-svg">

@@ -79,29 +79,21 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform .2s ease;
 }
 
-#svasc-events-section .blog-card:hover .photo {
-    transform: scale(1.3) rotate(3deg);
-}
-
-/* DETAILS (FIXED SLIDE) */
+/* DETAILS (STATIC OVERLAY AT BOTTOM - ALL TIME VISIBLE) */
 #svasc-events-section .details {
     position: absolute;
-    inset: 0;
-    left: -100%;
-    background: rgba(0, 0, 0, .6);
-    color: #fff;
-    padding: 10px;
-    font-size: .9rem;
-    transition: left .25s ease;
-    display: flex;
-    align-items: center;
-}
-
-#svasc-events-section .blog-card:hover .details {
+    bottom: 0;
     left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.5) 70%, transparent 100%);
+    color: #fff;
+    padding: 12px 14px;
+    font-size: .88rem;
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
 }
 
 #svasc-events-section .details ul {
@@ -113,9 +105,10 @@
 
 #svasc-events-section .details ul li {
     display: block;
-    margin-bottom: 6px;
-    font-size: 1.5rem;
-
+    margin-bottom: 2px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #f8fafc;
 }
 
 /* ICONS */
@@ -142,6 +135,23 @@
     padding: 1rem;
     position: relative;
     z-index: 1;
+}
+
+#svasc-events-section .date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1f2d5a;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+#svasc-events-section .date-badge i {
+    color: #3b70fc;
 }
 
 #svasc-events-section .description h1 {

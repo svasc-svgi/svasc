@@ -27,7 +27,7 @@ const createStar = async (req, res) => {
         if (!name || !degree || !videoUrl) {
             return res.status(400).json({
                 success: false,
-                message: 'Name, degree, and video are required'
+                message: 'Name, degree and video are required'
             });
         }
 

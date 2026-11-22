@@ -13,43 +13,57 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 const fallbackEvents = [
     {
         author: "SVASC",
-        date: "Oct. 15, 2026",
+        date: "Oct. 15, 2026 • Thursday",
         title: "National Tech Seminar",
         subtitle: "Innovation & AI",
-        description: "Exploring future technologies, artificial intelligence innovations, and career pathways in modern computer science.",
+        description: "Exploring future technologies, artificial intelligence innovations and career pathways in modern computer science.",
         image: eventImg1,
         link: "/events"
     },
     {
         author: "SVASC",
-        date: "Nov. 02, 2026",
+        date: "Nov. 02, 2026 • Monday",
         title: "Annual Cultural Fest",
         subtitle: "Art & Harmony",
-        description: "A vibrant multi-day festival celebrating student creativity, dance performances, fine arts, and musical talents.",
+        description: "A vibrant multi-day festival celebrating student creativity, dance performances, fine arts and musical talents.",
         image: eventImg2,
         link: "/events"
     },
     {
         author: "SVASC",
-        date: "Nov. 18, 2026",
+        date: "Nov. 18, 2026 • Wednesday",
         title: "Campus Placement Drive",
         subtitle: "Career Pathways",
-        description: "Top corporate partners visit SVASC to recruit talented graduates across arts, science, and commerce streams.",
+        description: "Top corporate partners visit SVASC to recruit talented graduates across arts, science and commerce streams.",
         image: eventImg3,
         link: "/events",
         alt: true
     },
     {
         author: "SVASC",
-        date: "Dec. 05, 2026",
+        date: "Dec. 05, 2026 • Saturday",
         title: "Inter-College Sports Meet",
         subtitle: "Athletic Excellence",
-        description: "High-energy athletic competitions fostering teamwork, physical fitness, and true sportsmanship among participants.",
+        description: "High-energy athletic competitions fostering teamwork, physical fitness and true sportsmanship among participants.",
         image: eventImg4,
         link: "/events",
         alt: true
     }
 ];
+
+// Helper: format date to include day if parsable
+const formatEventDate = (dateStr) => {
+    if (!dateStr) return '';
+    try {
+        const d = new Date(dateStr);
+        if (!isNaN(d.getTime())) {
+            const dayName = d.toLocaleDateString('en-US', { weekday: 'long' });
+            const formatted = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            return `${formatted} • ${dayName}`;
+        }
+    } catch (e) {}
+    return dateStr;
+};
 
 // Helper: normalize a raw event item into the card shape
 const normalizeEvent = (item, idx) => {
@@ -168,25 +182,34 @@ const SvascEvents = () => {
             </div>
 
             <div className="blog-card-grid">
-                {events.map((event, index) => (
-                    <div className={`blog-card ${event.alt ? 'alt' : ''}`} key={event._id || index}>
-                        <div className="meta">
-                            <div className="photo" style={{ backgroundImage: `url(${event.image})` }}></div>
-                            <div className="details">
-                                <ul>
-                                    <li className="author"><a href={event.link || '#'}>{event.author}</a></li>
-                                    <li className="date">{event.date}</li>
-                                </ul>
+                {events.map((event, index) => {
+                    const displayDate = formatEventDate(event.date) || event.date;
+                    return (
+                        <div className={`blog-card ${event.alt ? 'alt' : ''}`} key={event._id || index}>
+                            <div className="meta">
+                                <div className="photo" style={{ backgroundImage: `url(${event.image})` }}></div>
+                                <div className="details">
+                                    <ul>
+                                        {event.author && <li className="author"><a href={event.link || '#'}>{event.author}</a></li>}
+                                        {displayDate && <li className="date">{displayDate}</li>}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="description">
+                                {displayDate && (
+                                    <div className="date-badge">
+                                        <i className="fa fa-calendar"></i>
+                                        <span>{displayDate}</span>
+                                    </div>
+                                )}
+                                <h1>{event.title}</h1>
+                                <h2>{event.subtitle}</h2>
+                                <p>{event.description}</p>
+                                <p className="read-more"><Link to="/events">Read More</Link></p>
                             </div>
                         </div>
-                        <div className="description">
-                            <h1>{event.title}</h1>
-                            <h2>{event.subtitle}</h2>
-                            <p>{event.description}</p>
-                            <p className="read-more"><Link to="/events">Read More</Link></p>
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );

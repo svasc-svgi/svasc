@@ -12,7 +12,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
 const fallbackHero = {
     image: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/30256/jungleBG.jpg',
     title: 'Alumni',
-    description: 'Invite alumni to share honest reflections, career advice, and lessons learned since graduation'
+    description: 'Invite alumni to share honest reflections, career advice and lessons learned since graduation'
 };
 
 const fallbackRisingStars = [
@@ -331,7 +331,7 @@ const Alumni = () => {
             points: [
                 "The Alumni Association shall function under the guidance and support of Gobichettipalayam Othakuthirai Shree Venkateshwara Arts and Science (Co-Ed) College.",
                 "The Association shall work towards maintaining a strong and lifelong relationship between the institution and its alumni.",
-                "The Association shall promote mutual cooperation, professional networking, and institutional development through active participation of alumni members."
+                "The Association shall promote mutual cooperation, professional networking and institutional development through active participation of alumni members."
             ]
         },
         {
@@ -339,7 +339,7 @@ const Alumni = () => {
             points: [
                 "All graduates and former students of the institution shall be eligible to become members of the Alumni Association.",
                 "Membership shall be granted after completing the prescribed registration process.",
-                "Members shall provide updated personal, educational, and professional details to maintain alumni records.",
+                "Members shall provide updated personal, educational and professional details to maintain alumni records.",
                 "Membership shall be voluntary and subject to acceptance of the rules and regulations of the Association.",
                 "Lifetime membership shall be provided to interested alumni as per the guidelines of the Association."
             ]
@@ -347,9 +347,9 @@ const Alumni = () => {
         {
             title: "3. Objectives and Activities",
             points: [
-                "The Association shall organize alumni meets, interaction programmes, seminars, workshops, and guest lectures.",
-                "The Association shall encourage alumni participation in academic activities, career guidance, and mentoring programmes.",
-                "Alumni members shall support students through knowledge sharing, internship opportunities, placement guidance, and professional development programmes.",
+                "The Association shall organize alumni meets, interaction programmes, seminars, workshops and guest lectures.",
+                "The Association shall encourage alumni participation in academic activities, career guidance and mentoring programmes.",
+                "Alumni members shall support students through knowledge sharing, internship opportunities, placement guidance and professional development programmes.",
                 "The Association shall contribute towards academic growth and institutional development activities.",
                 "The Association shall promote networking and collaboration among alumni members."
             ]
@@ -359,7 +359,7 @@ const Alumni = () => {
             points: [
                 "The Alumni Association shall have the following office bearers: President, Vice President, Secretary, Joint Secretary, Treasurer, Executive Committee Members.",
                 "The office bearers shall be appointed/elected with the approval of the institution.",
-                "The committee shall be responsible for planning, organizing, and monitoring alumni activities.",
+                "The committee shall be responsible for planning, organizing and monitoring alumni activities.",
                 "The tenure and responsibilities of the office bearers shall be decided by the Alumni Association Committee."
             ]
         },
@@ -375,8 +375,8 @@ const Alumni = () => {
         {
             title: "6. Code of Conduct",
             points: [
-                "All members shall maintain discipline, professionalism, and respect towards the institution and fellow alumni.",
-                "Members shall uphold the reputation, values, and traditions of the college.",
+                "All members shall maintain discipline, professionalism and respect towards the institution and fellow alumni.",
+                "Members shall uphold the reputation, values and traditions of the college.",
                 "Alumni information shall be used only for the official purposes of the Association.",
                 "Members shall cooperate in all activities organized by the Association."
             ]
@@ -726,7 +726,7 @@ const Alumni = () => {
                     </div>
                     <div className={styles.aboutWrapper}>
                         <p className={styles.aboutText}>
-                            The Alumni Association of Gobichettipalayam Othakuthirai Shree Venkateshwara Arts and Science (Co-Ed) College (NOONMUGAM) was registered under the Tamil Nadu Societies Registration Act, 1975 (Act 27 of 1975) on 13th September 2023. The Association serves as a bridge between the institution and its graduates by maintaining continuous communication and interaction. It provides a common platform for alumni to share their experiences, knowledge, and professional achievements. The Association aims to strengthen the bond between alumni and the college community. Regular meetings are conducted by the office bearers to plan and organize various developmental activities. The Alumni Association supports academic growth, career guidance, and student development initiatives. It encourages alumni participation in seminars, guest lectures, mentoring programmes, and institutional development activities. The Association organizes annual alumni reunions to reconnect with former students and celebrate their achievements. Alumni members provide valuable suggestions for the overall development of the institution. Former students can register as lifetime members of the Alumni Association to remain connected with the college. Through active alumni engagement, the Association promotes networking, collaboration, and lifelong relationships between alumni and the institution.
+                            The Alumni Association of Gobichettipalayam Othakuthirai Shree Venkateshwara Arts and Science (Co-Ed) College (NOONMUGAM) was registered under the Tamil Nadu Societies Registration Act, 1975 (Act 27 of 1975) on 13th September 2023. The Association serves as a bridge between the institution and its graduates by maintaining continuous communication and interaction. It provides a common platform for alumni to share their experiences, knowledge and professional achievements. The Association aims to strengthen the bond between alumni and the college community. Regular meetings are conducted by the office bearers to plan and organize various developmental activities. The Alumni Association supports academic growth, career guidance and student development initiatives. It encourages alumni participation in seminars, guest lectures, mentoring programmes and institutional development activities. The Association organizes annual alumni reunions to reconnect with former students and celebrate their achievements. Alumni members provide valuable suggestions for the overall development of the institution. Former students can register as lifetime members of the Alumni Association to remain connected with the college. Through active alumni engagement, the Association promotes networking, collaboration and lifelong relationships between alumni and the institution.
                         </p>
                     </div>
                 </div>
@@ -740,7 +740,7 @@ const Alumni = () => {
                                 <h2>Vision</h2>
                             </div>
                             <p className={styles.cardText}>
-                                To build a strong and lifelong relationship between the institution and its alumni by creating a platform for mutual support, professional networking, knowledge sharing, and continuous development of students and graduates.
+                                To build a strong and lifelong relationship between the institution and its alumni by creating a platform for mutual support, professional networking, knowledge sharing and continuous development of students and graduates.
                             </p>
                         </div>
                         <div className={styles.missionCard}>
@@ -750,11 +750,11 @@ const Alumni = () => {
                             </div>
                             <ul className={styles.bulletList}>
                                 <li>To establish and maintain effective communication between the institution and alumni.</li>
-                                <li>To encourage alumni participation in academic, cultural, social, and professional activities of the institution.</li>
-                                <li>To provide career guidance, mentoring, and placement support to current students through alumni interactions.</li>
+                                <li>To encourage alumni participation in academic, cultural, social and professional activities of the institution.</li>
+                                <li>To provide career guidance, mentoring and placement support to current students through alumni interactions.</li>
                                 <li>To promote networking opportunities among alumni for professional growth and collaboration.</li>
-                                <li>To involve alumni in institutional development activities, research, innovation, and community services.</li>
-                                <li>To preserve the values, traditions, and achievements of the institution through active alumni engagement.</li>
+                                <li>To involve alumni in institutional development activities, research, innovation and community services.</li>
+                                <li>To preserve the values, traditions and achievements of the institution through active alumni engagement.</li>
                             </ul>
                         </div>
                     </div>
@@ -766,11 +766,11 @@ const Alumni = () => {
                         <div className={styles.objectivesCard}>
                             <h2>Objectives of the Alumni Association</h2>
                             <ul className={styles.bulletList}>
-                                <li>To create a platform for alumni to interact, share experiences, and exchange knowledge.</li>
+                                <li>To create a platform for alumni to interact, share experiences and exchange knowledge.</li>
                                 <li>To provide scholarships and financial assistance to deserving students.</li>
                                 <li>To contribute towards academic development and the improvement of institutional infrastructure.</li>
                                 <li>To receive valuable suggestions and guidance from alumni for the overall development of the college.</li>
-                                <li>To utilize the expertise of successful alumni by inviting them as resource persons for seminars, workshops, and guest lectures.</li>
+                                <li>To utilize the expertise of successful alumni by inviting them as resource persons for seminars, workshops and guest lectures.</li>
                             </ul>
                         </div>
                         <div className={styles.activitiesCard}>
@@ -780,7 +780,7 @@ const Alumni = () => {
                                 <li>Providing scholarships and financial assistance to deserving students.</li>
                                 <li>Supporting academic and infrastructural development activities of the institution.</li>
                                 <li>Conducting alumni interaction programmes with current students.</li>
-                                <li>Inviting distinguished alumni as resource persons for seminars, workshops, and guest lectures.</li>
+                                <li>Inviting distinguished alumni as resource persons for seminars, workshops and guest lectures.</li>
                                 <li>Facilitating career guidance and professional development through alumni networking.</li>
                             </ul>
                         </div>
