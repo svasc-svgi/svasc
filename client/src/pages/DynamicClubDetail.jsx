@@ -4,13 +4,19 @@ import { CellPage } from '@/components/site/CellPage';
 import { getActivityById, getActivities } from '@/services/activityService';
 import defaultHeroImg from '@/assets/DJI_0595.JPG';
 
+const cleanCommaBeforeAnd = (str) => (typeof str === 'string' ? str.replace(/,\s+and\b/gi, ' and') : str);
+
 export default function DynamicClubDetail() {
   const { slug } = useParams();
   const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\//, '');
   const [pageData, setPageData] = useState(() => {
     try {
       const cached = localStorage.getItem(`svasc_cached_club_${cleanSlug}`);
-      if (cached) return JSON.parse(cached);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (parsed && parsed.intro) parsed.intro = cleanCommaBeforeAnd(parsed.intro);
+        return parsed;
+      }
     } catch (e) {}
     return null;
   });
@@ -229,13 +235,13 @@ export default function DynamicClubDetail() {
             const cleanIntro = (card) => {
               // 1. Explicit clean intro field
               if (card.intro && typeof card.intro === 'string' && card.intro.trim()) {
-                return card.intro.trim();
+                return cleanCommaBeforeAnd(card.intro.trim());
               }
               // 2. Curated tagline by card title or slug
               const normSlug = cleanSlug.replace(/[^a-z0-9]+/g, '-');
               const titleSlug = (card.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
-              if (CLUB_INTROS[normSlug]) return CLUB_INTROS[normSlug];
-              if (CLUB_INTROS[titleSlug]) return CLUB_INTROS[titleSlug];
+              if (CLUB_INTROS[normSlug]) return cleanCommaBeforeAnd(CLUB_INTROS[normSlug]);
+              if (CLUB_INTROS[titleSlug]) return cleanCommaBeforeAnd(CLUB_INTROS[titleSlug]);
 
               // 3. Clean rawDescription or description if it does NOT contain combined HTML sections
               const candidate = (card.rawDescription || card.description || '').trim();
@@ -248,7 +254,7 @@ export default function DynamicClubDetail() {
                                           lower.includes('responsibilit');
                 if (!isCombinedPayload) {
                   const stripped = candidate.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-                  if (stripped && stripped.length < 350) return stripped;
+                  if (stripped && stripped.length < 350) return cleanCommaBeforeAnd(stripped);
                 }
               }
 
@@ -306,13 +312,13 @@ export default function DynamicClubDetail() {
             }
 
             const cleanCatIntro = (cat) => {
-              if (cat.intro && typeof cat.intro === 'string' && cat.intro.trim()) return cat.intro.trim();
+              if (cat.intro && typeof cat.intro === 'string' && cat.intro.trim()) return cleanCommaBeforeAnd(cat.intro.trim());
               if (cat.description && typeof cat.description === 'string') {
                 const candidate = cat.description.trim();
                 const lower = candidate.toLowerCase();
                 if (!candidate.includes('<h3') && !candidate.includes('activitySection') && !lower.includes('vision') && !lower.includes('mission')) {
                   const stripped = candidate.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-                  if (stripped && stripped.length < 350) return stripped;
+                  if (stripped && stripped.length < 350) return cleanCommaBeforeAnd(stripped);
                 }
               }
               return `Discover all activities, cells and clubs under ${cat.category} at SVASC.`;

@@ -1,32 +1,41 @@
 const Staff = require('../models/staff.model');
 const Department = require('../models/department.model');
 const { parseStaffName } = require('../utils/staffParser');
+const { stripDegreeDots } = require('../utils/dbSanitizer');
+
+const buildDeptVariants = (dept) => {
+  if (!dept) return [dept];
+  const clean = stripDegreeDots(dept);
+  const dottedSpace = clean.replace(/\b(B\.Sc|M\.Sc|Ph\.D)\s+/gi, '$1. ');
+  const dottedNoSpace = clean.replace(/\b(B\.Sc|M\.Sc|Ph\.D)\s+/gi, '$1.');
+  return Array.from(new Set([dept, clean, dottedSpace, dottedNoSpace]));
+};
 
 // Standard default departments covering all college courses & sections
 const DEFAULT_DEPARTMENTS = [
-  'B.Sc. Computer Science',
-  'B.Sc. Computer Science (AI & DS)',
+  'B.Sc Computer Science',
+  'B.Sc Computer Science (AI & DS)',
   'Bachelor of Computer Applications (BCA)',
-  'B.Sc. Information Technology',
-  'B.Sc. Cyber Security',
+  'B.Sc Information Technology',
+  'B.Sc Cyber Security',
   'B.Com – Bachelor of Commerce',
   'B.Com (Banking & Insurance)',
   'B.Com (Information Technology)',
   'B.Com (Computer Applications)',
   'B.Com (Professional Accounting)',
   'BBA - Management Studies',
-  'B.Sc. Chemistry',
-  'B.Sc. Mathematics',
-  'B.Sc. Microbiology',
+  'B.Sc Chemistry',
+  'B.Sc Mathematics',
+  'B.Sc Microbiology',
   'B.A. English',
-  'B.Sc. Costume Design & Fashion',
-  'M.Sc. Computer Science',
+  'B.Sc Costume Design & Fashion',
+  'M.Sc Computer Science',
   'Master of Commerce (M.Com)',
-  'M.Sc. Microbiology',
+  'M.Sc Microbiology',
   'M.A. English',
-  'Ph.D. Commerce',
-  'Ph.D. English',
-  'Ph.D. Tamil',
+  'Ph.D Commerce',
+  'Ph.D English',
+  'Ph.D Tamil',
   'Department of Physical Education',
   'Library',
   'Alumni Committee',
@@ -56,7 +65,7 @@ const getAllDepartments = async () => {
     ...DEFAULT_DEPARTMENTS,
     ...customNames,
     ...staffDepts.filter(Boolean)
-  ]));
+  ].map(stripDegreeDots).filter(Boolean)));
 
   combined.sort((a, b) => a.localeCompare(b));
 
@@ -233,9 +242,10 @@ const getAllStaff = async (filter = {}) => {
   const query = {};
 
   if (filter.department && filter.department !== 'All') {
+    const deptVariants = buildDeptVariants(filter.department);
     query.$or = [
-      { department: filter.department },
-      { departments: filter.department }
+      { department: { $in: deptVariants } },
+      { departments: { $in: deptVariants } }
     ];
   }
 
@@ -274,8 +284,10 @@ const getAllStaff = async (filter = {}) => {
     const depts = Array.from(new Set([
       ...(Array.isArray(s.departments) ? s.departments : []),
       s.department
-    ].filter(Boolean)));
+    ].filter(Boolean).map(stripDegreeDots)));
     s.departments = depts;
+    if (s.department) s.department = stripDegreeDots(s.department);
+    if (s.qualification) s.qualification = stripDegreeDots(s.qualification);
     uniqueStaff.push(s);
   }
 

@@ -53,7 +53,14 @@ const WhySvasc = () => {
                 if (!isMounted) return;
                 const list = res?.data ?? (Array.isArray(res) ? res : []);
                 if (Array.isArray(list) && list.length > 0) {
-                    setTestimonials(list);
+                    const sanitized = list.map(t => ({
+                        ...t,
+                        name: (t.name || '')
+                            .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\.(?=[A-Za-z])/gi, '$1 ')
+                            .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\./gi, '$1'),
+                        text: (t.text || '').replace(/,\s+and\b/gi, ' and')
+                    }));
+                    setTestimonials(sanitized);
                 }
             })
             .catch((err) => {
@@ -85,7 +92,7 @@ const WhySvasc = () => {
         <div className={styles.aboutDetailContainer}>
             <Hero
                 title="Why SVASC?"
-                description="Located in ERODE, SVASC College of Arts and Science is a NAAC-accredited institution known for its industry-aligned programs and student-centric approach."
+                description="Located in ERODE, SVASC College of Arts and Science is a recognized institution known for its industry-aligned programs and student-centric approach."
                 image={whyImg}
             />
             {/* ================= HERO SECTION ================= */}
@@ -170,7 +177,7 @@ const WhySvasc = () => {
                                 </div>
                                 <h3 className={styles.cardTitle}>Experienced Faculty</h3>
                             </div>
-                            <p className={styles.cardDescription}>Ph.D. holders, industry professionals & student-focused mentors.</p>
+                            <p className={styles.cardDescription}>Ph.D holders, industry professionals & student-focused mentors.</p>
                         </div>
 
                         <div className={`${styles.infoCard} ${styles.fadeInUp}`} style={{ animationDelay: '0.6s' }}>

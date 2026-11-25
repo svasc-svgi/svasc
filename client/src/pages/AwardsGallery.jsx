@@ -38,9 +38,11 @@ const AwardsGallery = () => {
             const res = await getAwardsPageHero();
             if (res?.data) {
                 const cleanImage = res.data.image ? res.data.image.replace(/^\/+/, '') : '';
+                const cleanDesc = (res.data.description || "Celebrating Excellence, Achievement and Innovation")
+                    .replace(/,\s+and\b/gi, ' and');
                 setHeroData({
                     title: res.data.title || "Awards & Recognition",
-                    description: res.data.description || "Celebrating Excellence, Achievement and Innovation",
+                    description: cleanDesc,
                     image: res.data.image 
                            ? (res.data.image.startsWith('http') ? res.data.image : `${BASE_URL}/${cleanImage}`) 
                            : "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&q=80&w=1600"

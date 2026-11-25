@@ -7,7 +7,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Welcome to our comprehensive college blogs portal. Here you'll find insightful articles and stories about all aspects of campus life including academic insights, cultural experiences, innovation showcases, student achievements, and official SVASC announcements.</p><p>Our college is committed to sharing experiences and knowledge that enriches the educational journey. From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow, and connect.</p><p>Stay updated with all the latest blog posts and stories from our campus. Check back regularly for new articles, insights, and opportunities to contribute to the vibrant narrative of our college community.</p>",
+        "description": "<p>Welcome to our comprehensive college blogs portal. Here you'll find insightful articles and stories about all aspects of campus life including academic insights, cultural experiences, innovation showcases, student achievements and official SVASC announcements.</p><p>Our college is committed to sharing experiences and knowledge that enriches the educational journey. From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow and connect.</p><p>Stay updated with all the latest blog posts and stories from our campus. Check back regularly for new articles, insights and opportunities to contribute to the vibrant narrative of our college community.</p>",
         "order": 0
     },
     {
@@ -27,7 +27,7 @@ const DEFAULT_BLOGS = [
         "date": "24 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "5 min read",
-        "description": "<p>Our Academic Blogs section features insightful articles about scholarly activities including guest lectures, seminars, workshops, research findings, and academic competitions. These blogs are designed to share knowledge and foster intellectual growth among students and faculty.</p><p>Recent blog posts cover distinguished speaker insights, departmental research highlights, competition experiences, and interdisciplinary explorations. Students share their experiences in music, dance, drama, art, and various traditional and contemporary art forms. These blog posts provide a platform for students to express themselves, appreciate different cultures, and build a sense of community and belonging.</p>",
+        "description": "<p>Our Academic Blogs section features insightful articles about scholarly activities including guest lectures, seminars, workshops, research findings and academic competitions. These blogs are designed to share knowledge and foster intellectual growth among students and faculty.</p><p>Recent blog posts cover distinguished speaker insights, departmental research highlights, competition experiences and interdisciplinary explorations. Students share their experiences in music, dance, drama, art and various traditional and contemporary art forms. These blog posts provide a platform for students to express themselves, appreciate different cultures and build a sense of community and belonging.</p>",
         "order": 2
     },
     {
@@ -37,7 +37,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>The training session also focused on the process of honey production. Students observed various stages involved in honey extraction, processing, filtering, and packaging under hygienic conditions. The resource persons explained the nutritional and medicinal values of pure honey and discussed entrepreneurial opportunities in the beekeeping and agro-based products sector.</p><p>The PG and Research Department of Commerce (Kautilya Association) organised a one-day field visit and practical training at Manjari Honey Bee Farm (Sri Murugan Bee Keepers), Kolappalur on 11.08.2026.</p>",
+        "description": "<p>The training session also focused on the process of honey production. Students observed various stages involved in honey extraction, processing, filtering and packaging under hygienic conditions. The resource persons explained the nutritional and medicinal values of pure honey and discussed entrepreneurial opportunities in the beekeeping and agro-based products sector.</p><p>The PG and Research Department of Commerce (Kautilya Association) organised a one-day field visit and practical training at Manjari Honey Bee Farm (Sri Murugan Bee Keepers), Kolappalur on 11.08.2026.</p>",
         "order": 3
     },
     {
@@ -47,7 +47,7 @@ const DEFAULT_BLOGS = [
         "date": "23 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Cultural blogs at our college celebrate diversity, creativity, and artistic expression. From annual festival recaps to talent showcase features, traditional dance dramas to contemporary musical shows, our students actively express their heritage and artistic flair.</p><p>Through dance performances, musical events, dramatic interpretations, and folk artistry, the college campus provides an inspiring platform for cultural exploration and community celebration.</p>",
+        "description": "<p>Cultural blogs at our college celebrate diversity, creativity and artistic expression. From annual festival recaps to talent showcase features, traditional dance dramas to contemporary musical shows, our students actively express their heritage and artistic flair.</p><p>Through dance performances, musical events, dramatic interpretations and folk artistry, the college campus provides an inspiring platform for cultural exploration and community celebration.</p>",
         "order": 4
     },
     {
@@ -57,7 +57,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Competitions were conducted for National Sports Day celebrating fitness, sportsmanship, and collegiate team spirit.</p><p>A wide range of events were organized including Volleyball (Men) and Throwball (Women) tournaments. Students across departments participated with tremendous energy and enthusiasm, setting new records and strengthening athletic excellence.</p>",
+        "description": "<p>Competitions were conducted for National Sports Day celebrating fitness, sportsmanship and collegiate team spirit.</p><p>A wide range of events were organized including Volleyball (Men) and Throwball (Women) tournaments. Students across departments participated with tremendous energy and enthusiasm, setting new records and strengthening athletic excellence.</p>",
         "order": 5
     },
     {
@@ -67,7 +67,7 @@ const DEFAULT_BLOGS = [
         "date": "22 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Explore the future of education and technology through our innovative blog posts. We cover emerging trends in educational technology, digital learning tools, STEM initiatives, AI workstations, and modern teaching frameworks.</p><p>From high-speed computing laboratories to innovative student coding projects, our campus is committed to fostering technological curiosity and digital empowerment for every scholar.</p>",
+        "description": "<p>Explore the future of education and technology through our innovative blog posts. We cover emerging trends in educational technology, digital learning tools, STEM initiatives, AI workstations and modern teaching frameworks.</p><p>From high-speed computing laboratories to innovative student coding projects, our campus is committed to fostering technological curiosity and digital empowerment for every scholar.</p>",
         "order": 6
     },
     {
@@ -77,7 +77,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>A curated collection of news and highlights from the Department of Chemistry, featuring seminars, guest lectures, conferences, and association activities that foster scientific inquiry.</p><p>The department celebrated Freshers 2K26 welcoming new students with commemorative ceremonies, academic orientation, and inspiring motivational addresses by department faculty and scholars.</p>",
+        "description": "<p>A curated collection of news and highlights from the Department of Chemistry, featuring seminars, guest lectures, conferences and association activities that foster scientific inquiry.</p><p>The department celebrated Freshers 2K26 welcoming new students with commemorative ceremonies, academic orientation and inspiring motivational addresses by department faculty and scholars.</p>",
         "order": 7
     },
     {
@@ -87,7 +87,7 @@ const DEFAULT_BLOGS = [
         "date": "21 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Celebrate the accomplishments, talents, and active involvement of our students through these inspiring blog posts. We highlight academic honors, sports achievements, research discoveries, and community service.</p><p>Our students consistently demonstrate excellence, winning prestigious university rank awards, athletic medals, and volunteering in impactful community initiatives that create positive societal impact.</p>",
+        "description": "<p>Celebrate the accomplishments, talents and active involvement of our students through these inspiring blog posts. We highlight academic honors, sports achievements, research discoveries and community service.</p><p>Our students consistently demonstrate excellence, winning prestigious university rank awards, athletic medals and volunteering in impactful community initiatives that create positive societal impact.</p>",
         "order": 8
     },
     {
@@ -97,7 +97,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Stay informed with the latest official announcements, news articles, and blog updates from SVASC. This section includes important notices, policy updates, administrative circulars, and institutional development stories.</p><p>Recent highlights include new academic programs, infrastructure enhancements, placement milestones, and college achievements that reinforce SVASC's position as an educational beacon.</p>",
+        "description": "<p>Stay informed with the latest official announcements, news articles and blog updates from SVASC. This section includes important notices, policy updates, administrative circulars and institutional development stories.</p><p>Recent highlights include new academic programs, infrastructure enhancements, placement milestones and college achievements that reinforce SVASC's position as an educational beacon.</p>",
         "order": 9
     },
     {
@@ -107,7 +107,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>A detailed glimpse into the SVASC state-of-the-art campus, modern learning zones, and green open spaces. Our college is committed to sharing experiences and knowledge that enriches the educational journey.</p><p>From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow, and connect.</p>",
+        "description": "<p>A detailed glimpse into the SVASC state-of-the-art campus, modern learning zones and green open spaces. Our college is committed to sharing experiences and knowledge that enriches the educational journey.</p><p>From technical tutorials to cultural reflections, from sports highlights to expert interviews, we ensure that every student has access to inspiring content that helps them learn, grow and connect.</p>",
         "order": 10
     },
     {
@@ -117,7 +117,7 @@ const DEFAULT_BLOGS = [
         "date": "25 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Vibrant clubs, daily campus activities, friendship, leadership opportunities, and community fellowship. Student life at SVASC is a balanced blend of academic discipline and co-curricular vibrancy where lifelong friendships and career foundations are built.</p>",
+        "description": "<p>Vibrant clubs, daily campus activities, friendship, leadership opportunities and community fellowship. Student life at SVASC is a balanced blend of academic discipline and co-curricular vibrancy where lifelong friendships and career foundations are built.</p>",
         "order": 11
     },
     {
@@ -127,7 +127,7 @@ const DEFAULT_BLOGS = [
         "date": "24 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>High-tech laboratories, modern smart classrooms, comprehensive library facilities, and recreational avenues. We provide cutting-edge physical and digital infrastructure to support both theoretical learning and experiential discovery.</p>",
+        "description": "<p>High-tech laboratories, modern smart classrooms, comprehensive library facilities and recreational avenues. We provide cutting-edge physical and digital infrastructure to support both theoretical learning and experiential discovery.</p>",
         "order": 12
     },
     {
@@ -137,7 +137,7 @@ const DEFAULT_BLOGS = [
         "date": "24 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Extracurriculars, workshops, seminars, NSS, YRC, and campus celebration days throughout the academic year. Activities at SVASC empower students to step out of their comfort zones, discover hidden talents, and contribute meaningfully to society.</p>",
+        "description": "<p>Extracurriculars, workshops, seminars, NSS, YRC and campus celebration days throughout the academic year. Activities at SVASC empower students to step out of their comfort zones, discover hidden talents and contribute meaningfully to society.</p>",
         "order": 13
     },
     {
@@ -147,7 +147,7 @@ const DEFAULT_BLOGS = [
         "date": "24 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Eminent industry experts, corporate leaders, and university scholars regularly visit SVASC to deliver masterclasses on cutting-edge topics. These lectures bridge the divide between theoretical curricula and contemporary industrial realities.</p>",
+        "description": "<p>Eminent industry experts, corporate leaders and university scholars regularly visit SVASC to deliver masterclasses on cutting-edge topics. These lectures bridge the divide between theoretical curricula and contemporary industrial realities.</p>",
         "order": 14
     },
     {
@@ -157,7 +157,7 @@ const DEFAULT_BLOGS = [
         "date": "24 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Interactive departmental seminars providing students with platforms to discuss research innovations, presentation skills, and scholarly papers across disciplines.</p>",
+        "description": "<p>Interactive departmental seminars providing students with platforms to discuss research innovations, presentation skills and scholarly papers across disciplines.</p>",
         "order": 15
     },
     {
@@ -167,7 +167,7 @@ const DEFAULT_BLOGS = [
         "date": "23 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Practical hands-on technical workshops bridging classroom theory with industrial practices in digital commerce, computational analysis, and science research.</p>",
+        "description": "<p>Practical hands-on technical workshops bridging classroom theory with industrial practices in digital commerce, computational analysis and science research.</p>",
         "order": 16
     },
     {
@@ -177,7 +177,7 @@ const DEFAULT_BLOGS = [
         "date": "23 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Inter-collegiate and intra-departmental academic challenges, hackathons, business case studies, and quiz tournaments where our scholars win top honors.</p>",
+        "description": "<p>Inter-collegiate and intra-departmental academic challenges, hackathons, business case studies and quiz tournaments where our scholars win top honors.</p>",
         "order": 17
     },
     {
@@ -187,7 +187,7 @@ const DEFAULT_BLOGS = [
         "date": "23 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Classical vocal concerts, western band face-offs, fusion musical nights, and solo instrumental recitals celebrating melodious artistry.</p>",
+        "description": "<p>Classical vocal concerts, western band face-offs, fusion musical nights and solo instrumental recitals celebrating melodious artistry.</p>",
         "order": 18
     },
     {
@@ -197,7 +197,7 @@ const DEFAULT_BLOGS = [
         "date": "22 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Traditional Bharatanatyam, folk dances of Tamil Nadu, contemporary choreography, and thematic group routines on annual cultural days.</p>",
+        "description": "<p>Traditional Bharatanatyam, folk dances of Tamil Nadu, contemporary choreography and thematic group routines on annual cultural days.</p>",
         "order": 19
     },
     {
@@ -207,7 +207,7 @@ const DEFAULT_BLOGS = [
         "date": "22 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Socially conscious street plays, theatrical adaptations, mime acts, and comedy skits performed by the college drama club.</p>",
+        "description": "<p>Socially conscious street plays, theatrical adaptations, mime acts and comedy skits performed by the college drama club.</p>",
         "order": 20
     },
     {
@@ -217,7 +217,7 @@ const DEFAULT_BLOGS = [
         "date": "21 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Student painting galleries, sculpture displays, digital graphic design showcases, and photography exhibitions held in the central gallery.</p>",
+        "description": "<p>Student painting galleries, sculpture displays, digital graphic design showcases and photography exhibitions held in the central gallery.</p>",
         "order": 21
     },
     {
@@ -227,7 +227,7 @@ const DEFAULT_BLOGS = [
         "date": "22 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>24-hour coding marathons, software development challenges, and algorithmic problem-solving sprints building real-world digital solutions.</p>",
+        "description": "<p>24-hour coding marathons, software development challenges and algorithmic problem-solving sprints building real-world digital solutions.</p>",
         "order": 22
     },
     {
@@ -237,7 +237,7 @@ const DEFAULT_BLOGS = [
         "date": "21 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Annual inter-college symposiums featuring web design battles, technical paper presentations, debugging contests, and robotics expos.</p>",
+        "description": "<p>Annual inter-college symposiums featuring web design battles, technical paper presentations, debugging contests and robotics expos.</p>",
         "order": 23
     },
     {
@@ -247,7 +247,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Incubation cell guidance, seed-funding support, business pitching workshops, and mentorship from startup founders and venture professionals.</p>",
+        "description": "<p>Incubation cell guidance, seed-funding support, business pitching workshops and mentorship from startup founders and venture professionals.</p>",
         "order": 24
     },
     {
@@ -257,7 +257,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Prototyping equipment, IoT sensors, AI workstations, and creative exploration spaces where students turn theoretical research into products.</p>",
+        "description": "<p>Prototyping equipment, IoT sensors, AI workstations and creative exploration spaces where students turn theoretical research into products.</p>",
         "order": 25
     },
     {
@@ -267,7 +267,7 @@ const DEFAULT_BLOGS = [
         "date": "21 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>State and national accolades, academic distinctions, university gold medals, and leadership recognition earned by outstanding SVASC students.</p>",
+        "description": "<p>State and national accolades, academic distinctions, university gold medals and leadership recognition earned by outstanding SVASC students.</p>",
         "order": 26
     },
     {
@@ -277,7 +277,7 @@ const DEFAULT_BLOGS = [
         "date": "21 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Medals, university championship trophies, and athletic records set by our student athletes in cricket, kabaddi, volleyball, and athletics.</p>",
+        "description": "<p>Medals, university championship trophies and athletic records set by our student athletes in cricket, kabaddi, volleyball and athletics.</p>",
         "order": 27
     },
     {
@@ -287,7 +287,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Peer-reviewed scientific journals, patents, conference presentations, and faculty-student collaborative research published internationally.</p>",
+        "description": "<p>Peer-reviewed scientific journals, patents, conference presentations and faculty-student collaborative research published internationally.</p>",
         "order": 28
     },
     {
@@ -297,7 +297,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>NSS village adoption drives, blood donation camps, environmental tree-plantation walks, and literacy outreach initiatives for local villages.</p>",
+        "description": "<p>NSS village adoption drives, blood donation camps, environmental tree-plantation walks and literacy outreach initiatives for local villages.</p>",
         "order": 29
     },
     {
@@ -307,7 +307,7 @@ const DEFAULT_BLOGS = [
         "date": "20 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Official college circulars, university examination schedules, scholarship notices, and important academic notifications for all departments.</p>",
+        "description": "<p>Official college circulars, university examination schedules, scholarship notices and important academic notifications for all departments.</p>",
         "order": 30
     },
     {
@@ -317,7 +317,7 @@ const DEFAULT_BLOGS = [
         "date": "19 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>New curriculum additions, campus upgrades, advanced laboratory additions, and enhanced student support services across the college.</p>",
+        "description": "<p>New curriculum additions, campus upgrades, advanced laboratory additions and enhanced student support services across the college.</p>",
         "order": 31
     },
     {
@@ -327,7 +327,7 @@ const DEFAULT_BLOGS = [
         "date": "19 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "3 min read",
-        "description": "<p>Modern campus facilities, sports grounds, cafeteria, digital seminar halls, and smart classroom expansions built for 21st-century education.</p>",
+        "description": "<p>Modern campus facilities, sports grounds, cafeteria, digital seminar halls and smart classroom expansions built for 21st-century education.</p>",
         "order": 32
     },
     {
@@ -337,7 +337,7 @@ const DEFAULT_BLOGS = [
         "date": "18 May, 2026",
         "author": "SVASC Editorial",
         "readTime": "4 min read",
-        "description": "<p>Institutional rankings, NAAC accreditation distinctions, top placement records, and university affiliations highlighting SVASC's excellence.</p>",
+        "description": "<p>Institutional rankings, NAAC accreditation distinctions, top placement records and university affiliations highlighting SVASC's excellence.</p>",
         "order": 33
     }
 ,
@@ -352,8 +352,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/maths_association.jpg",
         "bImage": "/blogs_images/maths_association.jpg",
         "bannerImage": "/blogs_images/maths_association.jpg",
-        "description": "<p>The Department of Mathematics at Shree Venkateshwara Arts and Science College proudly inaugurated its Department Association for the academic year with traditional kuthuvilakku lighting and keynote addresses.</p><p>Eminent mathematicians and guest speakers addressed the gathering, inspiring students on mathematical problem-solving, modern analytical research, and career pathways in quantitative sciences and data analytics.</p><p>The event witnessed enthusiastic participation from undergraduate and postgraduate mathematics scholars, followed by interactive problem-solving competitions and academic roadmap presentations.</p>",
-        "copy": "<p>The Department of Mathematics at Shree Venkateshwara Arts and Science College proudly inaugurated its Department Association for the academic year with traditional kuthuvilakku lighting and keynote addresses.</p><p>Eminent mathematicians and guest speakers addressed the gathering, inspiring students on mathematical problem-solving, modern analytical research, and career pathways in quantitative sciences and data analytics.</p><p>The event witnessed enthusiastic participation from undergraduate and postgraduate mathematics scholars, followed by interactive problem-solving competitions and academic roadmap presentations.</p>",
+        "description": "<p>The Department of Mathematics at Shree Venkateshwara Arts and Science College proudly inaugurated its Department Association for the academic year with traditional kuthuvilakku lighting and keynote addresses.</p><p>Eminent mathematicians and guest speakers addressed the gathering, inspiring students on mathematical problem-solving, modern analytical research and career pathways in quantitative sciences and data analytics.</p><p>The event witnessed enthusiastic participation from undergraduate and postgraduate mathematics scholars, followed by interactive problem-solving competitions and academic roadmap presentations.</p>",
+        "copy": "<p>The Department of Mathematics at Shree Venkateshwara Arts and Science College proudly inaugurated its Department Association for the academic year with traditional kuthuvilakku lighting and keynote addresses.</p><p>Eminent mathematicians and guest speakers addressed the gathering, inspiring students on mathematical problem-solving, modern analytical research and career pathways in quantitative sciences and data analytics.</p><p>The event witnessed enthusiastic participation from undergraduate and postgraduate mathematics scholars, followed by interactive problem-solving competitions and academic roadmap presentations.</p>",
         "order": 35
     },
     {
@@ -367,8 +367,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/math_o_mania.jpg",
         "bImage": "/blogs_images/math_o_mania.jpg",
         "bannerImage": "/blogs_images/math_o_mania.jpg",
-        "description": "<p>Math \"O\" Mania, an exciting inter-departmental mathematics competition, was conducted with vibrant enthusiasm to celebrate the wonder, logic, and creativity of numbers.</p><p>Students from various schools participated in aptitude rounds, logic puzzles, mathematical model displays, and rapid-fire quiz sessions. The competition fostered critical thinking and healthy academic rivalry across departments.</p><p>Prizes and certificates were distributed to the top performers, applauding their analytical speed, mathematical precision, and innovative problem-solving methodologies.</p>",
-        "copy": "<p>Math \"O\" Mania, an exciting inter-departmental mathematics competition, was conducted with vibrant enthusiasm to celebrate the wonder, logic, and creativity of numbers.</p><p>Students from various schools participated in aptitude rounds, logic puzzles, mathematical model displays, and rapid-fire quiz sessions. The competition fostered critical thinking and healthy academic rivalry across departments.</p><p>Prizes and certificates were distributed to the top performers, applauding their analytical speed, mathematical precision, and innovative problem-solving methodologies.</p>",
+        "description": "<p>Math \"O\" Mania, an exciting inter-departmental mathematics competition, was conducted with vibrant enthusiasm to celebrate the wonder, logic and creativity of numbers.</p><p>Students from various schools participated in aptitude rounds, logic puzzles, mathematical model displays and rapid-fire quiz sessions. The competition fostered critical thinking and healthy academic rivalry across departments.</p><p>Prizes and certificates were distributed to the top performers, applauding their analytical speed, mathematical precision and innovative problem-solving methodologies.</p>",
+        "copy": "<p>Math \"O\" Mania, an exciting inter-departmental mathematics competition, was conducted with vibrant enthusiasm to celebrate the wonder, logic and creativity of numbers.</p><p>Students from various schools participated in aptitude rounds, logic puzzles, mathematical model displays and rapid-fire quiz sessions. The competition fostered critical thinking and healthy academic rivalry across departments.</p><p>Prizes and certificates were distributed to the top performers, applauding their analytical speed, mathematical precision and innovative problem-solving methodologies.</p>",
         "order": 36
     },
     {
@@ -382,8 +382,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/mou_beyond20.jpg",
         "bImage": "/blogs_images/mou_beyond20.jpg",
         "bannerImage": "/blogs_images/mou_beyond20.jpg",
-        "description": "<p>In an impactful step towards bridging academia with high-demand industry skills, the Department of Computer Science entered into a formal Memorandum of Understanding (MoU) with Beyond 20.</p><p>This strategic partnership offers students hands-on technical bootcamps, direct corporate internship opportunities, real-world project development, and professional industry certifications in cloud computing, modern software architectures, and AI frameworks.</p><p>The management, Principal, and Heads of Departments extended felicitations to the Beyond 20 leadership team, marking the beginning of a transformative era for tech placements at SVASC.</p>",
-        "copy": "<p>In an impactful step towards bridging academia with high-demand industry skills, the Department of Computer Science entered into a formal Memorandum of Understanding (MoU) with Beyond 20.</p><p>This strategic partnership offers students hands-on technical bootcamps, direct corporate internship opportunities, real-world project development, and professional industry certifications in cloud computing, modern software architectures, and AI frameworks.</p><p>The management, Principal, and Heads of Departments extended felicitations to the Beyond 20 leadership team, marking the beginning of a transformative era for tech placements at SVASC.</p>",
+        "description": "<p>In an impactful step towards bridging academia with high-demand industry skills, the Department of Computer Science entered into a formal Memorandum of Understanding (MoU) with Beyond 20.</p><p>This strategic partnership offers students hands-on technical bootcamps, direct corporate internship opportunities, real-world project development and professional industry certifications in cloud computing, modern software architectures and AI frameworks.</p><p>The management, Principal and Heads of Departments extended felicitations to the Beyond 20 leadership team, marking the beginning of a transformative era for tech placements at SVASC.</p>",
+        "copy": "<p>In an impactful step towards bridging academia with high-demand industry skills, the Department of Computer Science entered into a formal Memorandum of Understanding (MoU) with Beyond 20.</p><p>This strategic partnership offers students hands-on technical bootcamps, direct corporate internship opportunities, real-world project development and professional industry certifications in cloud computing, modern software architectures and AI frameworks.</p><p>The management, Principal and Heads of Departments extended felicitations to the Beyond 20 leadership team, marking the beginning of a transformative era for tech placements at SVASC.</p>",
         "order": 37
     },
     {
@@ -397,8 +397,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/nss_celebration.jpg",
         "bImage": "/blogs_images/nss_celebration.jpg",
         "bannerImage": "/blogs_images/nss_celebration.jpg",
-        "description": "<p>SVASC celebrated National Service Scheme (NSS) Day with high civic spirit, acknowledging the indispensable contribution of student volunteers to rural development, public welfare, and national integration.</p><p>NSS volunteers showcased presentations of year-round social outreach projects, cleanliness drives under Swachh Bharat, tree sapling plantations, and literacy awareness campaigns in adopted villages.</p><p>Outstanding volunteers were honored with merit awards, inspiring the student body to live by the timeless NSS motto: 'Not Me, But You'.</p>",
-        "copy": "<p>SVASC celebrated National Service Scheme (NSS) Day with high civic spirit, acknowledging the indispensable contribution of student volunteers to rural development, public welfare, and national integration.</p><p>NSS volunteers showcased presentations of year-round social outreach projects, cleanliness drives under Swachh Bharat, tree sapling plantations, and literacy awareness campaigns in adopted villages.</p><p>Outstanding volunteers were honored with merit awards, inspiring the student body to live by the timeless NSS motto: 'Not Me, But You'.</p>",
+        "description": "<p>SVASC celebrated National Service Scheme (NSS) Day with high civic spirit, acknowledging the indispensable contribution of student volunteers to rural development, public welfare and national integration.</p><p>NSS volunteers showcased presentations of year-round social outreach projects, cleanliness drives under Swachh Bharat, tree sapling plantations and literacy awareness campaigns in adopted villages.</p><p>Outstanding volunteers were honored with merit awards, inspiring the student body to live by the timeless NSS motto: 'Not Me, But You'.</p>",
+        "copy": "<p>SVASC celebrated National Service Scheme (NSS) Day with high civic spirit, acknowledging the indispensable contribution of student volunteers to rural development, public welfare and national integration.</p><p>NSS volunteers showcased presentations of year-round social outreach projects, cleanliness drives under Swachh Bharat, tree sapling plantations and literacy awareness campaigns in adopted villages.</p><p>Outstanding volunteers were honored with merit awards, inspiring the student body to live by the timeless NSS motto: 'Not Me, But You'.</p>",
         "order": 38
     },
     {
@@ -412,8 +412,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/blood_donation.jpg",
         "bImage": "/blogs_images/blood_donation.jpg",
         "bannerImage": "/blogs_images/blood_donation.jpg",
-        "description": "<p>Demonstrating humanitarian commitment, Shree Venkateshwara Arts and Science College organized a Mega Voluntary Blood Donation Camp in association with the Government Hospital Blood Bank and Red Ribbon Club.</p><p>A dedicated medical team conducted pre-donation screenings, hemoglobin checks, and vital monitoring before collection. Over a hundred units of blood were contributed by passionate student volunteers and faculty members.</p><p>Certificates of appreciation and donor refreshments were provided to all participants, reinforcing our institution's dedication to saving lives and serving the greater community.</p>",
-        "copy": "<p>Demonstrating humanitarian commitment, Shree Venkateshwara Arts and Science College organized a Mega Voluntary Blood Donation Camp in association with the Government Hospital Blood Bank and Red Ribbon Club.</p><p>A dedicated medical team conducted pre-donation screenings, hemoglobin checks, and vital monitoring before collection. Over a hundred units of blood were contributed by passionate student volunteers and faculty members.</p><p>Certificates of appreciation and donor refreshments were provided to all participants, reinforcing our institution's dedication to saving lives and serving the greater community.</p>",
+        "description": "<p>Demonstrating humanitarian commitment, Shree Venkateshwara Arts and Science College organized a Mega Voluntary Blood Donation Camp in association with the Government Hospital Blood Bank and Red Ribbon Club.</p><p>A dedicated medical team conducted pre-donation screenings, hemoglobin checks and vital monitoring before collection. Over a hundred units of blood were contributed by passionate student volunteers and faculty members.</p><p>Certificates of appreciation and donor refreshments were provided to all participants, reinforcing our institution's dedication to saving lives and serving the greater community.</p>",
+        "copy": "<p>Demonstrating humanitarian commitment, Shree Venkateshwara Arts and Science College organized a Mega Voluntary Blood Donation Camp in association with the Government Hospital Blood Bank and Red Ribbon Club.</p><p>A dedicated medical team conducted pre-donation screenings, hemoglobin checks and vital monitoring before collection. Over a hundred units of blood were contributed by passionate student volunteers and faculty members.</p><p>Certificates of appreciation and donor refreshments were provided to all participants, reinforcing our institution's dedication to saving lives and serving the greater community.</p>",
         "order": 39
     },
     {
@@ -427,8 +427,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/anti_drug_day.jpg",
         "bImage": "/blogs_images/anti_drug_day.jpg",
         "bannerImage": "/blogs_images/anti_drug_day.jpg",
-        "description": "<p>To build an enlightened, drug-free youth generation, SVASC observed the International Day Against Drug Abuse and Illicit Trafficking with an intensive campus-wide awareness drive.</p><p>Senior police and legal authorities delivered authoritative lectures detailing the legal, physical, and psychological repercussions of substance abuse, followed by an institution-wide pledge administered to all students.</p><p>A student awareness rally, street plays, and evocative poster presentations spread strong anti-drug messages, receiving immense praise across the district.</p>",
-        "copy": "<p>To build an enlightened, drug-free youth generation, SVASC observed the International Day Against Drug Abuse and Illicit Trafficking with an intensive campus-wide awareness drive.</p><p>Senior police and legal authorities delivered authoritative lectures detailing the legal, physical, and psychological repercussions of substance abuse, followed by an institution-wide pledge administered to all students.</p><p>A student awareness rally, street plays, and evocative poster presentations spread strong anti-drug messages, receiving immense praise across the district.</p>",
+        "description": "<p>To build an enlightened, drug-free youth generation, SVASC observed the International Day Against Drug Abuse and Illicit Trafficking with an intensive campus-wide awareness drive.</p><p>Senior police and legal authorities delivered authoritative lectures detailing the legal, physical and psychological repercussions of substance abuse, followed by an institution-wide pledge administered to all students.</p><p>A student awareness rally, street plays and evocative poster presentations spread strong anti-drug messages, receiving immense praise across the district.</p>",
+        "copy": "<p>To build an enlightened, drug-free youth generation, SVASC observed the International Day Against Drug Abuse and Illicit Trafficking with an intensive campus-wide awareness drive.</p><p>Senior police and legal authorities delivered authoritative lectures detailing the legal, physical and psychological repercussions of substance abuse, followed by an institution-wide pledge administered to all students.</p><p>A student awareness rally, street plays and evocative poster presentations spread strong anti-drug messages, receiving immense praise across the district.</p>",
         "order": 40
     },
     {
@@ -442,8 +442,8 @@ const DEFAULT_BLOGS = [
         "image": "/blogs_images/tamil_department_meet.jpg",
         "bImage": "/blogs_images/tamil_department_meet.jpg",
         "bannerImage": "/blogs_images/tamil_department_meet.jpg",
-        "description": "<p>The Department of Tamil hosted an inspiring Muthamizh literary confluence celebrating the richness of classical poetry, traditional folk arts, and modern creative writings.</p><p>Eminent Tamil scholars and poets graced the occasion, captivating students with lectures on Sangam literature, moral values in Thirukkural, and contemporary poetic forms.</p><p>Student competitions in kavithai, elocution, debate (pattimandram), and traditional music culminated with colorful prize ceremonies and heartfelt cultural performances.</p>",
-        "copy": "<p>The Department of Tamil hosted an inspiring Muthamizh literary confluence celebrating the richness of classical poetry, traditional folk arts, and modern creative writings.</p><p>Eminent Tamil scholars and poets graced the occasion, captivating students with lectures on Sangam literature, moral values in Thirukkural, and contemporary poetic forms.</p><p>Student competitions in kavithai, elocution, debate (pattimandram), and traditional music culminated with colorful prize ceremonies and heartfelt cultural performances.</p>",
+        "description": "<p>The Department of Tamil hosted an inspiring Muthamizh literary confluence celebrating the richness of classical poetry, traditional folk arts and modern creative writings.</p><p>Eminent Tamil scholars and poets graced the occasion, captivating students with lectures on Sangam literature, moral values in Thirukkural and contemporary poetic forms.</p><p>Student competitions in kavithai, elocution, debate (pattimandram) and traditional music culminated with colorful prize ceremonies and heartfelt cultural performances.</p>",
+        "copy": "<p>The Department of Tamil hosted an inspiring Muthamizh literary confluence celebrating the richness of classical poetry, traditional folk arts and modern creative writings.</p><p>Eminent Tamil scholars and poets graced the occasion, captivating students with lectures on Sangam literature, moral values in Thirukkural and contemporary poetic forms.</p><p>Student competitions in kavithai, elocution, debate (pattimandram) and traditional music culminated with colorful prize ceremonies and heartfelt cultural performances.</p>",
         "order": 41
     }
 ];

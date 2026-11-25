@@ -21,40 +21,42 @@ const resolveImageUrl = (img) => {
     return `${BASE_URL}/${cleanImg}`;
 };
 
+const cleanCommaBeforeAnd = (str) => (typeof str === 'string' ? str.replace(/,\s+and\b/gi, ' and') : str);
+
 const fallbackBlogs = [
     {
         day: 24,
         month: 'May',
         title: 'Academic Events',
-        description: 'Scholarly activities, guest lectures, seminars, research findings, and departmental workshops empowering student intellect.',
+        description: 'Scholarly activities, guest lectures, seminars, research findings and departmental workshops empowering student intellect.',
         image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800'
     },
     {
         day: 25,
         month: 'May',
         title: 'Cultural Activities & Arts',
-        description: 'Celebrating diversity, creativity, and artistic expression through annual festival recaps, music, dance, and cultural shows.',
+        description: 'Celebrating diversity, creativity and artistic expression through annual festival recaps, music, dance and cultural shows.',
         image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800'
     },
     {
         day: 26,
         month: 'May',
         title: 'Innovation in Education and Tech',
-        description: 'Hands-on project showcases, hackathons, coding contests, tech fests, startup journeys, and emerging AI technologies.',
+        description: 'Hands-on project showcases, hackathons, coding contests, tech fests, startup journeys and emerging AI technologies.',
         image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800'
     },
     {
         day: 27,
         month: 'May',
         title: 'Student Achievements & Activities',
-        description: 'Celebrating students excelling in university rank honors, sports championships, national research, and community service.',
+        description: 'Celebrating students excelling in university rank honors, sports championships, national research and community service.',
         image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800'
     },
     {
         day: 28,
         month: 'May',
         title: 'SVASC News & Announcements',
-        description: 'Official announcements, accreditation milestones, academic calendar updates, and institutional progress across SVASC.',
+        description: 'Official announcements, accreditation milestones, academic calendar updates and institutional progress across SVASC.',
         image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800'
     }
 ];
@@ -65,7 +67,9 @@ const BlogSection = () => {
             const cached = localStorage.getItem('svasc_cached_home_blogs');
             if (cached) {
                 const parsed = JSON.parse(cached);
-                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    return parsed.map(b => ({ ...b, description: cleanCommaBeforeAnd(b.description) }));
+                }
             }
         } catch (e) {
             // Fall back
@@ -94,10 +98,10 @@ const BlogSection = () => {
                             seenTitles.add(norm);
                             const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '') || '';
                             const imgUrl = resolveImageUrl(rawImg);
-                            const plainDesc = (item.description || item.copy || '')
+                            const plainDesc = cleanCommaBeforeAnd((item.description || item.copy || '')
                                 .replace(/<[^>]+>/g, '')
                                 .replace(/\s+/g, ' ')
-                                .trim()
+                                .trim())
                                 .slice(0, 140);
                             const date = new Date(item.createdAt || Date.now());
                             merged.push({
@@ -121,10 +125,10 @@ const BlogSection = () => {
                         if (norm && !seenTitles.has(norm)) {
                             seenTitles.add(norm);
                             const imgUrl = resolveImageUrl(item.image);
-                            const plainDesc = (item.description || '')
+                            const plainDesc = cleanCommaBeforeAnd((item.description || '')
                                 .replace(/<[^>]+>/g, '')
                                 .replace(/\s+/g, ' ')
-                                .trim()
+                                .trim())
                                 .slice(0, 140);
                             merged.push({
                                 _id: item._id,

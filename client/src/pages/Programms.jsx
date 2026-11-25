@@ -108,11 +108,11 @@ const Schools = () => {
                 name: "School of Computer Science & IT",
                 acronym: "SCSIT",
                 programs: [
-                    { title: "B.Sc. Computer Science", image: about3Img },
-                    { title: "B.Sc.Computer AI & DS", image: commitiesImg },
+                    { title: "B.Sc Computer Science", image: about3Img },
+                    { title: "B.Sc Computer AI & DS", image: commitiesImg },
                     { title: "Bachelor of Computer Applications (BCA)", image: cs },
-                    { title: "B.Sc.Information Technology", image: examheroImg },
-                    { title: "B.Sc.Cyber Security", image: bcsai }
+                    { title: "B.Sc Information Technology", image: examheroImg },
+                    { title: "B.Sc Cyber Security", image: bcsai }
                 ]
             },
             {
@@ -137,9 +137,9 @@ const Schools = () => {
                 name: "School of Sciences",
                 acronym: "SOHS",
                 programs: [
-                    { title: "B.Sc. Chemistry", image: why3Img },
-                    { title: "B.Sc. Mathematics", image: teachingImg },
-                    { title: "B.Sc. Microbiology", image: researchImg },
+                    { title: "B.Sc Chemistry", image: why3Img },
+                    { title: "B.Sc Mathematics", image: teachingImg },
+                    { title: "B.Sc Microbiology", image: researchImg },
                 ]
             },
             {
@@ -169,7 +169,7 @@ const Schools = () => {
                 name: "School of Computer Science",
                 acronym: "SCS",
                 programs: [
-                    { title: "M.Sc. Computer Science", image: home5Img },
+                    { title: "M.Sc Computer Science", image: home5Img },
                     { title: "M.Sc Microbiology", image: home1Img },
                 ]
             },
@@ -193,9 +193,9 @@ const Schools = () => {
                 name: "Research & Development",
                 acronym: "R&D",
                 programs: [
-                    { title: "Ph.D. Tamil", image: club0Img },
-                    { title: "Ph.D. English", image: why2Img },
-                    { title: "Ph.D. Commerce", image: "/commercephd/phd1.jpg" }
+                    { title: "Ph.D Tamil", image: club0Img },
+                    { title: "Ph.D English", image: why2Img },
+                    { title: "Ph.D Commerce", image: "/commercephd/phd1.jpg" }
                 ]
             }
         ]

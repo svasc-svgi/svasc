@@ -299,7 +299,7 @@ const LibraryPortal = () => {
                                             <tbody>
                                                 <tr><td>UG Students</td><td>3 Books</td><td>30 Days</td></tr>
                                                 <tr><td>PG Students</td><td>5 Books</td><td>30 Days</td></tr>
-                                                <tr><td>M.Phil & Ph.D. Scholars</td><td>7 Books</td><td>30 Days</td></tr>
+                                                <tr><td>M.Phil & Ph.D Scholars</td><td>7 Books</td><td>30 Days</td></tr>
                                                 <tr><td>Teaching Staff</td><td>10 Books</td><td>30 Days</td></tr>
                                                 <tr><td>Non-Teaching Staff</td><td>3 Books</td><td>30 Days</td></tr>
                                             </tbody>
@@ -496,7 +496,7 @@ const LibraryPortal = () => {
                                             </td>
                                             <td className={styles.textLeft}>
                                                 <strong>Dr. P. Krishnakumari</strong><br />
-                                                <span style={{ fontSize: '1.3rem', color: '#666' }}>MLIS., M.Phil., Ph.D.</span><br />
+                                                <span style={{ fontSize: '1.3rem', color: '#666' }}>MLIS., M.Phil., Ph.D</span><br />
                                                 <span style={{ fontSize: '1.4rem', color: '#fb923c', fontWeight: '500' }}>Librarian & Head</span>
                                             </td>
                                             <td><a href="mailto:krishna.phdlib13@gmail.com">krishna.phdlib13@gmail.com</a></td>

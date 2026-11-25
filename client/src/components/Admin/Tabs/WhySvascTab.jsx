@@ -93,7 +93,7 @@ const WhySvascTab = () => {
         renderForm={(formData, setFormData) => (
           <>
             <FormInput
-              label="Student Name & Details (e.g. E.Pooja - B.Sc. Computer Science (2023 batch))"
+              label="Student Name & Details (e.g. E.Pooja - B.Sc Computer Science (2023 batch))"
               value={formData.name || ''}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required

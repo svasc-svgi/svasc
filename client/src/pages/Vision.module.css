@@ -192,6 +192,35 @@
     padding: 0 2rem;
 }
 
+.imgCaption .objectivesList {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.imgCaption .objectivesList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    padding: 0;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+}
+
+.imgCaption .objectivesList li::before {
+    content: "✦";
+    color: #ffc100;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+    text-shadow: 0 1px 2px rgba(24, 30, 75, 0.25);
+}
+
 .typeLeft .imgCaption {
     right: 0;
 }
@@ -372,6 +401,11 @@
 
     .imgCaption * {
         text-align: center;
+    }
+
+    .imgCaption .objectivesList li {
+        text-align: left;
+        font-size: 1.25rem;
     }
 
     .landingContent {

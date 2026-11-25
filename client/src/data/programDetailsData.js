@@ -43,7 +43,7 @@ import ugpgheroImg from '../assets/ugpghero.jpg';
 
 export const programDetailsData = {
     "bsc-computer-science": {
-        title: "B.Sc. Computer Science",
+        title: "B.Sc Computer Science",
         heroImage: about3Img,
         aboutImage: home3Img,
         about: "The Department of Computer Science was established in the academic year 2019–2020 with the objective of providing quality education in the field of computing and information technology. Owing to its consistent academic growth and commitment to excellence, the department was upgraded with a Postgraduate (PG) Programme in the academic year 2023–2024.The department is equipped with modern infrastructure, well-furnished computer laboratories, high-speed internet connectivity and advanced computing facilities to support effective teaching and learning. ",
@@ -91,17 +91,17 @@ export const programDetailsData = {
             { title: "Freelance Software Developer & Tech Entrepreneur" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 1, name: "Ms. B. Kanchanadevi", qualification: "M.Sc, M.Phil., (Ph.D)" },
             { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
             { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
             { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
-            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc, M.Phil., (Ph.D)" },
             { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
-            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc, M.Phil., NET (Ph.D)" }
         ],
         faqs: [
-            { question: "What is B.Sc. Computer Science?", answer: "The B.Sc. Computer Science is a 3-year undergraduate program that covers core areas such as data structures, database management and software development." },
-            { question: "Who can apply for B.Sc. Computer Science?", answer: "Students who have completed 10+2 with a background in Science and Mathematics are eligible to apply." }
+            { question: "What is B.Sc Computer Science?", answer: "The B.Sc Computer Science is a 3-year undergraduate program that covers core areas such as data structures, database management and software development." },
+            { question: "Who can apply for B.Sc Computer Science?", answer: "Students who have completed 10+2 with a background in Science and Mathematics are eligible to apply." }
         ],
         gallery: [
             {
@@ -134,7 +134,7 @@ export const programDetailsData = {
         ]
     },
     "bsccomputer-ai-ds": {
-        title: "B.Sc.Artificial Intelligence and Data Science",
+        title: "B.Sc Artificial Intelligence and Data Science",
         heroImage: commitiesImg,
         aboutImage: home4Img,
         about: "The Department of Computer Science (Artificial Intelligence and Data Science) equips students with a robust understanding of computer science principles while specializing in artificial intelligence, machine learning and data analytics, preparing them to innovate and solve complex real-world problems across diverse technological domains.",
@@ -180,19 +180,19 @@ export const programDetailsData = {
             { title: "Robotics Engineer" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc., M.Phil., Ph.D (AP & HOD)" },
+            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc, M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
             { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
             { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
-            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc, M.Phil., (Ph.D)" },
             { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
-            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc, M.Phil., NET (Ph.D)" }
         ],
         faqs: [
-            { question: "Does the B.Sc. AI & DS program include specialization in Artificial Intelligence and Data Science?", answer: "Yes, this is a dedicated B.Sc. program in Artificial Intelligence and Data Science (also listed as B.Sc. Computer Science with Artificial Intelligence), with curriculum covering AI models, machine learning, neural networks, big data analytics, data mining and intelligent systems development." },
-            { question: "What kind of projects and practical work are involved in B.Sc. AI & DS?", answer: "Students work on real-world projects including AI model building, predictive analytics, natural language processing applications, computer vision systems, recommendation engines, sentiment analysis and data-driven decision tools using frameworks like Python, TensorFlow, PyTorch, Scikit-learn and big data technologies." },
+            { question: "Does the B.Sc AI & DS program include specialization in Artificial Intelligence and Data Science?", answer: "Yes, this is a dedicated B.Sc program in Artificial Intelligence and Data Science (also listed as B.Sc Computer Science with Artificial Intelligence), with curriculum covering AI models, machine learning, neural networks, big data analytics, data mining and intelligent systems development." },
+            { question: "What kind of projects and practical work are involved in B.Sc AI & DS?", answer: "Students work on real-world projects including AI model building, predictive analytics, natural language processing applications, computer vision systems, recommendation engines, sentiment analysis and data-driven decision tools using frameworks like Python, TensorFlow, PyTorch, Scikit-learn and big data technologies." },
             { question: "What placement support is available for AI and Data Science careers in this program?", answer: "Yes, the college has a dedicated placement cell offering 100% assistance, with targeted guidance for high-demand roles in AI, Machine Learning, Data Science and related tech fields through campus drives, resume building, mock interviews and industry partnerships." },
-            { question: "What are the main career opportunities after completing B.Sc. AI & DS?", answer: "Graduates can pursue roles such as AI/Machine Learning Engineer, Data Scientist, Data Analyst, AI Consultant, Research Scientist in AI, Robotics Engineer, NLP Specialist, Business Intelligence Developer and positions in IT, healthcare, finance, e-commerce and autonomous systems industries." }
+            { question: "What are the main career opportunities after completing B.Sc AI & DS?", answer: "Graduates can pursue roles such as AI/Machine Learning Engineer, Data Scientist, Data Analyst, AI Consultant, Research Scientist in AI, Robotics Engineer, NLP Specialist, Business Intelligence Developer and positions in IT, healthcare, finance, e-commerce and autonomous systems industries." }
         ]
     },
 
@@ -292,24 +292,24 @@ export const programDetailsData = {
             }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
-            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
-            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
-            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D" },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc, M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc, M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc, M.Phil." },
             { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
             { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
-            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
-            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc, (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc" },
             { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
             { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
         ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
-            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
+            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc Information Technology, B.Sc Cyber Security." }
         ]
     },
     "bscinformation-technology": {
-        title: "B.Sc. Information Technology",
+        title: "B.Sc Information Technology",
         heroImage: examheroImg,
         aboutImage: intImg,
         about: "This degree is primarily focused on subjects such as software, databases and networking. The B.Sc degree in IT is awarded for completing a program of study in the field of software development, software testing, software engineering, web design, databases, programming and computer networking and computer systems.",
@@ -354,24 +354,24 @@ export const programDetailsData = {
             { title: "Multimedia Engineer", description: "Analyze and interpret complex data." }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
-            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
-            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
-            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D" },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc, M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc, M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc, M.Phil." },
             { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
             { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
-            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
-            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc, (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc" },
             { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
             { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
         ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
-            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
+            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc Information Technology, B.Sc Cyber Security." }
         ]
     },
     "bsccyber-security": {
-        title: "B.Sc. Cyber Security",
+        title: "B.Sc Cyber Security",
         heroImage: bscai,
         aboutImage: libImg,
         about: "B.Sc Computer Science (Cyber Security). The three-year degree program Cyber Security courses aim to equip students with the knowledge and skills required to defend computer operating systems, networks and data from cyber-attacks, security breaches and digital vulnerabilities.",
@@ -417,20 +417,20 @@ export const programDetailsData = {
             { title: "Government (Defense / Non-defense)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D." },
-            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc., M.Phil., B.Ed., (Ph.D)" },
-            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc., M.Phil., (Ph.D)" },
-            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc., M.Phil." },
+            { sNo: 1, name: "Dr. V. Suresh Kumar", qualification: "MCA., M.Phil., Ph.D" },
+            { sNo: 2, name: "Mr. S. Kumaravel", qualification: "M.Sc, M.Phil., B.Ed., (Ph.D)" },
+            { sNo: 3, name: "Mrs. B. Karthikeyani", qualification: "M.Sc, M.Phil., (Ph.D)" },
+            { sNo: 4, name: "Mrs. C. Neevetha", qualification: "M.Sc, M.Phil." },
             { sNo: 5, name: "Mrs. G. Gowri Nithya", qualification: "MCA" },
             { sNo: 6, name: "Mrs. K. Sangeetha", qualification: "M. Sc., M. Tech., M. Phil." },
-            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc., (Ph.D)" },
-            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc." },
+            { sNo: 7, name: "Mrs. T. MohanaPriya", qualification: "M.Sc, (Ph.D)" },
+            { sNo: 8, name: "Ms. D. Sathyarubha", qualification: "M.Sc" },
             { sNo: 9, name: "Mr. D. Shyamsundar", qualification: "MCA., M.Phil." },
             { sNo: 10, name: "Ms. D. Usha Nandhini", qualification: "MCA" }
         ],
         faqs: [
             { question: "Does this course include placement support?", answer: "Yes, we have a dedicated placement cell providing 100% placement assistance." },
-            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc. Information Technology, B.Sc. Cyber Security." }
+            { question: "What programs are offered in Computer Applications?", answer: "BCA, B.Sc Information Technology, B.Sc Cyber Security." }
         ]
     },
     "b-com-bachelor-of-commerce": {
@@ -484,10 +484,10 @@ export const programDetailsData = {
             { title: "Professional Courses: CA / CMA / CS" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. A. SAVITHA", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D., SET." },
+            { sNo: 1, name: "Dr. A. SAVITHA", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D, SET." },
             { sNo: 2, name: "Mrs. S. SWATHI", qualification: "M.COM (CA)., M.PHIL., MBA., (Ph.D)" },
             { sNo: 3, name: "Mr. V. NAVEENKUMAR", qualification: "M.COM (CA)., M.PHIL., (Ph.D)" },
-            { sNo: 4, name: "Dr. M. KALAIVANI", qualification: "M.COM., M.PHIL., PGDCA., Ph.D." },
+            { sNo: 4, name: "Dr. M. KALAIVANI", qualification: "M.COM., M.PHIL., PGDCA., Ph.D" },
             { sNo: 5, name: "Mr. R. SELVAKUMAR", qualification: "M.COM., M.PHIL., B.Ed., B.L." },
             { sNo: 6, name: "Mrs. S. RAMYADEVI", qualification: "M.COM., M.PHIL., MBA." },
             { sNo: 7, name: "Ms. K. SUSITHRA", qualification: "MBA." }
@@ -526,7 +526,7 @@ export const programDetailsData = {
         title: "B. Com(B&I) – Bachelor of Commerce with Banking & Insurance",
         heroImage: cellImg,
         aboutImage: ugpgImg,
-        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (B&I) alongside other UG, M.Com and Ph.D. research programs. The department is manned by well-qualified and experienced faculty striving hard for holistic student development in Accounting, Banking, Insurance, Leadership and Research skills.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (B&I) alongside other UG, M.Com and Ph.D research programs. The department is manned by well-qualified and experienced faculty striving hard for holistic student development in Accounting, Banking, Insurance, Leadership and Research skills.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership and global competence to address emerging challenges in business and society.",
         mission: [
             "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
@@ -573,17 +573,17 @@ export const programDetailsData = {
             { title: "Certified Public Accountant & CA/CMA Prep" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
-            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
-            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
-            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
             { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
@@ -594,7 +594,7 @@ export const programDetailsData = {
         title: "B.Com(IT) - Bachelor of Information Technology",
         heroImage: computerlabImg,
         aboutImage: AboutheroImg,
-        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (IT) alongside other UG, M.Com and Ph.D. research programs. B.Com Information Technology combines business and technology, imparting design, development, implementation and management of information systems along with adapting software applications in accounting and business.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (IT) alongside other UG, M.Com and Ph.D research programs. B.Com Information Technology combines business and technology, imparting design, development, implementation and management of information systems along with adapting software applications in accounting and business.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership and global competence to address emerging challenges in business and society.",
         mission: [
             "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
@@ -641,17 +641,17 @@ export const programDetailsData = {
             { title: "E-Commerce & Digital Business Executive" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
-            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
-            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
-            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
             { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
@@ -708,12 +708,12 @@ export const programDetailsData = {
             { title: "Entrepreneur" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr.M.S.Gomathi", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D." },
+            { sNo: 1, name: "Dr.M.S.Gomathi", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D" },
             { sNo: 2, name: "Ms.K.S.Kanya", qualification: "MCA., (Ph.D)" },
             { sNo: 3, name: "Mrs.T.Bhuvaneswari", qualification: "M.COM., M.PHIL., PGDCA., B.Ed., (Ph.D)." },
             { sNo: 4, name: "Mr.M.Elango", qualification: "M.COM (CA)., (Ph.D)." },
             { sNo: 5, name: "Mrs.U.Gowthami", qualification: "MCA., Dip in Travel & Tourism., M.PHIL., (Ph.D)" },
-            { sNo: 6, name: "Dr.K.Suresh Kumar", qualification: "M.COM., M.PHIL., PGDCA., Ph.D." },
+            { sNo: 6, name: "Dr.K.Suresh Kumar", qualification: "M.COM., M.PHIL., PGDCA., Ph.D" },
             { sNo: 7, name: "Mrs.K.V.Ranjani", qualification: "M.COM (CA)., B.Ed." }
         ],
         gallery: [
@@ -750,7 +750,7 @@ export const programDetailsData = {
         title: "B.Com(PA)-Professional Accounting",
         heroImage: learningImg,
         aboutImage: home1Img,
-        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (PA) alongside other UG, M.Com and Ph.D. research programs. B.Com Professional Accounting is specifically aligned with professional accounting standards (CA, CMA, CS), building strong research, finance, corporate tax and accounting careers.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering B.Com (PA) alongside other UG, M.Com and Ph.D research programs. B.Com Professional Accounting is specifically aligned with professional accounting standards (CA, CMA, CS), building strong research, finance, corporate tax and accounting careers.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership and global competence to address emerging challenges in business and society.",
         mission: [
             "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
@@ -797,17 +797,17 @@ export const programDetailsData = {
             { title: "Certified Public Accountant (CPA) & Academician" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
-            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
-            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
-            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
             { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
@@ -986,7 +986,7 @@ export const programDetailsData = {
             { title: "Project Coordinator" }
         ],
                 staffDetails: [
-            { sNo: 1, name: "Dr. P. RAJASEKAR", qualification: "MBA., M.COM., PGDCA., M.PHIL., PH.D." },
+            { sNo: 1, name: "Dr. P. RAJASEKAR", qualification: "MBA., M.COM., PGDCA., M.PHIL., PH.D" },
             { sNo: 2, name: "Ms. G. GURULAKSHMI", qualification: "MBA., (PH.D)" },
             { sNo: 3, name: "Mrs. H.S. PRABHASHANKAR", qualification: "MBA., (PH.D)" },
             { sNo: 4, name: "Mr. G. BALASUBRAMANIYAN", qualification: "MBA., M.COM(CA)., M.PHIL., (PH.D)." }
@@ -1049,7 +1049,7 @@ export const programDetailsData = {
     },
    
     "bsc-chemistry": {
-        title: "B.Sc. Chemistry",
+        title: "B.Sc Chemistry",
         heroImage: why3Img,
         aboutImage: labheroImg,
         about: "The Department of Chemistry was established in 2020. It lays a strong foundation for future researchers and professionals by imparting knowledge of essential chemical and physical principles. The department equips students with theoretical foundations, practical skills, scientific integrity and hands-on laboratory experience to excel in diverse career paths and advanced studies.",
@@ -1168,7 +1168,7 @@ export const programDetailsData = {
         ]
     },
     "bsc-mathematics": {
-        title: "B.Sc. Mathematics",
+        title: "B.Sc Mathematics",
         heroImage: teachingImg,
         aboutImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         about: "The Department of Mathematics came to full form in the year 2019 with the introduction of the 3-year full-time B.Sc Mathematics programme. Guided by 7 inspiring faculty members and dynamic students, the department stimulates excellent navigation for students to expose their competency, build strong logical reasoning and apply mathematical concepts to solve real-world problems. Motto: 'Think Logically, Solve Creatively.'",
@@ -1203,25 +1203,25 @@ export const programDetailsData = {
             { title: "Financial Planner & Actuarial Specialist" },
             { title: "Insurance Underwriter & Purchasing Manager" },
             { title: "Software Developer & Computational Specialist" },
-            { title: "Higher Studies (M.Sc., M.Phil., Ph.D.)" },
+            { title: "Higher Studies (M.Sc, M.Phil., Ph.D)" },
             { title: "Competitive Exams (NET, SET, GATE, TRB, UPSC, TNPSC, Banking, Railways)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Mr. P. Arokyaraj", qualification: "M.Sc., M.Ed., M.Phil., (Ph.D) (HoD & Assistant Professor)" },
-            { sNo: 2, name: "Mrs. P. S. Kavitha", qualification: "M.Sc., B.Ed. (Assistant Professor)" },
-            { sNo: 3, name: "Mr. C. Suresh", qualification: "M.Sc. (Assistant Professor)" },
-            { sNo: 4, name: "Mrs. M. Kavitha", qualification: "M.Sc., B.Ed., M.Phil. (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. K. Nagarathinam", qualification: "M.Sc., M.Phil. (Assistant Professor)" },
-            { sNo: 6, name: "Mr. L. Sridhar", qualification: "M.Sc., B.Ed. (Assistant Professor)" },
-            { sNo: 7, name: "Mr. S. Praveen", qualification: "M.Sc. (Assistant Professor)" }
+            { sNo: 1, name: "Mr. P. Arokyaraj", qualification: "M.Sc, M.Ed., M.Phil., (Ph.D) (HoD & Assistant Professor)" },
+            { sNo: 2, name: "Mrs. P. S. Kavitha", qualification: "M.Sc, B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Mr. C. Suresh", qualification: "M.Sc (Assistant Professor)" },
+            { sNo: 4, name: "Mrs. M. Kavitha", qualification: "M.Sc, B.Ed., M.Phil. (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. K. Nagarathinam", qualification: "M.Sc, M.Phil. (Assistant Professor)" },
+            { sNo: 6, name: "Mr. L. Sridhar", qualification: "M.Sc, B.Ed. (Assistant Professor)" },
+            { sNo: 7, name: "Mr. S. Praveen", qualification: "M.Sc (Assistant Professor)" }
         ],
         eligibility: "Pass in Higher Secondary (+2) Examination in Academic or Vocational stream from Govt of Tamil Nadu or equivalent approved by Bharathiar University.",
         faqs: [
-            { question: "Is B.Sc. Mathematics useful for a career in IT?", answer: "Yes, mathematical logic is fundamental to computer science, programming languages (Python, R) and data analytics." }
+            { question: "Is B.Sc Mathematics useful for a career in IT?", answer: "Yes, mathematical logic is fundamental to computer science, programming languages (Python, R) and data analytics." }
         ]
     },
     "bsc-microbiology": {
-        title: "B.Sc. Microbiology",
+        title: "B.Sc Microbiology",
         heroImage: researchImg,
         aboutImage: lab4Img,
         about: "The Department of Microbiology was established in 2020 with the UG course, upgraded to PG course in 2023 and established its Research program in 2024 to promote an integrated approach to teaching and research in modern microbiology. It aims to provide world-class life science education to empower students to build character, strengthen their minds and become self-reliant. Equipped with modest UG & PG laboratories and common instrument facilities, the department contributes significantly to academic and professional communities.",
@@ -1265,11 +1265,11 @@ export const programDetailsData = {
             { title: "Faculty Member in Colleges & Universities" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD)" },
-            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
-            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc, Ph.D (HOD)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc, M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc, DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc, NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc (Assistant Professor)" },
             { sNo: 6, name: "Mr. C. Andavar", qualification: "B.Com., CLIS (Lab Technician)" }
         ],
         faqs: [
@@ -1318,10 +1318,10 @@ export const programDetailsData = {
             { title: "Soft Skill & Spoken English Trainer" },
             { title: "Translator & Publishing Professional" },
             { title: "Civil Services & Government Jobs (UPSC, TNPSC)" },
-            { title: "Higher Education (M.A., M.Phil., Ph.D., UGC-NET/SET)" }
+            { title: "Higher Education (M.A., M.Phil., Ph.D, UGC-NET/SET)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
             { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
             { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
@@ -1389,23 +1389,23 @@ export const programDetailsData = {
             { title: "Production Pattern Maker" },
             { title: "Showroom Sales Representative" },
             { title: "Graphic Designer" },
-            { title: "Higher Education Opportunities (M.Sc. CDF, MBA)" }
+            { title: "Higher Education Opportunities (M.Sc CDF, MBA)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Mrs. T. AYEESHASUMAIYA", qualification: "M.Sc., (Ph.D) (Head of the Department)" },
-            { sNo: 2, name: "Mrs. K. DHENMOZHI", qualification: "M.Sc. (Assistant Professor)" },
-            { sNo: 3, name: "Mrs. P. ANITHA", qualification: "M.Sc. (Assistant Professor)" },
-            { sNo: 4, name: "Mrs. R. J. SADHANA", qualification: "M.Sc. (Assistant Professor)" }
+            { sNo: 1, name: "Mrs. T. AYEESHASUMAIYA", qualification: "M.Sc, (Ph.D) (Head of the Department)" },
+            { sNo: 2, name: "Mrs. K. DHENMOZHI", qualification: "M.Sc (Assistant Professor)" },
+            { sNo: 3, name: "Mrs. P. ANITHA", qualification: "M.Sc (Assistant Professor)" },
+            { sNo: 4, name: "Mrs. R. J. SADHANA", qualification: "M.Sc (Assistant Professor)" }
         ],
         faqs: [
             { question: "Is a portfolio required for admission?", answer: "While not mandatory, a passion for creativity and design is highly encouraged." }
         ]
     },
     "msc-computer-science": {
-        title: "M.Sc. Computer Science",
+        title: "M.Sc Computer Science",
         heroImage: home5Img,
         aboutImage: home4Img,
-        about: "The Post Graduate Department of Computer Science offers the M.Sc. Computer Science programme to equip students with advanced theoretical foundations and practical expertise in advanced algorithms, artificial intelligence, machine learning, cloud computing, cybersecurity and data analytics. The department features state-of-the-art laboratory infrastructure, specialized computing resources and a vibrant research culture preparing postgraduates for leadership roles in industry, academia and doctoral research.",
+        about: "The Post Graduate Department of Computer Science offers the M.Sc Computer Science programme to equip students with advanced theoretical foundations and practical expertise in advanced algorithms, artificial intelligence, machine learning, cloud computing, cybersecurity and data analytics. The department features state-of-the-art laboratory infrastructure, specialized computing resources and a vibrant research culture preparing postgraduates for leadership roles in industry, academia and doctoral research.",
         vision: "To emerge as a Center of Excellence in Computer Science education by developing skilled professionals equipped with strong technical knowledge, innovative thinking, ethical values and a dedication to lifelong learning to address the dynamic needs of industry and society.",
         mission: [
             "To equip students with strong theoretical knowledge and practical skills in Computer Science and emerging technologies.",
@@ -1446,26 +1446,26 @@ export const programDetailsData = {
             { title: "Database Administrator & Data Architect" },
             { title: "IT Project Manager & Technical Consultant" },
             { title: "College Professor / Academic Researcher" },
-            { title: "Research Scientist & Doctoral Scholar (Ph.D.)" }
+            { title: "Research Scientist & Doctoral Scholar (Ph.D)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc., M.Phil., Ph.D (AP & HOD)" },
+            { sNo: 1, name: "Dr. B. Kanchanadevi", qualification: "M.Sc, M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Ms. S. Devi", qualification: "MCA., NET" },
             { sNo: 3, name: "Ms. P. Sangeetha", qualification: "MCA., M.Phil., (Ph.D)" },
             { sNo: 4, name: "Ms. K.R. Kavitha", qualification: "MCA., M.Phil." },
-            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc., M.Phil., (Ph.D)" },
+            { sNo: 5, name: "Ms. B. Jeevithapriya", qualification: "M.Sc, M.Phil., (Ph.D)" },
             { sNo: 6, name: "Ms. K. Iswarya", qualification: "MCA." },
-            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc., M.Phil., NET (Ph.D)" }
+            { sNo: 7, name: "Mr. K. Ramani", qualification: "M.Sc, M.Phil., NET (Ph.D)" }
         ],
         faqs: [
-            { question: "What is the focus of M.Sc. CS?", answer: "The focus is on developing advanced technical skills, machine learning capabilities and research excellence in the field of computer science." }
+            { question: "What is the focus of M.Sc CS?", answer: "The focus is on developing advanced technical skills, machine learning capabilities and research excellence in the field of computer science." }
         ]
     },
     "mcom": {
         title: "Master of Commerce (M.Com)",
         heroImage: newImg,
         aboutImage: libraryImg,
-        about: "The PG & Research Department of Commerce has been functioning since 2019, offering M.Com in the Post Graduate stream alongside Ph.D. research courses. The department is manned by academically well-qualified, experienced and committed faculty members. It strives for the holistic development of students in acquiring advanced Accounting, Banking, Managerial, Leadership, Entrepreneurial and Research Skills.",
+        about: "The PG & Research Department of Commerce has been functioning since 2019, offering M.Com in the Post Graduate stream alongside Ph.D research courses. The department is manned by academically well-qualified, experienced and committed faculty members. It strives for the holistic development of students in acquiring advanced Accounting, Banking, Managerial, Leadership, Entrepreneurial and Research Skills.",
         vision: "To be a leading center of excellence in commerce education and research, fostering innovative thinking, ethical leadership and global competence to address emerging challenges in business and society.",
         mission: [
             "To impart advanced knowledge in commerce through a dynamic curriculum and experiential learning.",
@@ -1491,7 +1491,7 @@ export const programDetailsData = {
             "To encourage students to participate in co-curricular and extracurricular activities for holistic personality development.",
             "To ensure the effective implementation of Outcome-Based Education (OBE) and continuous quality improvement practices.",
             "To maintain academic discipline, transparency and ethical standards in teaching, research and evaluation.",
-            "To support students in placement, Ph.D. research entrance, competitive examinations (NET/SET) and entrepreneurial ventures.",
+            "To support students in placement, Ph.D research entrance, competitive examinations (NET/SET) and entrepreneurial ventures.",
             "To undertake extension and outreach programmes that promote social responsibility and community engagement.",
             "To maintain departmental records, research documentation and academic activities in compliance with the requirements of the University and IQAC."
         ],
@@ -1509,25 +1509,25 @@ export const programDetailsData = {
             { title: "Chartered Accountant (CA) & Company Secretary (CS)" },
             { title: "Taxation & Corporate Audit Consultant" },
             { title: "Banking Executive & Finance Manager" },
-            { title: "Ph.D. Doctoral Research Scholar" },
+            { title: "Ph.D Doctoral Research Scholar" },
             { title: "Corporate Finance & Investment Specialist" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head)" },
-            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D.) (Assistant Professor)" },
-            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D.) (Assistant Professor)" },
-            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET. (Vice-Principal & Head)" },
+            { sNo: 2, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 3, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D (Assistant Professor)" },
+            { sNo: 4, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 5, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 6, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 7, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. A. Revathi", qualification: "M.Com (CA)., M.Phil., B.Ed., (Ph.D) (Assistant Professor)" },
+            { sNo: 9, name: "Ms. M. Miruthula", qualification: "M.Com., (Ph.D) (Assistant Professor)" },
+            { sNo: 10, name: "Mrs. K. Ramya", qualification: "M.C.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 11, name: "Mrs. K. Gayathri", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
             { sNo: 12, name: "Mrs. A. Kowshika", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
-            { question: "Is this course suitable for pursuing Ph.D.?", answer: "Yes, M.Com provides the necessary academic foundation, research methodology and qualification for NET/SET and Ph.D. doctoral studies in commerce." }
+            { question: "Is this course suitable for pursuing Ph.D?", answer: "Yes, M.Com provides the necessary academic foundation, research methodology and qualification for NET/SET and Ph.D doctoral studies in commerce." }
         ]
     },
     "msc-microbiology": {
@@ -1575,23 +1575,23 @@ export const programDetailsData = {
             { title: "Faculty Member in Colleges & Universities (TRB / NET)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD)" },
-            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
-            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" },
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc, Ph.D (HOD)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc, M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc, DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc, NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc (Assistant Professor)" },
             { sNo: 6, name: "Mr. C. Andavar", qualification: "B.Com., CLIS (Lab Technician)" }
         ],
         faqs: [
-            { question: "Can I work in the pharmaceutical industry after this?", answer: "Yes, M.Sc. Microbiology graduates are in high demand for drug development, microbiological assay and quality control roles." },
+            { question: "Can I work in the pharmaceutical industry after this?", answer: "Yes, M.Sc Microbiology graduates are in high demand for drug development, microbiological assay and quality control roles." },
             { question: "What is the scope of Microbiology in healthcare?", answer: "Microbiologists play a crucial role in diagnostic labs, pharmaceutical research, epidemiology and public health departments." }
         ]
     },
     "phd-commerce": {
-        title: "Ph.D. Commerce",
+        title: "Ph.D Commerce",
         heroImage: "/commercephd/phd1.jpg",
         aboutImage: "/commercephd/phd2.jpg",
-        about: "The PG and Research Department of Commerce, under the Kautilya Association, organised “Talentathon 2026 – Talent Hunt”, an Intra Collegiate Meet, from 7 September 2026 to 11 September 2026 at the College Campus. The event was organised with the objective of identifying and showcasing the hidden talents and creative abilities of students beyond the classroom and developing their confidence, communication, creativity and teamwork through active participation in various events. A wide range of competitions were conducted as part of Talentathon 2026, providing students with opportunities to demonstrate their talents and creative skills across Singing, Dancing, Elocution, Poetry, Mimicry, Stand-up Comedy, Drawing/Painting, Photography, Short Film, Storytelling, Quiz, Best Out of Waste, Innovative Ideas and Creative Writing. The Prize Distribution Function of Talentathon 2026 was held on 23 September 2026 in the Auditorium with the Presidential Address delivered by Dr. R. Ramkumar, Principal, an event overview by Dr. Chi. Nanjappa, Vice-Principal and Head, PG and Research Department of Commerce and Chief Guest Addresses by Thiru. K. R. Kaviyarasu, Trustee and Thiru. G. Gowtham, CEO. The BCA Department was declared the Overall Winner, while the English Department secured the Overall Runner position. The PG and Research Department of Commerce offers the Ph.D. in Commerce programme affiliated to Bharathiar University to cultivate doctoral scholars, researchers and academicians equipped with advanced research methodology, ethical inquiry and domain expertise in commerce and allied disciplines.",
+        about: "The PG and Research Department of Commerce, under the Kautilya Association, organised “Talentathon 2026 – Talent Hunt”, an Intra Collegiate Meet, from 7 September 2026 to 11 September 2026 at the College Campus. The event was organised with the objective of identifying and showcasing the hidden talents and creative abilities of students beyond the classroom and developing their confidence, communication, creativity and teamwork through active participation in various events. A wide range of competitions were conducted as part of Talentathon 2026, providing students with opportunities to demonstrate their talents and creative skills across Singing, Dancing, Elocution, Poetry, Mimicry, Stand-up Comedy, Drawing/Painting, Photography, Short Film, Storytelling, Quiz, Best Out of Waste, Innovative Ideas and Creative Writing. The Prize Distribution Function of Talentathon 2026 was held on 23 September 2026 in the Auditorium with the Presidential Address delivered by Dr. R. Ramkumar, Principal, an event overview by Dr. Chi. Nanjappa, Vice-Principal and Head, PG and Research Department of Commerce and Chief Guest Addresses by Thiru. K. R. Kaviyarasu, Trustee and Thiru. G. Gowtham, CEO. The BCA Department was declared the Overall Winner, while the English Department secured the Overall Runner position. The PG and Research Department of Commerce offers the Ph.D in Commerce programme affiliated to Bharathiar University to cultivate doctoral scholars, researchers and academicians equipped with advanced research methodology, ethical inquiry and domain expertise in commerce and allied disciplines.",
         vision: "To be a centre of excellence in doctoral research, academic scholarship and holistic student development in Commerce by fostering innovative thinking, ethical inquiry and leadership to address contemporary economic and societal challenges.",
         mission: [
             "To provide rigorous doctoral research guidance in commerce, finance, banking, taxation and business management.",
@@ -1636,16 +1636,16 @@ export const programDetailsData = {
             { title: "Creative Writer, Academic Author & Independent Consultant" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET. (Vice-Principal & Head / Research Supervisor)" },
-            { sNo: 2, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
-            { sNo: 3, name: "Dr. A. Savitha", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D., SET. (Assistant Professor & Research Supervisor)" },
-            { sNo: 4, name: "Dr. M. Kalaivani", qualification: "M.COM., M.PHIL., PGDCA., Ph.D. (Assistant Professor)" },
-            { sNo: 5, name: "Dr. K. Sureshkumar", qualification: "M.Com (CA)., M.Phil., Ph.D. (Assistant Professor)" },
-            { sNo: 6, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D.) (Assistant Professor)" },
-            { sNo: 7, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 8, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 9, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D.) (Assistant Professor)" },
-            { sNo: 10, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D.) (Assistant Professor)" }
+            { sNo: 1, name: "Dr. Chi. Nanjappa", qualification: "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET. (Vice-Principal & Head / Research Supervisor)" },
+            { sNo: 2, name: "Dr. K. G. Umayambigai", qualification: "M.Com., PGDCA., M.Phil., Ph.D (Assistant Professor & Research Supervisor)" },
+            { sNo: 3, name: "Dr. A. Savitha", qualification: "M.COM., M.PHIL., MBA., PGDCA., Ph.D, SET. (Assistant Professor & Research Supervisor)" },
+            { sNo: 4, name: "Dr. M. Kalaivani", qualification: "M.COM., M.PHIL., PGDCA., Ph.D (Assistant Professor)" },
+            { sNo: 5, name: "Dr. K. Sureshkumar", qualification: "M.Com (CA)., M.Phil., Ph.D (Assistant Professor)" },
+            { sNo: 6, name: "Mr. S. Sathish", qualification: "M.Com (CA)., M.Phil., M.B.A., (Ph.D) (Assistant Professor)" },
+            { sNo: 7, name: "Ms. N. Malathi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 8, name: "Mrs. S. Ponmozhi", qualification: "M.Com (CA)., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 9, name: "Mrs. J. Lavanya", qualification: "M.Com., M.Phil., (Ph.D) (Assistant Professor)" },
+            { sNo: 10, name: "Mr. V. Ruthrakumar", qualification: "M.Com (IB)., (Ph.D) (Assistant Professor)" }
         ],
         faqs: [
             { 
@@ -1653,12 +1653,12 @@ export const programDetailsData = {
                 answer: "Talentathon 2026 – Talent Hunt is an Intra Collegiate Meet organised by the PG and Research Department of Commerce under the Kautilya Association from 7 September 2026 to 11 September 2026, featuring 15 competitions including Singing, Dancing, Elocution, Poetry, Mimicry, Stand-up Comedy, Drawing/Painting, Photography, Short Film, Storytelling, Quiz, Best Out of Waste, Innovative Ideas and Creative Writing. The Prize Distribution was held on 23 September 2026 with BCA winning Overall Winner and English winning Overall Runner." 
             },
             { 
-                question: "What is the eligibility requirement for enrolling in Ph.D. Commerce?", 
+                question: "What is the eligibility requirement for enrolling in Ph.D Commerce?", 
                 answer: "Candidates must have passed a Master's degree in Commerce (M.Com, M.Com CA, M.Com IB, or related commerce specialization) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university and qualify in the Common Eligibility Test (CET) conducted by Bharathiar University or hold UGC-NET / SET / M.Phil." 
             },
             { 
-                question: "Are both Full-Time and Part-Time Ph.D. programmes available in Commerce?", 
-                answer: "Yes, the PG & Research Department of Commerce offers both Full-Time and Part-Time Ph.D. research programmes in accordance with Bharathiar University guidelines and UGC regulations." 
+                question: "Are both Full-Time and Part-Time Ph.D programmes available in Commerce?", 
+                answer: "Yes, the PG & Research Department of Commerce offers both Full-Time and Part-Time Ph.D research programmes in accordance with Bharathiar University guidelines and UGC regulations." 
             },
             { 
                 question: "What role does the Kautilya Association play in the department?", 
@@ -1667,10 +1667,10 @@ export const programDetailsData = {
         ]
     },
     "phd-english": {
-        title: "Ph.D. English",
+        title: "Ph.D English",
         heroImage: why2Img,
         aboutImage: ugpgheroImg,
-        about: "The PG & Research Department of English offers the Ph.D. program in English designed for advanced research in English literature, literary theory, linguistics and cultural studies. The department provides students with education of the highest quality in English language, literature, critical thinking and creative writing.",
+        about: "The PG & Research Department of English offers the Ph.D program in English designed for advanced research in English literature, literary theory, linguistics and cultural studies. The department provides students with education of the highest quality in English language, literature, critical thinking and creative writing.",
         vision: "To be a centre of excellence in English language and literary studies by nurturing critical thinking, effective communication, creativity, ethical values and global perspectives, empowering students to become competent professionals and responsible citizens.",
         mission: [
             "To provide quality education in English language, literature and communication skills through innovative and learner-centred teaching.",
@@ -1721,7 +1721,7 @@ export const programDetailsData = {
             { title: "Civil Services & Government Jobs (UPSC, TNPSC)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
             { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
             { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
@@ -1736,14 +1736,14 @@ export const programDetailsData = {
         ],
         eligibility: "Master's degree in English (M.A. English) with minimum 55% marks from a recognized university and eligibility under Bharathiar University norms.",
         faqs: [
-            { question: "Is research methodology part of the Ph.D. program?", answer: "Yes, candidates undergo rigorous training in research methodology as part of their coursework." }
+            { question: "Is research methodology part of the Ph.D program?", answer: "Yes, candidates undergo rigorous training in research methodology as part of their coursework." }
         ]
     },
     "phd-tamil": {
-        title: "Ph.D. Tamil",
+        title: "Ph.D Tamil",
         heroImage: dji0587Img,
         aboutImage: dji0589Img,
-        about: "The PG and Research Department of Tamil offers the Ph.D. in Tamil programme affiliated to Bharathiar University to cultivate doctoral scholars, literary critics and researchers equipped with advanced research methodology, classical textual criticism and deep scholarship in Tamil language, literature and culture. The department fosters comprehensive research in Sangam Literature, Classical Grammar & Tholkappiyam, Epigraphy, Linguistics, Comparative Literature, Folklore and Modern Creative Writing.",
+        about: "The PG and Research Department of Tamil offers the Ph.D in Tamil programme affiliated to Bharathiar University to cultivate doctoral scholars, literary critics and researchers equipped with advanced research methodology, classical textual criticism and deep scholarship in Tamil language, literature and culture. The department fosters comprehensive research in Sangam Literature, Classical Grammar & Tholkappiyam, Epigraphy, Linguistics, Comparative Literature, Folklore and Modern Creative Writing.",
         vision: "To be a premier center of excellence in Tamil doctoral research, linguistic scholarship and cultural heritage preservation by fostering original academic inquiry, critical thinking and global dissemination of classical and modern Tamil literature.",
         mission: [
             "To provide rigorous doctoral research guidance in classical Tamil, modern literature, grammar and linguistics.",
@@ -1776,7 +1776,7 @@ export const programDetailsData = {
         ],
         keyHighlights: [
             "Recognized Research Supervisors affiliated with Bharathiar University",
-            "Both Full-Time and Part-Time Ph.D. Research Programmes",
+            "Both Full-Time and Part-Time Ph.D Research Programmes",
             "Regular Research Colloquiums, Seminars and Guest Lectures by Eminent Tamil Scholars",
             "Thorough Training in Advanced Research Methodology and Coursework"
         ],
@@ -1790,35 +1790,35 @@ export const programDetailsData = {
         ],
         eligibility: "Master's degree in Tamil (M.A. Tamil) with a minimum of 55% marks (50% for SC/ST/OBC/Differently-abled candidates) from a recognized university and qualification in the Common Eligibility Test (CET) conducted by Bharathiar University or valid UGC-NET / SET / M.Phil.",
         staffDetails: [
-            { sNo: 1, name: "முனைவர். இர. செந்தில்ராணி (Dr. R. Senthilrani)", qualification: "M.A.(Tamil)., M.A., (Edn), M.Phil., B.Ed., Ph.D., NET., SET. (Assistant Professor & Head)" },
-            { sNo: 2, name: "Dr. P. Raman / திரு. ப. இராமன்", qualification: "M.A., M.Phil., Ph.D. (Assistant Professor & Research Supervisor)" },
+            { sNo: 1, name: "முனைவர். இர. செந்தில்ராணி (Dr. R. Senthilrani)", qualification: "M.A.(Tamil)., M.A., (Edn), M.Phil., B.Ed., Ph.D, NET., SET. (Assistant Professor & Head)" },
+            { sNo: 2, name: "Dr. P. Raman / திரு. ப. இராமன்", qualification: "M.A., M.Phil., Ph.D (Assistant Professor & Research Supervisor)" },
             { sNo: 3, name: "திரு. செ. செல்வகுமார் (Mr. S. Selvakumar)", qualification: "M.A., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 4, name: "திரு. கு. ராஜேந்திரகுமார் (Mr. K. Rajendrakumar)", qualification: "M.A., B.Ed., NET, (Ph.D.) (Assistant Professor)" },
+            { sNo: 4, name: "திரு. கு. ராஜேந்திரகுமார் (Mr. K. Rajendrakumar)", qualification: "M.A., B.Ed., NET, (Ph.D) (Assistant Professor)" },
             { sNo: 5, name: "திருமதி. கு. யசோதா (Mrs. K. Yasodha)", qualification: "M.A., M.Phil., B.Ed., DCT. (Assistant Professor)" },
             { sNo: 6, name: "திரு. பா. நந்தகுமார் (Mr. B. Nandhakumar)", qualification: "M.A. (Assistant Professor)" },
-            { sNo: 7, name: "திரு. வே. விமல்ராஜ் (Mr. V. Vimalraj)", qualification: "M.A., DIE, (Ph.D.) (Assistant Professor)" },
+            { sNo: 7, name: "திரு. வே. விமல்ராஜ் (Mr. V. Vimalraj)", qualification: "M.A., DIE, (Ph.D) (Assistant Professor)" },
             { sNo: 8, name: "செல்வி. ச. மைவிழி (Ms. S. Maivizhi)", qualification: "M.A. (Assistant Professor)" }
         ],
         faqs: [
             { 
-                question: "What is the duration of the Ph.D. in Tamil program?", 
+                question: "What is the duration of the Ph.D in Tamil program?", 
                 answer: "For full-time scholars, the minimum duration is 3 years and maximum 5 years. For part-time scholars, the minimum duration is 4 years and maximum 6 years in accordance with Bharathiar University regulations." 
             },
             { 
-                question: "What are the major research specializations offered in Ph.D. Tamil?", 
+                question: "What are the major research specializations offered in Ph.D Tamil?", 
                 answer: "Specializations include Sangam Literature (சங்க இலக்கியம்), Tholkappiyam & Grammar (தொல்காப்பியம்), Bhakti Literature (பக்தி இலக்கியம்), Modern Fiction & Poetry (தற்கால இலக்கியம்), Folklore (நாட்டுப்புறவியல்) and Epigraphy (கல்வெட்டியல்)." 
             },
             { 
-                question: "Are both Full-Time and Part-Time Ph.D. programmes available in Tamil?", 
-                answer: "Yes, the Department offers both Full-Time and Part-Time Ph.D. programmes adhering strictly to Bharathiar University and UGC doctoral guidelines." 
+                question: "Are both Full-Time and Part-Time Ph.D programmes available in Tamil?", 
+                answer: "Yes, the Department offers both Full-Time and Part-Time Ph.D programmes adhering strictly to Bharathiar University and UGC doctoral guidelines." 
             }
         ]
     },
     "ph-d-microbiology": {
-        title: "Ph.D. Microbiology",
+        title: "Ph.D Microbiology",
         heroImage: researchImg,
         aboutImage: "https://res.cloudinary.com/kfaxaxag/image/upload/v1794867636/svasc/programs/fnrsg7miuajktdx939xm.jpg",
-        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D. in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators and research academicians equipped with advanced research methodology, modern bio-instrumentation and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development and academic leadership.",
+        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators and research academicians equipped with advanced research methodology, modern bio-instrumentation and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development and academic leadership.",
         vision: "To emerge as a premier center of excellence in microbiological doctoral research, biotechnology innovation and scientific inquiry by fostering original academic research, ethical inquiry and translational applications to address critical healthcare, agricultural and environmental challenges.",
         mission: [
             "To provide rigorous doctoral training and state-of-the-art laboratory infrastructure for cutting-edge basic and translational microbiological research.",
@@ -1850,7 +1850,7 @@ export const programDetailsData = {
             "Dedicated Scholar Workstations with High-Speed Internet, INFLIBNET N-LIST & e-Journal Subscriptions"
         ],
         keyHighlights: [
-            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D. research.",
+            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D research.",
             "Guidance by experienced doctorates with extensive research publications in peer-reviewed journals.",
             "Active industry-academia linkages and clinical diagnostic research collaborations.",
             "Support and coaching for national fellowship examinations including CSIR-UGC NET, ICMR-JRF and GATE.",
@@ -1868,16 +1868,16 @@ export const programDetailsData = {
             { title: "Biotechnology Entrepreneur / Bio-Incubation Founder" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD & Research Supervisor)" },
-            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
-            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" }
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc, Ph.D (HOD & Research Supervisor)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc, M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc, DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc, NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc (Assistant Professor)" }
         ],
         faqs: [
             { 
-                question: "Is the Ph.D. in Microbiology offered both Full-Time and Part-Time at SVASC?", 
-                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D. in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
+                question: "Is the Ph.D in Microbiology offered both Full-Time and Part-Time at SVASC?", 
+                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
             },
             { 
                 question: "What are the major research thrust areas in the Department?", 
@@ -1894,10 +1894,10 @@ export const programDetailsData = {
         ]
     },
     "phd-microbiology": {
-        title: "Ph.D. Microbiology",
+        title: "Ph.D Microbiology",
         heroImage: researchImg,
         aboutImage: "https://res.cloudinary.com/kfaxaxag/image/upload/v1794867636/svasc/programs/fnrsg7miuajktdx939xm.jpg",
-        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D. in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators and research academicians equipped with advanced research methodology, modern bio-instrumentation and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development and academic leadership.",
+        about: "The PG and Research Department of Microbiology at Shree Venkateshwara Arts and Science College offers the Ph.D in Microbiology programme affiliated to Bharathiar University to cultivate doctoral scholars, scientific innovators and research academicians equipped with advanced research methodology, modern bio-instrumentation and domain scholarship. The department fosters comprehensive doctoral investigations in Medical Microbiology, Microbial Biotechnology, Antimicrobial Resistance, Agricultural and Environmental Microbiology, Industrial Fermentation, Bioremediation and Molecular Microbial Genetics. Scholars receive dedicated supervision in experimental design, high-impact peer-reviewed publishing, patent development and academic leadership.",
         vision: "To emerge as a premier center of excellence in microbiological doctoral research, biotechnology innovation and scientific inquiry by fostering original academic research, ethical inquiry and translational applications to address critical healthcare, agricultural and environmental challenges.",
         mission: [
             "To provide rigorous doctoral training and state-of-the-art laboratory infrastructure for cutting-edge basic and translational microbiological research.",
@@ -1929,7 +1929,7 @@ export const programDetailsData = {
             "Dedicated Scholar Workstations with High-Speed Internet, INFLIBNET N-LIST & e-Journal Subscriptions"
         ],
         keyHighlights: [
-            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D. research.",
+            "Affiliated to Bharathiar University with full recognition for Full-Time and Part-Time Ph.D research.",
             "Guidance by experienced doctorates with extensive research publications in peer-reviewed journals.",
             "Active industry-academia linkages and clinical diagnostic research collaborations.",
             "Support and coaching for national fellowship examinations including CSIR-UGC NET, ICMR-JRF and GATE.",
@@ -1947,16 +1947,16 @@ export const programDetailsData = {
             { title: "Biotechnology Entrepreneur / Bio-Incubation Founder" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc., Ph.D. (HOD & Research Supervisor)" },
-            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc., M.Phil., B.Ed. (Assistant Professor)" },
-            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc., DMLT, DMT. (Assistant Professor)" },
-            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc., NET. (Assistant Professor)" },
-            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc. (Assistant Professor)" }
+            { sNo: 1, name: "Dr. S. Manju", qualification: "M.Sc, Ph.D (HOD & Research Supervisor)" },
+            { sNo: 2, name: "Ms. R. Amrutha", qualification: "M.Sc, M.Phil., B.Ed. (Assistant Professor)" },
+            { sNo: 3, name: "Ms. B. Priya", qualification: "M.Sc, DMLT, DMT. (Assistant Professor)" },
+            { sNo: 4, name: "Ms. S. Gayathri", qualification: "M.Sc, NET. (Assistant Professor)" },
+            { sNo: 5, name: "Ms. N. Sangeerthana", qualification: "M.Sc (Assistant Professor)" }
         ],
         faqs: [
             { 
-                question: "Is the Ph.D. in Microbiology offered both Full-Time and Part-Time at SVASC?", 
-                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D. in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
+                question: "Is the Ph.D in Microbiology offered both Full-Time and Part-Time at SVASC?", 
+                answer: "Yes, Shree Venkateshwara Arts and Science College offers both Full-Time and Part-Time Ph.D in Microbiology programs in accordance with Bharathiar University guidelines and UGC regulations." 
             },
             { 
                 question: "What are the major research thrust areas in the Department?", 
@@ -2018,10 +2018,10 @@ export const programDetailsData = {
             { title: "Soft Skill & Spoken English Trainer" },
             { title: "Translator & Publishing Professional" },
             { title: "Civil Services & Government Jobs (UPSC, TNPSC)" },
-            { title: "Higher Education (Ph.D., UGC-NET/SET)" }
+            { title: "Higher Education (Ph.D, UGC-NET/SET)" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D. (AP & HOD)" },
+            { sNo: 1, name: "Dr. V. Siva Guru Vignesh", qualification: "M.A., M.Phil., Ph.D (AP & HOD)" },
             { sNo: 2, name: "Mr. P. Ramesh", qualification: "M.A., M.Phil., (Ph. D) (AP)" },
             { sNo: 3, name: "Mr. K. S. Sowmiyan", qualification: "M.A., M.Phil. (AP)" },
             { sNo: 4, name: "Mr. S. Vignesh", qualification: "M.A., B.Ed. (AP)" },
@@ -2114,7 +2114,7 @@ export const programDetailsData = {
             { title: "Sports Management & Event Coordinator" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc., M.PED., PGDYE., Ph.D. (HOD)" },
+            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc, M.PED., PGDYE., Ph.D (HOD)" },
             { sNo: 2, name: "K. MANIKANDAN", qualification: "B.COM (CS)., B.PED., M.PED. (Physical Director)" },
             { sNo: 3, name: "S. BHAVANI", qualification: "B.COM., B.PED. (Assistant Physical Director)" }
         ],
@@ -2172,7 +2172,7 @@ export const programDetailsData = {
             { title: "Sports Management & Event Coordinator" }
         ],
         staffDetails: [
-            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc., M.PED., PGDYE., Ph.D. (HOD)" },
+            { sNo: 1, name: "Dr. G. TAMILSELVAN", qualification: "B.Sc, M.PED., PGDYE., Ph.D (HOD)" },
             { sNo: 2, name: "K. MANIKANDAN", qualification: "B.COM (CS)., B.PED., M.PED. (Physical Director)" },
             { sNo: 3, name: "S. BHAVANI", qualification: "B.COM., B.PED. (Assistant Physical Director)" }
         ],

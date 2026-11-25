@@ -108,7 +108,7 @@ const AlumniSlider = () => {
                         </h3>
 
                         <p>
-                            Far from being damsels in distress, these warrior women are often the ones doing the rescuing,
+                            Far from being damsels in distress, these warrior women are often the ones doing the rescuing
                             and kicking butt in the process.
                         </p>
 

@@ -35,46 +35,46 @@ const fallbackRankData = {
         { name: "SANTHOSH V", degree: "B.Com", rank: "7th Rank Bharathiar University" }
     ],
     2020: [
-        { name: "SNEHA M", degree: "B.Sc. Computer Science", rank: "1st Rank Bharathiar University" },
-        { name: "RAJESH K", degree: "B.Sc. Computer Science", rank: "2nd Rank Bharathiar University" },
-        { name: "POOJA R", degree: "B.Sc. Computer Science", rank: "4th Rank Bharathiar University" },
-        { name: "NAVEEN S", degree: "B.Sc. Computer Science", rank: "6th Rank Bharathiar University" },
-        { name: "AISWARYA P", degree: "B.Sc. Computer Science", rank: "8th Rank Bharathiar University" }
+        { name: "SNEHA M", degree: "B.Sc Computer Science", rank: "1st Rank Bharathiar University" },
+        { name: "RAJESH K", degree: "B.Sc Computer Science", rank: "2nd Rank Bharathiar University" },
+        { name: "POOJA R", degree: "B.Sc Computer Science", rank: "4th Rank Bharathiar University" },
+        { name: "NAVEEN S", degree: "B.Sc Computer Science", rank: "6th Rank Bharathiar University" },
+        { name: "AISWARYA P", degree: "B.Sc Computer Science", rank: "8th Rank Bharathiar University" }
     ],
     2021: [
-        { name: "RAHUL S", degree: "B.Sc. Mathematics", rank: "2nd Rank Bharathiar University" },
-        { name: "KAVYA M", degree: "B.Sc. Mathematics", rank: "3rd Rank Bharathiar University" },
-        { name: "MOHAN R", degree: "B.Sc. Mathematics", rank: "5th Rank Bharathiar University" },
-        { name: "PRIYA S", degree: "B.Sc. Mathematics", rank: "6th Rank Bharathiar University" },
-        { name: "BALAJI K", degree: "B.Sc. Mathematics", rank: "9th Rank Bharathiar University" }
+        { name: "RAHUL S", degree: "B.Sc Mathematics", rank: "2nd Rank Bharathiar University" },
+        { name: "KAVYA M", degree: "B.Sc Mathematics", rank: "3rd Rank Bharathiar University" },
+        { name: "MOHAN R", degree: "B.Sc Mathematics", rank: "5th Rank Bharathiar University" },
+        { name: "PRIYA S", degree: "B.Sc Mathematics", rank: "6th Rank Bharathiar University" },
+        { name: "BALAJI K", degree: "B.Sc Mathematics", rank: "9th Rank Bharathiar University" }
     ],
     2022: [
-        { name: "MEENA P", degree: "B.Sc. Physics", rank: "1st Rank Bharathiar University" },
-        { name: "SURESH K", degree: "B.Sc. Physics", rank: "2nd Rank Bharathiar University" },
-        { name: "LATHA R", degree: "B.Sc. Physics", rank: "4th Rank Bharathiar University" },
-        { name: "ARJUN V", degree: "B.Sc. Physics", rank: "6th Rank Bharathiar University" },
-        { name: "SWATHI S", degree: "B.Sc. Physics", rank: "10th Rank Bharathiar University" }
+        { name: "MEENA P", degree: "B.Sc Physics", rank: "1st Rank Bharathiar University" },
+        { name: "SURESH K", degree: "B.Sc Physics", rank: "2nd Rank Bharathiar University" },
+        { name: "LATHA R", degree: "B.Sc Physics", rank: "4th Rank Bharathiar University" },
+        { name: "ARJUN V", degree: "B.Sc Physics", rank: "6th Rank Bharathiar University" },
+        { name: "SWATHI S", degree: "B.Sc Physics", rank: "10th Rank Bharathiar University" }
     ],
     2023: [
-        { name: "ARAVIND K", degree: "B.Sc. Chemistry", rank: "3rd Rank Bharathiar University" },
-        { name: "DEEPA M", degree: "B.Sc. Chemistry", rank: "4th Rank Bharathiar University" },
-        { name: "PRAVEEN S", degree: "B.Sc. Chemistry", rank: "5th Rank Bharathiar University" },
-        { name: "SOWMIYA R", degree: "B.Sc. Chemistry", rank: "7th Rank Bharathiar University" },
-        { name: "HARISH V", degree: "B.Sc. Chemistry", rank: "9th Rank Bharathiar University" }
+        { name: "ARAVIND K", degree: "B.Sc Chemistry", rank: "3rd Rank Bharathiar University" },
+        { name: "DEEPA M", degree: "B.Sc Chemistry", rank: "4th Rank Bharathiar University" },
+        { name: "PRAVEEN S", degree: "B.Sc Chemistry", rank: "5th Rank Bharathiar University" },
+        { name: "SOWMIYA R", degree: "B.Sc Chemistry", rank: "7th Rank Bharathiar University" },
+        { name: "HARISH V", degree: "B.Sc Chemistry", rank: "9th Rank Bharathiar University" }
     ],
     2024: [
-        { name: "PRIYANKA R", degree: "B.Sc. IT", rank: "1st Rank Bharathiar University" },
-        { name: "MANOJ K", degree: "B.Sc. IT", rank: "2nd Rank Bharathiar University" },
-        { name: "SANDHYA S", degree: "B.Sc. IT", rank: "3rd Rank Bharathiar University" },
-        { name: "VINOTH P", degree: "B.Sc. IT", rank: "5th Rank Bharathiar University" },
-        { name: "ANUJA M", degree: "B.Sc. IT", rank: "8th Rank Bharathiar University" }
+        { name: "PRIYANKA R", degree: "B.Sc IT", rank: "1st Rank Bharathiar University" },
+        { name: "MANOJ K", degree: "B.Sc IT", rank: "2nd Rank Bharathiar University" },
+        { name: "SANDHYA S", degree: "B.Sc IT", rank: "3rd Rank Bharathiar University" },
+        { name: "VINOTH P", degree: "B.Sc IT", rank: "5th Rank Bharathiar University" },
+        { name: "ANUJA M", degree: "B.Sc IT", rank: "8th Rank Bharathiar University" }
     ],
     2025: [
-        { name: "VISHNU A", degree: "B.Sc. Computer Science", rank: "2nd Rank Bharathiar University" },
-        { name: "RITHIKA S", degree: "B.Sc. Computer Science", rank: "3rd Rank Bharathiar University" },
-        { name: "KARAN M", degree: "B.Sc. Computer Science", rank: "4th Rank Bharathiar University" },
-        { name: "SANGEETHA P", degree: "B.Sc. Computer Science", rank: "6th Rank Bharathiar University" },
-        { name: "AJAY R", degree: "B.Sc. Computer Science", rank: "9th Rank Bharathiar University" }
+        { name: "VISHNU A", degree: "B.Sc Computer Science", rank: "2nd Rank Bharathiar University" },
+        { name: "RITHIKA S", degree: "B.Sc Computer Science", rank: "3rd Rank Bharathiar University" },
+        { name: "KARAN M", degree: "B.Sc Computer Science", rank: "4th Rank Bharathiar University" },
+        { name: "SANGEETHA P", degree: "B.Sc Computer Science", rank: "6th Rank Bharathiar University" },
+        { name: "AJAY R", degree: "B.Sc Computer Science", rank: "9th Rank Bharathiar University" }
     ]
 };
 
@@ -442,15 +442,15 @@ const Alumni = () => {
 
     const officeBearers = [
         { sno: 1, designation: "President", name: "T. Karthikeyan", qualification: "B.Com (PA)" },
-        { sno: 2, designation: "Vice President", name: "B. Deepak", qualification: "B.Sc. (Microbiology)" },
-        { sno: 3, designation: "Secretary", name: "S. Manikandan", qualification: "B.Sc. (CS)" },
+        { sno: 2, designation: "Vice President", name: "B. Deepak", qualification: "B.Sc (Microbiology)" },
+        { sno: 3, designation: "Secretary", name: "S. Manikandan", qualification: "B.Sc (CS)" },
         { sno: 4, designation: "Joint Secretary", name: "J. Vinisha", qualification: "BBA" },
         { sno: 5, designation: "Treasurer", name: "Sushitra", qualification: "B.Com" },
         { sno: 6, designation: "Joint Treasurer", name: "Shalom Samvel", qualification: "B.A. (English)" },
         { sno: 7, designation: "Executive Member", name: "R. Gowtham", qualification: "BCA" },
-        { sno: 8, designation: "Executive Member", name: "P. Monish", qualification: "B.Sc. (Mathematics)" },
-        { sno: 9, designation: "Executive Member", name: "M. Abinesh", qualification: "B.Sc. (Chemistry)" },
-        { sno: 10, designation: "Executive Member", name: "Naveen Prakash", qualification: "B.Sc. (CDF)" },
+        { sno: 8, designation: "Executive Member", name: "P. Monish", qualification: "B.Sc (Mathematics)" },
+        { sno: 9, designation: "Executive Member", name: "M. Abinesh", qualification: "B.Sc (Chemistry)" },
+        { sno: 10, designation: "Executive Member", name: "Naveen Prakash", qualification: "B.Sc (CDF)" },
         { sno: 11, designation: "Executive Member", name: "G. Narmatha", qualification: "B.Com CA" }
     ];
 

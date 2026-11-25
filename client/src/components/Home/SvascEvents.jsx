@@ -65,16 +65,18 @@ const formatEventDate = (dateStr) => {
     return dateStr;
 };
 
+const cleanCommaBeforeAnd = (str) => (typeof str === 'string' ? str.replace(/,\s+and\b/gi, ' and') : str);
+
 // Helper: normalize a raw event item into the card shape
 const normalizeEvent = (item, idx) => {
     const cleanImg = (item.image || '').replace(/^\/+/, '');
     const imgUrl = item.image?.startsWith('http') ? item.image : `${BASE_URL}/${cleanImg}`;
     return {
         _id: item._id || `event-${idx}`,
-        title: item.title || 'Event',
-        subtitle: item.subtitle || item.date || 'Campus Event',
+        title: cleanCommaBeforeAnd(item.title || 'Event'),
+        subtitle: cleanCommaBeforeAnd(item.subtitle || item.date || 'Campus Event'),
         date: item.date || '',
-        description: item.description || item.desc || '',
+        description: cleanCommaBeforeAnd(item.description || item.desc || ''),
         image: imgUrl,
         author: item.author || 'SVASC',
         link: item.link || item.url || '/events',
@@ -96,7 +98,14 @@ const SvascEvents = () => {
             const cached = localStorage.getItem('svasc_cached_home_events');
             if (cached) {
                 const parsed = JSON.parse(cached);
-                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    return parsed.map(ev => ({
+                        ...ev,
+                        title: cleanCommaBeforeAnd(ev.title),
+                        subtitle: cleanCommaBeforeAnd(ev.subtitle),
+                        description: cleanCommaBeforeAnd(ev.description)
+                    }));
+                }
             }
         } catch (e) {
             // Fall back

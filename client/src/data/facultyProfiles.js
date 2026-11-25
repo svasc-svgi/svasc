@@ -69,8 +69,8 @@ export const facultyProfiles = [
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9677621706",
     "email": "sureshkumar@svasc.org",
@@ -128,12 +128,12 @@ export const facultyProfiles = [
     "sNo": 3,
     "fullName": "Mr. S. Kumaravel",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc.,M.Phil.,B.Ed., (Ph.D)",
+    "qualification": "M.Sc,M.Phil.,B.Ed., (Ph.D)",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9442253872",
     "email": "sk umaravel @svasc.org",
@@ -195,13 +195,13 @@ export const facultyProfiles = [
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9597767373",
     "email": "shyamsundar@svasc.org",
     "education": {
-      "ug": "B.Sc. CSMN",
+      "ug": "B.Sc CSMN",
       "pg": "MCA",
       "doctorate": "Nil",
       "other": "M.Phil"
@@ -258,8 +258,8 @@ export const facultyProfiles = [
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "8072057084",
     "email": "gowrinithya28@svasc.org",
@@ -317,18 +317,18 @@ export const facultyProfiles = [
     "sNo": 6,
     "fullName": "Mrs. K. Sangeetha",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc., M.Tech., M.Phil.,",
+    "qualification": "M.Sc, M.Tech., M.Phil.,",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9500241640",
     "email": "sangeethak@svasc.org",
     "education": {
       "ug": "B.Sc CS",
-      "pg": "M.Sc., M.Tech., M.Phil.,",
+      "pg": "M.Sc, M.Tech., M.Phil.,",
       "doctorate": "NIL",
       "other": "NIL"
     },
@@ -380,18 +380,18 @@ export const facultyProfiles = [
     "sNo": 7,
     "fullName": "Ms. D. Sathyarubha",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc.,",
+    "qualification": "M.Sc,",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "7395881163",
     "email": "sathyarubhad@svasc.org",
     "education": {
       "ug": "BCA",
-      "pg": "M.Sc.,",
+      "pg": "M.Sc,",
       "doctorate": "NIL",
       "other": "NIL"
     },
@@ -443,12 +443,12 @@ export const facultyProfiles = [
     "sNo": 8,
     "fullName": "Mrs. T.Mohanapriya",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc.,(Ph.D.,)",
+    "qualification": "M.Sc,(Ph.D,)",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9944853079",
     "email": "mohanapriyat@svasc.org",
@@ -506,12 +506,12 @@ export const facultyProfiles = [
     "sNo": 9,
     "fullName": "Mrs. C.Neevetha",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc.,M.Phil.,",
+    "qualification": "M.Sc,M.Phil.,",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9944853079",
     "email": "nevethec@svasc.org",
@@ -569,12 +569,12 @@ export const facultyProfiles = [
     "sNo": 10,
     "fullName": "Mrs. B. Karthikeyani",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc., M. Phil., (Ph.D)",
+    "qualification": "M.Sc, M. Phil., (Ph.D)",
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "9600475569",
     "email": "keyani.b@gmail.com",
@@ -636,8 +636,8 @@ export const facultyProfiles = [
     "department": "Bachelor of Computer Applications (BCA)",
     "departments": [
       "Bachelor of Computer Applications (BCA)",
-      "B.Sc. Information Technology",
-      "B.Sc. Cyber Security"
+      "B.Sc Information Technology",
+      "B.Sc Cyber Security"
     ],
     "contactNo": "",
     "email": "ushanandhini@svasc.org",
@@ -939,11 +939,11 @@ export const facultyProfiles = [
     "sNo": 16,
     "fullName": "Dr. S. MANJU",
     "designation": "Assistant Professor and Head",
-    "qualification": "M.Sc., PhD.,",
-    "department": "B.Sc. Microbiology",
+    "qualification": "M.Sc, PhD.,",
+    "department": "B.Sc Microbiology",
     "departments": [
-      "B.Sc. Microbiology",
-      "M.Sc. Microbiology",
+      "B.Sc Microbiology",
+      "M.Sc Microbiology",
       "Ph.D Microbiology"
     ],
     "contactNo": "9842032586",
@@ -1002,11 +1002,11 @@ export const facultyProfiles = [
     "sNo": 17,
     "fullName": "Mrs. R. AMRUTHA",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc., M.Phil., B.Ed.,",
-    "department": "B.Sc. Microbiology",
+    "qualification": "M.Sc, M.Phil., B.Ed.,",
+    "department": "B.Sc Microbiology",
     "departments": [
-      "B.Sc. Microbiology",
-      "M.Sc. Microbiology",
+      "B.Sc Microbiology",
+      "M.Sc Microbiology",
       "Ph.D Microbiology"
     ],
     "contactNo": "9940797880",
@@ -1065,11 +1065,11 @@ export const facultyProfiles = [
     "sNo": 18,
     "fullName": "Ms. PRIYA B",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M.Sc., DMLT, DMT",
-    "department": "B.Sc. Microbiology",
+    "qualification": "M.Sc, DMLT, DMT",
+    "department": "B.Sc Microbiology",
     "departments": [
-      "B.Sc. Microbiology",
-      "M.Sc. Microbiology",
+      "B.Sc Microbiology",
+      "M.Sc Microbiology",
       "Ph.D Microbiology"
     ],
     "contactNo": "9080010034",
@@ -1129,10 +1129,10 @@ export const facultyProfiles = [
     "fullName": "Ms. N. SANGEERTHANA",
     "designation": "ASSISTANT PROFESSOR",
     "qualification": "M.Sc",
-    "department": "B.Sc. Microbiology",
+    "department": "B.Sc Microbiology",
     "departments": [
-      "B.Sc. Microbiology",
-      "M.Sc. Microbiology",
+      "B.Sc Microbiology",
+      "M.Sc Microbiology",
       "Ph.D Microbiology"
     ],
     "contactNo": "9344502120",
@@ -1191,11 +1191,11 @@ export const facultyProfiles = [
     "sNo": 20,
     "fullName": "Mrs. S. Gayathri",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M.Sc., NET",
-    "department": "B.Sc. Microbiology",
+    "qualification": "M.Sc, NET",
+    "department": "B.Sc Microbiology",
     "departments": [
-      "B.Sc. Microbiology",
-      "M.Sc. Microbiology",
+      "B.Sc Microbiology",
+      "M.Sc Microbiology",
       "Ph.D Microbiology"
     ],
     "contactNo": "9380806660",
@@ -1254,7 +1254,7 @@ export const facultyProfiles = [
     "sNo": 21,
     "fullName": "Dr. M. S. Gomathi",
     "designation": "Head &amp; Assistant Professor",
-    "qualification": "M.COM., M.PHIL., MBA., PGDCA., Ph.D.",
+    "qualification": "M.COM., M.PHIL., MBA., PGDCA., Ph.D",
     "department": "B.Com (Computer Applications)",
     "departments": [
       "B.Com (Computer Applications)",
@@ -1378,7 +1378,7 @@ export const facultyProfiles = [
     "sNo": 23,
     "fullName": "Dr. K.Suresh Kumar",
     "designation": "Assistant Professor",
-    "qualification": "M.COM., M.PHIL.,PGDCA., Ph.D.",
+    "qualification": "M.COM., M.PHIL.,PGDCA., Ph.D",
     "department": "B.Com (Computer Applications)",
     "departments": [
       "B.Com (Computer Applications)",
@@ -1692,7 +1692,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -1757,7 +1757,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -1822,7 +1822,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -1883,11 +1883,11 @@ export const facultyProfiles = [
     "sNo": 31,
     "fullName": "K.G.UMAYAMBIGAI",
     "designation": "Assistant Professor",
-    "qualification": "M.Com.,M.Phil.,Ph.D.,PGDCA",
+    "qualification": "M.Com.,M.Phil.,Ph.D,PGDCA",
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -1952,7 +1952,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2017,7 +2017,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2078,11 +2078,11 @@ export const facultyProfiles = [
     "sNo": 34,
     "fullName": "Dr. CHI. NANJAPPA",
     "designation": "Vice-Principal &amp; Head",
-    "qualification": "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D., NET,",
+    "qualification": "M.Com., PGDCA., M.C.A., M.B.A., M.Phil., Ph.D, NET,",
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2147,7 +2147,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2212,7 +2212,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2277,7 +2277,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2338,11 +2338,11 @@ export const facultyProfiles = [
     "sNo": 38,
     "fullName": "Dr. N.MALATHI",
     "designation": "Assistant Professor",
-    "qualification": "M.com(CA).,M.Phil.,Ph.D.,",
+    "qualification": "M.com(CA).,M.Phil.,Ph.D,",
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2407,7 +2407,7 @@ export const facultyProfiles = [
     "department": "Master of Commerce (M.Com)",
     "departments": [
       "Master of Commerce (M.Com)",
-      "Ph.D. Commerce",
+      "Ph.D Commerce",
       "B. Com – Bachelor of Commerce",
       "B.Com (Banking & Insurance)",
       "B.Com (Professional Accounting)"
@@ -2468,10 +2468,10 @@ export const facultyProfiles = [
     "sNo": 40,
     "fullName": "Mr. P. AROKYARAJ",
     "designation": "HoD &amp; Assistant Professor",
-    "qualification": "M.Sc., M.Ed, M.Phil, (P.hD)",
-    "department": "B.Sc. Mathematics",
+    "qualification": "M.Sc, M.Ed, M.Phil, (P.hD)",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "9597999898",
     "email": "arokyaraj@svasc.org",
@@ -2530,9 +2530,9 @@ export const facultyProfiles = [
     "fullName": "Mrs. P. S. KAVITHA",
     "designation": "Assistant Professor",
     "qualification": "M. Sc, B.Ed.,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "9952102370",
     "email": "kavithaps@svasc.org",
@@ -2591,9 +2591,9 @@ export const facultyProfiles = [
     "fullName": "Mr. C. SURESH",
     "designation": "Assistant Professor",
     "qualification": "M. Sc.,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "7904617100",
     "email": "sureshc@svasc.org",
@@ -2652,9 +2652,9 @@ export const facultyProfiles = [
     "fullName": "Mrs. M. KAVITHA",
     "designation": "Assistant Professor",
     "qualification": "M. Sc, M.Phil.,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "",
     "email": "kavitha@svasc.org",
@@ -2713,9 +2713,9 @@ export const facultyProfiles = [
     "fullName": "Ms. K. NAGARATHINAM",
     "designation": "Assistant Professor",
     "qualification": "M.Sc, M.Phil,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "8098418737",
     "email": "nagarathinamk@svasc.org",
@@ -2774,9 +2774,9 @@ export const facultyProfiles = [
     "fullName": "Mr. L. SRIDHAR",
     "designation": "Assistant Professor",
     "qualification": "M.Sc, B.Ed.,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "6369870746",
     "email": "sridhar@svasc.org",
@@ -2835,9 +2835,9 @@ export const facultyProfiles = [
     "fullName": "Mr. S. PRAVEEN",
     "designation": "Assistant Professor",
     "qualification": "M.Sc,",
-    "department": "B.Sc. Mathematics",
+    "department": "B.Sc Mathematics",
     "departments": [
-      "B.Sc. Mathematics"
+      "B.Sc Mathematics"
     ],
     "contactNo": "9791509452",
     "email": "praveen@svasc.org",
@@ -2900,7 +2900,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "8072983381",
     "email": "sivaguruvignesh40@gmail.com",
@@ -2958,12 +2958,12 @@ export const facultyProfiles = [
     "sNo": 48,
     "fullName": "Mr. P. RAMESH",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M. A., M. PHIL., (Ph.D.).,",
+    "qualification": "M. A., M. PHIL., (Ph.D).,",
     "department": "B.A. English",
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9865930954",
     "email": "ramesh.ma27@gmail.com",
@@ -3026,7 +3026,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9944902202",
     "email": "kssowmiyan7@gmail.com",
@@ -3089,7 +3089,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9360236987",
     "email": "vigneshvignesh.vh@gmail.com",
@@ -3152,7 +3152,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "8973413904",
     "email": "kowsalyaseng@svasc.org",
@@ -3215,7 +3215,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9524914269",
     "email": "arunkumar9142@gmail.com",
@@ -3278,7 +3278,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "8220609649",
     "email": "Achuashok4599@gmail.com",
@@ -3341,7 +3341,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9942788441",
     "email": "divyasanjay2019@gmail.com",
@@ -3404,7 +3404,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9942751925",
     "email": "ramsarvi4@gmail.com",
@@ -3467,7 +3467,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9500937336",
     "email": "jayasankavi@gmail.com",
@@ -3530,7 +3530,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9629392692",
     "email": "mohamedyashin2@gmail.com",
@@ -3593,7 +3593,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9659410190",
     "email": "809sanjai@gmail.com",
@@ -3656,7 +3656,7 @@ export const facultyProfiles = [
     "departments": [
       "B.A. English",
       "M.A. English",
-      "Ph.D. English"
+      "Ph.D English"
     ],
     "contactNo": "9597860166",
     "email": "monaashreev@gmail.com",
@@ -3714,16 +3714,16 @@ export const facultyProfiles = [
     "sNo": 60,
     "fullName": "D.PRIYA",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc., B.Ed.,",
-    "department": "B.Sc. Chemistry",
+    "qualification": "M.Sc, B.Ed.,",
+    "department": "B.Sc Chemistry",
     "departments": [
-      "B.Sc. Chemistry"
+      "B.Sc Chemistry"
     ],
     "contactNo": "9042421405",
     "email": "priya@svasc.org",
     "education": {
-      "ug": "B.Sc., in Chemistry",
-      "pg": "M.Sc., in Chemistry",
+      "ug": "B.Sc, in Chemistry",
+      "pg": "M.Sc, in Chemistry",
       "doctorate": "",
       "other": "B.Ed., Physical Science"
     },
@@ -3775,10 +3775,10 @@ export const facultyProfiles = [
     "sNo": 61,
     "fullName": "S.SHANMUGAPRIYA",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc., M.Phil., DBMI., (Ph.D).,",
-    "department": "B.Sc. Chemistry",
+    "qualification": "M.Sc, M.Phil., DBMI., (Ph.D).,",
+    "department": "B.Sc Chemistry",
     "departments": [
-      "B.Sc. Chemistry"
+      "B.Sc Chemistry"
     ],
     "contactNo": "9342465615",
     "email": "shanmugapriyachem@svasc.org",
@@ -3836,16 +3836,16 @@ export const facultyProfiles = [
     "sNo": 62,
     "fullName": "K.S.MALATHI",
     "designation": "Assistant Professor &amp; Head",
-    "qualification": "M.Sc., M.Phil., B.Ed.,",
-    "department": "B.Sc. Chemistry",
+    "qualification": "M.Sc, M.Phil., B.Ed.,",
+    "department": "B.Sc Chemistry",
     "departments": [
-      "B.Sc. Chemistry"
+      "B.Sc Chemistry"
     ],
     "contactNo": "6383021694",
     "email": "malathiks@svasc.org",
     "education": {
-      "ug": "B.Sc., in Chemistry",
-      "pg": "M.Sc., in Chemistry",
+      "ug": "B.Sc, in Chemistry",
+      "pg": "M.Sc, in Chemistry",
       "doctorate": "",
       "other": "B.Ed., in Physical Science&amp; M.Phil., in Chemistry"
     },
@@ -3897,7 +3897,7 @@ export const facultyProfiles = [
     "sNo": 63,
     "fullName": "Dr .A. SAVITHA",
     "designation": "ASSISTANT PROFESSOR AND HEAD",
-    "qualification": "M.com.,M.Phil., MBA.,PGDCA., Ph.D., SET.",
+    "qualification": "M.com.,M.Phil., MBA.,PGDCA., Ph.D, SET.",
     "department": "B. Com – Bachelor of Commerce",
     "departments": [
       "B. Com – Bachelor of Commerce",
@@ -4023,7 +4023,7 @@ export const facultyProfiles = [
     "sNo": 65,
     "fullName": "Dr. M.KALAIVANI",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M.COM., M.PHIL., PGDCA., Ph.D.",
+    "qualification": "M.COM., M.PHIL., PGDCA., Ph.D",
     "department": "B. Com – Bachelor of Commerce",
     "departments": [
       "B. Com – Bachelor of Commerce",
@@ -4339,16 +4339,16 @@ export const facultyProfiles = [
     "fullName": "Mrs. P. SANGEETHA",
     "designation": "Assistant Professor",
     "qualification": "MCA., M.PHIL.,(Ph.D)",
-    "department": "B.Sc. Computer Science",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "8344539266",
     "email": "sangeettapmca@gmail.com",
     "education": {
-      "ug": "B.Sc. Mathematics, Gobi Arts and Science College, Bharathiar University, 2003–2006; 93%",
+      "ug": "B.Sc Mathematics, Gobi Arts and Science College, Bharathiar University, 2003–2006; 93%",
       "pg": "MCA, Vivekanandha College of Engineering, Anna University, 2006–2009; 82%",
       "doctorate": "PURSUING",
       "other": "M.Phil. (Computer Science) Sri Vasavi College, Erode (2017-2020)"
@@ -4402,11 +4402,11 @@ export const facultyProfiles = [
     "fullName": "Ms. S DEVI",
     "designation": "Assistant Professor",
     "qualification": "MCA., NET.,",
-    "department": "B.Sc. Computer Science",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9994694149",
     "email": "sdevisenthilkumar42@gmail.com",
@@ -4464,18 +4464,18 @@ export const facultyProfiles = [
     "sNo": 72,
     "fullName": "Mrs. V. SARANYA",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M.Sc., M.Phil.,",
-    "department": "B.Sc. Computer Science",
+    "qualification": "M.Sc, M.Phil.,",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9688985363",
     "email": "charubsccs@gmail.com",
     "education": {
-      "ug": "B.Sc. Computer Science – 2013 (71%)",
-      "pg": "M.Sc. Computer Science – 2015 (83%)",
+      "ug": "B.Sc Computer Science – 2013 (71%)",
+      "pg": "M.Sc Computer Science – 2015 (83%)",
       "doctorate": "NIL",
       "other": "M.Phil. Computer Science – 2019 (85%)"
     },
@@ -4528,16 +4528,16 @@ export const facultyProfiles = [
     "fullName": "Mrs. K ISWARYA",
     "designation": "ASSISTANT PROFESSOR",
     "qualification": "MCA.,(Ph.D).,",
-    "department": "B.Sc. Computer Science",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9597137819",
     "email": "iswaryak3ct@gmail.com",
     "education": {
-      "ug": "B.Sc. Computer Technology – 2017 (72%)",
+      "ug": "B.Sc Computer Technology – 2017 (72%)",
       "pg": "MCA – 2019 (75%)",
       "doctorate": "Pursuing",
       "other": "NIL"
@@ -4590,18 +4590,18 @@ export const facultyProfiles = [
     "sNo": 74,
     "fullName": "Mrs. B.JEEVITHAPRIYA",
     "designation": "ASSISTANT PROFESSOR",
-    "qualification": "M.Sc., M.Phil.,(Ph.D).,",
-    "department": "B.Sc. Computer Science",
+    "qualification": "M.Sc, M.Phil.,(Ph.D).,",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9524828689",
     "email": "jeevithapriyact@gmail.com",
     "education": {
-      "ug": "B.Sc. Computer Technology – 2010 (89.3%)",
-      "pg": "M.Sc. Computer Science – 2012 (87.55%)",
+      "ug": "B.Sc Computer Technology – 2010 (89.3%)",
+      "pg": "M.Sc Computer Science – 2012 (87.55%)",
       "doctorate": "Pursuing",
       "other": "M.Phil. Computer Science – 2016 (63.1%)"
     },
@@ -4653,18 +4653,18 @@ export const facultyProfiles = [
     "sNo": 75,
     "fullName": "Mr. K. Ramani",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc.,(IT), M.Phil., NET",
-    "department": "B.Sc. Computer Science",
+    "qualification": "M.Sc,(IT), M.Phil., NET",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9095022779",
     "email": "ramani.k79@gmail.com",
     "education": {
-      "ug": "B.Sc. Computer Science – 1999 (47%)",
-      "pg": "M.Sc. Computer Science – 2003 (58%)",
+      "ug": "B.Sc Computer Science – 1999 (47%)",
+      "pg": "M.Sc Computer Science – 2003 (58%)",
       "doctorate": "Pursuing",
       "other": "M.Phil. Computer Science – 2012 (60%) Clearing NTA-NET in 2023"
     },
@@ -4717,16 +4717,16 @@ export const facultyProfiles = [
     "fullName": "Mrs. K.R.KAVITHA",
     "designation": "ASSISTANT PROFESSOR",
     "qualification": "MCA., M.Phil.,",
-    "department": "B.Sc. Computer Science",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9942197020",
     "email": "kavithar548@gmail.com",
     "education": {
-      "ug": "B.Sc. Computer Science – 2013 (70.52%)",
+      "ug": "B.Sc Computer Science – 2013 (70.52%)",
       "pg": "MCA– 2015 (64.52%)",
       "doctorate": "",
       "other": "M.Phil. Computer Science – 2017 (58.02%)"
@@ -4780,11 +4780,11 @@ export const facultyProfiles = [
     "fullName": "Dr. B. Kanchanadevi",
     "designation": "Assistant Professor and Head",
     "qualification": "M. Sc., M.Phil., Ph.D",
-    "department": "B.Sc. Computer Science",
+    "department": "B.Sc Computer Science",
     "departments": [
-      "B.Sc. Computer Science",
-      "B.Sc. Computer Science (AI & DS)",
-      "M.Sc. Computer Science"
+      "B.Sc Computer Science",
+      "B.Sc Computer Science (AI & DS)",
+      "M.Sc Computer Science"
     ],
     "contactNo": "9965435666",
     "email": "Kanchanadevibcs08@svasc.org",
@@ -4842,10 +4842,10 @@ export const facultyProfiles = [
     "coreName": "Senthilrani",
     "initial": "R",
     "designation": "Assistant Professor & Head",
-    "qualification": "M.A.(TAM)., M.A.(Edn), M.Phil., Ph.D., SET., NET., B.Ed.",
-    "department": "Ph.D. Tamil",
+    "qualification": "M.A.(TAM)., M.A.(Edn), M.Phil., Ph.D, SET., NET., B.Ed.",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_senthilrani.jpeg",
@@ -4855,13 +4855,13 @@ export const facultyProfiles = [
     "education": {
       "ug": "B.Lit. (Tamil)",
       "pg": "M.A. (Tamil), M.A. (Edn)",
-      "doctorate": "Ph.D. (Tamil)",
+      "doctorate": "Ph.D (Tamil)",
       "other": "M.Phil., B.Ed., SET, NET"
     },
     "experience": {
       "teaching": "18 Years",
       "industry": "",
-      "research": "Ph.D. Research Guide",
+      "research": "Ph.D Research Guide",
       "total": "18 Years"
     },
     "specialization": "சிற்றிலக்கியம் (Minor Literature)",
@@ -4906,9 +4906,9 @@ export const facultyProfiles = [
     "initial": "P",
     "designation": "Assistant Professor",
     "qualification": "M.A., B.Ed., (Ph.D)",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_raman.jpeg",
@@ -4918,7 +4918,7 @@ export const facultyProfiles = [
     "education": {
       "ug": "B.A. Tamil",
       "pg": "M.A. Tamil",
-      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "doctorate": "Ph.D (Doing / Pursuing)",
       "other": "B.Ed. Tamil"
     },
     "experience": {
@@ -4969,9 +4969,9 @@ export const facultyProfiles = [
     "initial": "S",
     "designation": "Assistant Professor",
     "qualification": "M.A., M.Phil., B.Ed., (Ph.D)",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_selvakumar.jpeg",
@@ -4981,7 +4981,7 @@ export const facultyProfiles = [
     "education": {
       "ug": "B.A. Tamil",
       "pg": "M.A. Tamil",
-      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "doctorate": "Ph.D (Doing / Pursuing)",
       "other": "M.Phil., B.Ed. Tamil"
     },
     "experience": {
@@ -5032,9 +5032,9 @@ export const facultyProfiles = [
     "fullName": "RAJENDERAKUMAR.G",
     "designation": "ASSISTANT PROFOSSER",
     "qualification": "M.A.,B.Ed.,(Ph.D).,NET",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D Tamil"
     ],
     "contactNo": "98940-94979",
     "email": "rajendarguru@gmail.com",
@@ -5093,9 +5093,9 @@ export const facultyProfiles = [
     "initial": "K",
     "designation": "Assistant Professor",
     "qualification": "M.A., B.Ed., M.Phil., DCT",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_yasotha.jpeg",
@@ -5156,9 +5156,9 @@ export const facultyProfiles = [
     "initial": "P",
     "designation": "Assistant Professor",
     "qualification": "M.A.",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_nandhakumar.png",
@@ -5219,9 +5219,9 @@ export const facultyProfiles = [
     "fullName": "VIMALRAJ. V",
     "designation": "ASSISTANT PROFOSSER",
     "qualification": "M.A.,DIE.,(Ph.D)",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D Tamil"
     ],
     "contactNo": "8248295688",
     "email": "Vr5080118@gmail.com",
@@ -5280,9 +5280,9 @@ export const facultyProfiles = [
     "fullName": "S.MYVIZHI",
     "designation": "ASSISTANT PROFOSSER",
     "qualification": "M.A",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil"
+      "Ph.D Tamil"
     ],
     "contactNo": "9597188105",
     "email": "myvizhis2003@gmail.com",
@@ -5340,18 +5340,18 @@ export const facultyProfiles = [
     "coreName": "Dhenmozhi",
     "initial": "K",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc. (FD & GC)",
-    "department": "B.Sc. Costume Design & Fashion",
+    "qualification": "M.Sc (FD & GC)",
+    "department": "B.Sc Costume Design & Fashion",
     "departments": [
-      "B.Sc. Costume Design & Fashion"
+      "B.Sc Costume Design & Fashion"
     ],
     "photo": "/assets/staff/cdf_dhenmozhi.jpeg",
     "sNo": 1,
     "contactNo": "8608174533",
     "email": "dhenmozhi@svasc.org",
     "education": {
-      "ug": "B.Sc. (CDF)",
-      "pg": "M.Sc. (FD&GC)",
+      "ug": "B.Sc (CDF)",
+      "pg": "M.Sc (FD&GC)",
       "doctorate": "",
       "other": ""
     },
@@ -5402,10 +5402,10 @@ export const facultyProfiles = [
     "coreName": "Ayeeshasumaiya",
     "initial": "T",
     "designation": "Head & Assistant Professor",
-    "qualification": "M.Sc., (Ph.D)",
-    "department": "B.Sc. Costume Design & Fashion",
+    "qualification": "M.Sc, (Ph.D)",
+    "department": "B.Sc Costume Design & Fashion",
     "departments": [
-      "B.Sc. Costume Design & Fashion",
+      "B.Sc Costume Design & Fashion",
       "Alumni Committee"
     ],
     "photo": "/assets/staff/cdf_ayeeshasumaiya.jpeg",
@@ -5413,15 +5413,15 @@ export const facultyProfiles = [
     "contactNo": "9087405678",
     "email": "ayeeshasumaiya117@gmail.com",
     "education": {
-      "ug": "B.Sc. Costume Design and Fashion – 2011, PSG College of Arts and Science, Coimbatore (91%)",
-      "pg": "M.Sc. Costume Design and Fashion – 2014, Bharathiar University (93%)",
-      "doctorate": "Ph.D. – Pursuing (Since 2024), PSG College of Arts and Science, Coimbatore",
+      "ug": "B.Sc Costume Design and Fashion – 2011, PSG College of Arts and Science, Coimbatore (91%)",
+      "pg": "M.Sc Costume Design and Fashion – 2014, Bharathiar University (93%)",
+      "doctorate": "Ph.D – Pursuing (Since 2024), PSG College of Arts and Science, Coimbatore",
       "other": ""
     },
     "experience": {
       "teaching": "12 Years",
       "industry": "1 Year 6 Months",
-      "research": "Ph.D. Research Scholar",
+      "research": "Ph.D Research Scholar",
       "total": "13 Years 6 Months"
     },
     "specialization": "Fashion Design; Textile Wet Processing; Natural Colours/Dyes; Textile and Garment Design",
@@ -5456,7 +5456,7 @@ export const facultyProfiles = [
     },
     "researchProjects": {
       "completed": "",
-      "undergoing": "Ph.D. research – ongoing"
+      "undergoing": "Ph.D research – ongoing"
     },
     "awards": "Best Faculty Award"
   },
@@ -5465,18 +5465,18 @@ export const facultyProfiles = [
     "coreName": "Anitha",
     "initial": "P",
     "designation": "Assistant Professor",
-    "qualification": "M.Sc. (CDF)",
-    "department": "B.Sc. Costume Design & Fashion",
+    "qualification": "M.Sc (CDF)",
+    "department": "B.Sc Costume Design & Fashion",
     "departments": [
-      "B.Sc. Costume Design & Fashion"
+      "B.Sc Costume Design & Fashion"
     ],
     "photo": "/assets/staff/cdf_anitha.jpeg",
     "sNo": 3,
     "contactNo": "9789911666",
     "email": "anitha@svasc.org",
     "education": {
-      "ug": "B.Sc. (CDF)",
-      "pg": "M.Sc. (CDF)",
+      "ug": "B.Sc (CDF)",
+      "pg": "M.Sc (CDF)",
       "doctorate": "",
       "other": ""
     },
@@ -5528,9 +5528,9 @@ export const facultyProfiles = [
     "initial": "G",
     "designation": "Assistant Professor",
     "qualification": "M.A., B.Ed., (Ph.D)., NET",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_rajenderakumar.jpeg",
@@ -5540,7 +5540,7 @@ export const facultyProfiles = [
     "education": {
       "ug": "B.A. Tamil",
       "pg": "M.A. Tamil",
-      "doctorate": "Ph.D. Tamil",
+      "doctorate": "Ph.D Tamil",
       "other": "B.Ed. Biology, UGC-NET"
     },
     "experience": {
@@ -5591,9 +5591,9 @@ export const facultyProfiles = [
     "initial": "V",
     "designation": "Assistant Professor",
     "qualification": "M.A., DIE., (Ph.D)",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_vimalraj.jpeg",
@@ -5603,7 +5603,7 @@ export const facultyProfiles = [
     "education": {
       "ug": "B.A. Tamil",
       "pg": "M.A. Tamil",
-      "doctorate": "Ph.D. (Doing / Pursuing)",
+      "doctorate": "Ph.D (Doing / Pursuing)",
       "other": "DIE"
     },
     "experience": {
@@ -5654,9 +5654,9 @@ export const facultyProfiles = [
     "initial": "S",
     "designation": "Assistant Professor",
     "qualification": "M.A.",
-    "department": "Ph.D. Tamil",
+    "department": "Ph.D Tamil",
     "departments": [
-      "Ph.D. Tamil",
+      "Ph.D Tamil",
       "Tamil"
     ],
     "photo": "/assets/staff/tamil_myvizhi.jpeg",
@@ -5777,7 +5777,7 @@ export const facultyProfiles = [
     "sNo": 2,
     "fullName": "Mrs. G. Subbulakshmi",
     "designation": "Placement Trainer",
-    "qualification": "B.Sc., M.Sc., M.Phil.",
+    "qualification": "B.Sc, M.Sc, M.Phil.",
     "department": "Training and Placement",
     "departments": [
       "Training and Placement"
@@ -5785,8 +5785,8 @@ export const facultyProfiles = [
     "contactNo": "9444311488",
     "email": "subbulakshmi@svasc.org",
     "education": {
-      "ug": "B.Sc.",
-      "pg": "M.Sc., M.Phil.",
+      "ug": "B.Sc",
+      "pg": "M.Sc, M.Phil.",
       "doctorate": "Pursuing",
       "other": ""
     },
@@ -5899,7 +5899,7 @@ export const facultyProfiles = [
     "sNo": 4,
     "fullName": "Ms. SM. Swetha Sri",
     "designation": "Placement Trainer",
-    "qualification": "B.Sc., MSW.",
+    "qualification": "B.Sc, MSW.",
     "department": "Training and Placement",
     "departments": [
       "Training and Placement"
@@ -5907,7 +5907,7 @@ export const facultyProfiles = [
     "contactNo": "9345175483",
     "email": "shris8924@gmail.com",
     "education": {
-      "ug": "B.Sc.",
+      "ug": "B.Sc",
       "pg": "MSW.",
       "doctorate": "",
       "other": ""
@@ -5960,7 +5960,7 @@ export const facultyProfiles = [
     "sNo": 5,
     "fullName": "Mrs. K. Nathiya",
     "designation": "Placement Trainer",
-    "qualification": "M.Sc., M.Phil.",
+    "qualification": "M.Sc, M.Phil.",
     "department": "Training and Placement",
     "departments": [
       "Training and Placement"
@@ -5968,8 +5968,8 @@ export const facultyProfiles = [
     "contactNo": "9894347890",
     "email": "nathiya@svasc.org",
     "education": {
-      "ug": "B.Sc.",
-      "pg": "M.Sc., M.Phil.",
+      "ug": "B.Sc",
+      "pg": "M.Sc, M.Phil.",
       "doctorate": "",
       "other": ""
     },

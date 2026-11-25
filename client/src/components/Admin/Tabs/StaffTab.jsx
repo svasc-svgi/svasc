@@ -21,29 +21,29 @@ import { facultyProfiles } from '../../../data/facultyProfiles';
 import StaffProfileModal from '../../Staff/StaffProfileModal';
 
 const DEFAULT_FALLBACK_DEPARTMENTS = [
-  'B.Sc. Computer Science',
-  'B.Sc. Computer Science (AI & DS)',
+  'B.Sc Computer Science',
+  'B.Sc Computer Science (AI & DS)',
   'Bachelor of Computer Applications (BCA)',
-  'B.Sc. Information Technology',
-  'B.Sc. Cyber Security',
+  'B.Sc Information Technology',
+  'B.Sc Cyber Security',
   'B.Com – Bachelor of Commerce',
   'B.Com (Banking & Insurance)',
   'B.Com (Information Technology)',
   'B.Com (Computer Applications)',
   'B.Com (Professional Accounting)',
   'BBA - Management Studies',
-  'B.Sc. Chemistry',
-  'B.Sc. Mathematics',
-  'B.Sc. Microbiology',
+  'B.Sc Chemistry',
+  'B.Sc Mathematics',
+  'B.Sc Microbiology',
   'B.A. English',
-  'B.Sc. Costume Design & Fashion',
-  'M.Sc. Computer Science',
+  'B.Sc Costume Design & Fashion',
+  'M.Sc Computer Science',
   'Master of Commerce (M.Com)',
-  'M.Sc. Microbiology',
+  'M.Sc Microbiology',
   'M.A. English',
-  'Ph.D. Commerce',
-  'Ph.D. English',
-  'Ph.D. Tamil',
+  'Ph.D Commerce',
+  'Ph.D English',
+  'Ph.D Tamil',
   'Department of Physical Education',
   'Library',
   'Alumni Committee',
@@ -56,8 +56,8 @@ const emptyStaffForm = {
   initial: '',
   qualification: '',
   designation: 'Assistant Professor',
-  department: 'B.Sc. Computer Science',
-  departments: ['B.Sc. Computer Science'],
+  department: 'B.Sc Computer Science',
+  departments: ['B.Sc Computer Science'],
   photo: '',
   contactNo: '',
   email: '',
@@ -219,7 +219,7 @@ const StaffTab = () => {
       // Add library staff
       allFaculty.push({
         fullName: 'Dr. P. Krishnakumari',
-        qualification: 'MLIS., M.Phil., Ph.D.',
+        qualification: 'MLIS., M.Phil., Ph.D',
         designation: 'Librarian & Head',
         department: 'Library',
         departments: ['Library'],
@@ -272,14 +272,14 @@ const StaffTab = () => {
 
       const rawDepts = Array.isArray(staff.departments) && staff.departments.length > 0
         ? staff.departments
-        : (staff.department ? [staff.department] : [(departmentList[0]?.value || 'B.Sc. Computer Science')]);
+        : (staff.department ? [staff.department] : [(departmentList[0]?.value || 'B.Sc Computer Science')]);
 
       setFormData({
         fullName: staff.fullName || '',
         initial: staff.initial || parsed.initial || '',
         qualification: staff.qualification || '',
         designation: staff.designation || 'Assistant Professor',
-        department: staff.department || rawDepts[0] || (departmentList[0]?.value || 'B.Sc. Computer Science'),
+        department: staff.department || rawDepts[0] || (departmentList[0]?.value || 'B.Sc Computer Science'),
         departments: rawDepts,
         photo: staff.photo || found.photo || '',
         contactNo: staff.contactNo || staff.mobile || found.contactNo || '',
@@ -306,7 +306,7 @@ const StaffTab = () => {
       setEditingStaff(null);
       setFormData({
         ...emptyStaffForm,
-        department: selectedDept !== 'All' ? selectedDept : (departmentList[0]?.value || 'B.Sc. Computer Science')
+        department: selectedDept !== 'All' ? selectedDept : (departmentList[0]?.value || 'B.Sc Computer Science')
       });
       setFilePreview('');
     }
@@ -957,7 +957,7 @@ const StaffTab = () => {
                         type="text"
                         value={formData.qualification}
                         onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
-                        placeholder="e.g. MCA., M.Phil., Ph.D."
+                        placeholder="e.g. MCA., M.Phil., Ph.D"
                         className={styles.formInput}
                       />
                     </div>
@@ -1425,7 +1425,7 @@ const StaffTab = () => {
               <div className={styles.syncNotice}>
                 <Info size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span>
-                  Add any new course or department (e.g. <em>B.Sc. Data Science</em>, <em>M.Com</em>, <em>B.Sc. Cyber Security</em>). It will immediately appear in all course dropdowns and filters.
+                  Add any new course or department (e.g. <em>B.Sc Data Science</em>, <em>M.Com</em>, <em>B.Sc Cyber Security</em>). It will immediately appear in all course dropdowns and filters.
                 </span>
               </div>
 
@@ -1436,7 +1436,7 @@ const StaffTab = () => {
                     type="text"
                     value={newDeptInput}
                     onChange={(e) => setNewDeptInput(e.target.value)}
-                    placeholder="e.g. B.Sc. Artificial Intelligence & Machine Learning"
+                    placeholder="e.g. B.Sc Artificial Intelligence & Machine Learning"
                     className={styles.formInput}
                     style={{ flex: 1 }}
                     required
@@ -1512,7 +1512,7 @@ const StaffTab = () => {
               {/* Quick Select common cross-department destinations */}
               <label className={styles.formLabel}>Quick Selection for Computer Science & Tech:</label>
               <div className={styles.quickPillsWrap}>
-                {['B.Sc. Computer Science (AI & DS)', 'M.Sc. Computer Science', 'Bachelor of Computer Applications (BCA)', 'B.Sc. Information Technology', 'B.Sc. Cyber Security']
+                {['B.Sc Computer Science (AI & DS)', 'M.Sc Computer Science', 'Bachelor of Computer Applications (BCA)', 'B.Sc Information Technology', 'B.Sc Cyber Security']
                   .filter((dept) => dept !== cloningStaff.department)
                   .map((dept) => {
                     const isSelected = selectedCloneDepts.includes(dept);

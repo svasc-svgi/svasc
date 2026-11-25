@@ -111,10 +111,10 @@ const Vision = () => {
                             <img src={teaching} alt="Performing Arts" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Integrity & Ethics</h2>
-                                <p className={styles.captionText}>
-                                    • Upholding the highest standards of honesty and transparency in all academic endeavors.<br /><br />
-                                    • Cultivating a strong sense of moral responsibility and ethical decision-making.
-                                </p>
+                                <ul className={styles.objectivesList}>
+                                    <li>Upholding the highest standards of honesty and transparency in all academic endeavors.</li>
+                                    <li>Cultivating a strong sense of moral responsibility and ethical decision-making.</li>
+                                </ul>
                             </figcaption>
                         </figure>
 
@@ -122,10 +122,10 @@ const Vision = () => {
                             <img src={lab3} />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Excellence & Inclusion</h2>
-                                <p className={styles.captionText}>
-                                    • Committing to superior quality in education and holistic personal development.<br /><br />
-                                    • Creating a welcoming, diverse environment where every student feels valued and supported.
-                                </p>
+                                <ul className={styles.objectivesList}>
+                                    <li>Committing to superior quality in education and holistic personal development.</li>
+                                    <li>Creating a welcoming, diverse environment where every student feels valued and supported.</li>
+                                </ul>
                             </figcaption>
                         </figure>
                         
@@ -133,10 +133,10 @@ const Vision = () => {
                             <img src={heroCampusImg} alt="Innovation & Research" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Innovation & Research</h2>
-                                <p className={styles.captionText}>
-                                    • Fostering a culture of critical thinking, problem-solving and continuous learning.<br /><br />
-                                    • Encouraging creative approaches and pioneering research to address real-world challenges.
-                                </p>
+                                <ul className={styles.objectivesList}>
+                                    <li>Fostering a culture of critical thinking, problem-solving and continuous learning.</li>
+                                    <li>Encouraging creative approaches and pioneering research to address real-world challenges.</li>
+                                </ul>
                             </figcaption>
                         </figure>
 
@@ -144,10 +144,10 @@ const Vision = () => {
                             <img src={exam4Img} alt="Global Perspective" />
                             <figcaption className={styles.imgCaption}>
                                 <h2 className={styles.headSmall}>Global Perspective</h2>
-                                <p className={styles.captionText}>
-                                    • Empowering students to navigate a rapidly changing world with confidence and adaptability.<br /><br />
-                                    • Providing global exposure through cross-cultural learning and industry collaborations.
-                                </p>
+                                <ul className={styles.objectivesList}>
+                                    <li>Empowering students to navigate a rapidly changing world with confidence and adaptability.</li>
+                                    <li>Providing global exposure through cross-cultural learning and industry collaborations.</li>
+                                </ul>
                             </figcaption>
                         </figure>
 

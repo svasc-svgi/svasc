@@ -71,6 +71,8 @@ app.use('/api', (req, res, next) => {
     next();
 });
 
+const { runStartupSanitization } = require('./utils/dbSanitizer');
+
 // ─── Database Connection ─────────────────────────────────────────────────────
 const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI, {
@@ -79,7 +81,10 @@ mongoose.connect(MONGO_URI, {
     maxPoolSize: 10,
     minPoolSize: 2,
 })
-    .then(() => console.log('MongoDB Connected Successfully'))
+    .then(() => {
+        console.log('MongoDB Connected Successfully');
+        runStartupSanitization();
+    })
     .catch(err => console.error('MongoDB Connection Error:', err.message));
 
 // Health Check & Root Routes

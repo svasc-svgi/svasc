@@ -17,7 +17,7 @@ const PrincipalProfile = () => {
             <Leadership
                 designation="Principal"
                 name="Dr. R. RAMKUMAR"
-                qualification="MCA.,M.Phil.,Ph.D.,"
+                qualification="MCA., M.Phil., Ph.D"
                 image={principalImg}
                 quote="I wish you all a happy learning experience on the campus and wonderful camaraderie in the spirit of universal brotherhood and mutual academic benefit and progress."
             >

@@ -146,7 +146,7 @@ const ProgramInnerForm = ({ formData, setFormData, isUploading, uploadProgress, 
               Course Core Identification
             </div>
             <FormInput
-              label="Course Title * (e.g. Ph.D. Microbiology, B.Sc. Computer Science)"
+              label="Course Title * (e.g. Ph.D Microbiology, B.Sc Computer Science)"
               value={formData.title || ''}
               onChange={(e) => {
                 const title = e.target.value;
@@ -635,7 +635,7 @@ const ProgramInnerForm = ({ formData, setFormData, isUploading, uploadProgress, 
                     </div>
                     <input
                       type="text"
-                      placeholder="Question: e.g. Is the Ph.D. offered both Full-Time and Part-Time?"
+                      placeholder="Question: e.g. Is the Ph.D offered both Full-Time and Part-Time?"
                       value={faq.question || ''}
                       onChange={(e) => handleUpdateFaq(index, 'question', e.target.value)}
                       style={{
