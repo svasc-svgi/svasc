@@ -9,9 +9,9 @@ import bus3Img from '../../assets/bus3.jpg';
 
 const Transport = () => {
     const routes = [
-        ['Palakkad', 'Perungottukurussi', 'Vadakenchery', 'Chelakkara', 'Cherplasserry'],
-        ['Shoranur', 'Mannarkad', 'Mannarkad', 'Mangalamdam', 'Meenkara via Kollengode', 'Coimbatore'],
-        ['Tiruvillamala', 'Malampuzha', 'Nemmara', 'Vandithavalam', 'Tiruppur']
+        ['Tiruppur', 'Annur', 'Avinashi', 'Sathy', 'Bannari'],
+        ['Erode', 'Chennimalai', 'Arachalur', 'Bhavani'],
+        ['Komarapalayam', 'Edappadi', 'Thiruchengode', 'Anthiyur']
     ];
 
     return (

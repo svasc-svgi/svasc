@@ -62,7 +62,7 @@ const PlacementCell = () => {
             {/* Hero Section */}
             <Hero
                 title="Placement and Training Cell"
-                description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training and placement opportunities at Shree Venkateshwara Arts and Science College."
+                description="Enhancing students' employability by providing comprehensive career guidance, industry-oriented training and placement opportunities at Shree Venkateshwara Arts and Science (Co-Education) College."
                 image="/placement/placementhero.jpg"
             />
             <header className={styles.heroSection}>

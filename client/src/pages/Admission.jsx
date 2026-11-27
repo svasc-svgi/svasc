@@ -186,7 +186,7 @@ const Admission = () => {
                             </div>
                             <div className={styles.logoText}>
                                 <span className={styles.logoMain}>Shree Venkateshwara</span>
-                                <span className={styles.logoSub}>Arts & Science College</span>
+                                <span className={styles.logoSub}>ARTS &amp; SCIENCE (Co-Education) COLLEGE</span>
                             </div>
                         </Link>
 
@@ -361,7 +361,7 @@ const Admission = () => {
                                 </span>
                             </h1>
                             <p className={styles.heroDesc}>
-                                SVASC - Top Arts & Science Colleges in Coimbatore | 25+ Programs | 100% Placement | Bharathiar University Affiliated
+                                SVASC - Top Arts & Science Colleges in Erode | 25+ Programs | 100% Placement | Bharathiar University Affiliated
                             </p>
                             <div className={styles.badgeList}>
                                 {badges.map(({ icon: Icon, label }) => (
