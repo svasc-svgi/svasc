@@ -196,17 +196,6 @@ const Schools = () => {
         ],
         "Ph.D": [
             {
-                name: "Research & Development",
-                acronym: "R&D",
-                programs: [
-                    { title: "Ph.D Tamil", image: club0Img },
-                    { title: "Ph.D English", image: why2Img },
-                    { title: "Ph.D Commerce", image: "/commercephd/phd1.jpg" },
-                    { title: "Ph.D Microbiology", image: researchImg },
-                    { title: "Ph.D Management", image: smart1Img }
-                ]
-            },
-            {
                 name: "Research in Arts",
                 acronym: "RIA",
                 programs: [
@@ -257,9 +246,17 @@ const Schools = () => {
                                         const cleanTitle = (dbp.title || '')
                                             .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\.(?=[A-Za-z])/gi, '$1 ')
                                             .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\./gi, '$1');
+                                        const titleLower = cleanTitle.toLowerCase();
                                         let targetSchoolName = dbSchool.name;
-                                        if (level === 'PG Programmes' && cleanTitle.toLowerCase().includes('microbiology')) {
+                                        if (level === 'PG Programmes' && titleLower.includes('microbiology')) {
                                             targetSchoolName = 'School of Science';
+                                        }
+                                        if (level === 'Ph.D' && (/research\s*(&|and)?\s*development/i.test(targetSchoolName) || /school of management/i.test(targetSchoolName))) {
+                                            if (titleLower.includes('tamil') || titleLower.includes('english')) targetSchoolName = 'Research in Arts';
+                                            else if (titleLower.includes('commerce')) targetSchoolName = 'Research in Commerce';
+                                            else if (titleLower.includes('microbiology') || titleLower.includes('science')) targetSchoolName = 'Research in Science';
+                                            else if (titleLower.includes('management')) targetSchoolName = 'Research in Management';
+                                            else return;
                                         }
                                         let existingSchoolIdx = merged[level].findIndex(
                                             (s) => s.name.trim().toLowerCase() === targetSchoolName.trim().toLowerCase()

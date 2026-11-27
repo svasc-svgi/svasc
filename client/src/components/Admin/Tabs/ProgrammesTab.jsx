@@ -33,8 +33,12 @@ const POPULAR_SCHOOLS = [
   { name: 'School of Design & Fashion', acronym: 'SODF' },
   { name: 'School of Physical Education', acronym: 'SOPE' },
   { name: 'School of Computer Science', acronym: 'SCS' },
+  { name: 'School of Science', acronym: 'SOS' },
   { name: 'School of Commerce & Management', acronym: 'SCM' },
-  { name: 'Research & Development', acronym: 'R&D' }
+  { name: 'Research in Arts', acronym: 'RIA' },
+  { name: 'Research in Commerce', acronym: 'RIC' },
+  { name: 'Research in Science', acronym: 'RIS' },
+  { name: 'Research in Management', acronym: 'RIM' }
 ];
 
 const FORM_TABS = [

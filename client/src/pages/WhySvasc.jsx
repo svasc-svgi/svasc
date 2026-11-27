@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { CheckCircle, Layout, Users, BookOpen, Clock, Box, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -321,7 +322,7 @@ const WhySvasc = () => {
                         <p>
                             Explore our programs with just one click and join a community dedicated to your success and excellence.
                         </p>
-                        <button className={styles.programLink}>Browse Programs</button>
+                        <Link to="/programms" className={styles.programLink}>Browse Programs</Link>
                     </article>
                 </section>
             </main>

@@ -91,7 +91,7 @@
     }
 
     .heroText p {
-        text-align: center;
+        text-align: justify;
         padding: 0 10px;
     }
 
@@ -114,6 +114,7 @@
     color: #666;
     font-size: 1.3rem;
     line-height: 1.8;
+    text-align: justify;
     margin-bottom: 30px;
 }
 

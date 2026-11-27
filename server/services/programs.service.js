@@ -22,11 +22,11 @@ const DEFAULT_PROGRAMS_SEED = [
     { title: 'M.Sc Microbiology', slug: 'msc-microbiology', programType: 'PG Programmes', school: 'School of Science', schoolAcronym: 'SOS', image: '/assets/home1.jpg' },
     { title: 'M.A English', slug: 'ma-english', programType: 'PG Programmes', school: 'School of Arts & Languages', schoolAcronym: 'SOAL', image: '/assets/exam3.jpg' },
     { title: 'M.Com', slug: 'mcom', programType: 'PG Programmes', school: 'School of Commerce & Management', schoolAcronym: 'SCM', image: '/assets/new.jpg' },
-    { title: 'Ph.D Tamil', slug: 'phd-tamil', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/club0.jpg' },
-    { title: 'Ph.D English', slug: 'phd-english', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/why2.JPG' },
-    { title: 'Ph.D Commerce', slug: 'phd-commerce', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/commercephd/phd1.jpg' },
-    { title: 'Ph.D Microbiology', slug: 'phd-microbiology', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/research.jpg' },
-    { title: 'Ph.D Management', slug: 'phd-management', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/smart1.jpg' }
+    { title: 'Ph.D Tamil', slug: 'phd-tamil', programType: 'Ph.D', school: 'Research in Arts', schoolAcronym: 'RIA', image: '/assets/club0.jpg' },
+    { title: 'Ph.D English', slug: 'phd-english', programType: 'Ph.D', school: 'Research in Arts', schoolAcronym: 'RIA', image: '/assets/why2.JPG' },
+    { title: 'Ph.D Commerce', slug: 'phd-commerce', programType: 'Ph.D', school: 'Research in Commerce', schoolAcronym: 'RIC', image: '/commercephd/phd1.jpg' },
+    { title: 'Ph.D Microbiology', slug: 'phd-microbiology', programType: 'Ph.D', school: 'Research in Science', schoolAcronym: 'RIS', image: '/assets/research.jpg' },
+    { title: 'Ph.D Management', slug: 'phd-management', programType: 'Ph.D', school: 'Research in Management', schoolAcronym: 'RIM', image: '/assets/smart1.jpg' }
 ];
 
 const createProgram = async (data) => {

@@ -101,6 +101,22 @@ const runStartupSanitization = async () => {
                 setFields.school = 'School of Science';
                 setFields.schoolAcronym = 'SOS';
             }
+            if (p.programType === 'Ph.D' && (/research\s*(&|and)?\s*development/i.test(p.school || '') || /school of management/i.test(p.school || ''))) {
+                const tLow = (p.title || '').toLowerCase();
+                if (tLow.includes('tamil') || tLow.includes('english')) {
+                    setFields.school = 'Research in Arts';
+                    setFields.schoolAcronym = 'RIA';
+                } else if (tLow.includes('commerce')) {
+                    setFields.school = 'Research in Commerce';
+                    setFields.schoolAcronym = 'RIC';
+                } else if (tLow.includes('microbiology') || tLow.includes('science')) {
+                    setFields.school = 'Research in Science';
+                    setFields.schoolAcronym = 'RIS';
+                } else if (tLow.includes('management')) {
+                    setFields.school = 'Research in Management';
+                    setFields.schoolAcronym = 'RIM';
+                }
+            }
             if (Array.isArray(p.faqs)) {
                 let faqsChanged = false;
                 const nextFaqs = p.faqs.map(faq => {

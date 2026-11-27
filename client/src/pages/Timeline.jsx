@@ -112,6 +112,7 @@ export default function Timeline() {
       title: 'Sri Venkateshwara Vidhyalayaa Higher Secondary School',
       description: 'Establishment of Sri Venkateshwara Vidhyalayaa Higher Secondary School, laying the foundation stone for Shree Venkateshwara Educational Institutions with 147 initial students.',
       date: '2004',
+      website: 'https://www.svvhss.com/',
       isOrange: true,
     },
     {
@@ -148,7 +149,7 @@ export default function Timeline() {
       title: 'Sri Venkateshwara International School (CBSE)',
       description: 'Establishment of Sri Venkateshwara International School offering world-class CBSE school education.',
       date: '2011',
-      website: 'https://svhpc.in/',
+      website: 'https://www.svisss.org/',
       isOrange: true,
     },
     {
