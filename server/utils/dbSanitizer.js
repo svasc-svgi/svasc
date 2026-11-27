@@ -10,6 +10,7 @@ const EventsMarquee = require('../models/events/marquee.model');
 const HomeBlog = require('../models/home/blog.model');
 const Blog = require('../models/blogs.model');
 const LatestBlog = require('../models/latest-blog.model');
+const TeacherAward = require('../models/about/teacher-award.model');
 
 const stripDegreeDots = (str) => {
     if (typeof str !== 'string') return str;
@@ -222,6 +223,9 @@ const runStartupSanitization = async () => {
                 }
             }
         }
+
+        // 8. Remove retired faculty award years (2010, 2017, 2018)
+        await TeacherAward.deleteMany({ year: { $in: [2010, 2017, 2018] } });
     } catch (err) {
         console.warn('Startup text sanitization warning:', err.message);
     }

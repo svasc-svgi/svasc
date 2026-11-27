@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ArrowRight, ChevronRight, BookOpen, Clock, Award, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
+import { ArrowRight, ChevronRight, BookOpen, Clock, ShieldAlert, Users, Image as ImageIcon } from 'lucide-react';
 import styles from './LibraryPortal.module.css';
 import Hero from '../Common/Hero';
-import { getLibraryActivities, getLibraryAwards } from '../../services/libraryService';
+import { getLibraryActivities } from '../../services/libraryService';
 import libraryImg from '../../assets/library.JPG';
 import { useStaffPhotos } from '../../hooks/useStaffPhotos';
 
@@ -23,9 +23,6 @@ const LibraryPortal = () => {
     ];
 
     const [activities, setActivities] = useState([]);
-    const [students, setStudents] = useState([]);
-    const [staff, setStaff] = useState([]);
-    const [nonStaff, setNonStaff] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,19 +37,6 @@ const LibraryPortal = () => {
                             a.image2 && (a.image2.startsWith('http') ? a.image2 : `${BASE_URL}/${a.image2?.replace(/^\/+/, '')}`)
                         ].filter(Boolean)
                     })));
-                }
-
-                const awardsRes = await getLibraryAwards();
-                const awardsList = awardsRes?.data ?? (Array.isArray(awardsRes) ? awardsRes : []);
-                if (awardsList.length > 0) {
-                    const awards = awardsList.map(a => ({
-                        ...a,
-                        src: a.image && (a.image.startsWith('http') ? a.image : `${BASE_URL}/${a.image?.replace(/^\/+/, '')}`)
-                    }));
-                    
-                    setStudents(awards.filter(a => a.category === 'Student').map(a => ({ ...a, class: a.designation })));
-                    setStaff(awards.filter(a => a.category === 'Faculty').map(a => ({ ...a, role: a.designation, dept: a.department })));
-                    setNonStaff(awards.filter(a => a.category === 'NonTeaching').map(a => ({ ...a, role: a.designation })));
                 }
             } catch (error) {
                 console.error("Error fetching library data:", error);
@@ -364,69 +348,6 @@ const LibraryPortal = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </section>
-
-                {/* Best User Awards Section */}
-                <section className={styles.valuesSection}>
-                    <div className={styles.container}>
-                        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-                            <Award size={48} color="#fb923c" style={{ margin: '0 auto 15px' }} />
-                            <h2 className={styles.valuesTitle}>Best Library User Awards</h2>
-                            <p className={styles.valuesSubtitle}>
-                                Recognizing and honoring outstanding dedication to reading and library research during the academic year 2025–2026
-                            </p>
-                        </div>
-
-                        {/* Students Section */}
-                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Student Recipients</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
-                            {students.map((student, i) => (
-                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
-                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #fb923c', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-                                        <img src={student.src} alt={student.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    </div>
-                                    <div>
-                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{student.name}</h4>
-                                        <span style={{ fontSize: '1.4rem', color: '#78716c' }}>{student.class}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Staff Section */}
-                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Faculty Recipients</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '60px' }}>
-                            {staff.map((staff, i) => (
-                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px' }}>
-                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-                                        <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    </div>
-                                    <div>
-                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{staff.name}</h4>
-                                        <span style={{ fontSize: '1.4rem', color: '#78716c', display: 'block' }}>{staff.role}</span>
-                                        <span style={{ fontSize: '1.3rem', color: '#fb923c', fontWeight: '600' }}>Dept of {staff.dept}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Non-Staff Section */}
-                        <h3 className={styles.sectionsTitle} style={{ textAlign: 'center', marginBottom: '30px' }}>Non-Teaching Staff Recipient</h3>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            {nonStaff.map((staff, i) => (
-                                <div key={i} className={styles.valueCard} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '25px', textAlign: 'center', gap: '15px', maxWidth: '350px', width: '100%' }}>
-                                    <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid #2b3990', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-                                        <img src={staff.src} alt={staff.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    </div>
-                                    <div>
-                                        <h4 style={{ fontSize: '1.8rem', fontWeight: '600', color: '#1c1917', margin: '0 0 5px' }}>{staff.name}</h4>
-                                        <span style={{ fontSize: '1.4rem', color: '#78716c' }}>{staff.role}</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
                     </div>
                 </section>
 

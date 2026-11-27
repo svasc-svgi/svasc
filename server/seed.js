@@ -1,13 +1,5 @@
 // Seed data using native fetch
 const defaultAwardData = {
-    '2010': [
-        ["Sevai Kalappani Selvar Virudhu", "Dr. M. Jasmine Priya"],
-        ["Chithirai kavi", "Dr. M. Jasmine Priya"],
-        ["Dr. Sarvepalli Radhakrishnan Education Excellence", "Dr. V. Princy Metildah"],
-        ["Nari Ratna Award", "Mrs. A. Devika"]
-    ],
-    '2017': [["Best Librarian Award", "Dr. M. Sethuramasamy"]],
-    '2018': [["Best Educationist Award", "Dr. Ajeet Kumar Lal Mohan"]],
     '2019': [
         ["Kalvi Maamani Award", "Dr. Ajeet Kumar Lal Mohan"],
         ["Kongu Thalaimagan Award", "Dr. Ajeet Kumar Lal Mohan"]

@@ -318,16 +318,10 @@ const AwardsSection = () => {
 };
 
 // ================= TEACHER AWARDS COMPONENT =================
+const HIDDEN_AWARD_YEARS = new Set(['2010', '2017', '2018']);
+
 const TeacherAwardsSection = () => {
     const defaultAwardData = {
-        '2010': [
-            ["Sevai Kalappani Selvar Virudhu", "Dr. M. Jasmine Priya"],
-            ["Chithirai kavi", "Dr. M. Jasmine Priya"],
-            ["Dr. Sarvepalli Radhakrishnan Education Excellence", "Dr. V. Princy Metildah"],
-            ["Nari Ratna Award", "Mrs. A. Devika"]
-        ],
-        '2017': [["Best Librarian Award", "Dr. M. Sethuramasamy"]],
-        '2018': [["Best Educationist Award", "Dr. Ajeet Kumar Lal Mohan"]],
         '2019': [
             ["Kalvi Maamani Award", "Dr. Ajeet Kumar Lal Mohan"],
             ["Kongu Thalaimagan Award", "Dr. Ajeet Kumar Lal Mohan"]
@@ -345,11 +339,16 @@ const TeacherAwardsSection = () => {
                 const response = await getGroupedTeacherAwards();
                 const grouped = response?.data ?? response;
                 if (grouped && Object.keys(grouped).length > 0) {
-                    setAwardData(grouped);
-                    if (grouped['2019'] || grouped[2019]) {
-                        setSelectedYear(2019);
-                    } else {
-                        setSelectedYear(parseInt(Object.keys(grouped)[0]));
+                    const filtered = Object.fromEntries(
+                        Object.entries(grouped).filter(([yr]) => !HIDDEN_AWARD_YEARS.has(String(yr)))
+                    );
+                    if (Object.keys(filtered).length > 0) {
+                        setAwardData(filtered);
+                        if (filtered['2019'] || filtered[2019]) {
+                            setSelectedYear(2019);
+                        } else {
+                            setSelectedYear(parseInt(Object.keys(filtered)[0]));
+                        }
                     }
                 }
             } catch (error) {
