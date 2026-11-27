@@ -122,6 +122,7 @@
   padding: 1rem 0;
   margin: 0;
   flex-grow: 1;
+  overflow-y: auto;
 }
 
 .navItem {
@@ -132,6 +133,21 @@
   border-left: 3px solid transparent;
   transition: all 0.2s;
   letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navBadge {
+  background: #dc2626;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  min-width: 20px;
+  text-align: center;
+  animation: pulseAlert 2s infinite;
 }
 
 .navItem:hover {
@@ -173,12 +189,21 @@
 
 .topbar {
   background: white;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   border-bottom: 1px solid #eaeaea;
+  position: relative;
+  z-index: 50;
+}
+
+.topbarLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .topbar h1 {
@@ -191,6 +216,184 @@
 .topbarNote {
   font-size: 0.82rem;
   color: #888;
+}
+
+.notificationWrapper {
+  position: relative;
+}
+
+.bellBtn {
+  position: relative;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #002147;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.bellBtn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.bellBtnHasUnread {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+.bellBadge {
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 9999px;
+}
+
+.notifDropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 360px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+  z-index: 200;
+  overflow: hidden;
+}
+
+.notifHeader {
+  padding: 12px 16px;
+  background: #002147;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.notifHeaderBtn {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #f89e20;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.notifList {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.notifItem {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.notifItem:hover {
+  background: #f8fafc;
+}
+
+.notifItemUnread {
+  background: #fffbeb;
+}
+
+.notifFooter {
+  padding: 10px 16px;
+  text-align: center;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  cursor: pointer;
+  color: #002147;
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.alertBanner {
+  background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+  border-bottom: 2px solid #f59e0b;
+  padding: 0.85rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.alertBannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #78350f;
+  font-size: 0.92rem;
+}
+
+.alertBannerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alertPrimaryBtn {
+  background: #002147;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.alertSecondaryBtn {
+  background: #fff;
+  color: #78350f;
+  border: 1px solid #f59e0b;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toastAlert {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 340px;
+  background: #002147;
+  color: #fff;
+  border-left: 5px solid #f89e20;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+  z-index: 4000;
+  animation: slideUpToast 0.35s ease-out;
+}
+
+@keyframes pulseAlert {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes slideUpToast {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .contentArea {

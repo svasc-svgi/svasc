@@ -29,6 +29,7 @@ import styles from './Admission.module.css';
 import FooterSVASC from '../components/Common/FooterSVASC';
 import { defaultBlogs } from '../data/blogsData';
 import { getBlogs } from '../services/blogService';
+import { submitAdmission } from '../services/admissionService';
 import csImg from '../assets/cs.jpg';
 
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyIoL5MQoj-ltrc05z4kMKce0BnT7LadzV3tPj3XqauFrx_SgjmkyOrSJose6MBThKr/exec";
@@ -111,14 +112,21 @@ const Admission = () => {
         setSubmitStatus("submitting");
 
         try {
-            await fetch(GOOGLE_SHEET_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+            const [apiResult] = await Promise.allSettled([
+                submitAdmission(formData),
+                fetch(GOOGLE_SHEET_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                })
+            ]);
+
+            if (apiResult.status === 'rejected') {
+                throw apiResult.reason;
+            }
 
             setFormData({
                 studentName: "",
@@ -172,7 +180,7 @@ const Admission = () => {
                 <div className={styles.navContainer}>
                     <div className={styles.navInner}>
                         {/* Logo Section */}
-                        <div className={styles.logoContainer}>
+                        <Link to="/" className={styles.logoContainer} style={{ textDecoration: 'none', cursor: 'pointer' }} title="Go to Home Page">
                             <div className={styles.logoIconBg}>
                                 <img src="/SVCAS-Logo.png" alt="SVASC Logo" />
                             </div>
@@ -180,7 +188,7 @@ const Admission = () => {
                                 <span className={styles.logoMain}>Shree Venkateshwara</span>
                                 <span className={styles.logoSub}>Arts & Science College</span>
                             </div>
-                        </div>
+                        </Link>
 
                         {/* Desktop Contact Info */}
                         <div className={styles.navContactInfo}>
@@ -253,14 +261,14 @@ const Admission = () => {
                     <div className={styles.mobileMenuOverlay} onClick={() => setIsMenuOpen(false)}></div>
                     <div className={styles.mobileMenuContent}>
                         <div className={styles.mobileMenuHeader}>
-                            <div className={styles.logoContainer}>
+                            <Link to="/" className={styles.logoContainer} style={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => setIsMenuOpen(false)}>
                                 <div className={styles.logoIconBg}>
                                     <img src="/SVCAS-Logo.png" alt="SVASC Logo" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
                                 </div>
                                 <div className={styles.logoText}>
                                     <span className={styles.logoMain}>SVASC</span>
                                 </div>
-                            </div>
+                            </Link>
                             <button className={styles.closeMenuBtn} onClick={() => setIsMenuOpen(false)}>
                                 <X size={24} />
                             </button>
