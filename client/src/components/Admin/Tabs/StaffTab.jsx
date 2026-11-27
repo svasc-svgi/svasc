@@ -44,6 +44,8 @@ const DEFAULT_FALLBACK_DEPARTMENTS = [
   'Ph.D Commerce',
   'Ph.D English',
   'Ph.D Tamil',
+  'Ph.D Microbiology',
+  'Ph.D Management',
   'Department of Physical Education',
   'Library',
   'Alumni Committee',

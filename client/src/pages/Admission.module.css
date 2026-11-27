@@ -522,13 +522,20 @@
     cursor: pointer;
 }
 
+.selectBox option,
+.selectBox optgroup {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-weight: 500;
+}
+
 .selectIcon {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #64748b;
+    color: rgba(255, 255, 255, 0.75);
     width: 16px;
     height: 16px;
 }
@@ -620,18 +627,19 @@
 
 .logoBox {
     background: white;
-
+    padding: 10px 18px;
     border-radius: 12px;
     height: 90px;
     display: flex;
     align-items: center;
+    justify-content: center;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .logoBox img {
     height: 100%;
-    width: 160px;
+    width: 150px;
     object-fit: contain;
 }
 
@@ -763,6 +771,10 @@
     margin: 0 auto 64px;
 }
 
+.servicesHeader .sectionText {
+    text-align: justify;
+}
+
 .servicesGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -819,6 +831,7 @@
     font-size: 15px;
     color: #64748b;
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* FAQ SECTION */
@@ -928,7 +941,8 @@
 .blogLoop {
     display: flex;
     gap: 32px;
-    animation: scrollBlog 30s linear infinite;
+    width: max-content;
+    animation: scrollBlog 45s linear infinite;
 }
 
 @keyframes scrollBlog {
@@ -1055,19 +1069,19 @@
 
 .recruitersGrid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
 .recruiterBox {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 18px 22px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: 96px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: all 0.3s;
 }
 

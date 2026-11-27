@@ -337,7 +337,7 @@ const TeacherAwardsSection = () => {
     };
 
     const [awardData, setAwardData] = useState(defaultAwardData);
-    const [selectedYear, setSelectedYear] = useState(2010);
+    const [selectedYear, setSelectedYear] = useState(2019);
 
     useEffect(() => {
         const fetchTeacherAwards = async () => {
@@ -346,7 +346,11 @@ const TeacherAwardsSection = () => {
                 const grouped = response?.data ?? response;
                 if (grouped && Object.keys(grouped).length > 0) {
                     setAwardData(grouped);
-                    setSelectedYear(parseInt(Object.keys(grouped)[0]));
+                    if (grouped['2019'] || grouped[2019]) {
+                        setSelectedYear(2019);
+                    } else {
+                        setSelectedYear(parseInt(Object.keys(grouped)[0]));
+                    }
                 }
             } catch (error) {
                 console.error('Error fetching teacher awards:', error);

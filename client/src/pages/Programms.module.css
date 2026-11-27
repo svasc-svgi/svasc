@@ -390,12 +390,14 @@
     margin-top: 1rem;
     font-size: 1.8rem;
     color: #475569;
+    text-align: justify;
 }
 
 .sectionSubDescription {
     margin-top: 1rem;
     font-size: 1.6rem;
     color: #64748b;
+    text-align: justify;
 }
 
 .highlights {

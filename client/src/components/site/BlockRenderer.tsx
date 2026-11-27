@@ -22,6 +22,7 @@ const bodyText: React.CSSProperties = {
   fontSize: "16px",
   lineHeight: 1.85,
   color: "var(--ink-soft)",
+  textAlign: "justify",
 };
 const smallLabel: React.CSSProperties = {
   fontSize: "11px",

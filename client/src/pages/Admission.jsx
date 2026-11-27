@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
     GraduationCap,
     Smartphone,
@@ -19,7 +20,6 @@ import {
     Calendar,
     MessageCircle,
     CheckCircle,
-    Trophy,
     BookOpen,
     BadgeDollarSign,
     Rocket
@@ -27,12 +27,43 @@ import {
 import { motion } from 'framer-motion';
 import styles from './Admission.module.css';
 import FooterSVASC from '../components/Common/FooterSVASC';
+import { defaultBlogs } from '../data/blogsData';
+import { getBlogs } from '../services/blogService';
+import csImg from '../assets/cs.jpg';
 
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyIoL5MQoj-ltrc05z4kMKce0BnT7LadzV3tPj3XqauFrx_SgjmkyOrSJose6MBThKr/exec";
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:5000';
+
+const resolveBlogImage = (img) => {
+    if (!img) return 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800';
+    if (img.startsWith('http') || img.startsWith('data:') || img.startsWith('/')) return img;
+    const clean = img.replace(/^\/+/, '');
+    return `${BASE_URL}/${clean}`;
+};
+
+const RECRUITER_LOGOS = [
+    { name: "TCS", logo: "/comapanies/tcs.jpg" },
+    { name: "Cognizant", logo: "/comapanies/cognicent.jpg" },
+    { name: "MRF Tyres", logo: "/comapanies/mrf.jpg" },
+    { name: "Nokia Networks", logo: "/comapanies/nokia.png" },
+    { name: "Tata Electronics", logo: "/comapanies/tata elctornics.jpg" },
+    { name: "Foxconn", logo: "/comapanies/foxconn.png" },
+    { name: "Muthoot Finance", logo: "/comapanies/muthoot finance.png" },
+    { name: "Motherson Group", logo: "/comapanies/motherson.png" },
+    { name: "KGIS", logo: "/comapanies/kgis.png" },
+    { name: "Smartail", logo: "/comapanies/smarttail.png" },
+    { name: "Jilaba Technologies", logo: "/comapanies/jilaba.png" },
+    { name: "SCM Garments", logo: "/comapanies/scm.png" },
+    { name: "Clarus", logo: "/comapanies/clarus.jpg" },
+    { name: "Rinex", logo: "/comapanies/rinex.png" },
+    { name: "Sakthi Auto", logo: "/comapanies/sakthiauto.png" },
+    { name: "SP Apparels", logo: "/comapanies/spaperals.jpg" }
+];
 
 const Admission = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [expandedFaq, setExpandedFaq] = useState(null);
+    const [blogsList, setBlogsList] = useState(() => defaultBlogs.slice(0, 8));
     const [formData, setFormData] = useState({
         studentName: "",
         phone: "",
@@ -43,6 +74,32 @@ const Admission = () => {
         message: "",
     });
     const [submitStatus, setSubmitStatus] = useState("idle");
+
+    useEffect(() => {
+        let isMounted = true;
+        getBlogs()
+            .then((res) => {
+                if (!isMounted) return;
+                const data = res?.data ?? (Array.isArray(res) ? res : []);
+                if (data.length > 0) {
+                    const mapped = data.map((item) => {
+                        const rawImg = item.image || item.bannerImage || (item.cards && item.cards[0] ? item.cards[0].image : '') || '';
+                        return {
+                            _id: item._id,
+                            title: item.title || item.category || 'SVASC Blog',
+                            category: item.category || 'SVASC News',
+                            date: item.date || '25 May, 2026',
+                            image: resolveBlogImage(rawImg)
+                        };
+                    });
+                    const existingTitles = new Set(mapped.map((b) => (b.title || '').toLowerCase().trim()));
+                    const remaining = defaultBlogs.filter((d) => !existingTitles.has((d.title || '').toLowerCase().trim()));
+                    setBlogsList([...mapped, ...remaining].slice(0, 8));
+                }
+            })
+            .catch(() => {});
+        return () => { isMounted = false; };
+    }, []);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -95,18 +152,17 @@ const Admission = () => {
 
     const badges = [
         { icon: CheckCircle, label: "Direct Admission Open" },
-        { icon: Trophy, label: "Autonomous College" },
         { icon: BookOpen, label: "159 Rank Holders" },
         { icon: Briefcase, label: "100% Placement" },
         { icon: BadgeDollarSign, label: "Scholarship Available" },
     ];
     const faqs = [
-        { q: "What programs does SVASC Group of Institutions offer?", a: "We offer 25+ programs across Arts, Science and Nursing streams at UG, PG and Ph.D levels. Our programs include BCA, BBA, B.Com, BSc, BA, B.Tech, B.Sc Nursing, MCA, MBA, M.Com, MSc and doctoral programs with NAAC A+ accreditation." },
+        { q: "What programs does SVASC Group of Institutions offer?", a: "We offer 25+ programs across Arts, Science and Nursing streams at UG, PG and Ph.D levels. Our programs include BCA, BBA, B.Com, BSc, BA, B.Tech, B.Sc Nursing, MCA, MBA, M.Com, MSc and doctoral programs." },
         { q: "What is the placement record of SVASC Group of Institutions?", a: "We maintain an excellent 98% placement record with partnerships with top companies like TCS, Zoho, Infosys, Wipro and HCL Technologies. Our dedicated placement cell provides comprehensive support to ensure students secure rewarding career opportunities." },
         { q: "What facilities are available on campus?", a: "Our campus features 25+ modern laboratories, digital libraries, spacious classrooms with smart boards, sports facilities, hostel accommodation, cafeteria, medical facilities and high-speed internet connectivity across campus." },
         { q: "How can I apply for admission?", a: "You can apply online through our admission portal. Fill out the application form with your details, select your program and specialization and submit the required documents. The application fee is non-refundable." },
         { q: "Does SVASC offer international opportunities?", a: "Yes! We offer global internship programs with partner institutions worldwide, providing students with international exposure and cross-cultural learning experiences." },
-        { q: "What makes SVASC different from other institutions?", a: "SVASC stands out with its NAAC A+ accreditation, 98% placement record, expert faculty, modern infrastructure, industry-focused training and research opportunities." }
+        { q: "What makes SVASC different from other institutions?", a: "SVASC stands out with its 98% placement record, expert faculty, modern infrastructure, industry-focused training and research opportunities." }
     ];
 
     return (
@@ -135,9 +191,9 @@ const Admission = () => {
                                 <div className={styles.contactText}>
                                     <span className={styles.contactLabel}>Mobile</span>
                                     <div className={styles.contactNumbers}>
-                                        <span>+91 63845 55533</span>
+                                        <a href="tel:+919150868666" className={styles.contactLink}>+91 9150868666</a>
                                         <span className={styles.vDivider}>|</span>
-                                        <span>+91 63845 55511</span>
+                                        <a href="tel:+919865066242" className={styles.contactLink}>+91 9865066242</a>
                                     </div>
                                 </div>
                             </div>
@@ -151,9 +207,9 @@ const Admission = () => {
                                 <div className={styles.contactText}>
                                     <span className={styles.contactLabel}>Phone</span>
                                     <div className={styles.contactNumbers}>
-                                        <span>+91 422 3501700</span>
+                                        <a href="tel:+919150868666" className={styles.contactLink}>+91 9150868666</a>
                                         <span className={styles.vDivider}>|</span>
-                                        <span>+91 422 2363400</span>
+                                        <a href="tel:+919865066242" className={styles.contactLink}>+91 9865066242</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,15 +222,18 @@ const Admission = () => {
                                 </div>
                                 <div className={styles.contactText}>
                                     <span className={styles.contactLabel}>Email</span>
-                                    <a href="mailto:admission@svasc.com" className={styles.contactLink}>
-                                        admission@svasc.com
+                                    <a href="mailto:principal@svasc.org" className={styles.contactLink}>
+                                        principal@svasc.org
                                     </a>
                                 </div>
                             </div>
                         </div>
 
                         {/* CTA Button */}
-                        <button className={styles.navCta}>
+                        <button
+                            className={styles.navCta}
+                            onClick={() => document.getElementById('admission-form')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
                             <span>Contact Us</span>
                             <ArrowRight size={16} />
                         </button>
@@ -219,8 +278,8 @@ const Admission = () => {
                                     <div className={styles.mobileContactDetails}>
                                         <span className={styles.mobileContactLabel}>Mobile</span>
                                         <div className={styles.mobileNumbers}>
-                                            <a href="tel:+916384555533">+91 63845 55533</a>
-                                            <a href="tel:+916384555511">+91 63845 55511</a>
+                                            <a href="tel:+919150868666">+91 9150868666</a>
+                                            <a href="tel:+919865066242">+91 9865066242</a>
                                         </div>
                                     </div>
                                 </div>
@@ -233,8 +292,8 @@ const Admission = () => {
                                     <div className={styles.mobileContactDetails}>
                                         <span className={styles.mobileContactLabel}>Phone</span>
                                         <div className={styles.mobileNumbers}>
-                                            <a href="tel:+914223501700">+91 422 3501700</a>
-                                            <a href="tel:+914222363400">+91 422 2363400</a>
+                                            <a href="tel:+919150868666">+91 9150868666</a>
+                                            <a href="tel:+919865066242">+91 9865066242</a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,14 +305,20 @@ const Admission = () => {
                                     </div>
                                     <div className={styles.mobileContactDetails}>
                                         <span className={styles.mobileContactLabel}>Email</span>
-                                        <a href="mailto:admission@svasc.com" className={styles.mobileEmailLink}>
-                                            admission@svasc.com
+                                        <a href="mailto:principal@svasc.org" className={styles.mobileEmailLink}>
+                                            principal@svasc.org
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <button className={styles.mobileCta}>
+                            <button
+                                className={styles.mobileCta}
+                                onClick={() => {
+                                    setIsMenuOpen(false);
+                                    document.getElementById('admission-form')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                            >
                                 <span>Contact Us</span>
                                 <ArrowRight size={18} />
                             </button>
@@ -284,11 +349,11 @@ const Admission = () => {
                             <h1 className={styles.heroTitle}>
                                 Admission 2025-26 Open at
                                 <span className={styles.heroTitleHighlight}>
-                                    SVASC (Autonomous)
+                                    SVASC
                                 </span>
                             </h1>
                             <p className={styles.heroDesc}>
-                                SVASC - Top Arts & Science Colleges in Coimbatore | 25+ Programs | 100% Placement | NAAC A+ Accreditation | Bharathiar University Affiliated
+                                SVASC - Top Arts & Science Colleges in Coimbatore | 25+ Programs | 100% Placement | Bharathiar University Affiliated
                             </p>
                             <div className={styles.badgeList}>
                                 {badges.map(({ icon: Icon, label }) => (
@@ -304,6 +369,7 @@ const Admission = () => {
                         </motion.div>
 
                         <motion.div
+                            id="admission-form"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
@@ -479,36 +545,16 @@ const Admission = () => {
                     <div className={styles.scrollContent}>
                         {[1, 2].map((i) => (
                             <div key={i} className={styles.logoSet}>
-                                <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/tcs" alt="TCS" />
-                                    </div>
-                                </div>
-                                <span className={styles.dot}>•</span>
-                                <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/zoho" alt="ZOHO" />
-                                    </div>
-                                </div>
-                                <span className={styles.dot}>•</span>
-                                <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/infosys" alt="INFOSYS" width="60" />
-                                    </div>
-                                </div>
-                                <span className={styles.dot}>•</span>
-                                <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/wipro" alt="WIPRO" size={100} />
-                                    </div>
-                                </div>
-                                <span className={styles.dot}>•</span>
-                                <div className={styles.logoItem}>
-                                    <div className={styles.logoBox}>
-                                        <img src="https://cdn.simpleicons.org/hcl" alt="HCL" />
-                                    </div>
-                                </div>
-                                <span className={styles.dot}>•</span>
+                                {RECRUITER_LOGOS.slice(0, 8).map((r, idx) => (
+                                    <React.Fragment key={idx}>
+                                        <div className={styles.logoItem}>
+                                            <div className={styles.logoBox}>
+                                                <img src={encodeURI(r.logo)} alt={r.name} loading="lazy" />
+                                            </div>
+                                        </div>
+                                        <span className={styles.dot}>•</span>
+                                    </React.Fragment>
+                                ))}
                             </div>
                         ))}
                     </div>
@@ -552,8 +598,8 @@ const Admission = () => {
                         </div>
                         <div className={styles.whyImgWrapper}>
                             <img
-                                src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg"
-                                alt="Campus"
+                                src={csImg}
+                                alt="SVASC Campus"
                                 className={styles.whyImg}
                             />
                         </div>
@@ -568,7 +614,7 @@ const Admission = () => {
                         <span className={`${styles.badge} ${styles.badgeYellow}`}>OUR SERVICES</span>
                         <h2 className={styles.sectionHeading}>SVASC Group of Institutions</h2>
                         <p className={styles.sectionText}>
-                            SVASC Group of Institutions, located in Coimbatore, offers 25+ programmes across Arts, Science and Nursing. Our educational institution holds the prestigious NAAC A+ accreditation for its Arts and Science streams.
+                            SVASC Group of Institutions, located in Coimbatore, offers 25+ programmes across Arts, Science and Nursing, fostering excellence across arts, science and career-ready disciplines.
                         </p>
                     </div>
                     <div className={styles.servicesGrid}>
@@ -618,18 +664,19 @@ const Admission = () => {
                     </div>
                     <div className={styles.blogScroll}>
                         <div className={styles.blogLoop}>
-                            {[1, 2, 3, 1, 2, 3].map((b, i) => (
-                                <div key={i} className={styles.blogCard}>
+                            {[...blogsList, ...blogsList].map((b, i) => (
+                                <div key={`${b._id || b.ID || b.title}-${i}`} className={styles.blogCard}>
                                     <img
-                                        src={`https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/${i % 3 === 0 ? '5bab247f-35d9-400d-a82b-fd87cfe913d2' : i % 3 === 1 ? '30104e3c-5eea-4b93-93e9-5313698a7156' : '917d6f93-fb36-439a-8c48-884b67b35381'}_1600w.${i % 3 === 2 ? 'jpg' : 'webp'}`}
-                                        alt="Blog"
+                                        src={resolveBlogImage(b.image || b.bImage || b.bannerImage)}
+                                        alt={b.title || 'Blog'}
+                                        loading="lazy"
                                     />
                                     <div className={styles.blogOverlay}>
                                         <div className={styles.blogMeta}>
-                                            <Calendar size={12} /> 18 Jan 2025 | <MessageCircle size={12} /> Comments
+                                            <Calendar size={12} /> {b.date || '25 May, 2026'} | <MessageCircle size={12} /> {b.category || 'SVASC Blog'}
                                         </div>
-                                        <h3>Step into your future career</h3>
-                                        <a href="#">Read Full Article</a>
+                                        <h3>{b.title}</h3>
+                                        <Link to="/blogs">Read Full Article</Link>
                                     </div>
                                 </div>
                             ))}
@@ -674,22 +721,9 @@ const Admission = () => {
                         </p>
                     </div>
                     <div className={styles.recruitersGrid}>
-                        {[
-                            { name: "IBM", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/512px-IBM_logo.svg.png" },
-                            { name: "24/7.ai", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/24-7_Customer_Logo.png/512px-24-7_Customer_Logo.png" },
-                            { name: "COGNIZANT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cognizant_logo_2022.svg/512px-Cognizant_logo_2022.svg.png" },
-                            { name: "WIPRO", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Wipro_Logo.svg/512px-Wipro_Logo.svg.png" },
-                            { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tata_Consultancy_Services_Logo.svg/512px-Tata_Consultancy_Services_Logo.svg.png" },
-                            { name: "TECH MAHINDRA", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tech_Mahindra_Logo.svg/512px-Tech_Mahindra_Logo.svg.png" },
-                            { name: "INFOSYS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/512px-Infosys_logo.svg.png" },
-                            { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Accenture.svg/512px-Accenture.svg.png" },
-                            { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/HCL_Technologies_logo.svg/512px-HCL_Technologies_logo.svg.png" },
-                            { name: "Capgemini", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Capgemini_201x_logo.svg/512px-Capgemini_201x_logo.svg.png" },
-                            { name: "amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/512px-Amazon_logo.svg.png" },
-                            { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" }
-                        ].map((r, i) => (
+                        {RECRUITER_LOGOS.map((r, i) => (
                             <div key={i} className={styles.recruiterBox}>
-                                <img src={r.logo} alt={r.name} className={styles.recruiterLogo} />
+                                <img src={encodeURI(r.logo)} alt={r.name} className={styles.recruiterLogo} loading="lazy" />
                             </div>
                         ))}
                     </div>

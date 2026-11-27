@@ -205,6 +205,7 @@
     font-size: 1.8rem;
     color: var(--slate-600);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .focusImageContent {

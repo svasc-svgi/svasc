@@ -146,14 +146,14 @@ const PlacementCell = () => {
             <section className={styles.aboutSection} style={{ background: '#f8fafc' }}>
                 <div className={styles.aboutContainer} style={{ textAlign: 'left', maxWidth: '100rem' }}>
                     <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Vision</h2>
-                    <p className={styles.aboutMainText} style={{ textAlign: 'center', fontSize: '1.8rem', fontStyle: 'italic', marginBottom: '40px' }}>
+                    <p className={styles.aboutMainText} style={{ textAlign: 'justify', fontSize: '1.8rem', fontStyle: 'italic', marginBottom: '40px' }}>
                         "To empower students with the knowledge, skills, values and confidence required to become globally competent professionals by providing quality training, career guidance and excellent placement opportunities."
                     </p>
                     
                     <div className={styles.divider} style={{ margin: '30px auto' }}></div>
                     
                     <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginTop: '40px' }}>Mission</h2>
-                    <ul style={{ paddingLeft: '20px', fontSize: '1.6rem', lineHeight: '1.8', color: '#4b5563', listStyleType: 'disc' }}>
+                    <ul style={{ paddingLeft: '20px', fontSize: '1.6rem', lineHeight: '1.8', color: '#4b5563', listStyleType: 'disc', textAlign: 'justify' }}>
                         <li style={{ marginBottom: '12px' }}>To enhance students' employability through continuous training in aptitude, technical, communication and soft skills.</li>
                         <li style={{ marginBottom: '12px' }}>To establish strong partnerships with leading industries and organizations for internships, training and campus recruitment.</li>
                         <li style={{ marginBottom: '12px' }}>To prepare students for competitive recruitment processes through mock interviews, group discussions, resume-building and career counseling.</li>

@@ -170,6 +170,12 @@ const Schools = () => {
                 acronym: "SCS",
                 programs: [
                     { title: "M.Sc Computer Science", image: home5Img },
+                ]
+            },
+            {
+                name: "School of Science",
+                acronym: "SOS",
+                programs: [
                     { title: "M.Sc Microbiology", image: home1Img },
                 ]
             },
@@ -195,7 +201,38 @@ const Schools = () => {
                 programs: [
                     { title: "Ph.D Tamil", image: club0Img },
                     { title: "Ph.D English", image: why2Img },
+                    { title: "Ph.D Commerce", image: "/commercephd/phd1.jpg" },
+                    { title: "Ph.D Microbiology", image: researchImg },
+                    { title: "Ph.D Management", image: smart1Img }
+                ]
+            },
+            {
+                name: "Research in Arts",
+                acronym: "RIA",
+                programs: [
+                    { title: "Ph.D Tamil", image: club0Img },
+                    { title: "Ph.D English", image: why2Img }
+                ]
+            },
+            {
+                name: "Research in Commerce",
+                acronym: "RIC",
+                programs: [
                     { title: "Ph.D Commerce", image: "/commercephd/phd1.jpg" }
+                ]
+            },
+            {
+                name: "Research in Science",
+                acronym: "RIS",
+                programs: [
+                    { title: "Ph.D Microbiology", image: researchImg }
+                ]
+            },
+            {
+                name: "Research in Management",
+                acronym: "RIM",
+                programs: [
+                    { title: "Ph.D Management", image: smart1Img }
                 ]
             }
         ]
@@ -216,21 +253,32 @@ const Schools = () => {
                             if (Array.isArray(dbGrouped[level]) && dbGrouped[level].length > 0) {
                                 dbGrouped[level].forEach((dbSchool) => {
                                     if (!merged[level]) merged[level] = [];
-                                    const existingSchoolIdx = merged[level].findIndex(
-                                        (s) => s.name.trim().toLowerCase() === dbSchool.name.trim().toLowerCase()
-                                    );
-                                    if (existingSchoolIdx === -1) {
-                                        merged[level].push(dbSchool);
-                                    } else {
-                                        (dbSchool.programs || []).forEach((dbp) => {
+                                    (dbSchool.programs || []).forEach((dbp) => {
+                                        const cleanTitle = (dbp.title || '')
+                                            .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\.(?=[A-Za-z])/gi, '$1 ')
+                                            .replace(/\b(B\.Sc|M\.Sc|Ph\.D)\./gi, '$1');
+                                        let targetSchoolName = dbSchool.name;
+                                        if (level === 'PG Programmes' && cleanTitle.toLowerCase().includes('microbiology')) {
+                                            targetSchoolName = 'School of Science';
+                                        }
+                                        let existingSchoolIdx = merged[level].findIndex(
+                                            (s) => s.name.trim().toLowerCase() === targetSchoolName.trim().toLowerCase()
+                                        );
+                                        if (existingSchoolIdx === -1) {
+                                            merged[level].push({
+                                                ...dbSchool,
+                                                name: targetSchoolName,
+                                                programs: [{ ...dbp, title: cleanTitle }]
+                                            });
+                                        } else {
                                             const pExists = merged[level][existingSchoolIdx].programs.some(
-                                                (ep) => ep.title.trim().toLowerCase() === dbp.title.trim().toLowerCase()
+                                                (ep) => ep.title.trim().toLowerCase() === cleanTitle.trim().toLowerCase()
                                             );
                                             if (!pExists) {
-                                                merged[level][existingSchoolIdx].programs.push(dbp);
+                                                merged[level][existingSchoolIdx].programs.push({ ...dbp, title: cleanTitle });
                                             }
-                                        });
-                                    }
+                                        }
+                                    });
                                 });
                             }
                         });

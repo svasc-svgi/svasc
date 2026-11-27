@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Hostel.module.css';
-import { Sparkles, Scale, ShieldCheck, Star, Quote, Plus, PlayCircle } from 'lucide-react';
+import { Sparkles, Scale, ShieldCheck, Star, Quote, Plus } from 'lucide-react';
 import Hero from '../Common/Hero';
 import hostelImg from '../../assets/hostel.jpg';
 
@@ -56,16 +56,6 @@ const Hostel = () => {
           <p className={styles.heroDescription}>
             Our hostel is committed to providing a safe, respectful and enjoyable living environment for all residents. To achieve this, we have established certain rules and regulations that govern our hostel. Please ensure adherence to these guidelines for a harmonious and comfortable stay.
           </p>
-
-          <div className={styles.heroButtons}>
-            <button className={styles.primaryButton}>
-              HOSTEL DETAILS
-            </button>
-            <button className={styles.secondaryButton}>
-              <PlayCircle className={styles.buttonIcon} />
-              WATCH VIDEO
-            </button>
-          </div>
         </div>
 
         <div className={styles.heroImageWrapper}>
@@ -230,54 +220,6 @@ const Hostel = () => {
         <p className={styles.quoteSubtext}>
           controlled access and regular monitoring of hostel premises. A clear permission and attendance system ensures accountability at all times. The hostel also encourages a respectful and peaceful atmosphere that supports academic focus, personal growth and healthy living.
         </p>
-      </section>
-
-      {/* Process Steps Section */}
-      <section className={styles.processSection}>
-        <div className={styles.processContainer}>
-          <div className={styles.processHeader}>
-            <div className={styles.processBadge}>
-              <span>Wie es funktioniert</span>
-            </div>
-            <p className={styles.processDescription}>
-              Jede Sitzung ist eine Reise in den Raum, in dem du gerade am meisten gebraucht wirst.
-            </p>
-          </div>
-
-          <div className={styles.stepsGrid}>
-            <div className={styles.timelineLine}></div>
-
-            <div className={styles.stepItem}>
-              <div className={styles.stepNumberCircle}>
-                <span className={styles.stepNumber}>1.</span>
-              </div>
-              <h3 className={styles.stepTitle}>Vorgespräch</h3>
-              <p className={styles.stepContent}>
-                Wir besprechen, was du heilen oder verändern möchtest...
-              </p>
-            </div>
-
-            <div className={styles.stepItem}>
-              <div className={styles.stepNumberCircle}>
-                <span className={styles.stepNumber}>2.</span>
-              </div>
-              <h3 className={styles.stepTitle}>Kanalisierung</h3>
-              <p className={styles.stepContent}>
-                Auswahl der Kanäle...
-              </p>
-            </div>
-
-            <div className={styles.stepItem}>
-              <div className={styles.stepNumberCircle}>
-                <span className={styles.stepNumber}>3.</span>
-              </div>
-              <h3 className={styles.stepTitle}>Process</h3>
-              <p className={styles.stepContent}>
-                The energy acts spontaneously...
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* FAQ Section */}

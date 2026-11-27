@@ -87,7 +87,7 @@ const runStartupSanitization = async () => {
             }
         }
 
-        // 3. Normalize Programs
+        // 3. Normalize Programs (dots, commas, and M.Sc Microbiology School -> School of Science)
         const programs = await Program.find().lean();
         for (const p of programs) {
             const setFields = {};
@@ -96,6 +96,10 @@ const runStartupSanitization = async () => {
                     const next = sanitizeText(p[field]);
                     if (next !== p[field]) setFields[field] = next;
                 }
+            }
+            if (p.programType === 'PG Programmes' && (p.slug === 'msc-microbiology' || /microbiology/i.test(p.title || '')) && p.school !== 'School of Science') {
+                setFields.school = 'School of Science';
+                setFields.schoolAcronym = 'SOS';
             }
             if (Array.isArray(p.faqs)) {
                 let faqsChanged = false;

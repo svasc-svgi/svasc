@@ -147,7 +147,7 @@ export default function AcademicProgramsHero() {
 
         <p className="description" style={{ textAlign: 'justify' }}>
           Explore our UGC-approved UG & PG programme that prepare students for careers
-          in industry, research, and entrepreneurship
+          in industry, research and entrepreneurship
         </p>
 
         <div className="links-container">

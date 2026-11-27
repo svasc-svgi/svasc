@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 import Hero from '../components/Common/Hero';
 import './Timeline.css';
 import mileImg from '../assets/mile.jpg';
 
-const TimelineEvent = ({ year, title, description, date, isOrange = true, isLeft = false, isCenter = false, isSmallDate = false }) => {
+const TimelineEvent = ({ year, title, description, date, website, isInternal, isOrange = true, isLeft = false, isCenter = false, isSmallDate = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const containerClass = `
@@ -15,12 +17,77 @@ const TimelineEvent = ({ year, title, description, date, isOrange = true, isLeft
 
   const dateClass = `date ${isSmallDate ? 'small' : ''}`;
 
+  const renderTitle = () => {
+    if (!website) return <h2>{title}</h2>;
+    if (isInternal) {
+      return (
+        <h2>
+          <Link to={website} style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+            {title}
+          </Link>
+        </h2>
+      );
+    }
+    return (
+      <h2>
+        <a href={website} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+          {title}
+        </a>
+      </h2>
+    );
+  };
+
   return (
     <div className={containerClass}>
       <div className="content">
         <div className="year">{year}</div>
-        <h2>{title}</h2>
+        {renderTitle()}
         <p>{description}</p>
+        {website && (
+          <div style={{ marginTop: '12px' }}>
+            {isInternal ? (
+              <Link
+                to={website}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  border: '1px solid currentColor',
+                  opacity: 0.92
+                }}
+              >
+                Visit Website <ExternalLink size={14} />
+              </Link>
+            ) : (
+              <a
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  color: 'inherit',
+                  textDecoration: 'none',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  border: '1px solid currentColor',
+                  opacity: 0.92
+                }}
+              >
+                Visit Website <ExternalLink size={14} />
+              </a>
+            )}
+          </div>
+        )}
         <div className={`hidden-elements-box ${isExpanded ? 'expanded' : ''}`}>
           <figure>
             <img src="https://images.unsplash.com/photo-1523050853064-8521a308975b?q=80&w=800" alt={title} />
@@ -62,6 +129,7 @@ export default function Timeline() {
       title: 'Shree Venkateshwara Hi - Tech Engineering College',
       description: 'Inauguration of Shree Venkateshwara Hi-Tech Engineering College to provide world-class technical and engineering education.',
       date: '2008',
+      website: 'https://www.svhec.ac.in/index.html',
       isOrange: true,
     },
     {
@@ -70,6 +138,7 @@ export default function Timeline() {
       title: 'Shree Venkateshwara Hi - Tech Polytechnic College',
       description: 'Expansion with Shree Venkateshwara Hi-Tech Polytechnic College offering specialized technical and vocational engineering diplomas.',
       date: '2009',
+      website: 'https://svhpc.in/',
       isOrange: false,
       isLeft: true,
     },
@@ -79,6 +148,7 @@ export default function Timeline() {
       title: 'Sri Venkateshwara International School (CBSE)',
       description: 'Establishment of Sri Venkateshwara International School offering world-class CBSE school education.',
       date: '2011',
+      website: 'https://svhpc.in/',
       isOrange: true,
     },
     {
@@ -96,6 +166,7 @@ export default function Timeline() {
       title: 'Shree Venkateshwara College of Paramedical Sciences (D.Pharm & B.Pharm)',
       description: 'Establishment of Paramedical Sciences College offering D.Pharm & B.Pharm professional pharmaceutical courses.',
       date: '2017',
+      website: 'https://svcopharmacy.in/',
       isOrange: true,
     },
     {
@@ -113,6 +184,8 @@ export default function Timeline() {
       title: 'Shree Venkateshwara Arts and Science College',
       description: 'Establishment of Shree Venkateshwara Arts and Science College (SVASC) providing comprehensive arts and science degree programs.',
       date: '2019',
+      website: '/',
+      isInternal: true,
       isOrange: true,
     },
     {
@@ -121,6 +194,7 @@ export default function Timeline() {
       title: 'Shree Venkateshwara College of Nursing',
       description: 'Establishment of Shree Venkateshwara College of Nursing, contributing to total institution strength growing from 147 students in 2004 to over 12,085 students by 2025.',
       date: '2019',
+      website: 'https://www.svcn.in/',
       isOrange: false,
       isLeft: true,
     }
@@ -143,6 +217,8 @@ export default function Timeline() {
               title={item.title}
               description={item.description}
               date={item.date}
+              website={item.website}
+              isInternal={item.isInternal}
               isOrange={item.isOrange}
               isLeft={item.isLeft}
               isSmallDate={item.isSmallDate}

@@ -54,9 +54,8 @@ const Footer = () => {
                                 <div className={styles.ctaText}>
                                     <h4>Call Us</h4>
                                     <span>
-                                        <a href="tel:+914285266188">+91-4285-266188</a><br />
-                                        <a href="tel:+919942945555">+91-99429-45555</a><br />
-                                        <a href="tel:+914285266133">+91-4285-266133</a>
+                                        <a href="tel:+919150868666">+91 9150868666</a><br />
+                                        <a href="tel:+919865066242">+91 9865066242</a>
                                     </span>
                                 </div>
                             </div>
@@ -66,7 +65,7 @@ const Footer = () => {
                                 </div>
                                 <div className={styles.ctaText}>
                                     <h4>Mail Us</h4>
-                                    <span><a href="mailto:info@svacollege.com">info@svacollege.com</a></span>
+                                    <span><a href="mailto:principal@svasc.org">principal@svasc.org</a></span>
                                 </div>
                             </div>
                         </div>
@@ -130,12 +129,12 @@ const Footer = () => {
                                 <ul className={styles.footerLinks}>
                                     <li><Link to="/"><FaChevronRight size={14} /> Home</Link></li>
                                     <li><Link to="/about"><FaChevronRight size={14} /> About</Link></li>
-                                    <li><Link to="/academics"><FaChevronRight size={14} /> Academics</Link></li>
+                                    <li><Link to="/programms"><FaChevronRight size={14} /> Academics</Link></li>
                                     <li><Link to="/admission"><FaChevronRight size={14} /> Admission</Link></li>
                                     <li><Link to="/placement"><FaChevronRight size={14} /> Placement</Link></li>
-                                    <li><Link to="/facilities"><FaChevronRight size={14} /> Facilities</Link></li>
+                                    <li><Link to="/transport"><FaChevronRight size={14} /> Facilities</Link></li>
                                     <li><Link to="/activities"><FaChevronRight size={14} /> Club and Committees</Link></li>
-                                    <li><Link to="/contact"><FaChevronRight size={14} /> Contact Us</Link></li>
+                                    <li><Link to="/admission"><FaChevronRight size={14} /> Contact Us</Link></li>
                                 </ul>
                             </div>
 

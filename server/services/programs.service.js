@@ -19,12 +19,14 @@ const DEFAULT_PROGRAMS_SEED = [
     { title: 'B.Sc Costume Design & Fashion', slug: 'bsc-costume-design-fashion', programType: 'UG Programmes', school: 'School of Design & Fashion', schoolAcronym: 'SODF', image: '/assets/cdf.jpg' },
     { title: 'Department of Physical Education', slug: 'physical-education', programType: 'UG Programmes', school: 'School of Physical Education', schoolAcronym: 'SOPE', image: '/assets/sports2.jpg' },
     { title: 'M.Sc Computer Science', slug: 'msc-computer-science', programType: 'PG Programmes', school: 'School of Computer Science', schoolAcronym: 'SCS', image: '/assets/home5.jpg' },
-    { title: 'M.Sc Microbiology', slug: 'msc-microbiology', programType: 'PG Programmes', school: 'School of Computer Science', schoolAcronym: 'SCS', image: '/assets/home1.jpg' },
+    { title: 'M.Sc Microbiology', slug: 'msc-microbiology', programType: 'PG Programmes', school: 'School of Science', schoolAcronym: 'SOS', image: '/assets/home1.jpg' },
     { title: 'M.A English', slug: 'ma-english', programType: 'PG Programmes', school: 'School of Arts & Languages', schoolAcronym: 'SOAL', image: '/assets/exam3.jpg' },
     { title: 'M.Com', slug: 'mcom', programType: 'PG Programmes', school: 'School of Commerce & Management', schoolAcronym: 'SCM', image: '/assets/new.jpg' },
     { title: 'Ph.D Tamil', slug: 'phd-tamil', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/club0.jpg' },
     { title: 'Ph.D English', slug: 'phd-english', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/why2.JPG' },
-    { title: 'Ph.D Commerce', slug: 'phd-commerce', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/commercephd/phd1.jpg' }
+    { title: 'Ph.D Commerce', slug: 'phd-commerce', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/commercephd/phd1.jpg' },
+    { title: 'Ph.D Microbiology', slug: 'phd-microbiology', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/research.jpg' },
+    { title: 'Ph.D Management', slug: 'phd-management', programType: 'Ph.D', school: 'Research & Development', schoolAcronym: 'R&D', image: '/assets/smart1.jpg' }
 ];
 
 const createProgram = async (data) => {
@@ -94,8 +96,24 @@ const getGroupedPrograms = async () => {
     return groupedData;
 };
 
+const SLUG_ALIASES = {
+    'bsc-computer-ai-ds': 'bsccomputer-ai-ds',
+    'bsccomputer-ai-ds': 'bsc-computer-ai-ds',
+    'bsc-information-technology': 'bscinformation-technology',
+    'bscinformation-technology': 'bsc-information-technology',
+    'bsc-cyber-security': 'bsccyber-security',
+    'bsccyber-security': 'bsc-cyber-security',
+    'bachelor-of-business-administration-bba': 'management',
+    'management': 'bachelor-of-business-administration-bba',
+    'ph-d-microbiology': 'phd-microbiology',
+    'phd-microbiology': 'ph-d-microbiology'
+};
+
 const getProgramBySlug = async (slug) => {
-    return await Program.findOne({ $or: [{ slug: slug }, { slug: slug.toLowerCase() }] });
+    const clean = (slug || '').toLowerCase();
+    const alt = SLUG_ALIASES[clean];
+    const slugs = alt ? [slug, clean, alt] : [slug, clean];
+    return await Program.findOne({ slug: { $in: slugs } });
 };
 
 const updateProgram = async (id, data) => {

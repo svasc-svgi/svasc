@@ -2179,15 +2179,74 @@ export const programDetailsData = {
         faqs: [
             { question: "Does the department support university & national level sports participation?", answer: "Yes, the department provides scientific coaching, training camps and full support for intercollegiate, university, state and national sports competitions." }
         ]
+    },
+    "phd-management": {
+        title: "Ph.D Management",
+        heroImage: smart1Img,
+        aboutImage: smart2Img,
+        about: "The Department of Management offers the Ph.D in Management programme affiliated to Bharathiar University, designed to cultivate advanced doctoral scholars, business researchers and academic leaders. Focusing on Finance, Human Resource Management, Marketing, Operations and Strategic Management, the programme emphasizes rigorous empirical inquiry, quantitative analysis, ethical governance and high-impact publications addressing contemporary industry and societal challenges.",
+        vision: "To be a premier centre for doctoral research in Management by fostering analytical excellence, ethical business leadership, innovation and industry-relevant scholarship.",
+        mission: [
+            "To provide dedicated doctoral research supervision across core management domains including Finance, HR, Marketing, Analytics and Entrepreneurship.",
+            "To promote rigorous quantitative and qualitative research contributing to peer-reviewed national and international journals.",
+            "To bridge academic research with real-world organizational challenges through industry collaboration and consultancy.",
+            "To cultivate ethical decision-making, academic integrity and scholarly leadership among research scholars."
+        ],
+        objectives: [
+            "To equip doctoral scholars with advanced research methodology, econometric modeling and statistical analysis competencies.",
+            "To encourage original research addressing contemporary management practices, sustainability and organizational transformation.",
+            "To prepare scholars for leadership careers in higher education, corporate strategy, policy advisory and research institutions."
+        ],
+        rolesAndResponsibilities: [
+            "Guide scholars through recognized research supervisors and Doctoral Research Committees (DRC) as per Bharathiar University norms.",
+            "Conduct regular doctoral colloquiums, research methodology workshops and pre-submission progress reviews.",
+            "Support publications in Scopus, Web of Science and UGC-CARE listed journals."
+        ],
+        facilitiesImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        facilities: [
+            "Dedicated Research Scholars Workstation & High-Speed Wi-Fi Campus",
+            "Business Analytics Software Tools (SPSS, R & Data Analysis Suites)",
+            "Central & Departmental Library with Management Journals & e-Resources (INFLIBNET N-LIST / DELNET)",
+            "ICT Enabled Smart Classrooms & Seminar Halls for Research Colloquiums"
+        ],
+        careerOpportunities: [
+            { title: "University Professor / Management Faculty" },
+            { title: "Strategic Management & Business Consultant" },
+            { title: "Senior Market Research & Analytics Director" },
+            { title: "Corporate Policy & Organisational Development Specialist" },
+            { title: "Post-Doctoral Fellow & Independent Researcher" }
+        ],
+        staffDetails: [
+            { sNo: 1, name: "Dr. P. RAJASEKAR", qualification: "MBA., M.COM., PGDCA., M.PHIL., PH.D" },
+            { sNo: 2, name: "Ms. G. GURULAKSHMI", qualification: "MBA., (PH.D)" },
+            { sNo: 3, name: "Mrs. H.S. PRABHASHANKAR", qualification: "MBA., (PH.D)" },
+            { sNo: 4, name: "Mr. G. BALASUBRAMANIYAN", qualification: "MBA., M.COM(CA)., M.PHIL., (PH.D)" }
+        ],
+        faqs: [
+            { question: "What is the eligibility criterion for Ph.D Management?", answer: "Candidates must hold an MBA or equivalent Master's degree in Management with a minimum of 55% marks (50% for reserved categories) from a recognized university and qualify in Bharathiar University CET or hold UGC-NET / SET / M.Phil." },
+            { question: "Are both Full-Time and Part-Time doctoral options offered?", answer: "Yes, both Full-Time and Part-Time Ph.D Management research modes are supported subject to Bharathiar University and UGC doctoral regulations." }
+        ]
     }
 };
 
-// Alias bba to management for flexible routing
+// Alias slugs for flexible routing
 programDetailsData["bba"] = programDetailsData["management"];
 programDetailsData["managementbba"] = programDetailsData["management"];
 programDetailsData["management-bba"] = programDetailsData["management"];
 programDetailsData["bachelor-of-business-administration"] = programDetailsData["management"];
 programDetailsData["bachelor-of-business-administration-bba"] = programDetailsData["management"];
+programDetailsData["bsc-computer-ai-ds"] = programDetailsData["bsccomputer-ai-ds"];
+programDetailsData["bsc-artificial-intelligence-and-data-science"] = programDetailsData["bsccomputer-ai-ds"];
+programDetailsData["bsc-ai-ds"] = programDetailsData["bsccomputer-ai-ds"];
+programDetailsData["bsc-information-technology"] = programDetailsData["bscinformation-technology"];
+programDetailsData["bsc-cyber-security"] = programDetailsData["bsccyber-security"];
+programDetailsData["bsc-cs-with-cyber-security"] = programDetailsData["bsccyber-security"];
+programDetailsData["m-com"] = programDetailsData["mcom"];
+programDetailsData["ph-d-tamil"] = programDetailsData["phd-tamil"];
+programDetailsData["ph-d-english"] = programDetailsData["phd-english"];
 programDetailsData["ph-d-commerce"] = programDetailsData["phd-commerce"];
 programDetailsData["phd-in-commerce"] = programDetailsData["phd-commerce"];
 programDetailsData["phdcommerce"] = programDetailsData["phd-commerce"];
+programDetailsData["ph-d-management"] = programDetailsData["phd-management"];
+programDetailsData["phd-in-management"] = programDetailsData["phd-management"];
+programDetailsData["phd-in-microbiology"] = programDetailsData["phd-microbiology"];

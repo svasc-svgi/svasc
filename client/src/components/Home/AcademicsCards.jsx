@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './AcademicsCards.css';
 
 const AcademicsCards = () => {
+    const navigate = useNavigate();
+
     return (
         <React.Fragment>
             {/* ================= ACADEMICS SECTION ================= */}
@@ -39,7 +42,7 @@ const AcademicsCards = () => {
                         <div className="cc-row">
 
                             {/* Card 1 — Skill-Focused Learning */}
-                            <div className="card-column">
+                            <div className="card-column" onClick={() => navigate('/programms')} style={{ cursor: 'pointer' }}>
                                 <div className="card-details">
                                     <div className="card-icons">
                                         {/* Graduation Cap — Skill-Focused Learning */}
@@ -50,14 +53,14 @@ const AcademicsCards = () => {
                                             <circle cx="56" cy="38" r="2" fill="#b8860b"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/academics">Skill-Focused Learning</a></h3>
+                                    <h3><Link to="/programms" onClick={(e) => e.stopPropagation()}>Skill-Focused Learning</Link></h3>
                                     <p style={{ textAlign: 'justify' }}>Industry-aligned curriculum, hands-on training and expert mentorship help students build real-world skills that make them job-ready from day one of graduation.</p>
-                                    <a className="read-more-btn" href="/academics"><i className="fa-solid fa-angles-right"></i></a>
+                                    <Link className="read-more-btn" to="/programms" onClick={(e) => e.stopPropagation()}><i className="fa-solid fa-angles-right"></i></Link>
                                 </div>
                             </div>
 
                             {/* Card 2 — Hi-Tech Laboratories */}
-                            <div className="card-column">
+                            <div className="card-column" onClick={() => navigate('/laboratory')} style={{ cursor: 'pointer' }}>
                                 <div className="card-details">
                                     <div className="card-icons">
                                         {/* Computer / Lab Monitor — Hi-Tech Laboratories */}
@@ -70,14 +73,14 @@ const AcademicsCards = () => {
                                             <line x1="26" y1="32" x2="36" y2="32" stroke="#0f1c6f" strokeWidth="2"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/facilities">Hi-Tech Laboratories</a></h3>
+                                    <h3><Link to="/laboratory" onClick={(e) => e.stopPropagation()}>Hi-Tech Laboratories</Link></h3>
                                     <p style={{ textAlign: 'justify' }}>State-of-the-art computer labs, science labs and a fully automated digital library give students access to the latest tools and technology for practical, research-driven education.</p>
-                                    <a className="read-more-btn" href="/facilities"><i className="fa-solid fa-angles-right"></i></a>
+                                    <Link className="read-more-btn" to="/laboratory" onClick={(e) => e.stopPropagation()}><i className="fa-solid fa-angles-right"></i></Link>
                                 </div>
                             </div>
 
                             {/* Card 3 — Campus Life & Placements */}
-                            <div className="card-column">
+                            <div className="card-column" onClick={() => navigate('/campus-life')} style={{ cursor: 'pointer' }}>
                                 <div className="card-details">
                                     <div className="card-icons">
                                         {/* Campus Building — Vibrant Campus & Placements */}
@@ -93,9 +96,9 @@ const AcademicsCards = () => {
                                             <rect x="12" y="42" width="7" height="7" stroke="#b8860b" strokeWidth="1.5"/>
                                         </svg>
                                     </div>
-                                    <h3><a href="/placement">Vibrant Campus & Placements</a></h3>
+                                    <h3><Link to="/campus-life" onClick={(e) => e.stopPropagation()}>Vibrant Campus & Placements</Link></h3>
                                     <p style={{ textAlign: 'justify' }}>A lively campus with sports, cultural clubs and annual events — combined with a dedicated Placement Cell that actively connects students with top companies across Tamil Nadu and beyond.</p>
-                                    <a className="read-more-btn" href="/placement"><i className="fa-solid fa-angles-right"></i></a>
+                                    <Link className="read-more-btn" to="/campus-life" onClick={(e) => e.stopPropagation()}><i className="fa-solid fa-angles-right"></i></Link>
                                 </div>
                             </div>
 

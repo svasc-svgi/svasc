@@ -165,6 +165,7 @@ export function CellPage({ page }: { page: any }) {
                     lineHeight: 1.8,
                     color: "color-mix(in oklab, white 72%, transparent)",
                     maxWidth: "48ch",
+                    textAlign: "justify",
                   }}
                 >
                   {cleanSubtitle}
